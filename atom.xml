@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MohnTech</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-04-06T15:45:37.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Mohn</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode:223--Rectangle Area</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
+    <published>2016-04-06T15:46:35.199Z</published>
+    <updated>2016-04-06T15:45:37.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    def computeArea(self, A, B, C, D, E, F, G, H):
+        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
+        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
+        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
+        #覆盖面积=总面积 - 重叠面积
+        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
+        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
+        area = (D - B)*(C - A) + (H -F)*(G - E)
+        #两个矩形不相交的情况
+        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
+            return area  
+        #相交的情况下,求相交矩形的左下角和右上角
+        leftbottomx = max(A, E)
+        leftbottomy = max(B, F)
+        righttopx = min(C, G)
+        righttopy = min(D, H)
+
+        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
+
+if __name__ ==&amp;quot;__main__&amp;quot;:
+    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs，智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs%EF%BC%8C%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:160--Intersection of Two Linked Lists</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/intersection-of-two-linked-lists/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/intersection-of-two-linked-lists/</id>
+    <published>2016-04-06T15:46:35.191Z</published>
+    <updated>2016-04-06T15:30:08.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：编程求两个单链表的交点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果链表没有交点，返回null&lt;/li&gt;
+&lt;li&gt;链表在函数返回时必须保留原始数据结构&lt;/li&gt;
+&lt;li&gt;可以假设链表中没有环&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码最好时间复杂度为O(N),空间复杂度O(1)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;得到两个链表的长度  &lt;/li&gt;
+&lt;li&gt;将长链表向前移动差值  &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;两个指针一起前进，遇到相同的即是交点，如果没有找到，返回null  &lt;/p&gt;
+&lt;p&gt;空间复杂度o(1),时间复杂度o(m+n)  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#1. 得到两个链表的长度
+#2. 将长链表向前移动差值
+#3. 两个指针一起前进，遇到相同的即是交点，如果没有找到，返回null  
+#空间复杂度o(1),时间复杂度o(m+n) 
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+
+
+        #求出A的长度
+        lenA = Solution().getLength(headA)
+        #print(&amp;apos;A length % s&amp;apos; % lenA)
+        #求出B的长度
+        lenB = Solution().getLength(headB)
+        #print(&amp;apos;B length % s&amp;apos; % lenB)
+        #B是长链表,B的头指针向前移动
+        if lenB &amp;gt; lenA:
+            while lenB &amp;gt; lenA:
+                lenB -= 1
+                headB = headB.next
+                #print(&amp;quot;hereBbig&amp;quot;)
+            #print(headB.val)
+        #A是长链表，A的头指针向前移动
+        else:    
+            while lenA &amp;gt; lenB:
+                lenA -= 1
+                headA = headA.next
+                #print(&amp;quot;hereAbig&amp;quot;)
+            #print(headA.val)
+
+        #print(&amp;apos;此时a的head值 %s&amp;apos; % headA.val)
+        #print(&amp;apos;此时b的head值%s &amp;apos; % headB.val)
+        #A与B齐头并进，直到链表中不再有元素
+        while headA:
+            if headA == headB:
+                return headA
+            headA = headA.next
+            headB = headB.next
+
+        #如果没有相同的话，返回null
+        return None
+
+
+    #获得链表长度的函数
+    def getLength(self, node):
+        #初始化len
+        len = 0
+        while node:
+            len += 1
+            node = node.next
+        return len
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;为什么一定要if else语句才能ac呢？？？？直接while不可以吗？？？&lt;br&gt;路过的大神们，求留言解答疑惑！！！&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;妈的。。。事实证明是oj抽风了。。。if else,可以去掉~&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：编程求两个单链表的交点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果链表没有交点，返回null&lt;/li&gt;
+&lt;li&gt;链表在函数返回时必须保留原始数据结构&lt;/li&gt;
+&lt;li&gt;可以假设链表中没有环&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码最好时间复杂度为O(N),空间复杂度O(1)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="linklist" scheme="http://yoursite.com/categories/Python/leetcode/jobs/linklist/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="linklist" scheme="http://yoursite.com/tags/linklist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:88--Merge Sorted Array</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/</id>
+    <published>2016-04-06T15:46:35.188Z</published>
+    <updated>2016-04-06T15:30:24.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：合并排序数组&lt;br&gt;给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。&lt;br&gt;nums1 = [1,3,5,0,0,0,0]&lt;br&gt;nums2 = [2,4,6,8]&lt;br&gt;合并后为：[1,2,3,4,5,6,7,8]  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;由于nums1和nums2都是排过序的，所以从后向前比较，将较大的一个放在最后的位置。 &lt;/p&gt;
+&lt;p&gt;  空间复杂度o(1),时间复杂度o(m+n)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        #last位于list最后一个位置, i是nums1的最后一个位置,j是nums2的最后一个位置
+        last = m + n - 1
+        i = m - 1
+        j = n - 1
+        while i &amp;gt;= 0 and j &amp;gt;= 0:
+            if nums1[i] &amp;gt; nums2[j]:
+                #大的数放在最后的位置
+                nums1[last] = nums1[i]
+                #此时i向前移动一位,与j所在位置的数字比较
+                i -= 1
+                last -= 1
+            else:
+                nums1[last] = nums2[j]
+                j -= 1
+                last -= 1
+
+        #此处还要加上对while j &amp;gt;= 0的判断,而不需要加上对while i &amp;gt;= 0的判断,因为,i本         
+        #身就在nums1里面,j在nums2里面,要对nums2的数判断完加入nums1
+        while j &amp;gt;= 0:
+            nums1[last] = nums2[j]
+            j -= 1
+            last -= 1
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    nums1 = [1,3,5,7,9,0,0,0,0]
+    nums2 = [2,4,6,8]
+    Solution().merge(nums1, 5, nums2, 4)
+    print nums1
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;开始的时候比较疑惑,为什么要加一个while j &amp;gt;= 0的判断?&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;不需要加上对while i &amp;gt;= 0的判断,因为,i本身就在nums1里面,j在nums2里面,要对nums2的数判断完加入nums1&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：合并排序数组&lt;br&gt;给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。&lt;br&gt;nums1 = [1,3,5,0,0,0,0]&lt;br&gt;nums2 = [2,4,6,8]&lt;br&gt;合并后为：[1,2,3,4,5,6,7,8]  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:219--Contains Duplicate II</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/</id>
+    <published>2016-04-06T15:46:35.179Z</published>
+    <updated>2016-04-06T15:31:47.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;用Python中的dict 或者 enumerate得到下标，进行下标的比较。&lt;br&gt;Python中&lt;em&gt;enumerate&lt;/em&gt;用法：如同java中对下标进行遍历，格式-&amp;gt;&lt;code&gt;for key,value in enumerate(nums):&lt;/code&gt; ，其中key-value为字典数据  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;numDict[value] = key&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;dict={value：key}&lt;/strong&gt;而且按照value从小到大的顺序print  &lt;/p&gt;
+&lt;p&gt;循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
+#算法思想：用Python中的dict 或者 enumerate得到下标，进行下标的比较
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} k
+    # @return {boolean}
+    def containsNearbyDuplicate(self, nums, k):
+        numDict = {}
+        for i,num in enumerate(nums):
+            if num not in numDict:
+                numDict[num] = i
+            else:
+                if i-numDict[num] &amp;lt;= k:
+                    return True
+                #update numDict
+                numDict[num] = i
+        #这里print的numDict里面没有重复的元素，且update了最新的重复元素的位置
+        print(numDict)
+        return False 
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    nums = [1,2,1,3,4,5,6]
+    print(Solution().containsNearbyDuplicate(nums, 1))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/dict/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu+GitHub+hexo搭建自己的专属博客</title>
+    <link href="http://yoursite.com/2016/04/03/Blog/createblog/"/>
+    <id>http://yoursite.com/2016/04/03/Blog/createblog/</id>
+    <published>2016-04-03T11:59:59.000Z</published>
+    <updated>2016-04-06T15:35:29.000Z</updated>
+    
+    <content type="html">&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:本教程基于ubuntu系统,用git pages托管博客,hexo又包含了各种各样的themes,简直是神方便!!!你需要有一个github账号,并在github账号下new一个repositories,名称必须是username.github.io,因为我们是免费的用户,类型是public,而且一个账户下面只能有一个io这种类型的repositories.关于github的创建并非本文的重点,如果有问题请移步google,自行搜索.&lt;/blockquote&gt;
+
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;Hexo安装准备工作&quot;&gt;&lt;a href=&quot;#Hexo安装准备工作&quot; class=&quot;headerlink&quot; title=&quot;Hexo安装准备工作&quot;&gt;&lt;/a&gt;Hexo安装准备工作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1）&lt;strong&gt;github:&lt;/strong&gt; 你要有一个github的账号，并且在账号下new一个username.github.io的repositories.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2) &lt;strong&gt;ubuntu上安装本地环境：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;安装git：&lt;/strong&gt;用Git做版本管理的孩纸，想必一定安装了git，Ubuntu下安装git，非常的方便：&lt;br&gt;&lt;code&gt;$sudo apt-get install git-core&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;安装Node.js:&lt;/strong&gt;首先解释一下为什么要安装这个东东，因为hexo是依赖于Node.js和Git的。&lt;strong&gt;Node.js是什么？&lt;/strong&gt; wiki上的解释是：Node.js是一个开放源代码、跨平台的、可用于服务器端和网络应用的运行环境，他是用&lt;strong&gt;JavaScript&lt;/strong&gt;语言编写的。官网上推荐的最佳方式是使用&lt;strong&gt;nvm&lt;/strong&gt;：&lt;br&gt;nvm的github主页：&lt;a href=&quot;https://github.com/creationix/nvm&quot; title=&quot;nvm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;br&gt;安装nvm可以使用下面两个命令的任意一个：&lt;br&gt;cURL&lt;br&gt;&lt;code&gt;$curl https://raw.github.com/creationix/nvm/master/install.sh | sh&lt;/code&gt;&lt;br&gt;wget&lt;br&gt;&lt;code&gt;$wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh&lt;/code&gt;&lt;br&gt;安装完之后重启终端，并执行下列命令：&lt;br&gt;&lt;code&gt;$nvm install 4&lt;/code&gt;&lt;br&gt;至此，本地环境安装完毕！恭喜！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;##安装并初始化Hexo##&lt;br&gt;以上所有的准备步骤完成之后，可以使用npm装hexo了。&lt;br&gt;         &lt;code&gt;$npm install -g hexo-cli&lt;/code&gt;&lt;br&gt;如果在安装的过程中遇到一些问题，请移步参考&lt;a href=&quot;http://notes.maxwi.com/2014/02/22/first-post/&quot; title=&quot;hexo-install-problem&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://notes.maxwi.com/2014/02/22/first-post/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;建站&quot;&gt;&lt;a href=&quot;#建站&quot; class=&quot;headerlink&quot; title=&quot;建站&quot;&gt;&lt;/a&gt;建站&lt;/h2&gt;&lt;p&gt;安装完成hexo后，执行下面的命令，完成建站：  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. `$hexo init &amp;lt;folder&amp;gt;`  
+2. `cd &amp;lt;folder&amp;gt;`  
+3. `npm install`  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;检验是否可以启动本地服务器进行预览：&lt;br&gt;    &lt;code&gt;$hexo generate&lt;/code&gt;  —&amp;gt; &lt;code&gt;$hexo server&lt;/code&gt;&lt;br&gt;打开&lt;a href=&quot;http://localhost:4000/&quot; title=&quot;localhost&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt;进行访问，如果页面正常打开，那么恭喜，本地的博客已经搭建完毕了，只要托管到git pages上即可。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;配置git并发布&quot;&gt;&lt;a href=&quot;#配置git并发布&quot; class=&quot;headerlink&quot; title=&quot;配置git并发布&quot;&gt;&lt;/a&gt;配置git并发布&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;1）config.yml文件配置&lt;/strong&gt;：首先在刚刚你init hexo的&lt;folder&gt;下,找到_config.yml,这个文件基本上是我们配置站最常用的文件。&lt;br&gt;在_config.yml找到deploy的位置进行配置。&lt;br&gt;&lt;strong&gt;Attention:&lt;/strong&gt;&lt;br&gt;在你看到这篇教程之前，你可能看过很多教程，把deploy的type设置为：github，然而在hexo3.0中，type应该变为git，并且在配置之前运行下面命令：   （参考：&lt;a href=&quot;https://github.com/hexojs/hexo/issues/1040&quot; title=&quot;hexo-issure&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hexojs/hexo/issues/1040&lt;/a&gt;）&lt;br&gt;  &lt;code&gt;$npm install hexo-deployer-git --save&lt;/code&gt;&lt;br&gt;运行完此命令，我们就可以大胆的配置_config.yml文件啦！！！&lt;/folder&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;**deploy:  
+type: git  
+repository: https://github.com/username/username.github.io.git  
+branch: master**  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;（此处repository可从github上哪里https复制过来，很方便的啦~）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;2）设置git全局变量：&lt;/strong&gt;&lt;br&gt;  &lt;code&gt;$git config --global user.name &amp;quot;your name here&amp;quot;&lt;/code&gt;&lt;br&gt;  &lt;code&gt;$git config --global user.email &amp;quot;your_email@xx.com&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3）发布：&lt;/strong&gt;&lt;br&gt;至此，配置完毕，我们可以将本地的站部署到github上啦！&lt;br&gt;  &lt;code&gt;$hexo deploy&lt;/code&gt;&lt;br&gt;记得每次发布的步骤：&lt;ol&gt;
+&lt;li&gt;在本地生成：&lt;code&gt;$hexo generate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在本地预览：&lt;code&gt;$hexo server&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;部署到git：&lt;code&gt;$hexo deploy&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;遇见过的bug总结（坚持更新）&quot;&gt;&lt;a href=&quot;#遇见过的bug总结（坚持更新）&quot; class=&quot;headerlink&quot; title=&quot;遇见过的bug总结（坚持更新）&quot;&gt;&lt;/a&gt;遇见过的bug总结（坚持更新）&lt;/h2&gt;&lt;p&gt;最近一次deploy的时候，发现让输入username和password之后，开始了无限期的等待，没有任何报错，也没法部署成功。&lt;br&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;code&gt;$hexo clean&lt;/code&gt;并且删除.deploy_git文件夹之后，再进行&lt;code&gt;$hexo deploy&lt;/code&gt;就可以部署成功啦~撒花~&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;开始的时候，觉得自己建一个博客要好难，现在看来，也不是一件难于上青天的事情，关键是要勇敢的去尝试，这篇文章也只是简单的搭建好一个平台，你还可以个性化的定制自己的博客主题，加一些自己的social链接啦，RSS啦，等等等等，这些都随你的心意咯。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;###参考链接###&lt;br&gt;Hexo+Ubuntu+GithubPages搭建个人博客(基础篇)——本文章里有一些图床啦，RSS，多说等设置的教程，欢迎大家参考。&lt;br&gt;&lt;a href=&quot;http://yanceywang.com/2015/07/30/Ubuntu+Hexo+GithubPages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://yanceywang.com/2015/07/30/Ubuntu+Hexo+GithubPages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/&lt;/a&gt;&lt;br&gt;hexo官方文档：&lt;br&gt;&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://hexo.io/zh-cn/docs/&lt;/a&gt;&lt;br&gt;hexo常见问题解决方案：&lt;br&gt;&lt;a href=&quot;https://xuanwo.org/2014/08/14/hexo-usual-problem/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://xuanwo.org/2014/08/14/hexo-usual-problem/&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:本教程基于ubuntu系统,用git pages托管博客,hexo又包含了各种各样的themes,简直是神方便!!!你需要有一个github账号,并在github账号下new一个repositories,名称必须是username.github.io,因为我们是免费的用户,类型是public,而且一个账户下面只能有一个io这种类型的repositories.关于github的创建并非本文的重点,如果有问题请移步google,自行搜索.&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="博客环境搭建" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="GitHub pages" scheme="http://yoursite.com/tags/GitHub-pages/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一次不成功的夜景拍摄</title>
+    <link href="http://yoursite.com/2016/04/02/Picture/photography-4-2/"/>
+    <id>http://yoursite.com/2016/04/02/Picture/photography-4-2/</id>
+    <published>2016-04-02T14:18:07.000Z</published>
+    <updated>2016-04-05T11:56:22.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;4月2号夜游&quot;&gt;&lt;a href=&quot;#4月2号夜游&quot; class=&quot;headerlink&quot; title=&quot;4月2号夜游&quot;&gt;&lt;/a&gt;4月2号夜游&lt;/h2&gt;&lt;h3 id=&quot;学校附近&quot;&gt;&lt;a href=&quot;#学校附近&quot; class=&quot;headerlink&quot; title=&quot;学校附近&quot;&gt;&lt;/a&gt;学校附近&lt;/h3&gt;&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;北邮西门桥景&lt;/blockquote&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/1.jpg&quot; alt=&quot;北邮西门桥景&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/2.jpg&quot; alt=&quot;北邮西门桥景&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;西直门-我俩&quot;&gt;&lt;a href=&quot;#西直门-我俩&quot; class=&quot;headerlink&quot; title=&quot;西直门-我俩&quot;&gt;&lt;/a&gt;西直门-我俩&lt;/h3&gt;&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;西直门车流&lt;/blockquote&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/3.jpg&quot; alt=&quot;西直门车流&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/4.jpg&quot; alt=&quot;西直门车流&quot;&gt;&lt;br&gt;真的不想吐槽着拍照技术,请原谅我们是新手&lt;/p&gt;
+&lt;h3 id=&quot;后海夜景&quot;&gt;&lt;a href=&quot;#后海夜景&quot; class=&quot;headerlink&quot; title=&quot;后海夜景&quot;&gt;&lt;/a&gt;后海夜景&lt;/h3&gt;&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;后海夜景&lt;/blockquote&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/5.jpg&quot; alt=&quot;后海夜景&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/6.jpg&quot; alt=&quot;后海夜景&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/7.jpg&quot; alt=&quot;后海夜景&quot;&gt;&lt;br&gt;最后一张都拍糊了==,模糊的经典拍摄&lt;/p&gt;
+&lt;h3 id=&quot;酒吧随拍&quot;&gt;&lt;a href=&quot;#酒吧随拍&quot; class=&quot;headerlink&quot; title=&quot;酒吧随拍&quot;&gt;&lt;/a&gt;酒吧随拍&lt;/h3&gt;&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;偶吧帅哦&lt;/blockquote&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/8.jpg&quot; alt=&quot;酒吧随拍&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/9.jpg&quot; alt=&quot;酒吧随拍&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;4月2号夜游&quot;&gt;&lt;a href=&quot;#4月2号夜游&quot; class=&quot;headerlink&quot; title=&quot;4月2号夜游&quot;&gt;&lt;/a&gt;4月2号夜游&lt;/h2&gt;&lt;h3 id=&quot;学校附近&quot;&gt;&lt;a href=&quot;#学校附近&quot; class=&quot;headerlink&quot; title=&quot;学校附近&quot;&gt;&lt;/a&gt;学校附近&lt;/h3&gt;&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;北邮西门桥景&lt;/blockquote&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/1.jpg&quot; alt=&quot;北邮西门桥景&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="摄影" scheme="http://yoursite.com/categories/%E6%91%84%E5%BD%B1/"/>
+    
+    
+      <category term="life" scheme="http://yoursite.com/tags/life/"/>
+    
+      <category term="假期" scheme="http://yoursite.com/tags/%E5%81%87%E6%9C%9F/"/>
+    
+      <category term="后海" scheme="http://yoursite.com/tags/%E5%90%8E%E6%B5%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的世界</title>
+    <link href="http://yoursite.com/2016/04/02/hello-world/"/>
+    <id>http://yoursite.com/2016/04/02/hello-world/</id>
+    <published>2016-04-02T00:08:08.000Z</published>
+    <updated>2016-04-05T13:53:52.000Z</updated>
+    
+    <content type="html">&lt;p&gt;清明假期,别人都出去玩的时候,我安安静静的呆在宿舍构建了我的博客,可能是因为面试的时候被问到太多,你是不是有自己的博客了吧,就搞一个博客装装逼吧,嘿嘿,而且,除了技术上的更新之外,我更多的是想更新自己的生活吧,自己的怪情绪,自己的摄影作品,还有一些奇言怪谈,胡言乱语…&lt;/p&gt;
+&lt;p&gt;如果你对我感兴趣,请戳我微博: &lt;a href=&quot;http://weibo.com/lycy1993&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;微博&lt;/a&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;好了,我觉得我也要出去溜达一下了,这几天要把leetcode上的题解更新到博客上.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;清明假期,别人都出去玩的时候,我安安静静的呆在宿舍构建了我的博客,可能是因为面试的时候被问到太多,你是不是有自己的博客了吧,就搞一个博客装装逼吧,嘿嘿,而且,除了技术上的更新之外,我更多的是想更新自己的生活吧,自己的怪情绪,自己的摄影作品,还有一些奇言怪谈,胡言乱语…&lt;/p&gt;
+&lt;p&gt;如果你对我感兴趣,请戳我微博: &lt;a href=&quot;http://weibo.com/lycy1993&quot;&gt;微博&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="First-Page" scheme="http://yoursite.com/tags/First-Page/"/>
+    
+  </entry>
+  
+</feed>
