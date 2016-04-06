@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-06T15:48:37.000Z</updated>
+  <updated>2016-04-06T15:49:47.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>leetcode:223--Rectangle Area</title>
     <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
     <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
-    <published>2016-04-06T15:48:52.562Z</published>
-    <updated>2016-04-06T15:48:37.000Z</updated>
+    <published>2016-04-06T15:50:03.872Z</published>
+    <updated>2016-04-06T15:49:47.000Z</updated>
     
     <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -62,7 +62,9 @@ if __name__ ==&amp;quot;__main__&amp;quot;:
     
       <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
     
-      <category term="jobs，智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs%EF%BC%8C%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
     
     
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
@@ -79,7 +81,7 @@ if __name__ ==&amp;quot;__main__&amp;quot;:
     <title>leetcode:88--Merge Sorted Array</title>
     <link href="http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/"/>
     <id>http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/</id>
-    <published>2016-04-06T15:48:52.558Z</published>
+    <published>2016-04-06T15:50:03.869Z</published>
     <updated>2016-04-06T15:30:24.000Z</updated>
     
     <content type="html">&lt;p&gt;题目描述：合并排序数组&lt;br&gt;给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。&lt;br&gt;nums1 = [1,3,5,0,0,0,0]&lt;br&gt;nums2 = [2,4,6,8]&lt;br&gt;合并后为：[1,2,3,4,5,6,7,8]  &lt;/p&gt;
@@ -147,79 +149,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
-    <title>leetcode:219--Contains Duplicate II</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/</id>
-    <published>2016-04-06T15:48:52.550Z</published>
-    <updated>2016-04-06T15:31:47.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;用Python中的dict 或者 enumerate得到下标，进行下标的比较。&lt;br&gt;Python中&lt;em&gt;enumerate&lt;/em&gt;用法：如同java中对下标进行遍历，格式-&amp;gt;&lt;code&gt;for key,value in enumerate(nums):&lt;/code&gt; ，其中key-value为字典数据  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;numDict[value] = key&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;dict={value：key}&lt;/strong&gt;而且按照value从小到大的顺序print  &lt;/p&gt;
-&lt;p&gt;循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
-#算法思想：用Python中的dict 或者 enumerate得到下标，进行下标的比较
-class Solution:
-    # @param {integer[]} nums
-    # @param {integer} k
-    # @return {boolean}
-    def containsNearbyDuplicate(self, nums, k):
-        numDict = {}
-        for i,num in enumerate(nums):
-            if num not in numDict:
-                numDict[num] = i
-            else:
-                if i-numDict[num] &amp;lt;= k:
-                    return True
-                #update numDict
-                numDict[num] = i
-        #这里print的numDict里面没有重复的元素，且update了最新的重复元素的位置
-        print(numDict)
-        return False 
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    nums = [1,2,1,3,4,5,6]
-    print(Solution().containsNearbyDuplicate(nums, 1))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/dict/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:160--Intersection of Two Linked Lists</title>
     <link href="http://yoursite.com/2016/04/06/leetcode/intersection-of-two-linked-lists/"/>
     <id>http://yoursite.com/2016/04/06/leetcode/intersection-of-two-linked-lists/</id>
-    <published>2016-04-06T15:48:52.541Z</published>
+    <published>2016-04-06T15:50:03.863Z</published>
     <updated>2016-04-06T15:30:08.000Z</updated>
     
     <content type="html">&lt;p&gt;题目描述：编程求两个单链表的交点&lt;/p&gt;
@@ -337,6 +270,75 @@ B:     b1 → b2 → b3
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="linklist" scheme="http://yoursite.com/tags/linklist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:219--Contains Duplicate II</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/</id>
+    <published>2016-04-06T15:50:03.854Z</published>
+    <updated>2016-04-06T15:31:47.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;用Python中的dict 或者 enumerate得到下标，进行下标的比较。&lt;br&gt;Python中&lt;em&gt;enumerate&lt;/em&gt;用法：如同java中对下标进行遍历，格式-&amp;gt;&lt;code&gt;for key,value in enumerate(nums):&lt;/code&gt; ，其中key-value为字典数据  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;numDict[value] = key&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;dict={value：key}&lt;/strong&gt;而且按照value从小到大的顺序print  &lt;/p&gt;
+&lt;p&gt;循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
+#算法思想：用Python中的dict 或者 enumerate得到下标，进行下标的比较
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} k
+    # @return {boolean}
+    def containsNearbyDuplicate(self, nums, k):
+        numDict = {}
+        for i,num in enumerate(nums):
+            if num not in numDict:
+                numDict[num] = i
+            else:
+                if i-numDict[num] &amp;lt;= k:
+                    return True
+                #update numDict
+                numDict[num] = i
+        #这里print的numDict里面没有重复的元素，且update了最新的重复元素的位置
+        print(numDict)
+        return False 
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    nums = [1,2,1,3,4,5,6]
+    print(Solution().containsNearbyDuplicate(nums, 1))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/dict/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
     
   </entry>
   
