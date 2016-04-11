@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-06T15:49:47.000Z</updated>
+  <updated>2016-04-06T15:30:24.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,72 +16,10 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>leetcode:223--Rectangle Area</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
-    <published>2016-04-06T15:50:03.872Z</published>
-    <updated>2016-04-06T15:49:47.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution(object):
-    def computeArea(self, A, B, C, D, E, F, G, H):
-        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
-        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
-        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
-        #覆盖面积=总面积 - 重叠面积
-        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
-        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
-        area = (D - B)*(C - A) + (H -F)*(G - E)
-        #两个矩形不相交的情况
-        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
-            return area  
-        #相交的情况下,求相交矩形的左下角和右上角
-        leftbottomx = max(A, E)
-        leftbottomy = max(B, F)
-        righttopx = min(C, G)
-        righttopy = min(D, H)
-
-        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
-
-if __name__ ==&amp;quot;__main__&amp;quot;:
-    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:88--Merge Sorted Array</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/</id>
-    <published>2016-04-06T15:50:03.869Z</published>
+    <link href="http://yoursite.com/2016/04/11/leetcode/merge-sorted-array/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/merge-sorted-array/</id>
+    <published>2016-04-11T15:57:21.829Z</published>
     <updated>2016-04-06T15:30:24.000Z</updated>
     
     <content type="html">&lt;p&gt;题目描述：合并排序数组&lt;br&gt;给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。&lt;br&gt;nums1 = [1,3,5,0,0,0,0]&lt;br&gt;nums2 = [2,4,6,8]&lt;br&gt;合并后为：[1,2,3,4,5,6,7,8]  &lt;/p&gt;
@@ -150,9 +88,9 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   
   <entry>
     <title>leetcode:160--Intersection of Two Linked Lists</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/intersection-of-two-linked-lists/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/intersection-of-two-linked-lists/</id>
-    <published>2016-04-06T15:50:03.863Z</published>
+    <link href="http://yoursite.com/2016/04/11/leetcode/intersection-of-two-linked-lists/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/intersection-of-two-linked-lists/</id>
+    <published>2016-04-11T15:57:21.813Z</published>
     <updated>2016-04-06T15:30:08.000Z</updated>
     
     <content type="html">&lt;p&gt;题目描述：编程求两个单链表的交点&lt;/p&gt;
@@ -274,10 +212,72 @@ B:     b1 → b2 → b3
   </entry>
   
   <entry>
+    <title>leetcode:223--Rectangle Area</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/rectangle-area/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/rectangle-area/</id>
+    <published>2016-04-11T15:57:21.808Z</published>
+    <updated>2016-04-06T15:49:47.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    def computeArea(self, A, B, C, D, E, F, G, H):
+        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
+        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
+        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
+        #覆盖面积=总面积 - 重叠面积
+        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
+        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
+        area = (D - B)*(C - A) + (H -F)*(G - E)
+        #两个矩形不相交的情况
+        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
+            return area  
+        #相交的情况下,求相交矩形的左下角和右上角
+        leftbottomx = max(A, E)
+        leftbottomy = max(B, F)
+        righttopx = min(C, G)
+        righttopy = min(D, H)
+
+        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
+
+if __name__ ==&amp;quot;__main__&amp;quot;:
+    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:219--Contains Duplicate II</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/contains-duplicate-ii/</id>
-    <published>2016-04-06T15:50:03.854Z</published>
+    <link href="http://yoursite.com/2016/04/11/leetcode/contains-duplicate-ii/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/contains-duplicate-ii/</id>
+    <published>2016-04-11T15:57:21.794Z</published>
     <updated>2016-04-06T15:31:47.000Z</updated>
     
     <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
@@ -339,6 +339,44 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="array" scheme="http://yoursite.com/tags/array/"/>
     
       <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>摆渡人 (英)克莱尔 麦克福尔 2013年</title>
+    <link href="http://yoursite.com/2016/04/11/life/life-book-ferryman/"/>
+    <id>http://yoursite.com/2016/04/11/life/life-book-ferryman/</id>
+    <published>2016-04-11T15:57:21.783Z</published>
+    <updated>2016-04-11T15:56:45.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##故事梗概:##&lt;br&gt;这个故事的主人公是迪伦和崔斯坦,从名字来判断,我觉得迪伦应该是个穿着格子衬衣,打扮的如同牛仔的西部女孩,小说里她是一个苏格兰女孩,自幼父母离异,从来没有见过父亲的她,决定不辞而别,离开她的母亲,踏上看望父亲的旅程,就是在旅程中,火车发生了事故,导致她的灵魂脱壳,遇见了她的灵魂摆渡人—崔斯坦,崔斯坦,听着这个名字,感觉起来就像是一个动漫里银发碧眼温柔的男孩纸,小说中崔斯坦有着钴蓝色的眼睛,金色的头发,精致的五官,完全是迪伦喜欢的样子,就这样他们相遇,并一起穿越迪伦内心所映射的荒原,中途中一次又一次并肩战胜恶魔,让他们两个人产生了不一样的情愫.当崔斯坦将迪伦送到荒原与家的分界线时,他们决定一起踏入”家”,我认为这里的家应该称为heaven,崔斯坦发现自己并不能跨进那条界线,而跨进了heaven的迪伦则误会崔斯坦对她的感情.迪伦为了找到崔斯坦问个明白,其实是因为她内心真的特别的爱崔斯坦,于是开始了她艰难的返回荒原的旅程,我认为全书最精彩的部分,莫过于迪伦勇敢的返回荒原,独自一个人战胜恶魔,找到崔斯坦的过程.在迪伦的鼓励下,崔斯坦决定试试能不能和迪伦一起回到人间,当他们因为爱而勇敢的面对现实和未来的时候,奇迹发生了,他们一起回到了人间世界,清楚的记得全书最后,两个人的对白:”原来你在这里””我在这里”&lt;/p&gt;
+&lt;p&gt;##我的评价:##&lt;br&gt;I exist because you need me.这是崔斯坦对迪伦说的一句话,如果我真的存在,也是因为你需要我.治愈系满分的小说,尤其是在失恋后,挫折时,读完后简直会觉得少女心爆棚,人间有真情,人间有真爱啊!很佩服迪伦折回寻找崔斯坦的勇气,很佩服她能够冒着魂飞魄散的危险去做大胆的尝试.我觉得她身上的那种勇敢值得我去学习.如果说呆在一个安稳的heaven里面,只能是无尽的等待,得不到自己想要的东西,想爱的人,何不去冒险?去尝试,勇敢的迈开自己的脚步,也许会失败,但是至少内心不会后悔.&lt;br&gt;再说细节部分,我觉得作者的细节描写还是蛮好的,荒原的景象,人物的心理和形象都还算细致,栩栩如生.&lt;/p&gt;
+&lt;p&gt;##相关链接:##&lt;br&gt;&lt;a href=&quot;https://book.douban.com/subject/26356948/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;豆瓣读书—摆渡人&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/33982768&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—摆渡人是否过誉?&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/28019019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—你对摆渡人的理解?&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+      <category term="foreign literature" scheme="http://yoursite.com/categories/life/foreign-literature/"/>
+    
+      <category term="治愈系" scheme="http://yoursite.com/categories/life/foreign-literature/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+    
+      <category term="foreign fiction" scheme="http://yoursite.com/tags/foreign-fiction/"/>
+    
+      <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
+    
+      <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
     
   </entry>
   
