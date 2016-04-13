@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-11T16:07:18.000Z</updated>
+  <updated>2016-04-13T15:34:16.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>4.14-4.15计划</title>
+    <link href="http://yoursite.com/2016/04/13/plan/4.14-4.15plan/"/>
+    <id>http://yoursite.com/2016/04/13/plan/4.14-4.15plan/</id>
+    <published>2016-04-13T11:59:59.000Z</published>
+    <updated>2016-04-13T15:34:16.000Z</updated>
+    
+    <content type="html">&lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;2.工作日志po上来(dell driver的解决方案)&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次优先&lt;br&gt;4.python中的dict详解—-次优先&lt;br&gt;5.python中I/O操作(明天的新任务!!!)—-优先级最高&lt;br&gt;6.打印准备电面的材料,游玩时带走—-4.17前必做&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;2.工作日志po上来(dell driver的解决方案)&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次
+    
+    </summary>
+    
+      <category term="计划" scheme="http://yoursite.com/categories/%E8%AE%A1%E5%88%92/"/>
+    
+    
+      <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
   
   <entry>
     <title>摆渡人 作者:(英)克莱尔 麦克福尔</title>
@@ -50,6 +73,202 @@
       <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
     
       <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-13T15:22:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution:
+    def maxProfit(self, prices):
+        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
+        for price in prices:
+            minPrice = min(minPrice, price)
+            max_profit = max(max_profit, price - minPrice)
+        return max_profit
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
+    print(result)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:字符串同构</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-13T15:24:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;想到用map解决这个问题，因为map是key-value的映射。d[key]=value 将s放到lookup中key的位置，t放在lookup中的value的位置，当s[i]没有在lookup中出现过时，就将s[i]-t[i]这个映射关系加入到lookup中。如果说s[i]已经在lookup中，比如说food，第三个字符o已经出现在lookup中了，这时候判断已经在lookup中的s[i]作为key值对应的value值是否等于当前t[i]相同，如果相同，说明t中此时也正好有两个连续相同的字符，说明他们同构，否则return false，说明他们并不同构。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# -*-coding:utf-8 -*-
+#算法思想：用map解决，将s和t的每个字符成映射的关系
+class Solution:
+    def isIsomorphic(self, s, t):
+        if len(s) != len(t):
+            return False
+
+        return self.halfIsom(s, t) and self.halfIsom(t, s)
+
+
+    def halfIsom(self, s, t):
+        lookup = {}
+        for i in range(len(s)):
+            #这里的思想是如果s[i]没有在lookup里面，也就是没有重复元素的话，将s[i]-t[i]映射添加
+            #如果有重复的元素，就看在lookup中s[i]作为key对应的value是否和当前的t[i]相同，若不同，则说明不同构
+            if s[i] not in lookup:
+                #建立映射关系s和t
+                lookup[s[i]] = t[i]
+            elif lookup[s[i]] != t[i]:
+                return False
+        print(lookup)
+        return True
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    s = &amp;quot;foot&amp;quot;
+    t = &amp;quot;look&amp;quot;
+    print(Solution().isIsomorphic(s, t))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;对于dict的理解更加深入了，纠正一下前面一篇的错误，对于dict，d[key] = value,下一篇仔细的写下dict函数吧，还是挺有用的。&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:19--Remove Nth Node From End of List</title>
+    <link href="http://yoursite.com/2016/04/07/leetcode/remove-nth-node-from-end-of-list/"/>
+    <id>http://yoursite.com/2016/04/07/leetcode/remove-nth-node-from-end-of-list/</id>
+    <published>2016-04-07T11:59:59.000Z</published>
+    <updated>2016-04-13T15:21:14.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：n是链表从后向前数第n个结点，删除该结点&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;我的想法是先求出链表的长度，然后求出从前向后遍历链表时倒数第n个结点的position。&lt;br&gt;需要注意的是，边界值的判断：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;n=0时，return head &lt;/li&gt;
+&lt;li&gt;head为空时，return None&lt;/li&gt;
+&lt;li&gt;position&amp;lt;0时，此时说明要删除的元素为头元素，则return head.next.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class ListNode(object):
+    def __init__(self, x):
+         self.val = x
+         self.next = None
+    def __repr__(self):
+        if self is None:
+            return &amp;quot;Nil&amp;quot;
+        else:
+            return &amp;quot;{} -&amp;gt; {}&amp;quot;.format(self.val, repr(self.next))
+
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        if n == 0:
+            return head
+        if head == None:
+            return None
+        len = 0
+        temp1 = head
+        while(temp1):
+            len += 1
+            temp1 = temp1.next
+        position = len - n - 1
+        print(position)
+
+        if position &amp;lt; 0:
+            return head.next
+
+        temp2 = head
+        while position &amp;gt; 0:
+            temp2 = temp2.next
+            position -= 1
+        if temp2.next.next != None:
+            temp2.next = temp2.next.next
+        else :
+            temp2.next = None
+        return head
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    head = ListNode(1)
+    head.next = ListNode(2)
+    #head.next, head.next.next, head.next.next.next,head.next.next.next.next = ListNode(2),ListNode(3),ListNode(4),ListNode(5)
+    n = 2
+    newhead = Solution().removeNthFromEnd(head, n)
+    while(head):
+        print(head.val)
+        head = head.next
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：n是链表从后向前数第n个结点，删除该结点&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
