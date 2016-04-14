@@ -258,6 +258,310 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/14/vmware/python IO/" itemprop="url">
+                  Pyhton I/O进行文件读写
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-14T19:59:59+08:00" content="2016-04-14">
+              2016-04-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/实习生/" itemprop="url" rel="index">
+                    <span itemprop="name">实习生</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/实习生/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/14/vmware/python IO/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/14/vmware/python IO/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/14/vmware/python IO/" class="leancloud_visitors" data-flag-title="Pyhton I/O进行文件读写">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><p>自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.  </p>
+<h2 id="Python-I-O操作"><a href="#Python-I-O操作" class="headerlink" title="Python I/O操作:"></a>Python I/O操作:</h2><p>下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.<br>基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.<br>这种方式,更方便的达到查找和替换的目的!!!<br>基本的格式:  </p>
+<pre><code>filename = &quot;&quot; 
+fread = open(filename, &apos;r&apos;)
+fwrite = open(filename, &apos;w&apos;)
+w_str = &quot;&quot;
+for line in fread:
+    #将line加入到文件中
+    fwrite.write(line)
+fread.close()
+fwrite.close()
+</code></pre><p>============================================================</p>
+<pre><code> #-*- coding:utf-8 -*-
+
+import re
+
+filedir = &quot;/Users/congyingw/Desktop/sfcb.cfg&quot;
+f1 = open(filedir, &apos;r&apos;)
+w_str = &quot;&quot;
+flag = 0
+for line in f1:
+    #check has enableSSLv3 or not
+    if re.search(&quot;enableSSLv3&quot;, line):
+       flag = 0
+    else:
+       flag = 1
+    #check enabled and enableSSLv3 value
+    if re.search(&quot;enabled:true&quot;, line) and re.search(&quot;enableSSLv3:true&quot;, line):
+        w_str += line 
+        print(&quot;right value&quot;)
+    elif re.search(&quot;enabled:false&quot;, line):
+        line = re.sub(&quot;enabled:false&quot;, &quot;enabled:true&quot;, line)
+        w_str += line
+    else :
+        line = re.sub(&quot;enableSSLv3:false&quot;, &quot;enableSSLv3:true&quot;, line)
+        w_str += line
+if flag == 1:
+     w_str += &quot;\nenableSSLv3:true&quot;
+print(w_str)
+f2=open(filedir, &apos;w&apos;)
+f2.write(w_str)
+f1.close()
+f2.close()
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/14/vmware/dell-old-driver-solution/" itemprop="url">
+                  Dell Remote Access Controller 5老旧的driver的ilo的处理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-14T19:59:59+08:00" content="2016-04-14">
+              2016-04-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/driver/" itemprop="url" rel="index">
+                    <span itemprop="name">driver</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/14/vmware/dell-old-driver-solution/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/14/vmware/dell-old-driver-solution/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/14/vmware/dell-old-driver-solution/" class="leancloud_visitors" data-flag-title="Dell Remote Access Controller 5老旧的driver的ilo的处理">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h3><p>Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/14/vmware/dell-old-driver-solution/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/14/linux/Ubuntu下的java配置/" itemprop="url">
                   ubuntu下java安装以及配置更改(持续更新)
                 </a>
@@ -462,159 +766,9 @@
       
         
           
-            <p>最近的任务:(两天内)<br>1.总结面试:java python linux—-可以玩回来再写<br>2.工作日志po上来(dell driver的解决方案)<br>3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次优先<br>4.python中的dict详解—-次优先<br>5.python中I/O操作(明天的新任务!!!)—-优先级最高<br>6.打印准备电面的材料,游玩时带走—-4.17前必做</p>
+            <p>最近的任务:(两天内)<br>1.总结面试:java python linux—-可以玩回来再写<br><del>2.工作日志po上来(dell driver的解决方案)</del><br>3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次优先<br>4.python中的dict详解—-次优先<br><del>5.python中I/O操作(明天的新任务!!!)—-优先级最高</del><br>6.打印准备电面的材料,游玩时带走—-4.17前必做</p>
 
           
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/11/leetcode/isomorphic-strings/" itemprop="url">
-                  leetcode:字符串同构
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-11T19:59:59+08:00" content="2016-04-11">
-              2016-04-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/" itemprop="url" rel="index">
-                    <span itemprop="name">jobs</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/11/leetcode/isomorphic-strings/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/leetcode/isomorphic-strings/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/04/11/leetcode/isomorphic-strings/" class="leancloud_visitors" data-flag-title="leetcode:字符串同构">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/11/leetcode/isomorphic-strings/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -762,6 +916,156 @@
           <p>题目描述：<br>最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/11/leetcode/isomorphic-strings/" itemprop="url">
+                  leetcode:字符串同构
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-11T19:59:59+08:00" content="2016-04-11">
+              2016-04-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/leetcode/jobs/" itemprop="url" rel="index">
+                    <span itemprop="name">jobs</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/11/leetcode/isomorphic-strings/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/leetcode/isomorphic-strings/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/11/leetcode/isomorphic-strings/" class="leancloud_visitors" data-flag-title="leetcode:字符串同构">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/11/leetcode/isomorphic-strings/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1108,168 +1412,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/06/leetcode/merge-sorted-array/" itemprop="url">
-                  leetcode:88--Merge Sorted Array
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-06T19:59:59+08:00" content="2016-04-06">
-              2016-04-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/" itemprop="url" rel="index">
-                    <span itemprop="name">jobs</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/array/" itemprop="url" rel="index">
-                    <span itemprop="name">array</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/06/leetcode/merge-sorted-array/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/leetcode/merge-sorted-array/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/04/06/leetcode/merge-sorted-array/" class="leancloud_visitors" data-flag-title="leetcode:88--Merge Sorted Array">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>题目描述：合并排序数组<br>给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。<br>nums1 = [1,3,5,0,0,0,0]<br>nums2 = [2,4,6,8]<br>合并后为：[1,2,3,4,5,6,7,8]  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/06/leetcode/merge-sorted-array/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/06/leetcode/rectangle-area/" itemprop="url">
                   leetcode:223--Rectangle Area
                 </a>
@@ -1432,8 +1574,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/05/leetcode/intersection-of-two-linked-lists/" itemprop="url">
-                  leetcode:160--Intersection of Two Linked Lists
+                <a class="post-title-link" href="/2016/04/06/leetcode/merge-sorted-array/" itemprop="url">
+                  leetcode:88--Merge Sorted Array
                 </a>
               
             
@@ -1446,182 +1588,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T19:59:59+08:00" content="2016-04-05">
-              2016-04-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/" itemprop="url" rel="index">
-                    <span itemprop="name">jobs</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/linklist/" itemprop="url" rel="index">
-                    <span itemprop="name">linklist</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/05/leetcode/intersection-of-two-linked-lists/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/leetcode/intersection-of-two-linked-lists/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/04/05/leetcode/intersection-of-two-linked-lists/" class="leancloud_visitors" data-flag-title="leetcode:160--Intersection of Two Linked Lists">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>题目描述：编程求两个单链表的交点</p>
-<ul>
-<li>如果链表没有交点，返回null</li>
-<li>链表在函数返回时必须保留原始数据结构</li>
-<li>可以假设链表中没有环</li>
-<li><p>代码最好时间复杂度为O(N),空间复杂度O(1)</p>
-<pre><code>A:          a1 → a2
-                   ↘
-                     c1 → c2 → c3
-                   ↗            
-B:     b1 → b2 → b3
-</code></pre></li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/05/leetcode/intersection-of-two-linked-lists/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/05/leetcode/contains-duplicate-ii/" itemprop="url">
-                  leetcode:219--Contains Duplicate II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T19:59:59+08:00" content="2016-04-05">
-              2016-04-05
+            <time itemprop="dateCreated" datetime="2016-04-06T19:59:59+08:00" content="2016-04-06">
+              2016-04-06
             </time>
           </span>
 
@@ -1677,18 +1645,6 @@ B:     b1 → b2 → b3
 
                 
                 
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/array/dict/" itemprop="url" rel="index">
-                    <span itemprop="name">dict</span>
-                  </a>
-                </span>
-
-                
-                
 
               
             </span>
@@ -1698,8 +1654,8 @@ B:     b1 → b2 → b3
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/05/leetcode/contains-duplicate-ii/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/leetcode/contains-duplicate-ii/" itemprop="commentsCount"></span>
+                <a href="/2016/04/06/leetcode/merge-sorted-array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/leetcode/merge-sorted-array/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1709,7 +1665,7 @@ B:     b1 → b2 → b3
 
           
           
-             <span id="/2016/04/05/leetcode/contains-duplicate-ii/" class="leancloud_visitors" data-flag-title="leetcode:219--Contains Duplicate II">
+             <span id="/2016/04/06/leetcode/merge-sorted-array/" class="leancloud_visitors" data-flag-title="leetcode:88--Merge Sorted Array">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1731,9 +1687,9 @@ B:     b1 → b2 → b3
 
       
         
-          <p>题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.<br>给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。</p>
+          <p>题目描述：合并排序数组<br>给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。<br>nums1 = [1,3,5,0,0,0,0]<br>nums2 = [2,4,6,8]<br>合并后为：[1,2,3,4,5,6,7,8]  </p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/05/leetcode/contains-duplicate-ii/#more" rel="contents">
+            <a class="btn" href="/2016/04/06/leetcode/merge-sorted-array/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1804,7 +1760,7 @@ B:     b1 → b2 → b3
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1812,7 +1768,7 @@ B:     b1 → b2 → b3
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1821,7 +1777,7 @@ B:     b1 → b2 → b3
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

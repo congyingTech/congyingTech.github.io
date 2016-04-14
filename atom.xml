@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-14T11:42:59.000Z</updated>
+  <updated>2016-04-14T14:24:31.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pyhton I/O进行文件读写</title>
+    <link href="http://yoursite.com/2016/04/14/vmware/python%20IO/"/>
+    <id>http://yoursite.com/2016/04/14/vmware/python IO/</id>
+    <published>2016-04-14T11:59:59.000Z</published>
+    <updated>2016-04-14T14:24:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.  &lt;/p&gt;
+&lt;h2 id=&quot;Python-I-O操作&quot;&gt;&lt;a href=&quot;#Python-I-O操作&quot; class=&quot;headerlink&quot; title=&quot;Python I/O操作:&quot;&gt;&lt;/a&gt;Python I/O操作:&lt;/h2&gt;&lt;p&gt;下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.&lt;br&gt;基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.&lt;br&gt;这种方式,更方便的达到查找和替换的目的!!!&lt;br&gt;基本的格式:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;filename = &amp;quot;&amp;quot; 
+fread = open(filename, &amp;apos;r&amp;apos;)
+fwrite = open(filename, &amp;apos;w&amp;apos;)
+w_str = &amp;quot;&amp;quot;
+for line in fread:
+    #将line加入到文件中
+    fwrite.write(line)
+fread.close()
+fwrite.close()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;============================================================&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; #-*- coding:utf-8 -*-
+
+import re
+
+filedir = &amp;quot;/Users/congyingw/Desktop/sfcb.cfg&amp;quot;
+f1 = open(filedir, &amp;apos;r&amp;apos;)
+w_str = &amp;quot;&amp;quot;
+flag = 0
+for line in f1:
+    #check has enableSSLv3 or not
+    if re.search(&amp;quot;enableSSLv3&amp;quot;, line):
+       flag = 0
+    else:
+       flag = 1
+    #check enabled and enableSSLv3 value
+    if re.search(&amp;quot;enabled:true&amp;quot;, line) and re.search(&amp;quot;enableSSLv3:true&amp;quot;, line):
+        w_str += line 
+        print(&amp;quot;right value&amp;quot;)
+    elif re.search(&amp;quot;enabled:false&amp;quot;, line):
+        line = re.sub(&amp;quot;enabled:false&amp;quot;, &amp;quot;enabled:true&amp;quot;, line)
+        w_str += line
+    else :
+        line = re.sub(&amp;quot;enableSSLv3:false&amp;quot;, &amp;quot;enableSSLv3:true&amp;quot;, line)
+        w_str += line
+if flag == 1:
+     w_str += &amp;quot;\nenableSSLv3:true&amp;quot;
+print(w_str)
+f2=open(filedir, &amp;apos;w&amp;apos;)
+f2.write(w_str)
+f1.close()
+f2.close()
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enab
+    
+    </summary>
+    
+      <category term="实习生" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%B9%A0%E7%94%9F/Python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
+    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
+    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
+    <published>2016-04-14T11:59:59.000Z</published>
+    <updated>2016-04-14T13:46:19.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
+&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
+&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
+    
+    
+      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
+    
+      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
+    
+  </entry>
   
   <entry>
     <title>ubuntu下java安装以及配置更改(持续更新)</title>
@@ -59,14 +161,14 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
     <link href="http://yoursite.com/2016/04/13/plan/4.14-4.15plan/"/>
     <id>http://yoursite.com/2016/04/13/plan/4.14-4.15plan/</id>
     <published>2016-04-13T11:59:59.000Z</published>
-    <updated>2016-04-13T15:34:16.000Z</updated>
+    <updated>2016-04-14T13:45:10.000Z</updated>
     
-    <content type="html">&lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;2.工作日志po上来(dell driver的解决方案)&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次优先&lt;br&gt;4.python中的dict详解—-次优先&lt;br&gt;5.python中I/O操作(明天的新任务!!!)—-优先级最高&lt;br&gt;6.打印准备电面的材料,游玩时带走—-4.17前必做&lt;/p&gt;
+    <content type="html">&lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;&lt;del&gt;2.工作日志po上来(dell driver的解决方案)&lt;/del&gt;&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次优先&lt;br&gt;4.python中的dict详解—-次优先&lt;br&gt;&lt;del&gt;5.python中I/O操作(明天的新任务!!!)—-优先级最高&lt;/del&gt;&lt;br&gt;6.打印准备电面的材料,游玩时带走—-4.17前必做&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;2.工作日志po上来(dell driver的解决方案)&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次
+      &lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;&lt;del&gt;2.工作日志po上来(dell driver的解决方案)&lt;/del&gt;&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完
     
     </summary>
     
@@ -74,6 +176,52 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-13T15:22:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution:
+    def maxProfit(self, prices):
+        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
+        for price in prices:
+            minPrice = min(minPrice, price)
+            max_profit = max(max_profit, price - minPrice)
+        return max_profit
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
+    print(result)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
@@ -122,52 +270,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     <summary type="html">
     
       &lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
-    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
-    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-13T15:22:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution:
-    def maxProfit(self, prices):
-        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
-        for price in prices:
-            minPrice = min(minPrice, price)
-            max_profit = max(max_profit, price - minPrice)
-        return max_profit
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
-    print(result)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
     
     </summary>
     
@@ -312,6 +414,68 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>leetcode:223--Rectangle Area</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
+    <published>2016-04-06T11:59:59.000Z</published>
+    <updated>2016-04-11T16:02:13.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    def computeArea(self, A, B, C, D, E, F, G, H):
+        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
+        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
+        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
+        #覆盖面积=总面积 - 重叠面积
+        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
+        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
+        area = (D - B)*(C - A) + (H -F)*(G - E)
+        #两个矩形不相交的情况
+        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
+            return area  
+        #相交的情况下,求相交矩形的左下角和右上角
+        leftbottomx = max(A, E)
+        leftbottomy = max(B, F)
+        righttopx = min(C, G)
+        righttopy = min(D, H)
+
+        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
+
+if __name__ ==&amp;quot;__main__&amp;quot;:
+    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:88--Merge Sorted Array</title>
     <link href="http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/"/>
     <id>http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/</id>
@@ -379,68 +543,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:223--Rectangle Area</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
-    <published>2016-04-06T11:59:59.000Z</published>
-    <updated>2016-04-11T16:02:13.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution(object):
-    def computeArea(self, A, B, C, D, E, F, G, H):
-        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
-        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
-        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
-        #覆盖面积=总面积 - 重叠面积
-        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
-        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
-        area = (D - B)*(C - A) + (H -F)*(G - E)
-        #两个矩形不相交的情况
-        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
-            return area  
-        #相交的情况下,求相交矩形的左下角和右上角
-        leftbottomx = max(A, E)
-        leftbottomy = max(B, F)
-        righttopx = min(C, G)
-        righttopy = min(D, H)
-
-        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
-
-if __name__ ==&amp;quot;__main__&amp;quot;:
-    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
     
   </entry>
   
