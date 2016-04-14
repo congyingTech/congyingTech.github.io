@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Ubuntu,java," />
+  <meta name="keywords" content="ubuntu,java," />
 
 
 
@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/14/linux/Ubuntu下的java配置/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="前言近些时间搞机子的时候，总是因为windows下环境不对，导致无法正常的upgrade系统，所以借着在VMware实习，有免费专业的VMware Workstation Pro 供我使用，^_^, 嘿嘿，所以建了一个Ubuntu的虚拟机，准备在里面配置环境，以后再upgrade build就可以不用借别人的rdc啦~开森。">
-<meta property="og:updated_time" content="2016-04-14T11:30:25.000Z">
+<meta property="og:updated_time" content="2016-04-14T11:42:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu下java安装以及配置更改(持续更新)">
 <meta name="twitter:description" content="前言近些时间搞机子的时候，总是因为windows下环境不对，导致无法正常的upgrade系统，所以借着在VMware实习，有免费专业的VMware Workstation Pro 供我使用，^_^, 嘿嘿，所以建了一个Ubuntu的虚拟机，准备在里面配置环境，以后再upgrade build就可以不用借别人的rdc啦~开森。">
@@ -268,7 +268,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-14T19:59:59+08:00" content="2016-04-14">
+            <time itemprop="dateCreated" datetime="2016-04-14T19:40:59+08:00" content="2016-04-14">
               2016-04-14
             </time>
           </span>
@@ -342,8 +342,8 @@ sudo cp -r ~/jdk1.7.0_21/ /usr/lib/jvm/
 CLASSPATH=&quot;/usr/lib/jvm/jdk1.8.0_25/lib&quot;  
 JAVA_HOME=&quot;/usr/lib/jvm/jdk1.8.0_25&quot;
 </code></pre><p><strong>Step4:</strong>将环境变量的修改告诉Ubuntu系统<br>     sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_25/bin/java 300<br>     sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_25/bin/javac 300<br>     sudo update-alternatives –config java  </p>
-<p>###java配置###</p>
-<p>####java ControlPanel怎样打开？####<br>    /usr/lib/jvm/jdk1.8.0_25/bin/ControlPanel<br>用此命令可以进行java的安全性的配置等等。</p>
+<h3 id="java的配置："><a href="#java的配置：" class="headerlink" title="java的配置："></a>java的配置：</h3><h4 id="java-ControlPanel怎样打开？"><a href="#java-ControlPanel怎样打开？" class="headerlink" title="java ControlPanel怎样打开？"></a>java ControlPanel怎样打开？</h4><pre><code>/usr/lib/jvm/jdk1.8.0_25/bin/ControlPanel
+</code></pre><p>用此命令可以进行java的安全性的配置等等。</p>
 <h3 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h3><p><a href="http://askubuntu.com/questions/464819/how-can-i-open-javas-control-panel" title="java ControlPanel" target="_blank" rel="external">Ubuntu上打开java ControlPanel</a></p>
 
       
@@ -359,7 +359,7 @@ JAVA_HOME=&quot;/usr/lib/jvm/jdk1.8.0_25&quot;
       
         <div class="post-tags">
           
-            <a href="/tags/Ubuntu/" rel="tag">#Ubuntu</a>
+            <a href="/tags/ubuntu/" rel="tag">#ubuntu</a>
           
             <a href="/tags/java/" rel="tag">#java</a>
           
@@ -465,7 +465,7 @@ JAVA_HOME=&quot;/usr/lib/jvm/jdk1.8.0_25&quot;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -541,7 +541,7 @@ JAVA_HOME=&quot;/usr/lib/jvm/jdk1.8.0_25&quot;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java的安装："><span class="nav-number">2.</span> <span class="nav-text">java的安装：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jre和jdk的区别："><span class="nav-number">2.1.</span> <span class="nav-text">jre和jdk的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装："><span class="nav-number">2.2.</span> <span class="nav-text">安装：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接："><span class="nav-number">3.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java的安装："><span class="nav-number">2.</span> <span class="nav-text">java的安装：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jre和jdk的区别："><span class="nav-number">2.1.</span> <span class="nav-text">jre和jdk的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装："><span class="nav-number">2.2.</span> <span class="nav-text">安装：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java的配置："><span class="nav-number">3.</span> <span class="nav-text">java的配置：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-ControlPanel怎样打开？"><span class="nav-number">3.1.</span> <span class="nav-text">java ControlPanel怎样打开？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接："><span class="nav-number">4.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
             
           </div>
         </section>

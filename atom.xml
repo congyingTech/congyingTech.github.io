@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-14T11:30:25.000Z</updated>
+  <updated>2016-04-14T11:42:59.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>ubuntu下java安装以及配置更改(持续更新)</title>
     <link href="http://yoursite.com/2016/04/14/linux/Ubuntu%E4%B8%8B%E7%9A%84java%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2016/04/14/linux/Ubuntu下的java配置/</id>
-    <published>2016-04-14T11:59:59.000Z</published>
-    <updated>2016-04-14T11:30:25.000Z</updated>
+    <published>2016-04-14T11:40:59.000Z</published>
+    <updated>2016-04-14T11:42:59.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;近些时间搞机子的时候，总是因为windows下环境不对，导致无法正常的upgrade系统，所以借着在VMware实习，有免费专业的VMware Workstation Pro 供我使用，^_^, 嘿嘿，所以建了一个Ubuntu的虚拟机，准备在里面配置环境，以后再upgrade build就可以不用借别人的rdc啦~开森。  &lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -34,8 +34,8 @@ sudo cp -r ~/jdk1.7.0_21/ /usr/lib/jvm/
 CLASSPATH=&amp;quot;/usr/lib/jvm/jdk1.8.0_25/lib&amp;quot;  
 JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Step4:&lt;/strong&gt;将环境变量的修改告诉Ubuntu系统&lt;br&gt;     sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_25/bin/java 300&lt;br&gt;     sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_25/bin/javac 300&lt;br&gt;     sudo update-alternatives –config java  &lt;/p&gt;
-&lt;p&gt;###java配置###&lt;/p&gt;
-&lt;p&gt;####java ControlPanel怎样打开？####&lt;br&gt;    /usr/lib/jvm/jdk1.8.0_25/bin/ControlPanel&lt;br&gt;用此命令可以进行java的安全性的配置等等。&lt;/p&gt;
+&lt;h3 id=&quot;java的配置：&quot;&gt;&lt;a href=&quot;#java的配置：&quot; class=&quot;headerlink&quot; title=&quot;java的配置：&quot;&gt;&lt;/a&gt;java的配置：&lt;/h3&gt;&lt;h4 id=&quot;java-ControlPanel怎样打开？&quot;&gt;&lt;a href=&quot;#java-ControlPanel怎样打开？&quot; class=&quot;headerlink&quot; title=&quot;java ControlPanel怎样打开？&quot;&gt;&lt;/a&gt;java ControlPanel怎样打开？&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;/usr/lib/jvm/jdk1.8.0_25/bin/ControlPanel
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;用此命令可以进行java的安全性的配置等等。&lt;/p&gt;
 &lt;h3 id=&quot;参考链接：&quot;&gt;&lt;a href=&quot;#参考链接：&quot; class=&quot;headerlink&quot; title=&quot;参考链接：&quot;&gt;&lt;/a&gt;参考链接：&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://askubuntu.com/questions/464819/how-can-i-open-javas-control-panel&quot; title=&quot;java ControlPanel&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ubuntu上打开java ControlPanel&lt;/a&gt;&lt;/p&gt;
 </content>
     
@@ -48,7 +48,7 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
       <category term="Ubuntu" scheme="http://yoursite.com/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
     
       <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
