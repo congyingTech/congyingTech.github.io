@@ -347,52 +347,12 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><p>自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.  </p>
-<h2 id="Python-I-O操作"><a href="#Python-I-O操作" class="headerlink" title="Python I/O操作:"></a>Python I/O操作:</h2><p>下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.<br>基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.<br>这种方式,更方便的达到查找和替换的目的!!!<br>基本的格式:  </p>
-<pre><code>filename = &quot;&quot; 
-fread = open(filename, &apos;r&apos;)
-fwrite = open(filename, &apos;w&apos;)
-w_str = &quot;&quot;
-for line in fread:
-    #将line加入到文件中
-    fwrite.write(line)
-fread.close()
-fwrite.close()
-</code></pre><p>============================================================</p>
-<pre><code> #-*- coding:utf-8 -*-
-
-import re
-
-filedir = &quot;/Users/congyingw/Desktop/sfcb.cfg&quot;
-f1 = open(filedir, &apos;r&apos;)
-w_str = &quot;&quot;
-flag = 0
-for line in f1:
-    #check has enableSSLv3 or not
-    if re.search(&quot;enableSSLv3&quot;, line):
-       flag = 0
-    else:
-       flag = 1
-    #check enabled and enableSSLv3 value
-    if re.search(&quot;enabled:true&quot;, line) and re.search(&quot;enableSSLv3:true&quot;, line):
-        w_str += line 
-        print(&quot;right value&quot;)
-    elif re.search(&quot;enabled:false&quot;, line):
-        line = re.sub(&quot;enabled:false&quot;, &quot;enabled:true&quot;, line)
-        w_str += line
-    else :
-        line = re.sub(&quot;enableSSLv3:false&quot;, &quot;enableSSLv3:true&quot;, line)
-        w_str += line
-if flag == 1:
-     w_str += &quot;\nenableSSLv3:true&quot;
-print(w_str)
-f2=open(filedir, &apos;w&apos;)
-f2.write(w_str)
-f1.close()
-f2.close()
-</code></pre>
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><p>自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/14/vmware/python IO/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
