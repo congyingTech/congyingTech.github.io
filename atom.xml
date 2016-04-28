@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-14T14:27:53.000Z</updated>
+  <updated>2016-04-28T15:49:31.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,92 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode:344--Reverse String</title>
+    <link href="http://yoursite.com/2016/04/28/leetcode/reverse-string/"/>
+    <id>http://yoursite.com/2016/04/28/leetcode/reverse-string/</id>
+    <published>2016-04-28T11:59:59.000Z</published>
+    <updated>2016-04-28T15:49:31.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;翻转字符串,将hello变为olleh&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;我的想法是将string类型的字符串首先变为list,然后对list进行操作,最后再将list转换为string&lt;br&gt;(1)string to list:list(s)&lt;br&gt;(2)for循环进行list的翻转,其中i进行index的控制&lt;br&gt;(3)list to string:””.join(list)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;      &lt;code&gt;  class Solution(object):&lt;br&gt;            def reverseString(self, s):&lt;br&gt;                “””&lt;br&gt;                :type s: str&lt;br&gt;                :rtype: str&lt;br&gt;                “””&lt;br&gt;                lengthOfs = len(s)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;          #list类型转换可以将string类型转换为list
+          stringL = list(s)
+          i = 0
+          news = [None] * lengthOfs
+          for e in stringL:
+              news[lengthOfs - i - 1] = e
+              i = i + 1
+          #&amp;quot;&amp;quot;.join的方法可以将list转换为string
+          return &amp;quot;&amp;quot;.join(news)
+
+
+  if __name__ == &amp;quot;__main__&amp;quot;:
+      s = &amp;quot;hello&amp;quot;
+      print Solution().reverseString(s)
+&amp;lt;/code&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;在python中对字符串的操作还是不太熟练,可能因为度假的时间太久了=.=  &lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/huangcong/archive/2011/08/29/2158268.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;字符串的基本操作&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;翻转字符串,将hello变为olleh&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="字符串操作" scheme="http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
+    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
+    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
+    <published>2016-04-14T11:59:59.000Z</published>
+    <updated>2016-04-14T13:46:19.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
+&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
+&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
+    
+    
+      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
+    
+      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
+    
+  </entry>
   
   <entry>
     <title>Pyhton I/O进行文件读写</title>
@@ -81,39 +167,6 @@ f2.close()
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
-    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
-    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
-    <published>2016-04-14T11:59:59.000Z</published>
-    <updated>2016-04-14T13:46:19.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ol&gt;
-&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
-&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
-&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
-    
-    
-      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
-    
-      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
     
   </entry>
   
@@ -226,6 +279,44 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>摆渡人 作者:(英)克莱尔 麦克福尔</title>
+    <link href="http://yoursite.com/2016/04/11/life/life-book-ferryman/"/>
+    <id>http://yoursite.com/2016/04/11/life/life-book-ferryman/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-11T16:07:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;故事梗概&quot;&gt;&lt;a href=&quot;#故事梗概&quot; class=&quot;headerlink&quot; title=&quot;故事梗概:&quot;&gt;&lt;/a&gt;故事梗概:&lt;/h2&gt;&lt;p&gt;这个故事的主人公是迪伦和崔斯坦,从名字来判断,我觉得迪伦应该是个穿着格子衬衣,打扮的如同牛仔的西部女孩,小说里她是一个苏格兰女孩,自幼父母离异,从来没有见过父亲的她,决定不辞而别,离开她的母亲,踏上看望父亲的旅程,就是在旅程中,火车发生了事故,导致她的灵魂脱壳,遇见了她的灵魂摆渡人—崔斯坦,崔斯坦,听着这个名字,感觉起来就像是一个动漫里银发碧眼温柔的男孩纸,小说中崔斯坦有着钴蓝色的眼睛,金色的头发,精致的五官,完全是迪伦喜欢的样子,就这样他们相遇,并一起穿越迪伦内心所映射的荒原,中途中一次又一次并肩战胜恶魔,让他们两个人产生了不一样的情愫.当崔斯坦将迪伦送到荒原与家的分界线时,他们决定一起踏入”家”,我认为这里的家应该称为heaven,崔斯坦发现自己并不能跨进那条界线,而跨进了heaven的迪伦则误会崔斯坦对她的感情.迪伦为了找到崔斯坦问个明白,其实是因为她内心真的特别的爱崔斯坦,于是开始了她艰难的返回荒原的旅程,我认为全书最精彩的部分,莫过于迪伦勇敢的返回荒原,独自一个人战胜恶魔,找到崔斯坦的过程.在迪伦的鼓励下,崔斯坦决定试试能不能和迪伦一起回到人间,当他们因为爱而勇敢的面对现实和未来的时候,奇迹发生了,他们一起回到了人间世界,清楚的记得全书最后,两个人的对白:”原来你在这里””我在这里”&lt;/p&gt;
+&lt;h2 id=&quot;我的评价&quot;&gt;&lt;a href=&quot;#我的评价&quot; class=&quot;headerlink&quot; title=&quot;我的评价:&quot;&gt;&lt;/a&gt;我的评价:&lt;/h2&gt;&lt;p&gt;I exist because you need me.这是崔斯坦对迪伦说的一句话,如果我真的存在,也是因为你需要我.治愈系满分的小说,尤其是在失恋后,挫折时,读完后简直会觉得少女心爆棚,人间有真情,人间有真爱啊!很佩服迪伦折回寻找崔斯坦的勇气,很佩服她能够冒着魂飞魄散的危险去做大胆的尝试.我觉得她身上的那种勇敢值得我去学习.如果说呆在一个安稳的heaven里面,只能是无尽的等待,得不到自己想要的东西,想爱的人,何不去冒险?去尝试,勇敢的迈开自己的脚步,也许会失败,但是至少内心不会后悔.&lt;br&gt;再说细节部分,我觉得作者的细节描写还是蛮好的,荒原的景象,人物的心理和形象都还算细致,栩栩如生.&lt;/p&gt;
+&lt;h2 id=&quot;相关链接&quot;&gt;&lt;a href=&quot;#相关链接&quot; class=&quot;headerlink&quot; title=&quot;相关链接:&quot;&gt;&lt;/a&gt;相关链接:&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26356948/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;豆瓣读书—摆渡人&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/33982768&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—摆渡人是否过誉?&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/28019019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—你对摆渡人的理解?&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+      <category term="foreign literature" scheme="http://yoursite.com/categories/life/foreign-literature/"/>
+    
+      <category term="治愈系" scheme="http://yoursite.com/categories/life/foreign-literature/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+    
+      <category term="foreign fiction" scheme="http://yoursite.com/tags/foreign-fiction/"/>
+    
+      <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
+    
+      <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:字符串同构</title>
     <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
     <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
@@ -285,44 +376,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>摆渡人 作者:(英)克莱尔 麦克福尔</title>
-    <link href="http://yoursite.com/2016/04/11/life/life-book-ferryman/"/>
-    <id>http://yoursite.com/2016/04/11/life/life-book-ferryman/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-11T16:07:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;故事梗概&quot;&gt;&lt;a href=&quot;#故事梗概&quot; class=&quot;headerlink&quot; title=&quot;故事梗概:&quot;&gt;&lt;/a&gt;故事梗概:&lt;/h2&gt;&lt;p&gt;这个故事的主人公是迪伦和崔斯坦,从名字来判断,我觉得迪伦应该是个穿着格子衬衣,打扮的如同牛仔的西部女孩,小说里她是一个苏格兰女孩,自幼父母离异,从来没有见过父亲的她,决定不辞而别,离开她的母亲,踏上看望父亲的旅程,就是在旅程中,火车发生了事故,导致她的灵魂脱壳,遇见了她的灵魂摆渡人—崔斯坦,崔斯坦,听着这个名字,感觉起来就像是一个动漫里银发碧眼温柔的男孩纸,小说中崔斯坦有着钴蓝色的眼睛,金色的头发,精致的五官,完全是迪伦喜欢的样子,就这样他们相遇,并一起穿越迪伦内心所映射的荒原,中途中一次又一次并肩战胜恶魔,让他们两个人产生了不一样的情愫.当崔斯坦将迪伦送到荒原与家的分界线时,他们决定一起踏入”家”,我认为这里的家应该称为heaven,崔斯坦发现自己并不能跨进那条界线,而跨进了heaven的迪伦则误会崔斯坦对她的感情.迪伦为了找到崔斯坦问个明白,其实是因为她内心真的特别的爱崔斯坦,于是开始了她艰难的返回荒原的旅程,我认为全书最精彩的部分,莫过于迪伦勇敢的返回荒原,独自一个人战胜恶魔,找到崔斯坦的过程.在迪伦的鼓励下,崔斯坦决定试试能不能和迪伦一起回到人间,当他们因为爱而勇敢的面对现实和未来的时候,奇迹发生了,他们一起回到了人间世界,清楚的记得全书最后,两个人的对白:”原来你在这里””我在这里”&lt;/p&gt;
-&lt;h2 id=&quot;我的评价&quot;&gt;&lt;a href=&quot;#我的评价&quot; class=&quot;headerlink&quot; title=&quot;我的评价:&quot;&gt;&lt;/a&gt;我的评价:&lt;/h2&gt;&lt;p&gt;I exist because you need me.这是崔斯坦对迪伦说的一句话,如果我真的存在,也是因为你需要我.治愈系满分的小说,尤其是在失恋后,挫折时,读完后简直会觉得少女心爆棚,人间有真情,人间有真爱啊!很佩服迪伦折回寻找崔斯坦的勇气,很佩服她能够冒着魂飞魄散的危险去做大胆的尝试.我觉得她身上的那种勇敢值得我去学习.如果说呆在一个安稳的heaven里面,只能是无尽的等待,得不到自己想要的东西,想爱的人,何不去冒险?去尝试,勇敢的迈开自己的脚步,也许会失败,但是至少内心不会后悔.&lt;br&gt;再说细节部分,我觉得作者的细节描写还是蛮好的,荒原的景象,人物的心理和形象都还算细致,栩栩如生.&lt;/p&gt;
-&lt;h2 id=&quot;相关链接&quot;&gt;&lt;a href=&quot;#相关链接&quot; class=&quot;headerlink&quot; title=&quot;相关链接:&quot;&gt;&lt;/a&gt;相关链接:&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26356948/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;豆瓣读书—摆渡人&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/33982768&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—摆渡人是否过誉?&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/28019019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—你对摆渡人的理解?&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-      <category term="foreign literature" scheme="http://yoursite.com/categories/life/foreign-literature/"/>
-    
-      <category term="治愈系" scheme="http://yoursite.com/categories/life/foreign-literature/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
-      <category term="foreign fiction" scheme="http://yoursite.com/tags/foreign-fiction/"/>
-    
-      <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
-    
-      <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
     
   </entry>
   
@@ -414,68 +467,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
-    <title>leetcode:223--Rectangle Area</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
-    <published>2016-04-06T11:59:59.000Z</published>
-    <updated>2016-04-11T16:02:13.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution(object):
-    def computeArea(self, A, B, C, D, E, F, G, H):
-        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
-        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
-        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
-        #覆盖面积=总面积 - 重叠面积
-        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
-        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
-        area = (D - B)*(C - A) + (H -F)*(G - E)
-        #两个矩形不相交的情况
-        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
-            return area  
-        #相交的情况下,求相交矩形的左下角和右上角
-        leftbottomx = max(A, E)
-        leftbottomy = max(B, F)
-        righttopx = min(C, G)
-        righttopy = min(D, H)
-
-        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
-
-if __name__ ==&amp;quot;__main__&amp;quot;:
-    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:88--Merge Sorted Array</title>
     <link href="http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/"/>
     <id>http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/</id>
@@ -543,6 +534,137 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:223--Rectangle Area</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
+    <published>2016-04-06T11:59:59.000Z</published>
+    <updated>2016-04-11T16:02:13.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    def computeArea(self, A, B, C, D, E, F, G, H):
+        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
+        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
+        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
+        #覆盖面积=总面积 - 重叠面积
+        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
+        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
+        area = (D - B)*(C - A) + (H -F)*(G - E)
+        #两个矩形不相交的情况
+        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
+            return area  
+        #相交的情况下,求相交矩形的左下角和右上角
+        leftbottomx = max(A, E)
+        leftbottomy = max(B, F)
+        righttopx = min(C, G)
+        righttopy = min(D, H)
+
+        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
+
+if __name__ ==&amp;quot;__main__&amp;quot;:
+    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:219--Contains Duplicate II</title>
+    <link href="http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/"/>
+    <id>http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/</id>
+    <published>2016-04-05T11:59:59.000Z</published>
+    <updated>2016-04-11T16:01:27.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;用Python中的dict 或者 enumerate得到下标，进行下标的比较。&lt;br&gt;Python中&lt;em&gt;enumerate&lt;/em&gt;用法：如同java中对下标进行遍历，格式-&amp;gt;&lt;code&gt;for key,value in enumerate(nums):&lt;/code&gt; ，其中key-value为字典数据  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;numDict[value] = key&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;dict={value：key}&lt;/strong&gt;而且按照value从小到大的顺序print  &lt;/p&gt;
+&lt;p&gt;循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
+#算法思想：用Python中的dict 或者 enumerate得到下标，进行下标的比较
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} k
+    # @return {boolean}
+    def containsNearbyDuplicate(self, nums, k):
+        numDict = {}
+        for i,num in enumerate(nums):
+            if num not in numDict:
+                numDict[num] = i
+            else:
+                if i-numDict[num] &amp;lt;= k:
+                    return True
+                #update numDict
+                numDict[num] = i
+        #这里print的numDict里面没有重复的元素，且update了最新的重复元素的位置
+        print(numDict)
+        return False 
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    nums = [1,2,1,3,4,5,6]
+    print(Solution().containsNearbyDuplicate(nums, 1))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/dict/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
     
   </entry>
   
@@ -668,75 +790,6 @@ B:     b1 → b2 → b3
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="linklist" scheme="http://yoursite.com/tags/linklist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:219--Contains Duplicate II</title>
-    <link href="http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/"/>
-    <id>http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/</id>
-    <published>2016-04-05T11:59:59.000Z</published>
-    <updated>2016-04-11T16:01:27.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;用Python中的dict 或者 enumerate得到下标，进行下标的比较。&lt;br&gt;Python中&lt;em&gt;enumerate&lt;/em&gt;用法：如同java中对下标进行遍历，格式-&amp;gt;&lt;code&gt;for key,value in enumerate(nums):&lt;/code&gt; ，其中key-value为字典数据  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;numDict[value] = key&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;dict={value：key}&lt;/strong&gt;而且按照value从小到大的顺序print  &lt;/p&gt;
-&lt;p&gt;循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
-#算法思想：用Python中的dict 或者 enumerate得到下标，进行下标的比较
-class Solution:
-    # @param {integer[]} nums
-    # @param {integer} k
-    # @return {boolean}
-    def containsNearbyDuplicate(self, nums, k):
-        numDict = {}
-        for i,num in enumerate(nums):
-            if num not in numDict:
-                numDict[num] = i
-            else:
-                if i-numDict[num] &amp;lt;= k:
-                    return True
-                #update numDict
-                numDict[num] = i
-        #这里print的numDict里面没有重复的元素，且update了最新的重复元素的位置
-        print(numDict)
-        return False 
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    nums = [1,2,1,3,4,5,6]
-    print(Solution().containsNearbyDuplicate(nums, 1))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/dict/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
     
   </entry>
   
