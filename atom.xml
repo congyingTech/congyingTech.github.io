@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-28T15:49:31.000Z</updated>
+  <updated>2016-04-29T11:30:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,31 +16,205 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>leetcode:342--Power of Four</title>
+    <link href="http://yoursite.com/2016/04/29/leetcode/power-of-four/"/>
+    <id>http://yoursite.com/2016/04/29/leetcode/power-of-four/</id>
+    <published>2016-04-29T11:59:59.000Z</published>
+    <updated>2016-04-29T11:30:41.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：判断一个数是不是4的次方，比如16是的，8不是的，5不是的&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;判断是否是4的次方，可以考虑用二进制的方法，16的二进制数是10000，8的二进制数是1000，5的二进制数是101，由此可见，若是4^n则需要满足：&lt;br&gt;1）最高位为1,其他位均为0&lt;br&gt;2) 位数为奇数位。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# -*- coding:utf-8 -*-
+#满足两个条件：1）二进制数的高位为1，其余为为0，； 2）二进制的位数为奇数
+    import re
+    from posixpath import realpath
+    class Solution(object):
+        def isPowerOfFour(self, num):
+            &amp;quot;&amp;quot;&amp;quot;
+            :type num: int
+            :rtype: bool
+            &amp;quot;&amp;quot;&amp;quot;
+                #先将十进制转换为二进制
+                string = bin(num)
+                #二进制数的长度
+                length = len(string)
+                #真正的字符串
+                real_string = string[2:length]
+                #真正的长度
+                real_len = length - 2
+                #string to list
+                strlist = list(real_string)
+                #最高位的数字
+                gw = strlist[0]
+                count = 0
+                for e in strlist:
+                    if gw != &amp;apos;1&amp;apos;:
+                        return False
+                    elif e == &amp;apos;0&amp;apos;:
+                       count += 1
+
+                if count == real_len - 1 and count % 2 == 0:
+                    return True
+                else:
+                    return False     
+
+        if __name__ == &amp;quot;__main__&amp;quot;:
+            num = 16
+            print(Solution().isPowerOfFour(num))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;涉及的问题：&lt;br&gt;1）&lt;a href=&quot;http://www.cnblogs.com/moinmoin/archive/2011/02/28/bin_oct_int_hex.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python的进制转换&lt;/a&gt;&lt;br&gt;2） 截取字符串&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：判断一个数是不是4的次方，比如16是的，8不是的，5不是的&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python进制转换" scheme="http://yoursite.com/tags/Python%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:345--Reverse Vowels of a String</title>
+    <link href="http://yoursite.com/2016/04/29/leetcode/reverse-vowels-of-a-string/"/>
+    <id>http://yoursite.com/2016/04/29/leetcode/reverse-vowels-of-a-string/</id>
+    <published>2016-04-29T11:59:59.000Z</published>
+    <updated>2016-04-29T11:25:46.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：元音字母的位置reverse，leecode—&amp;gt;leocede; hello—&amp;gt;holle&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;双指针的方法，设置左右两个指针，左指针向右移动，右指针向左移动，直到两个指针相遇，就break,如果没有相遇，就寻找元音元素在tuple（a, e, i, o, u）中。如果有的话，就交换位置，如果没有就left++,right–直到有元音因素，进行交换。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    #这里使用双指针的方法
+    def reverseVowels(self,s):
+        VOWELS = (&amp;apos;a&amp;apos;, &amp;apos;e&amp;apos;, &amp;apos;i&amp;apos;, &amp;apos;o&amp;apos;, &amp;apos;u&amp;apos;)
+        size = len(s)
+        left, right = 0, size - 1
+        #将string转换为list
+        ls = list(s)
+        while True:
+            while left &amp;lt; size and s[left].lower() not in VOWELS:
+                left += 1
+            while right &amp;gt;= 0 and s[right].lower() not in VOWELS:
+                right -= 1
+            if left &amp;gt;= right: break
+            ls[left], ls[right] = ls[right], ls[left]
+            left, right = left + 1, right - 1
+        #list to string 
+        return &amp;apos;&amp;apos;.join(ls)
+
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    s = &amp;quot;leetcode&amp;quot;
+       print(Solution().reverseVowels(s))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注释一下：Python lower() 方法转换字符串中所有大写字符为小写。    &lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;参考了书影博客，知道了一种更加简单的方法，用正则表达式表示：  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def reverseVowels(self, s):
+      vowels = re.findall(&amp;apos;(?i)[aeiou]&amp;apos;, s)
+    return re.sub(&amp;apos;(?i)[aeiou]&amp;apos;, lambda m: vowels.pop(), s)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;(?i)[…]在正则表达式中的意思是忽略大小写对[]中的内容进行匹配&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;re.sub(repl, string[, count]) 或者 re.sub(pattern, repl, string[, count])&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;匿名函数lambda的使用：当我们在传入函数时，有些时候，不需要显式地定义函数，直接传入匿名函数更方便。&lt;br&gt;格式是lambda x: f(x)  &lt;/p&gt;
+&lt;p&gt; 这段代码的解释： vowels中存储着s中所有的元音元素，正则匹配中的sub方法替换vowels中pop出来的元素。   &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下一篇转载一篇好的讲正则表达式的博文。&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python正则表达式指南&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：元音字母的位置reverse，leecode—&amp;gt;leocede; hello—&amp;gt;holle&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5月份计划</title>
+    <link href="http://yoursite.com/2016/04/29/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2016/04/29/plan/5月份计划/</id>
+    <published>2016-04-29T11:49:35.019Z</published>
+    <updated>2016-04-29T11:31:33.000Z</updated>
+    
+    <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
+&lt;p&gt;阅读计划:&lt;br&gt;1.技术类:统计学基础电子版&lt;br&gt;2.小说类:百年孤独  &lt;/p&gt;
+&lt;p&gt;娱乐计划:&lt;br&gt;1.单反上的照片的归纳整理,打印出来几张好的照片,在网上做成明信片.&lt;br&gt;2.有时间的话把欢乐颂追完,没时间的话再说吧&lt;br&gt;3.约小伙伴出来次饭.  &lt;/p&gt;
+&lt;p&gt;财务计划:&lt;br&gt;不能再拖啦 把存折上的钱转到银行卡!!!再整到支付宝上!!!!  &lt;/p&gt;
+&lt;p&gt;刚巴爹!!!&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看j
+    
+    </summary>
+    
+      <category term="计划" scheme="http://yoursite.com/categories/%E8%AE%A1%E5%88%92/"/>
+    
+    
+      <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:344--Reverse String</title>
     <link href="http://yoursite.com/2016/04/28/leetcode/reverse-string/"/>
     <id>http://yoursite.com/2016/04/28/leetcode/reverse-string/</id>
     <published>2016-04-28T11:59:59.000Z</published>
-    <updated>2016-04-28T15:49:31.000Z</updated>
+    <updated>2016-04-29T11:02:28.000Z</updated>
     
     <content type="html">&lt;p&gt;题目描述：&lt;br&gt;翻转字符串,将hello变为olleh&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;我的想法是将string类型的字符串首先变为list,然后对list进行操作,最后再将list转换为string&lt;br&gt;(1)string to list:list(s)&lt;br&gt;(2)for循环进行list的翻转,其中i进行index的控制&lt;br&gt;(3)list to string:””.join(list)  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;      &lt;code&gt;  class Solution(object):&lt;br&gt;            def reverseString(self, s):&lt;br&gt;                “””&lt;br&gt;                :type s: str&lt;br&gt;                :rtype: str&lt;br&gt;                “””&lt;br&gt;                lengthOfs = len(s)&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;          #list类型转换可以将string类型转换为list
-          stringL = list(s)
-          i = 0
-          news = [None] * lengthOfs
-          for e in stringL:
-              news[lengthOfs - i - 1] = e
-              i = i + 1
-          #&amp;quot;&amp;quot;.join的方法可以将list转换为string
-          return &amp;quot;&amp;quot;.join(news)
-
-
-  if __name__ == &amp;quot;__main__&amp;quot;:
-      s = &amp;quot;hello&amp;quot;
-      print Solution().reverseString(s)
-&amp;lt;/code&amp;gt;  
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    def reverseString(self, s):
+        lengthOfs = len(s)
+        #list类型转换可以将string类型转换为list
+        stringL = list(s)
+        i = 0
+        news = [None] * lengthOfs
+        for e in stringL:
+            news[lengthOfs - i - 1] = e
+            i = i + 1
+        #&amp;quot;&amp;quot;.join的方法可以将list转换为string
+        return &amp;quot;&amp;quot;.join(news)
+if __name__ == &amp;quot;__main__&amp;quot;:
+     s = &amp;quot;hello&amp;quot;
+     print Solution().reverseString(s)
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;在python中对字符串的操作还是不太熟练,可能因为度假的时间太久了=.=  &lt;/p&gt;
 &lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/huangcong/archive/2011/08/29/2158268.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;字符串的基本操作&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -65,39 +239,6 @@
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="字符串操作" scheme="http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
-    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
-    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
-    <published>2016-04-14T11:59:59.000Z</published>
-    <updated>2016-04-14T13:46:19.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ol&gt;
-&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
-&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
-&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
-    
-    
-      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
-    
-      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
     
   </entry>
   
@@ -171,6 +312,39 @@ f2.close()
   </entry>
   
   <entry>
+    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
+    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
+    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
+    <published>2016-04-14T11:59:59.000Z</published>
+    <updated>2016-04-14T13:46:19.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
+&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
+&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
+    
+    
+      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
+    
+      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ubuntu下java安装以及配置更改(持续更新)</title>
     <link href="http://yoursite.com/2016/04/14/linux/Ubuntu%E4%B8%8B%E7%9A%84java%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2016/04/14/linux/Ubuntu下的java配置/</id>
@@ -214,9 +388,9 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
     <link href="http://yoursite.com/2016/04/13/plan/4.14-4.15plan/"/>
     <id>http://yoursite.com/2016/04/13/plan/4.14-4.15plan/</id>
     <published>2016-04-13T11:59:59.000Z</published>
-    <updated>2016-04-14T13:45:10.000Z</updated>
+    <updated>2016-04-29T11:05:55.000Z</updated>
     
-    <content type="html">&lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;&lt;del&gt;2.工作日志po上来(dell driver的解决方案)&lt;/del&gt;&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次优先&lt;br&gt;4.python中的dict详解—-次优先&lt;br&gt;&lt;del&gt;5.python中I/O操作(明天的新任务!!!)—-优先级最高&lt;/del&gt;&lt;br&gt;6.打印准备电面的材料,游玩时带走—-4.17前必做&lt;/p&gt;
+    <content type="html">&lt;p&gt;最近的任务:(两天内)&lt;br&gt;1.总结面试:java python linux—-可以玩回来再写&lt;br&gt;&lt;del&gt;2.工作日志po上来(dell driver的解决方案)&lt;/del&gt;&lt;br&gt;3.shell脚本里的sed命令详解(关于shell脚本的基础知识,u盘里有一个未完成的总结!!!)—-次优先&lt;br&gt;4.python中的dict详解—-次优先&lt;br&gt;&lt;del&gt;5.python中I/O操作(明天的新任务!!!)—-优先级最高&lt;/del&gt;&lt;br&gt;&lt;del&gt;6.打印准备电面的材料,游玩时带走—-4.17前必做&lt;/del&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -229,6 +403,69 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:字符串同构</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-13T15:24:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;想到用map解决这个问题，因为map是key-value的映射。d[key]=value 将s放到lookup中key的位置，t放在lookup中的value的位置，当s[i]没有在lookup中出现过时，就将s[i]-t[i]这个映射关系加入到lookup中。如果说s[i]已经在lookup中，比如说food，第三个字符o已经出现在lookup中了，这时候判断已经在lookup中的s[i]作为key值对应的value值是否等于当前t[i]相同，如果相同，说明t中此时也正好有两个连续相同的字符，说明他们同构，否则return false，说明他们并不同构。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# -*-coding:utf-8 -*-
+#算法思想：用map解决，将s和t的每个字符成映射的关系
+class Solution:
+    def isIsomorphic(self, s, t):
+        if len(s) != len(t):
+            return False
+
+        return self.halfIsom(s, t) and self.halfIsom(t, s)
+
+
+    def halfIsom(self, s, t):
+        lookup = {}
+        for i in range(len(s)):
+            #这里的思想是如果s[i]没有在lookup里面，也就是没有重复元素的话，将s[i]-t[i]映射添加
+            #如果有重复的元素，就看在lookup中s[i]作为key对应的value是否和当前的t[i]相同，若不同，则说明不同构
+            if s[i] not in lookup:
+                #建立映射关系s和t
+                lookup[s[i]] = t[i]
+            elif lookup[s[i]] != t[i]:
+                return False
+        print(lookup)
+        return True
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    s = &amp;quot;foot&amp;quot;
+    t = &amp;quot;look&amp;quot;
+    print(Solution().isIsomorphic(s, t))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;对于dict的理解更加深入了，纠正一下前面一篇的错误，对于dict，d[key] = value,下一篇仔细的写下dict函数吧，还是挺有用的。&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
@@ -313,69 +550,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
     
       <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:字符串同构</title>
-    <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
-    <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-13T15:24:29.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;想到用map解决这个问题，因为map是key-value的映射。d[key]=value 将s放到lookup中key的位置，t放在lookup中的value的位置，当s[i]没有在lookup中出现过时，就将s[i]-t[i]这个映射关系加入到lookup中。如果说s[i]已经在lookup中，比如说food，第三个字符o已经出现在lookup中了，这时候判断已经在lookup中的s[i]作为key值对应的value值是否等于当前t[i]相同，如果相同，说明t中此时也正好有两个连续相同的字符，说明他们同构，否则return false，说明他们并不同构。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt; &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# -*-coding:utf-8 -*-
-#算法思想：用map解决，将s和t的每个字符成映射的关系
-class Solution:
-    def isIsomorphic(self, s, t):
-        if len(s) != len(t):
-            return False
-
-        return self.halfIsom(s, t) and self.halfIsom(t, s)
-
-
-    def halfIsom(self, s, t):
-        lookup = {}
-        for i in range(len(s)):
-            #这里的思想是如果s[i]没有在lookup里面，也就是没有重复元素的话，将s[i]-t[i]映射添加
-            #如果有重复的元素，就看在lookup中s[i]作为key对应的value是否和当前的t[i]相同，若不同，则说明不同构
-            if s[i] not in lookup:
-                #建立映射关系s和t
-                lookup[s[i]] = t[i]
-            elif lookup[s[i]] != t[i]:
-                return False
-        print(lookup)
-        return True
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    s = &amp;quot;foot&amp;quot;
-    t = &amp;quot;look&amp;quot;
-    print(Solution().isIsomorphic(s, t))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;对于dict的理解更加深入了，纠正一下前面一篇的错误，对于dict，d[key] = value,下一篇仔细的写下dict函数吧，还是挺有用的。&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
@@ -467,6 +641,68 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>leetcode:223--Rectangle Area</title>
+    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
+    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
+    <published>2016-04-06T11:59:59.000Z</published>
+    <updated>2016-04-11T16:02:13.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    def computeArea(self, A, B, C, D, E, F, G, H):
+        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
+        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
+        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
+        #覆盖面积=总面积 - 重叠面积
+        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
+        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
+        area = (D - B)*(C - A) + (H -F)*(G - E)
+        #两个矩形不相交的情况
+        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
+            return area  
+        #相交的情况下,求相交矩形的左下角和右上角
+        leftbottomx = max(A, E)
+        leftbottomy = max(B, F)
+        righttopx = min(C, G)
+        righttopy = min(D, H)
+
+        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
+
+if __name__ ==&amp;quot;__main__&amp;quot;:
+    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:88--Merge Sorted Array</title>
     <link href="http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/"/>
     <id>http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/</id>
@@ -534,137 +770,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:223--Rectangle Area</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
-    <published>2016-04-06T11:59:59.000Z</published>
-    <updated>2016-04-11T16:02:13.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution(object):
-    def computeArea(self, A, B, C, D, E, F, G, H):
-        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
-        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
-        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
-        #覆盖面积=总面积 - 重叠面积
-        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
-        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
-        area = (D - B)*(C - A) + (H -F)*(G - E)
-        #两个矩形不相交的情况
-        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
-            return area  
-        #相交的情况下,求相交矩形的左下角和右上角
-        leftbottomx = max(A, E)
-        leftbottomy = max(B, F)
-        righttopx = min(C, G)
-        righttopy = min(D, H)
-
-        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
-
-if __name__ ==&amp;quot;__main__&amp;quot;:
-    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:219--Contains Duplicate II</title>
-    <link href="http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/"/>
-    <id>http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/</id>
-    <published>2016-04-05T11:59:59.000Z</published>
-    <updated>2016-04-11T16:01:27.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;用Python中的dict 或者 enumerate得到下标，进行下标的比较。&lt;br&gt;Python中&lt;em&gt;enumerate&lt;/em&gt;用法：如同java中对下标进行遍历，格式-&amp;gt;&lt;code&gt;for key,value in enumerate(nums):&lt;/code&gt; ，其中key-value为字典数据  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;numDict[value] = key&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;dict={value：key}&lt;/strong&gt;而且按照value从小到大的顺序print  &lt;/p&gt;
-&lt;p&gt;循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
-#算法思想：用Python中的dict 或者 enumerate得到下标，进行下标的比较
-class Solution:
-    # @param {integer[]} nums
-    # @param {integer} k
-    # @return {boolean}
-    def containsNearbyDuplicate(self, nums, k):
-        numDict = {}
-        for i,num in enumerate(nums):
-            if num not in numDict:
-                numDict[num] = i
-            else:
-                if i-numDict[num] &amp;lt;= k:
-                    return True
-                #update numDict
-                numDict[num] = i
-        #这里print的numDict里面没有重复的元素，且update了最新的重复元素的位置
-        print(numDict)
-        return False 
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    nums = [1,2,1,3,4,5,6]
-    print(Solution().containsNearbyDuplicate(nums, 1))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/dict/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
     
   </entry>
   
@@ -790,6 +895,75 @@ B:     b1 → b2 → b3
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="linklist" scheme="http://yoursite.com/tags/linklist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:219--Contains Duplicate II</title>
+    <link href="http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/"/>
+    <id>http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/</id>
+    <published>2016-04-05T11:59:59.000Z</published>
+    <updated>2016-04-11T16:01:27.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;用Python中的dict 或者 enumerate得到下标，进行下标的比较。&lt;br&gt;Python中&lt;em&gt;enumerate&lt;/em&gt;用法：如同java中对下标进行遍历，格式-&amp;gt;&lt;code&gt;for key,value in enumerate(nums):&lt;/code&gt; ，其中key-value为字典数据  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;numDict[value] = key&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;dict={value：key}&lt;/strong&gt;而且按照value从小到大的顺序print  &lt;/p&gt;
+&lt;p&gt;循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
+#算法思想：用Python中的dict 或者 enumerate得到下标，进行下标的比较
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} k
+    # @return {boolean}
+    def containsNearbyDuplicate(self, nums, k):
+        numDict = {}
+        for i,num in enumerate(nums):
+            if num not in numDict:
+                numDict[num] = i
+            else:
+                if i-numDict[num] &amp;lt;= k:
+                    return True
+                #update numDict
+                numDict[num] = i
+        #这里print的numDict里面没有重复的元素，且update了最新的重复元素的位置
+        print(numDict)
+        return False 
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    nums = [1,2,1,3,4,5,6]
+    print(Solution().containsNearbyDuplicate(nums, 1))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/dict/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
     
   </entry>
   

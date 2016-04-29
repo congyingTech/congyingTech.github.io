@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/28/leetcode/reverse-string/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="题目描述：翻转字符串,将hello变为olleh">
-<meta property="og:updated_time" content="2016-04-28T15:49:31.000Z">
+<meta property="og:updated_time" content="2016-04-29T11:02:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:344--Reverse String">
 <meta name="twitter:description" content="题目描述：翻转字符串,将hello变为olleh">
@@ -357,22 +357,22 @@
         <p>题目描述：<br>翻转字符串,将hello变为olleh</p>
 <a id="more"></a>
 <h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>我的想法是将string类型的字符串首先变为list,然后对list进行操作,最后再将list转换为string<br>(1)string to list:list(s)<br>(2)for循环进行list的翻转,其中i进行index的控制<br>(3)list to string:””.join(list)  </p>
-<p><strong>Python Code:</strong><br>      <code>  class Solution(object):<br>            def reverseString(self, s):<br>                “””<br>                :type s: str<br>                :rtype: str<br>                “””<br>                lengthOfs = len(s)</code></p>
-<pre><code>          #list类型转换可以将string类型转换为list
-          stringL = list(s)
-          i = 0
-          news = [None] * lengthOfs
-          for e in stringL:
-              news[lengthOfs - i - 1] = e
-              i = i + 1
-          #&quot;&quot;.join的方法可以将list转换为string
-          return &quot;&quot;.join(news)
-
-
-  if __name__ == &quot;__main__&quot;:
-      s = &quot;hello&quot;
-      print Solution().reverseString(s)
-&lt;/code&gt;  
+<p><strong>Python Code:</strong>  </p>
+<pre><code>class Solution(object):
+    def reverseString(self, s):
+        lengthOfs = len(s)
+        #list类型转换可以将string类型转换为list
+        stringL = list(s)
+        i = 0
+        news = [None] * lengthOfs
+        for e in stringL:
+            news[lengthOfs - i - 1] = e
+            i = i + 1
+        #&quot;&quot;.join的方法可以将list转换为string
+        return &quot;&quot;.join(news)
+if __name__ == &quot;__main__&quot;:
+     s = &quot;hello&quot;
+     print Solution().reverseString(s)
 </code></pre><h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>在python中对字符串的操作还是不太熟练,可能因为度假的时间太久了=.=  </p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p><a href="http://www.cnblogs.com/huangcong/archive/2011/08/29/2158268.html" target="_blank" rel="external">字符串的基本操作</a></p>
 
@@ -404,13 +404,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/14/vmware/dell-old-driver-solution/" rel="next" title="Dell Remote Access Controller 5老旧的driver的ilo的处理">
-                <i class="fa fa-chevron-left"></i> Dell Remote Access Controller 5老旧的driver的ilo的处理
+              <a href="/2016/04/14/vmware/python IO/" rel="next" title="Pyhton I/O进行文件读写">
+                <i class="fa fa-chevron-left"></i> Pyhton I/O进行文件读写
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/29/plan/5月份计划/" rel="prev" title="5月份计划">
+                5月份计划 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -482,7 +486,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -499,7 +503,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
