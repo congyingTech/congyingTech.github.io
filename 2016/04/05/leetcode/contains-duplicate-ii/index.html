@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/05/leetcode/contains-duplicate-ii/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.给定一个整">
-<meta property="og:updated_time" content="2016-04-11T16:01:27.000Z">
+<meta property="og:updated_time" content="2016-05-03T16:03:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:219--Contains Duplicate II">
 <meta name="twitter:description" content="题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.给定一个整">
@@ -380,8 +380,8 @@
       
         <p>题目描述：Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.<br>给定一个整数数组和一个整数k，找出是否有两种截然不同的索引i和j在阵列中，使得NUMS [I] = NUM​​S [j]的和i和j之间的差为最多k。</p>
 <a id="more"></a>
-<h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>用Python中的dict 或者 enumerate得到下标，进行下标的比较。<br>Python中<em>enumerate</em>用法：如同java中对下标进行遍历，格式-&gt;<code>for key,value in enumerate(nums):</code> ，其中key-value为字典数据  </p>
-<p><strong>numDict[value] = key</strong><br><strong>dict={value：key}</strong>而且按照value从小到大的顺序print  </p>
+<h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>用Python中的dict 或者 enumerate得到下标，进行下标的比较。<br>Python中<em>enumerate</em>用法：如同java中对下标进行遍历，格式-&gt;<code>for key,value in enumerate(nums):</code> ，其中key-value为字典数据<br>Python中dict的遍历:  <code>for key,value in nums.items():</code></p>
+<p><strong>numDict[key] = value</strong><br><strong>dict={key：value}</strong>而且按照value从小到大的顺序print  </p>
 <p>循环中的if先是把所有的不在numDictz中的nums的key-value加入到numDict中，然后再进行比较，如果num在numDict中（即有重复,else实现），则判断是否满足小于k，并且将重复的元素也加入到numDict，</p>
 <p><strong>Python Code:</strong>  </p>
 <pre><code>#-*- coding:utf-8 -*-
