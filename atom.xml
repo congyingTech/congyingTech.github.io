@@ -17,9 +17,9 @@
   
   <entry>
     <title>5月份计划</title>
-    <link href="http://yoursite.com/2016/05/04/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
-    <id>http://yoursite.com/2016/05/04/plan/5月份计划/</id>
-    <published>2016-05-03T16:05:40.317Z</published>
+    <link href="http://yoursite.com/2016/05/05/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2016/05/05/plan/5月份计划/</id>
+    <published>2016-05-05T15:04:15.074Z</published>
     <updated>2016-04-29T11:31:33.000Z</updated>
     
     <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
@@ -39,6 +39,139 @@
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>监督学习（5.5号读书笔记）</title>
+    <link href="http://yoursite.com/2016/05/05/statistics/statistics-01/"/>
+    <id>http://yoursite.com/2016/05/05/statistics/statistics-01/</id>
+    <published>2016-05-05T11:59:59.000Z</published>
+    <updated>2016-05-05T15:13:34.000Z</updated>
+    
+    <content type="html">&lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;统计学简介：统计学习的方法是基于数据构建统计模型从而对数据进行预测与分析。统计学习有&lt;strong&gt;监督学习&lt;/strong&gt;、&lt;strong&gt;非监督学习&lt;/strong&gt;、&lt;strong&gt;半监督学习&lt;/strong&gt;、&lt;strong&gt;强化学习&lt;/strong&gt;等组成。&lt;br&gt;统计学习的方法可以概括如下：从给定的、有限的、用于学习的训练数据（training data）集合出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个函数的集合，称为假设空间(hypothesis space); 应用某个评价准则， 从假设空间中选取一个最优的模型， 使它对已知训练数据及未知测试数据(test data)在给定的评价标准下有最优的预测；最优模型的选取由算法实现。&lt;br&gt;这样，统计学习方法包括模型的假设空间、模型选择的准则以及模型学习的算法，称其为三要素，model，strategy，algorithm&lt;/p&gt;
+&lt;h2 id=&quot;1-1基本概念&quot;&gt;&lt;a href=&quot;#1-1基本概念&quot; class=&quot;headerlink&quot; title=&quot;1.1基本概念&quot;&gt;&lt;/a&gt;1.1基本概念&lt;/h2&gt;&lt;h3 id=&quot;1-输入空间、特征空间、输出空间&quot;&gt;&lt;a href=&quot;#1-输入空间、特征空间、输出空间&quot; class=&quot;headerlink&quot; title=&quot;1.输入空间、特征空间、输出空间&quot;&gt;&lt;/a&gt;1.输入空间、特征空间、输出空间&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;输入空间：&lt;/strong&gt;X={x1,x2,x3,x4,…xi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;&lt;strong&gt;输出空间：&lt;/strong&gt;Y={y1,y2,y2,y3,…yi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;输入空间与输出空间可能是同一个空间，也可能不是，一般输出空间要远小于输入空间。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特征空间：&lt;/strong&gt;每个具体的输入是一个特征向量，由特征向量组成的空间为特征空间。 &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;训练数据&lt;/strong&gt;（training data）：输入+输出 成对组成 (test data 同样)&lt;br&gt;                         &lt;code&gt;T = {(x1,y1),....}&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-联合概率分布&quot;&gt;&lt;a href=&quot;#2-联合概率分布&quot; class=&quot;headerlink&quot; title=&quot;2.联合概率分布&quot;&gt;&lt;/a&gt;2.联合概率分布&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;有监督学习假设&lt;/strong&gt;X,Y遵循联合概率分布P(X, Y), 我们只是假设它存在，但是对于学习系统，联合概率分布的具体定义是未知的。    &lt;/p&gt;
+&lt;p&gt;training data 和test data被看做是依联合概率分布P(X,Y)&lt;strong&gt;独立同分布产生&lt;/strong&gt;的。    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;X和Y具有联合概率分布的假设是统计学习关于数据的基本假设&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-假设空间&quot;&gt;&lt;a href=&quot;#3-假设空间&quot; class=&quot;headerlink&quot; title=&quot;3.假设空间&quot;&gt;&lt;/a&gt;3.假设空间&lt;/h3&gt;&lt;p&gt;输入输出空间的映射的集合是&lt;strong&gt;假设空间&lt;/strong&gt;.&lt;br&gt;&lt;strong&gt;模型&lt;/strong&gt;属于假设空间,目的是找到这个模型， 可以是概率的或者非概率模型。&lt;/p&gt;
+&lt;h2 id=&quot;1-2-问题形式化&quot;&gt;&lt;a href=&quot;#1-2-问题形式化&quot; class=&quot;headerlink&quot; title=&quot;1.2 问题形式化&quot;&gt;&lt;/a&gt;1.2 问题形式化&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:257--Binary Tree Paths</title>
+    <link href="http://yoursite.com/2016/05/05/leetcode/binary-tree-paths/"/>
+    <id>http://yoursite.com/2016/05/05/leetcode/binary-tree-paths/</id>
+    <published>2016-05-05T11:59:59.000Z</published>
+    <updated>2016-05-05T07:52:28.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;对一棵二叉树的根到叶子节点进行输出，eg:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;   1
+ /   \
+2     3
+ \
+  5
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;All root-to-leaf paths are: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-&amp;gt;3&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;首先，得到path肯定是要对二叉树进行遍历的，这里采用DFS深度优先遍历。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#找二叉树的路径，首先就要遍历二叉树，遍历二叉树的方式有两种，深度优先遍历（DFS）和广度优先遍历
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+    def binaryTreePaths(self, root):
+        res, path = [], []
+        if root is None:
+            return res
+        self.dfs(root, path, res)
+        return res
+
+    def dfs(self, root, path, res):
+        if root is None:
+            return
+        #当左右孩子都没有的时候，整理结果
+        if root.left is None and root.right is None:
+            ans = &amp;quot;&amp;quot;
+            for n in path:
+                ans += str(n.val) + &amp;quot;-&amp;gt;&amp;quot;
+            res.append(ans + str(root.val)) 
+
+        if root.left:
+            path.append(root)
+            self.dfs(root.left, path,res)
+            #这里一定要进行pop，返回当前节点的父节点
+            path.pop()
+
+        if root.right:
+            path.append(root)
+            self.dfs(root.right, path, res)
+            path.pop()
+if __name__ == &amp;quot;__main__&amp;quot;:
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left.right = TreeNode(5)
+    print(Solution().binaryTreePaths(root))   
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/bone_ace/article/details/46718683&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python中二叉树的遍历操作&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;对一棵二叉树的根到叶子节点进行输出，eg:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;   1
+ /   \
+2     3
+ \
+  5
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;All root-to-leaf paths are: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-&amp;gt;3&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="二叉树DFS遍历" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91DFS%E9%81%8D%E5%8E%86/"/>
     
   </entry>
   
@@ -128,6 +261,60 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>leetcode:58--Length of Last Word</title>
+    <link href="http://yoursite.com/2016/05/03/leetcode/length-of-last-word/"/>
+    <id>http://yoursite.com/2016/05/03/leetcode/length-of-last-word/</id>
+    <published>2016-05-03T11:59:59.000Z</published>
+    <updated>2016-05-03T15:41:32.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
+&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
+&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题只要能想到用Python中对应的函数，就非常快的能够解决，strip([chars])函数，官方解释是：Return a copy of the string with the leading and trailing characters removed.删除头和尾的字串。在这里正好可以满足像&lt;code&gt;“a   “&lt;/code&gt;这样的字串空格的过滤。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*-coding:utf-8-*-
+class Solution(object):
+    def lengthOfLastWord(self, s):
+       #这里用到strip(rm)函数，strip可以删除s开头和结尾的rm，若为空，默认删除开头和结尾的空白字符
+       return len(s.strip().split(&amp;quot; &amp;quot;)[-1])
+if __name__ == &amp;quot;__main__&amp;quot;:
+
+    print(Solution().lengthOfLastWord(&amp;quot;&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=strip#str.strip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python 中 strip()函数 官方解释&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/kaituorensheng/archive/2013/05/23/3096028.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strip()中文解释应用&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
+&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
+&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="strip()函数" scheme="http://yoursite.com/tags/strip-%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="list" scheme="http://yoursite.com/tags/list/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:190--Reverse Bits</title>
     <link href="http://yoursite.com/2016/05/03/leetcode/reverse-bits/"/>
     <id>http://yoursite.com/2016/05/03/leetcode/reverse-bits/</id>
@@ -202,60 +389,6 @@ if __name__ == &amp;apos;__main__&amp;apos;:
       <category term="Python进制转换" scheme="http://yoursite.com/tags/Python%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
     
       <category term="二进制位操作" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:58--Length of Last Word</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/length-of-last-word/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/length-of-last-word/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-03T15:41:32.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题只要能想到用Python中对应的函数，就非常快的能够解决，strip([chars])函数，官方解释是：Return a copy of the string with the leading and trailing characters removed.删除头和尾的字串。在这里正好可以满足像&lt;code&gt;“a   “&lt;/code&gt;这样的字串空格的过滤。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#-*-coding:utf-8-*-
-class Solution(object):
-    def lengthOfLastWord(self, s):
-       #这里用到strip(rm)函数，strip可以删除s开头和结尾的rm，若为空，默认删除开头和结尾的空白字符
-       return len(s.strip().split(&amp;quot; &amp;quot;)[-1])
-if __name__ == &amp;quot;__main__&amp;quot;:
-
-    print(Solution().lengthOfLastWord(&amp;quot;&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=strip#str.strip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python 中 strip()函数 官方解释&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/kaituorensheng/archive/2013/05/23/3096028.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strip()中文解释应用&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="strip()函数" scheme="http://yoursite.com/tags/strip-%E5%87%BD%E6%95%B0/"/>
-    
-      <category term="list" scheme="http://yoursite.com/tags/list/"/>
     
   </entry>
   
@@ -609,6 +742,39 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
+    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
+    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
+    <published>2016-04-14T11:59:59.000Z</published>
+    <updated>2016-04-14T13:46:19.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
+&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
+&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
+    
+    
+      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
+    
+      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Pyhton I/O进行文件读写</title>
     <link href="http://yoursite.com/2016/04/14/vmware/python%20IO/"/>
     <id>http://yoursite.com/2016/04/14/vmware/python IO/</id>
@@ -674,39 +840,6 @@ f2.close()
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
-    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
-    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
-    <published>2016-04-14T11:59:59.000Z</published>
-    <updated>2016-04-14T13:46:19.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ol&gt;
-&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
-&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
-&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
-    
-    
-      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
-    
-      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
     
   </entry>
   
@@ -811,6 +944,52 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
   </entry>
   
   <entry>
+    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-13T15:22:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution:
+    def maxProfit(self, prices):
+        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
+        for price in prices:
+            minPrice = min(minPrice, price)
+            max_profit = max(max_profit, price - minPrice)
+        return max_profit
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
+    print(result)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:字符串同构</title>
     <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
     <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
@@ -855,52 +1034,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     <summary type="html">
     
       &lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
-    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
-    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-13T15:22:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution:
-    def maxProfit(self, prices):
-        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
-        for price in prices:
-            minPrice = min(minPrice, price)
-            max_profit = max(max_profit, price - minPrice)
-        return max_profit
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
-    print(result)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
     
     </summary>
     
@@ -1065,202 +1198,6 @@ if __name__ ==&amp;quot;__main__&amp;quot;:
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:88--Merge Sorted Array</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/merge-sorted-array/</id>
-    <published>2016-04-06T11:59:59.000Z</published>
-    <updated>2016-04-11T16:02:01.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：合并排序数组&lt;br&gt;给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。&lt;br&gt;nums1 = [1,3,5,0,0,0,0]&lt;br&gt;nums2 = [2,4,6,8]&lt;br&gt;合并后为：[1,2,3,4,5,6,7,8]  &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;由于nums1和nums2都是排过序的，所以从后向前比较，将较大的一个放在最后的位置。 &lt;/p&gt;
-&lt;p&gt;  空间复杂度o(1),时间复杂度o(m+n)  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution(object):
-    def merge(self, nums1, m, nums2, n):
-        #last位于list最后一个位置, i是nums1的最后一个位置,j是nums2的最后一个位置
-        last = m + n - 1
-        i = m - 1
-        j = n - 1
-        while i &amp;gt;= 0 and j &amp;gt;= 0:
-            if nums1[i] &amp;gt; nums2[j]:
-                #大的数放在最后的位置
-                nums1[last] = nums1[i]
-                #此时i向前移动一位,与j所在位置的数字比较
-                i -= 1
-                last -= 1
-            else:
-                nums1[last] = nums2[j]
-                j -= 1
-                last -= 1
-
-        #此处还要加上对while j &amp;gt;= 0的判断,而不需要加上对while i &amp;gt;= 0的判断,因为,i本         
-        #身就在nums1里面,j在nums2里面,要对nums2的数判断完加入nums1
-        while j &amp;gt;= 0:
-            nums1[last] = nums2[j]
-            j -= 1
-            last -= 1
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    nums1 = [1,3,5,7,9,0,0,0,0]
-    nums2 = [2,4,6,8]
-    Solution().merge(nums1, 5, nums2, 4)
-    print nums1
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;开始的时候比较疑惑,为什么要加一个while j &amp;gt;= 0的判断?&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;不需要加上对while i &amp;gt;= 0的判断,因为,i本身就在nums1里面,j在nums2里面,要对nums2的数判断完加入nums1&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：合并排序数组&lt;br&gt;给定两个排过序的数组nums1和nums2，将两个数组合并为一个整体排序的数组。&lt;br&gt;nums1 = [1,3,5,0,0,0,0]&lt;br&gt;nums2 = [2,4,6,8]&lt;br&gt;合并后为：[1,2,3,4,5,6,7,8]  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/categories/Python/leetcode/jobs/array/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:160--Intersection of Two Linked Lists</title>
-    <link href="http://yoursite.com/2016/04/05/leetcode/intersection-of-two-linked-lists/"/>
-    <id>http://yoursite.com/2016/04/05/leetcode/intersection-of-two-linked-lists/</id>
-    <published>2016-04-05T11:59:59.000Z</published>
-    <updated>2016-04-11T16:01:51.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：编程求两个单链表的交点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果链表没有交点，返回null&lt;/li&gt;
-&lt;li&gt;链表在函数返回时必须保留原始数据结构&lt;/li&gt;
-&lt;li&gt;可以假设链表中没有环&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码最好时间复杂度为O(N),空间复杂度O(1)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;A:          a1 → a2
-                   ↘
-                     c1 → c2 → c3
-                   ↗            
-B:     b1 → b2 → b3
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;  &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;得到两个链表的长度  &lt;/li&gt;
-&lt;li&gt;将长链表向前移动差值  &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;两个指针一起前进，遇到相同的即是交点，如果没有找到，返回null  &lt;/p&gt;
-&lt;p&gt;空间复杂度o(1),时间复杂度o(m+n)  &lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#1. 得到两个链表的长度
-#2. 将长链表向前移动差值
-#3. 两个指针一起前进，遇到相同的即是交点，如果没有找到，返回null  
-#空间复杂度o(1),时间复杂度o(m+n) 
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-class Solution(object):
-    def getIntersectionNode(self, headA, headB):
-
-
-        #求出A的长度
-        lenA = Solution().getLength(headA)
-        #print(&amp;apos;A length % s&amp;apos; % lenA)
-        #求出B的长度
-        lenB = Solution().getLength(headB)
-        #print(&amp;apos;B length % s&amp;apos; % lenB)
-        #B是长链表,B的头指针向前移动
-        if lenB &amp;gt; lenA:
-            while lenB &amp;gt; lenA:
-                lenB -= 1
-                headB = headB.next
-                #print(&amp;quot;hereBbig&amp;quot;)
-            #print(headB.val)
-        #A是长链表，A的头指针向前移动
-        else:    
-            while lenA &amp;gt; lenB:
-                lenA -= 1
-                headA = headA.next
-                #print(&amp;quot;hereAbig&amp;quot;)
-            #print(headA.val)
-
-        #print(&amp;apos;此时a的head值 %s&amp;apos; % headA.val)
-        #print(&amp;apos;此时b的head值%s &amp;apos; % headB.val)
-        #A与B齐头并进，直到链表中不再有元素
-        while headA:
-            if headA == headB:
-                return headA
-            headA = headA.next
-            headB = headB.next
-
-        #如果没有相同的话，返回null
-        return None
-
-
-    #获得链表长度的函数
-    def getLength(self, node):
-        #初始化len
-        len = 0
-        while node:
-            len += 1
-            node = node.next
-        return len
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;为什么一定要if else语句才能ac呢？？？？直接while不可以吗？？？&lt;br&gt;路过的大神们，求留言解答疑惑！！！&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;妈的。。。事实证明是oj抽风了。。。if else,可以去掉~&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：编程求两个单链表的交点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果链表没有交点，返回null&lt;/li&gt;
-&lt;li&gt;链表在函数返回时必须保留原始数据结构&lt;/li&gt;
-&lt;li&gt;可以假设链表中没有环&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码最好时间复杂度为O(N),空间复杂度O(1)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;A:          a1 → a2
-                   ↘
-                     c1 → c2 → c3
-                   ↗            
-B:     b1 → b2 → b3
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="linklist" scheme="http://yoursite.com/categories/Python/leetcode/jobs/linklist/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="linklist" scheme="http://yoursite.com/tags/linklist/"/>
     
   </entry>
   
