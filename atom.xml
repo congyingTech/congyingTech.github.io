@@ -17,9 +17,9 @@
   
   <entry>
     <title>5月份计划</title>
-    <link href="http://yoursite.com/2016/05/05/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
-    <id>http://yoursite.com/2016/05/05/plan/5月份计划/</id>
-    <published>2016-05-05T15:04:15.074Z</published>
+    <link href="http://yoursite.com/2016/05/06/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2016/05/06/plan/5月份计划/</id>
+    <published>2016-05-06T13:24:24.305Z</published>
     <updated>2016-04-29T11:31:33.000Z</updated>
     
     <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
@@ -39,6 +39,141 @@
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>监督学习之模型和策略（5.6号读书笔记）</title>
+    <link href="http://yoursite.com/2016/05/06/statistics/statistics2/"/>
+    <id>http://yoursite.com/2016/05/06/statistics/statistics2/</id>
+    <published>2016-05-06T11:59:59.000Z</published>
+    <updated>2016-05-06T13:23:34.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。&lt;br&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
+&lt;p&gt;条件概率的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG&quot; alt=&quot;条件概率假设空间&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;策略&quot;&gt;&lt;a href=&quot;#策略&quot; class=&quot;headerlink&quot; title=&quot;策略&quot;&gt;&lt;/a&gt;策略&lt;/h3&gt;&lt;p&gt;有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;损失函数：&lt;/strong&gt;度量模型一次预测的好坏&lt;br&gt;&lt;strong&gt;风险函数：&lt;/strong&gt;度量平均意义下模型预测的好坏  &lt;/p&gt;
+&lt;h4 id=&quot;常用的损失函数&quot;&gt;&lt;a href=&quot;#常用的损失函数&quot; class=&quot;headerlink&quot; title=&quot;常用的损失函数&quot;&gt;&lt;/a&gt;常用的损失函数&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;损失函数值越小，模型越好。&lt;/p&gt;
+&lt;h4 id=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;a href=&quot;#风险函数（或称为期望损失）&quot; class=&quot;headerlink&quot; title=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;/a&gt;风险函数（或称为期望损失）&lt;/h4&gt;&lt;p&gt;期望损失，就是损失函数的期望值&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt; 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失&lt;/p&gt;
+&lt;h4 id=&quot;经验损失&quot;&gt;&lt;a href=&quot;#经验损失&quot; class=&quot;headerlink&quot; title=&quot;经验损失&quot;&gt;&lt;/a&gt;经验损失&lt;/h4&gt;&lt;p&gt;给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  &lt;/p&gt;
+&lt;p&gt;####经验风险最小化（ERM）&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）&lt;/p&gt;
+&lt;p&gt;####结构风险最小化（SRM）&lt;br&gt;防止过拟合而产生的&lt;br&gt;定义：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;J(f)为模型的复杂度 &lt;/p&gt;
+&lt;p&gt;最小化：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;##算法&lt;br&gt;最优化的解法！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:6--ZigZag Conversion</title>
+    <link href="http://yoursite.com/2016/05/06/leetcode/zigzag-conversion/"/>
+    <id>http://yoursite.com/2016/05/06/leetcode/zigzag-conversion/</id>
+    <published>2016-05-06T11:59:59.000Z</published>
+    <updated>2016-05-06T09:03:42.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;numRows = 3
+ P   A   H   N (0 4 8 12)
+ A P L S I I G (1 3 5 7 9 11)
+ Y   I   R     (2 6 10)
+
+numRows = 4
+P     I     N  (0 6 12)
+A   L S   I G  (1 5 7 11 13)
+Y A   H R      (2 4 8 10)
+P     I        (3 9)
+
+input numRows = 3
+0 1 2 3 4 5 6 7 8 9 10 11 12 13
+P A Y P A L I S H I  R  I  N  G
+output
+0 4 8 12 1 3 5 7 9 11 13 2 6 10
+P A H  N A P L S I  I  G Y I  R
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;由输入输出可以看到,首尾的下标值是隔了4个数的，&lt;br&gt;除了首尾之外的中间的几行，是隔了两个数的&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;找规律，1)首尾两行的间隔是固定的数 step = numRows * 2 - 2&lt;br&gt;       2)中间的这几行的规律实在是不好找，只能参考答案了 =.= &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution:
+    def convert(self, s, numRows):
+
+        if numRows == 1:
+            return s
+        #由下标的排序的规律可以知道,step的2*numRows - 2 
+        step, zigzag = 2 * numRows - 2, &amp;quot;&amp;quot;
+        for i in range(numRows):
+            for j in range(i, len(s), step):
+                zigzag += s[j]
+                #这是 除了首尾两行之外，中间的两行的规律
+                if 0 &amp;lt; i &amp;lt; numRows - 1 and j + step - 2 * i &amp;lt; len(s):
+                    zigzag += s [j + step -2 * i]
+        return zigzag
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    print(Solution().convert(&amp;quot;abcdbgksf&amp;quot;, 4))  
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;numRows = 3
+ P   A   H   N (0 4 8 12)
+ A P L S I I G (1 3 5 7 9 11)
+ Y   I   R     (2 6 10)
+
+numRows = 4
+P     I     N  (0 6 12)
+A   L S   I G  (1 5 7 11 13)
+Y A   H R      (2 4 8 10)
+P     I        (3 9)
+
+input numRows = 3
+0 1 2 3 4 5 6 7 8 9 10 11 12 13
+P A Y P A L I S H I  R  I  N  G
+output
+0 4 8 12 1 3 5 7 9 11 13 2 6 10
+P A H  N A P L S I  I  G Y I  R
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;由输入输出可以看到,首尾的下标值是隔了4个数的，&lt;br&gt;除了首尾之外的中间的几行，是隔了两个数的&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="模拟题" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%8B%9F%E9%A2%98/"/>
+    
+      <category term="for循环" scheme="http://yoursite.com/tags/for%E5%BE%AA%E7%8E%AF/"/>
     
   </entry>
   
@@ -75,9 +210,9 @@
     
       <category term="read" scheme="http://yoursite.com/tags/read/"/>
     
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
@@ -176,6 +311,84 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>leetcode:190--Reverse Bits</title>
+    <link href="http://yoursite.com/2016/05/03/leetcode/reverse-bits/"/>
+    <id>http://yoursite.com/2016/05/03/leetcode/reverse-bits/</id>
+    <published>2016-05-03T11:59:59.000Z</published>
+    <updated>2016-05-03T08:00:16.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：十进制转换为二进制，32位二进制数进行逆置，得到的二进制再转换为十进制。&lt;br&gt;eg:8=&amp;gt;0000000000000000000….001000=&amp;gt;0001…..00000000000=&amp;gt;268435456&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;我的想法：1)进制的相互转换：十进制&amp;lt;=&amp;gt;二进制  2）类型的相互转换：string&amp;lt;=&amp;gt;list 十进制转换为二进制之后进行逆置操作，然后再转换为十进制。&lt;br&gt;显然这种方法是最笨的方法了，用二进制位操作是简单的方法，我咋又忘了呢？！！！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
+#1)进制的相互转换：十进制&amp;lt;=&amp;gt;二进制
+#2）类型的相互转换：string&amp;lt;=&amp;gt;list
+class Solution(object):
+    def reverseBits(self, n):
+        #十进制转换为二进制
+        string = bin(n)
+        length = len(string)
+        real_string = string[2:length]
+        real_len = length - 2
+        strlist = list(real_string)
+        #初始化list
+        new_strlist = [&amp;apos;0&amp;apos;] * 32
+        #reverse strlist
+        for i in range(real_len):
+            new_strlist[i] = strlist[real_len - i - 1]
+        #list to str
+        reverse_str = &amp;quot;&amp;quot;.join(new_strlist)
+        #二进制转换为十进制
+        result = int(reverse_str, 2)
+        return result
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    print(Solution().reverseBits(8))  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;二进制位操作解法：  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution:
+    # @param n, an integer
+    # @return an integer
+    def reverseBits(self, n):
+        result = 0
+        for i in xrange(32):
+            result &amp;lt;&amp;lt;= 1
+            result |= n &amp;amp; 1
+            n &amp;gt;&amp;gt;= 1
+        return result
+
+if __name__ == &amp;apos;__main__&amp;apos;:
+  print Solution().reverseBits(1)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://blog.sina.com.cn/s/blog_4b5039210100gkst.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二进制位操作&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;result位操作左移1位相当于乘以2的一次幂&lt;br&gt;n右移一位相当于除以2的一次幂。&lt;br&gt;这样实现逆置???不是很理解~&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：十进制转换为二进制，32位二进制数进行逆置，得到的二进制再转换为十进制。&lt;br&gt;eg:8=&amp;gt;0000000000000000000….001000=&amp;gt;0001…..00000000000=&amp;gt;268435456&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python进制转换" scheme="http://yoursite.com/tags/Python%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
+    
+      <category term="二进制位操作" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:20--Valid Parentheses</title>
     <link href="http://yoursite.com/2016/05/03/leetcode/valid-parentheses/"/>
     <id>http://yoursite.com/2016/05/03/leetcode/valid-parentheses/</id>
@@ -261,138 +474,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
-    <title>leetcode:58--Length of Last Word</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/length-of-last-word/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/length-of-last-word/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-03T15:41:32.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题只要能想到用Python中对应的函数，就非常快的能够解决，strip([chars])函数，官方解释是：Return a copy of the string with the leading and trailing characters removed.删除头和尾的字串。在这里正好可以满足像&lt;code&gt;“a   “&lt;/code&gt;这样的字串空格的过滤。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#-*-coding:utf-8-*-
-class Solution(object):
-    def lengthOfLastWord(self, s):
-       #这里用到strip(rm)函数，strip可以删除s开头和结尾的rm，若为空，默认删除开头和结尾的空白字符
-       return len(s.strip().split(&amp;quot; &amp;quot;)[-1])
-if __name__ == &amp;quot;__main__&amp;quot;:
-
-    print(Solution().lengthOfLastWord(&amp;quot;&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=strip#str.strip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python 中 strip()函数 官方解释&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/kaituorensheng/archive/2013/05/23/3096028.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strip()中文解释应用&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="strip()函数" scheme="http://yoursite.com/tags/strip-%E5%87%BD%E6%95%B0/"/>
-    
-      <category term="list" scheme="http://yoursite.com/tags/list/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:190--Reverse Bits</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/reverse-bits/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/reverse-bits/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-03T08:00:16.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：十进制转换为二进制，32位二进制数进行逆置，得到的二进制再转换为十进制。&lt;br&gt;eg:8=&amp;gt;0000000000000000000….001000=&amp;gt;0001…..00000000000=&amp;gt;268435456&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;我的想法：1)进制的相互转换：十进制&amp;lt;=&amp;gt;二进制  2）类型的相互转换：string&amp;lt;=&amp;gt;list 十进制转换为二进制之后进行逆置操作，然后再转换为十进制。&lt;br&gt;显然这种方法是最笨的方法了，用二进制位操作是简单的方法，我咋又忘了呢？！！！&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#-*- coding:utf-8 -*-
-#1)进制的相互转换：十进制&amp;lt;=&amp;gt;二进制
-#2）类型的相互转换：string&amp;lt;=&amp;gt;list
-class Solution(object):
-    def reverseBits(self, n):
-        #十进制转换为二进制
-        string = bin(n)
-        length = len(string)
-        real_string = string[2:length]
-        real_len = length - 2
-        strlist = list(real_string)
-        #初始化list
-        new_strlist = [&amp;apos;0&amp;apos;] * 32
-        #reverse strlist
-        for i in range(real_len):
-            new_strlist[i] = strlist[real_len - i - 1]
-        #list to str
-        reverse_str = &amp;quot;&amp;quot;.join(new_strlist)
-        #二进制转换为十进制
-        result = int(reverse_str, 2)
-        return result
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    print(Solution().reverseBits(8))  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;二进制位操作解法：  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution:
-    # @param n, an integer
-    # @return an integer
-    def reverseBits(self, n):
-        result = 0
-        for i in xrange(32):
-            result &amp;lt;&amp;lt;= 1
-            result |= n &amp;amp; 1
-            n &amp;gt;&amp;gt;= 1
-        return result
-
-if __name__ == &amp;apos;__main__&amp;apos;:
-  print Solution().reverseBits(1)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://blog.sina.com.cn/s/blog_4b5039210100gkst.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二进制位操作&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;result位操作左移1位相当于乘以2的一次幂&lt;br&gt;n右移一位相当于除以2的一次幂。&lt;br&gt;这样实现逆置???不是很理解~&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：十进制转换为二进制，32位二进制数进行逆置，得到的二进制再转换为十进制。&lt;br&gt;eg:8=&amp;gt;0000000000000000000….001000=&amp;gt;0001…..00000000000=&amp;gt;268435456&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="Python进制转换" scheme="http://yoursite.com/tags/Python%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
-    
-      <category term="二进制位操作" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:290--Word Pattern</title>
     <link href="http://yoursite.com/2016/05/03/leetcode/word-pattern/"/>
     <id>http://yoursite.com/2016/05/03/leetcode/word-pattern/</id>
@@ -470,6 +551,60 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>leetcode:58--Length of Last Word</title>
+    <link href="http://yoursite.com/2016/05/03/leetcode/length-of-last-word/"/>
+    <id>http://yoursite.com/2016/05/03/leetcode/length-of-last-word/</id>
+    <published>2016-05-03T11:59:59.000Z</published>
+    <updated>2016-05-03T15:41:32.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
+&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
+&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题只要能想到用Python中对应的函数，就非常快的能够解决，strip([chars])函数，官方解释是：Return a copy of the string with the leading and trailing characters removed.删除头和尾的字串。在这里正好可以满足像&lt;code&gt;“a   “&lt;/code&gt;这样的字串空格的过滤。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*-coding:utf-8-*-
+class Solution(object):
+    def lengthOfLastWord(self, s):
+       #这里用到strip(rm)函数，strip可以删除s开头和结尾的rm，若为空，默认删除开头和结尾的空白字符
+       return len(s.strip().split(&amp;quot; &amp;quot;)[-1])
+if __name__ == &amp;quot;__main__&amp;quot;:
+
+    print(Solution().lengthOfLastWord(&amp;quot;&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=strip#str.strip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python 中 strip()函数 官方解释&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/kaituorensheng/archive/2013/05/23/3096028.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strip()中文解释应用&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
+&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
+&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="strip()函数" scheme="http://yoursite.com/tags/strip-%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="list" scheme="http://yoursite.com/tags/list/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:141--Linked List Cycle</title>
     <link href="http://yoursite.com/2016/05/02/leetcode/linked-list-cycle/"/>
     <id>http://yoursite.com/2016/05/02/leetcode/linked-list-cycle/</id>
@@ -523,78 +658,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     <summary type="html">
     
       &lt;p&gt;题目描述:Given a linked list, determine if it has a cycle in it.&lt;br&gt;Follow up:Can you solve it without using extra space?&lt;br&gt;该题目意思是判断这个linkedlist是不是有环的.并且最好不要浪费多余的空间.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:345--Reverse Vowels of a String</title>
-    <link href="http://yoursite.com/2016/04/29/leetcode/reverse-vowels-of-a-string/"/>
-    <id>http://yoursite.com/2016/04/29/leetcode/reverse-vowels-of-a-string/</id>
-    <published>2016-04-29T11:59:59.000Z</published>
-    <updated>2016-04-29T11:25:46.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：元音字母的位置reverse，leecode—&amp;gt;leocede; hello—&amp;gt;holle&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;双指针的方法，设置左右两个指针，左指针向右移动，右指针向左移动，直到两个指针相遇，就break,如果没有相遇，就寻找元音元素在tuple（a, e, i, o, u）中。如果有的话，就交换位置，如果没有就left++,right–直到有元音因素，进行交换。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution(object):
-    #这里使用双指针的方法
-    def reverseVowels(self,s):
-        VOWELS = (&amp;apos;a&amp;apos;, &amp;apos;e&amp;apos;, &amp;apos;i&amp;apos;, &amp;apos;o&amp;apos;, &amp;apos;u&amp;apos;)
-        size = len(s)
-        left, right = 0, size - 1
-        #将string转换为list
-        ls = list(s)
-        while True:
-            while left &amp;lt; size and s[left].lower() not in VOWELS:
-                left += 1
-            while right &amp;gt;= 0 and s[right].lower() not in VOWELS:
-                right -= 1
-            if left &amp;gt;= right: break
-            ls[left], ls[right] = ls[right], ls[left]
-            left, right = left + 1, right - 1
-        #list to string 
-        return &amp;apos;&amp;apos;.join(ls)
-
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    s = &amp;quot;leetcode&amp;quot;
-       print(Solution().reverseVowels(s))
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注释一下：Python lower() 方法转换字符串中所有大写字符为小写。    &lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;参考了书影博客，知道了一种更加简单的方法，用正则表达式表示：  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def reverseVowels(self, s):
-      vowels = re.findall(&amp;apos;(?i)[aeiou]&amp;apos;, s)
-    return re.sub(&amp;apos;(?i)[aeiou]&amp;apos;, lambda m: vowels.pop(), s)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;(?i)[…]在正则表达式中的意思是忽略大小写对[]中的内容进行匹配&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;re.sub(repl, string[, count]) 或者 re.sub(pattern, repl, string[, count])&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;匿名函数lambda的使用：当我们在传入函数时，有些时候，不需要显式地定义函数，直接传入匿名函数更方便。&lt;br&gt;格式是lambda x: f(x)  &lt;/p&gt;
-&lt;p&gt; 这段代码的解释： vowels中存储着s中所有的元音元素，正则匹配中的sub方法替换vowels中pop出来的元素。   &lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;下一篇转载一篇好的讲正则表达式的博文。&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python正则表达式指南&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：元音字母的位置reverse，leecode—&amp;gt;leocede; hello—&amp;gt;holle&lt;/p&gt;
     
     </summary>
     
@@ -689,6 +752,78 @@ if __name__ == &amp;quot;__main__&amp;quot;:
   </entry>
   
   <entry>
+    <title>leetcode:345--Reverse Vowels of a String</title>
+    <link href="http://yoursite.com/2016/04/29/leetcode/reverse-vowels-of-a-string/"/>
+    <id>http://yoursite.com/2016/04/29/leetcode/reverse-vowels-of-a-string/</id>
+    <published>2016-04-29T11:59:59.000Z</published>
+    <updated>2016-04-29T11:25:46.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：元音字母的位置reverse，leecode—&amp;gt;leocede; hello—&amp;gt;holle&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;双指针的方法，设置左右两个指针，左指针向右移动，右指针向左移动，直到两个指针相遇，就break,如果没有相遇，就寻找元音元素在tuple（a, e, i, o, u）中。如果有的话，就交换位置，如果没有就left++,right–直到有元音因素，进行交换。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution(object):
+    #这里使用双指针的方法
+    def reverseVowels(self,s):
+        VOWELS = (&amp;apos;a&amp;apos;, &amp;apos;e&amp;apos;, &amp;apos;i&amp;apos;, &amp;apos;o&amp;apos;, &amp;apos;u&amp;apos;)
+        size = len(s)
+        left, right = 0, size - 1
+        #将string转换为list
+        ls = list(s)
+        while True:
+            while left &amp;lt; size and s[left].lower() not in VOWELS:
+                left += 1
+            while right &amp;gt;= 0 and s[right].lower() not in VOWELS:
+                right -= 1
+            if left &amp;gt;= right: break
+            ls[left], ls[right] = ls[right], ls[left]
+            left, right = left + 1, right - 1
+        #list to string 
+        return &amp;apos;&amp;apos;.join(ls)
+
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    s = &amp;quot;leetcode&amp;quot;
+       print(Solution().reverseVowels(s))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注释一下：Python lower() 方法转换字符串中所有大写字符为小写。    &lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;参考了书影博客，知道了一种更加简单的方法，用正则表达式表示：  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def reverseVowels(self, s):
+      vowels = re.findall(&amp;apos;(?i)[aeiou]&amp;apos;, s)
+    return re.sub(&amp;apos;(?i)[aeiou]&amp;apos;, lambda m: vowels.pop(), s)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;(?i)[…]在正则表达式中的意思是忽略大小写对[]中的内容进行匹配&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;re.sub(repl, string[, count]) 或者 re.sub(pattern, repl, string[, count])&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;匿名函数lambda的使用：当我们在传入函数时，有些时候，不需要显式地定义函数，直接传入匿名函数更方便。&lt;br&gt;格式是lambda x: f(x)  &lt;/p&gt;
+&lt;p&gt; 这段代码的解释： vowels中存储着s中所有的元音元素，正则匹配中的sub方法替换vowels中pop出来的元素。   &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下一篇转载一篇好的讲正则表达式的博文。&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python正则表达式指南&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：元音字母的位置reverse，leecode—&amp;gt;leocede; hello—&amp;gt;holle&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:344--Reverse String</title>
     <link href="http://yoursite.com/2016/04/28/leetcode/reverse-string/"/>
     <id>http://yoursite.com/2016/04/28/leetcode/reverse-string/</id>
@@ -738,39 +873,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="字符串操作" scheme="http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
-    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
-    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
-    <published>2016-04-14T11:59:59.000Z</published>
-    <updated>2016-04-14T13:46:19.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ol&gt;
-&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
-&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
-&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
-    
-    
-      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
-    
-      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
     
   </entry>
   
@@ -840,6 +942,39 @@ f2.close()
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
+    <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
+    <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
+    <published>2016-04-14T11:59:59.000Z</published>
+    <updated>2016-04-14T13:46:19.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;显示遇到了Error when reading from SSL socket connection：SSLsocket问题&lt;br&gt;经过各种Google，在dell的技术支持论坛上，找到了solution：&lt;br&gt;换java的版本，奇葩吧，就是这么奇葩，换成了jre-8u25-windows-x64后就可以正常的打开了。&lt;br&gt;2．PR1067023&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/error.png&quot; alt=&quot;error&quot;&gt;&lt;br&gt;3.要去掉media中的session(dell中的media挂载虚拟镜像的时候只能挂载一个)&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/dell.png&quot; alt=&quot;dell&quot;&gt;&lt;br&gt;下面是处理问题3的步骤:&lt;br&gt;This site requires JavaScript to be enabled&lt;br&gt;Also I upgraded the privileges on the “vmware” account on the ILO/DRAC. If there is an existing Virtual Media session running that needs to be stop, you can manually kill it. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Here are the steps: &lt;/strong&gt;&lt;br&gt;1.) SSH into (drivername)-ilo&lt;br&gt;2.) credentials: vmware/######&lt;br&gt;3.) run the command “racadm racreset”  &lt;/p&gt;
+&lt;p&gt;Running racadm racreset will kill all sessions connecting to esx170-ilo. Give it 2 minutes to reboot and you can log back into the ILO via HTTP/HTTPS/SSH.. etc.&lt;br&gt;If your desktop continues to have problems mounting the ISO, let me know and I can re-route this ticket to the desktop team in your region.&lt;br&gt;If there is an existing Virtual Media session running that needs to be stop, you can manually kill it.  &lt;/p&gt;
+&lt;p&gt;4.然而今天经过了一天的尝试,还是出现2所示的error,各种厚脸皮的询问下,得到如下解法:&lt;br&gt;在重启的时候,F12进入boot menu,选择从本地启动,然后,下拉第二个选项,就可以正确的打开ilo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在此特别感谢chengcheng姐不厌其烦的帮助,还有璐璐姐的帮助.^_^&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h3&gt;&lt;p&gt;Sin2-pekcpd045是一个非常老的driver，  Dell Remote Access Controller 5 ，废话不多说，直接开始讲一路上的艰辛。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="driver" scheme="http://yoursite.com/categories/driver/"/>
+    
+    
+      <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
+    
+      <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
     
   </entry>
   
@@ -1049,155 +1184,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:19--Remove Nth Node From End of List</title>
-    <link href="http://yoursite.com/2016/04/07/leetcode/remove-nth-node-from-end-of-list/"/>
-    <id>http://yoursite.com/2016/04/07/leetcode/remove-nth-node-from-end-of-list/</id>
-    <published>2016-04-07T11:59:59.000Z</published>
-    <updated>2016-04-13T15:21:14.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：n是链表从后向前数第n个结点，删除该结点&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;我的想法是先求出链表的长度，然后求出从前向后遍历链表时倒数第n个结点的position。&lt;br&gt;需要注意的是，边界值的判断：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;n=0时，return head &lt;/li&gt;
-&lt;li&gt;head为空时，return None&lt;/li&gt;
-&lt;li&gt;position&amp;lt;0时，此时说明要删除的元素为头元素，则return head.next.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class ListNode(object):
-    def __init__(self, x):
-         self.val = x
-         self.next = None
-    def __repr__(self):
-        if self is None:
-            return &amp;quot;Nil&amp;quot;
-        else:
-            return &amp;quot;{} -&amp;gt; {}&amp;quot;.format(self.val, repr(self.next))
-
-class Solution(object):
-    def removeNthFromEnd(self, head, n):
-        if n == 0:
-            return head
-        if head == None:
-            return None
-        len = 0
-        temp1 = head
-        while(temp1):
-            len += 1
-            temp1 = temp1.next
-        position = len - n - 1
-        print(position)
-
-        if position &amp;lt; 0:
-            return head.next
-
-        temp2 = head
-        while position &amp;gt; 0:
-            temp2 = temp2.next
-            position -= 1
-        if temp2.next.next != None:
-            temp2.next = temp2.next.next
-        else :
-            temp2.next = None
-        return head
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    head = ListNode(1)
-    head.next = ListNode(2)
-    #head.next, head.next.next, head.next.next.next,head.next.next.next.next = ListNode(2),ListNode(3),ListNode(4),ListNode(5)
-    n = 2
-    newhead = Solution().removeNthFromEnd(head, n)
-    while(head):
-        print(head.val)
-        head = head.next
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：n是链表从后向前数第n个结点，删除该结点&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:223--Rectangle Area</title>
-    <link href="http://yoursite.com/2016/04/06/leetcode/rectangle-area/"/>
-    <id>http://yoursite.com/2016/04/06/leetcode/rectangle-area/</id>
-    <published>2016-04-06T11:59:59.000Z</published>
-    <updated>2016-04-11T16:02:13.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角&lt;br&gt;(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;            &lt;strong&gt;覆盖面积=总面积 - 重叠面积&lt;/strong&gt;&lt;br&gt;1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和&lt;br&gt;2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution(object):
-    def computeArea(self, A, B, C, D, E, F, G, H):
-        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
-        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
-        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
-        #覆盖面积=总面积 - 重叠面积
-        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
-        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
-        area = (D - B)*(C - A) + (H -F)*(G - E)
-        #两个矩形不相交的情况
-        if B &amp;gt;= H or E &amp;gt;= C or A &amp;gt;= G or F &amp;gt;= D:
-            return area  
-        #相交的情况下,求相交矩形的左下角和右上角
-        leftbottomx = max(A, E)
-        leftbottomy = max(B, F)
-        righttopx = min(C, G)
-        righttopy = min(D, H)
-
-        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
-
-if __name__ ==&amp;quot;__main__&amp;quot;:
-    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png&quot; alt=&quot;retangle_area&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/jobs/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
     
   </entry>
   
