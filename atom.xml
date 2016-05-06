@@ -19,7 +19,7 @@
     <title>5月份计划</title>
     <link href="http://yoursite.com/2016/05/06/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
     <id>http://yoursite.com/2016/05/06/plan/5月份计划/</id>
-    <published>2016-05-06T13:24:24.305Z</published>
+    <published>2016-05-06T13:29:00.183Z</published>
     <updated>2016-04-29T11:31:33.000Z</updated>
     
     <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
@@ -47,7 +47,7 @@
     <link href="http://yoursite.com/2016/05/06/statistics/statistics2/"/>
     <id>http://yoursite.com/2016/05/06/statistics/statistics2/</id>
     <published>2016-05-06T11:59:59.000Z</published>
-    <updated>2016-05-06T13:23:34.000Z</updated>
+    <updated>2016-05-06T13:28:42.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。&lt;br&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
 &lt;p&gt;条件概率的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG&quot; alt=&quot;条件概率假设空间&quot;&gt;&lt;/p&gt;
@@ -59,10 +59,10 @@
 &lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 &lt;p&gt; 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失&lt;/p&gt;
 &lt;h4 id=&quot;经验损失&quot;&gt;&lt;a href=&quot;#经验损失&quot; class=&quot;headerlink&quot; title=&quot;经验损失&quot;&gt;&lt;/a&gt;经验损失&lt;/h4&gt;&lt;p&gt;给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  &lt;/p&gt;
-&lt;p&gt;####经验风险最小化（ERM）&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）&lt;/p&gt;
-&lt;p&gt;####结构风险最小化（SRM）&lt;br&gt;防止过拟合而产生的&lt;br&gt;定义：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;J(f)为模型的复杂度 &lt;/p&gt;
+&lt;h4 id=&quot;经验风险最小化（ERM）&quot;&gt;&lt;a href=&quot;#经验风险最小化（ERM）&quot; class=&quot;headerlink&quot; title=&quot;经验风险最小化（ERM）&quot;&gt;&lt;/a&gt;经验风险最小化（ERM）&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）&lt;/p&gt;
+&lt;h4 id=&quot;结构风险最小化（SRM）&quot;&gt;&lt;a href=&quot;#结构风险最小化（SRM）&quot; class=&quot;headerlink&quot; title=&quot;结构风险最小化（SRM）&quot;&gt;&lt;/a&gt;结构风险最小化（SRM）&lt;/h4&gt;&lt;p&gt;防止过拟合而产生的&lt;br&gt;定义：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;J(f)为模型的复杂度 &lt;/p&gt;
 &lt;p&gt;最小化：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;##算法&lt;br&gt;最优化的解法！&lt;/p&gt;
+&lt;h2 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h2&gt;&lt;p&gt;最优化的解法！&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -178,45 +178,6 @@ P A H  N A P L S I  I  G Y I  R
   </entry>
   
   <entry>
-    <title>监督学习（5.5号读书笔记）</title>
-    <link href="http://yoursite.com/2016/05/05/statistics/statistics-01/"/>
-    <id>http://yoursite.com/2016/05/05/statistics/statistics-01/</id>
-    <published>2016-05-05T11:59:59.000Z</published>
-    <updated>2016-05-05T15:13:34.000Z</updated>
-    
-    <content type="html">&lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;统计学简介：统计学习的方法是基于数据构建统计模型从而对数据进行预测与分析。统计学习有&lt;strong&gt;监督学习&lt;/strong&gt;、&lt;strong&gt;非监督学习&lt;/strong&gt;、&lt;strong&gt;半监督学习&lt;/strong&gt;、&lt;strong&gt;强化学习&lt;/strong&gt;等组成。&lt;br&gt;统计学习的方法可以概括如下：从给定的、有限的、用于学习的训练数据（training data）集合出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个函数的集合，称为假设空间(hypothesis space); 应用某个评价准则， 从假设空间中选取一个最优的模型， 使它对已知训练数据及未知测试数据(test data)在给定的评价标准下有最优的预测；最优模型的选取由算法实现。&lt;br&gt;这样，统计学习方法包括模型的假设空间、模型选择的准则以及模型学习的算法，称其为三要素，model，strategy，algorithm&lt;/p&gt;
-&lt;h2 id=&quot;1-1基本概念&quot;&gt;&lt;a href=&quot;#1-1基本概念&quot; class=&quot;headerlink&quot; title=&quot;1.1基本概念&quot;&gt;&lt;/a&gt;1.1基本概念&lt;/h2&gt;&lt;h3 id=&quot;1-输入空间、特征空间、输出空间&quot;&gt;&lt;a href=&quot;#1-输入空间、特征空间、输出空间&quot; class=&quot;headerlink&quot; title=&quot;1.输入空间、特征空间、输出空间&quot;&gt;&lt;/a&gt;1.输入空间、特征空间、输出空间&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;输入空间：&lt;/strong&gt;X={x1,x2,x3,x4,…xi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;&lt;strong&gt;输出空间：&lt;/strong&gt;Y={y1,y2,y2,y3,…yi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;输入空间与输出空间可能是同一个空间，也可能不是，一般输出空间要远小于输入空间。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;特征空间：&lt;/strong&gt;每个具体的输入是一个特征向量，由特征向量组成的空间为特征空间。 &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;训练数据&lt;/strong&gt;（training data）：输入+输出 成对组成 (test data 同样)&lt;br&gt;                         &lt;code&gt;T = {(x1,y1),....}&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-联合概率分布&quot;&gt;&lt;a href=&quot;#2-联合概率分布&quot; class=&quot;headerlink&quot; title=&quot;2.联合概率分布&quot;&gt;&lt;/a&gt;2.联合概率分布&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;有监督学习假设&lt;/strong&gt;X,Y遵循联合概率分布P(X, Y), 我们只是假设它存在，但是对于学习系统，联合概率分布的具体定义是未知的。    &lt;/p&gt;
-&lt;p&gt;training data 和test data被看做是依联合概率分布P(X,Y)&lt;strong&gt;独立同分布产生&lt;/strong&gt;的。    &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;X和Y具有联合概率分布的假设是统计学习关于数据的基本假设&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3-假设空间&quot;&gt;&lt;a href=&quot;#3-假设空间&quot; class=&quot;headerlink&quot; title=&quot;3.假设空间&quot;&gt;&lt;/a&gt;3.假设空间&lt;/h3&gt;&lt;p&gt;输入输出空间的映射的集合是&lt;strong&gt;假设空间&lt;/strong&gt;.&lt;br&gt;&lt;strong&gt;模型&lt;/strong&gt;属于假设空间,目的是找到这个模型， 可以是概率的或者非概率模型。&lt;/p&gt;
-&lt;h2 id=&quot;1-2-问题形式化&quot;&gt;&lt;a href=&quot;#1-2-问题形式化&quot; class=&quot;headerlink&quot; title=&quot;1.2 问题形式化&quot;&gt;&lt;/a&gt;1.2 问题形式化&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:257--Binary Tree Paths</title>
     <link href="http://yoursite.com/2016/05/05/leetcode/binary-tree-paths/"/>
     <id>http://yoursite.com/2016/05/05/leetcode/binary-tree-paths/</id>
@@ -307,6 +268,99 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="二叉树DFS遍历" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91DFS%E9%81%8D%E5%8E%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>监督学习（5.5号读书笔记）</title>
+    <link href="http://yoursite.com/2016/05/05/statistics/statistics-01/"/>
+    <id>http://yoursite.com/2016/05/05/statistics/statistics-01/</id>
+    <published>2016-05-05T11:59:59.000Z</published>
+    <updated>2016-05-05T15:13:34.000Z</updated>
+    
+    <content type="html">&lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;统计学简介：统计学习的方法是基于数据构建统计模型从而对数据进行预测与分析。统计学习有&lt;strong&gt;监督学习&lt;/strong&gt;、&lt;strong&gt;非监督学习&lt;/strong&gt;、&lt;strong&gt;半监督学习&lt;/strong&gt;、&lt;strong&gt;强化学习&lt;/strong&gt;等组成。&lt;br&gt;统计学习的方法可以概括如下：从给定的、有限的、用于学习的训练数据（training data）集合出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个函数的集合，称为假设空间(hypothesis space); 应用某个评价准则， 从假设空间中选取一个最优的模型， 使它对已知训练数据及未知测试数据(test data)在给定的评价标准下有最优的预测；最优模型的选取由算法实现。&lt;br&gt;这样，统计学习方法包括模型的假设空间、模型选择的准则以及模型学习的算法，称其为三要素，model，strategy，algorithm&lt;/p&gt;
+&lt;h2 id=&quot;1-1基本概念&quot;&gt;&lt;a href=&quot;#1-1基本概念&quot; class=&quot;headerlink&quot; title=&quot;1.1基本概念&quot;&gt;&lt;/a&gt;1.1基本概念&lt;/h2&gt;&lt;h3 id=&quot;1-输入空间、特征空间、输出空间&quot;&gt;&lt;a href=&quot;#1-输入空间、特征空间、输出空间&quot; class=&quot;headerlink&quot; title=&quot;1.输入空间、特征空间、输出空间&quot;&gt;&lt;/a&gt;1.输入空间、特征空间、输出空间&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;输入空间：&lt;/strong&gt;X={x1,x2,x3,x4,…xi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;&lt;strong&gt;输出空间：&lt;/strong&gt;Y={y1,y2,y2,y3,…yi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;输入空间与输出空间可能是同一个空间，也可能不是，一般输出空间要远小于输入空间。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特征空间：&lt;/strong&gt;每个具体的输入是一个特征向量，由特征向量组成的空间为特征空间。 &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;训练数据&lt;/strong&gt;（training data）：输入+输出 成对组成 (test data 同样)&lt;br&gt;                         &lt;code&gt;T = {(x1,y1),....}&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-联合概率分布&quot;&gt;&lt;a href=&quot;#2-联合概率分布&quot; class=&quot;headerlink&quot; title=&quot;2.联合概率分布&quot;&gt;&lt;/a&gt;2.联合概率分布&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;有监督学习假设&lt;/strong&gt;X,Y遵循联合概率分布P(X, Y), 我们只是假设它存在，但是对于学习系统，联合概率分布的具体定义是未知的。    &lt;/p&gt;
+&lt;p&gt;training data 和test data被看做是依联合概率分布P(X,Y)&lt;strong&gt;独立同分布产生&lt;/strong&gt;的。    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;X和Y具有联合概率分布的假设是统计学习关于数据的基本假设&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-假设空间&quot;&gt;&lt;a href=&quot;#3-假设空间&quot; class=&quot;headerlink&quot; title=&quot;3.假设空间&quot;&gt;&lt;/a&gt;3.假设空间&lt;/h3&gt;&lt;p&gt;输入输出空间的映射的集合是&lt;strong&gt;假设空间&lt;/strong&gt;.&lt;br&gt;&lt;strong&gt;模型&lt;/strong&gt;属于假设空间,目的是找到这个模型， 可以是概率的或者非概率模型。&lt;/p&gt;
+&lt;h2 id=&quot;1-2-问题形式化&quot;&gt;&lt;a href=&quot;#1-2-问题形式化&quot; class=&quot;headerlink&quot; title=&quot;1.2 问题形式化&quot;&gt;&lt;/a&gt;1.2 问题形式化&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:58--Length of Last Word</title>
+    <link href="http://yoursite.com/2016/05/03/leetcode/length-of-last-word/"/>
+    <id>http://yoursite.com/2016/05/03/leetcode/length-of-last-word/</id>
+    <published>2016-05-03T11:59:59.000Z</published>
+    <updated>2016-05-03T15:41:32.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
+&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
+&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题只要能想到用Python中对应的函数，就非常快的能够解决，strip([chars])函数，官方解释是：Return a copy of the string with the leading and trailing characters removed.删除头和尾的字串。在这里正好可以满足像&lt;code&gt;“a   “&lt;/code&gt;这样的字串空格的过滤。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#-*-coding:utf-8-*-
+class Solution(object):
+    def lengthOfLastWord(self, s):
+       #这里用到strip(rm)函数，strip可以删除s开头和结尾的rm，若为空，默认删除开头和结尾的空白字符
+       return len(s.strip().split(&amp;quot; &amp;quot;)[-1])
+if __name__ == &amp;quot;__main__&amp;quot;:
+
+    print(Solution().lengthOfLastWord(&amp;quot;&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=strip#str.strip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python 中 strip()函数 官方解释&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/kaituorensheng/archive/2013/05/23/3096028.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strip()中文解释应用&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
+&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
+&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="strip()函数" scheme="http://yoursite.com/tags/strip-%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="list" scheme="http://yoursite.com/tags/list/"/>
     
   </entry>
   
@@ -547,60 +601,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
     
       <category term="set" scheme="http://yoursite.com/tags/set/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:58--Length of Last Word</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/length-of-last-word/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/length-of-last-word/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-03T15:41:32.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题只要能想到用Python中对应的函数，就非常快的能够解决，strip([chars])函数，官方解释是：Return a copy of the string with the leading and trailing characters removed.删除头和尾的字串。在这里正好可以满足像&lt;code&gt;“a   “&lt;/code&gt;这样的字串空格的过滤。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;    &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#-*-coding:utf-8-*-
-class Solution(object):
-    def lengthOfLastWord(self, s):
-       #这里用到strip(rm)函数，strip可以删除s开头和结尾的rm，若为空，默认删除开头和结尾的空白字符
-       return len(s.strip().split(&amp;quot; &amp;quot;)[-1])
-if __name__ == &amp;quot;__main__&amp;quot;:
-
-    print(Solution().lengthOfLastWord(&amp;quot;&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=strip#str.strip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python 中 strip()函数 官方解释&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/kaituorensheng/archive/2013/05/23/3096028.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strip()中文解释应用&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="strip()函数" scheme="http://yoursite.com/tags/strip-%E5%87%BD%E6%95%B0/"/>
-    
-      <category term="list" scheme="http://yoursite.com/tags/list/"/>
     
   </entry>
   
@@ -1041,44 +1041,6 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
   </entry>
   
   <entry>
-    <title>摆渡人 作者:(英)克莱尔 麦克福尔</title>
-    <link href="http://yoursite.com/2016/04/11/life/life-book-ferryman/"/>
-    <id>http://yoursite.com/2016/04/11/life/life-book-ferryman/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-11T16:07:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;故事梗概&quot;&gt;&lt;a href=&quot;#故事梗概&quot; class=&quot;headerlink&quot; title=&quot;故事梗概:&quot;&gt;&lt;/a&gt;故事梗概:&lt;/h2&gt;&lt;p&gt;这个故事的主人公是迪伦和崔斯坦,从名字来判断,我觉得迪伦应该是个穿着格子衬衣,打扮的如同牛仔的西部女孩,小说里她是一个苏格兰女孩,自幼父母离异,从来没有见过父亲的她,决定不辞而别,离开她的母亲,踏上看望父亲的旅程,就是在旅程中,火车发生了事故,导致她的灵魂脱壳,遇见了她的灵魂摆渡人—崔斯坦,崔斯坦,听着这个名字,感觉起来就像是一个动漫里银发碧眼温柔的男孩纸,小说中崔斯坦有着钴蓝色的眼睛,金色的头发,精致的五官,完全是迪伦喜欢的样子,就这样他们相遇,并一起穿越迪伦内心所映射的荒原,中途中一次又一次并肩战胜恶魔,让他们两个人产生了不一样的情愫.当崔斯坦将迪伦送到荒原与家的分界线时,他们决定一起踏入”家”,我认为这里的家应该称为heaven,崔斯坦发现自己并不能跨进那条界线,而跨进了heaven的迪伦则误会崔斯坦对她的感情.迪伦为了找到崔斯坦问个明白,其实是因为她内心真的特别的爱崔斯坦,于是开始了她艰难的返回荒原的旅程,我认为全书最精彩的部分,莫过于迪伦勇敢的返回荒原,独自一个人战胜恶魔,找到崔斯坦的过程.在迪伦的鼓励下,崔斯坦决定试试能不能和迪伦一起回到人间,当他们因为爱而勇敢的面对现实和未来的时候,奇迹发生了,他们一起回到了人间世界,清楚的记得全书最后,两个人的对白:”原来你在这里””我在这里”&lt;/p&gt;
-&lt;h2 id=&quot;我的评价&quot;&gt;&lt;a href=&quot;#我的评价&quot; class=&quot;headerlink&quot; title=&quot;我的评价:&quot;&gt;&lt;/a&gt;我的评价:&lt;/h2&gt;&lt;p&gt;I exist because you need me.这是崔斯坦对迪伦说的一句话,如果我真的存在,也是因为你需要我.治愈系满分的小说,尤其是在失恋后,挫折时,读完后简直会觉得少女心爆棚,人间有真情,人间有真爱啊!很佩服迪伦折回寻找崔斯坦的勇气,很佩服她能够冒着魂飞魄散的危险去做大胆的尝试.我觉得她身上的那种勇敢值得我去学习.如果说呆在一个安稳的heaven里面,只能是无尽的等待,得不到自己想要的东西,想爱的人,何不去冒险?去尝试,勇敢的迈开自己的脚步,也许会失败,但是至少内心不会后悔.&lt;br&gt;再说细节部分,我觉得作者的细节描写还是蛮好的,荒原的景象,人物的心理和形象都还算细致,栩栩如生.&lt;/p&gt;
-&lt;h2 id=&quot;相关链接&quot;&gt;&lt;a href=&quot;#相关链接&quot; class=&quot;headerlink&quot; title=&quot;相关链接:&quot;&gt;&lt;/a&gt;相关链接:&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26356948/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;豆瓣读书—摆渡人&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/33982768&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—摆渡人是否过誉?&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/28019019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—你对摆渡人的理解?&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-      <category term="foreign literature" scheme="http://yoursite.com/categories/life/foreign-literature/"/>
-    
-      <category term="治愈系" scheme="http://yoursite.com/categories/life/foreign-literature/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
-      <category term="foreign fiction" scheme="http://yoursite.com/tags/foreign-fiction/"/>
-    
-      <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
-    
-      <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:121--Best Time to Buy and Sell Stock</title>
     <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
     <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
@@ -1184,6 +1146,44 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>摆渡人 作者:(英)克莱尔 麦克福尔</title>
+    <link href="http://yoursite.com/2016/04/11/life/life-book-ferryman/"/>
+    <id>http://yoursite.com/2016/04/11/life/life-book-ferryman/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-11T16:07:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;故事梗概&quot;&gt;&lt;a href=&quot;#故事梗概&quot; class=&quot;headerlink&quot; title=&quot;故事梗概:&quot;&gt;&lt;/a&gt;故事梗概:&lt;/h2&gt;&lt;p&gt;这个故事的主人公是迪伦和崔斯坦,从名字来判断,我觉得迪伦应该是个穿着格子衬衣,打扮的如同牛仔的西部女孩,小说里她是一个苏格兰女孩,自幼父母离异,从来没有见过父亲的她,决定不辞而别,离开她的母亲,踏上看望父亲的旅程,就是在旅程中,火车发生了事故,导致她的灵魂脱壳,遇见了她的灵魂摆渡人—崔斯坦,崔斯坦,听着这个名字,感觉起来就像是一个动漫里银发碧眼温柔的男孩纸,小说中崔斯坦有着钴蓝色的眼睛,金色的头发,精致的五官,完全是迪伦喜欢的样子,就这样他们相遇,并一起穿越迪伦内心所映射的荒原,中途中一次又一次并肩战胜恶魔,让他们两个人产生了不一样的情愫.当崔斯坦将迪伦送到荒原与家的分界线时,他们决定一起踏入”家”,我认为这里的家应该称为heaven,崔斯坦发现自己并不能跨进那条界线,而跨进了heaven的迪伦则误会崔斯坦对她的感情.迪伦为了找到崔斯坦问个明白,其实是因为她内心真的特别的爱崔斯坦,于是开始了她艰难的返回荒原的旅程,我认为全书最精彩的部分,莫过于迪伦勇敢的返回荒原,独自一个人战胜恶魔,找到崔斯坦的过程.在迪伦的鼓励下,崔斯坦决定试试能不能和迪伦一起回到人间,当他们因为爱而勇敢的面对现实和未来的时候,奇迹发生了,他们一起回到了人间世界,清楚的记得全书最后,两个人的对白:”原来你在这里””我在这里”&lt;/p&gt;
+&lt;h2 id=&quot;我的评价&quot;&gt;&lt;a href=&quot;#我的评价&quot; class=&quot;headerlink&quot; title=&quot;我的评价:&quot;&gt;&lt;/a&gt;我的评价:&lt;/h2&gt;&lt;p&gt;I exist because you need me.这是崔斯坦对迪伦说的一句话,如果我真的存在,也是因为你需要我.治愈系满分的小说,尤其是在失恋后,挫折时,读完后简直会觉得少女心爆棚,人间有真情,人间有真爱啊!很佩服迪伦折回寻找崔斯坦的勇气,很佩服她能够冒着魂飞魄散的危险去做大胆的尝试.我觉得她身上的那种勇敢值得我去学习.如果说呆在一个安稳的heaven里面,只能是无尽的等待,得不到自己想要的东西,想爱的人,何不去冒险?去尝试,勇敢的迈开自己的脚步,也许会失败,但是至少内心不会后悔.&lt;br&gt;再说细节部分,我觉得作者的细节描写还是蛮好的,荒原的景象,人物的心理和形象都还算细致,栩栩如生.&lt;/p&gt;
+&lt;h2 id=&quot;相关链接&quot;&gt;&lt;a href=&quot;#相关链接&quot; class=&quot;headerlink&quot; title=&quot;相关链接:&quot;&gt;&lt;/a&gt;相关链接:&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26356948/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;豆瓣读书—摆渡人&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/33982768&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—摆渡人是否过誉?&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/28019019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—你对摆渡人的理解?&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+      <category term="foreign literature" scheme="http://yoursite.com/categories/life/foreign-literature/"/>
+    
+      <category term="治愈系" scheme="http://yoursite.com/categories/life/foreign-literature/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+    
+      <category term="foreign fiction" scheme="http://yoursite.com/tags/foreign-fiction/"/>
+    
+      <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
+    
+      <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
     
   </entry>
   
