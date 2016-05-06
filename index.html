@@ -272,7 +272,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T21:32:40+08:00" content="2016-05-06">
+            <time itemprop="dateCreated" datetime="2016-05-06T21:41:37+08:00" content="2016-05-06">
               2016-05-06
             </time>
           </span>
@@ -338,158 +338,9 @@
           
             <p>学习计划:<br>1.leetcode上的easy和medium难度的题目一定要刷完了!!!<br>2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.<br>3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)<br>4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  </p>
 <p>阅读计划:<br>1.技术类:统计学基础电子版<br>2.小说类:百年孤独  </p>
-<p>娱乐计划:<br>1.单反上的照片的归纳整理,打印出来几张好的照片,在网上做成明信片.<br>2.有时间的话把欢乐颂追完,没时间的话再说吧<br>3.约小伙伴出来次饭.  </p>
+<p>娱乐计划:<br>1.单反上的照片的归纳整理,打印出来几张好的照片,在网上做成明信片.<br>~~ 2.有时间的话把欢乐颂追完,没时间的话再说吧 ~~<br>~~ 3.约小伙伴出来次饭. ~~  </p>
 <p>财务计划:<br>不能再拖啦 把存折上的钱转到银行卡!!!再整到支付宝上!!!!  </p>
 <p>刚巴爹!!!</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/06/statistics/statistics2/" itemprop="url">
-                  监督学习之模型和策略（5.6号读书笔记）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T19:59:59+08:00" content="2016-05-06">
-              2016-05-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/统计学学习方法/" itemprop="url" rel="index">
-                    <span itemprop="name">统计学学习方法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/06/statistics/statistics2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/statistics/statistics2/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/06/statistics/statistics2/" class="leancloud_visitors" data-flag-title="监督学习之模型和策略（5.6号读书笔记）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="模型和策略"><a href="#模型和策略" class="headerlink" title="模型和策略"></a>模型和策略</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>监督学习过程中，模型就是所要学习的条件概率分布或决策函数。<br>模型的假设空间包含所有可能的条件概率分布或决策函数。<br><strong>假设空间</strong><br>用F表示：<br>决策函数的集合：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG" alt="决策函数假设空间"></p>
-<p>条件概率的集合：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG" alt="条件概率假设空间"></p>
-<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  </p>
-<p><strong>损失函数：</strong>度量模型一次预测的好坏<br><strong>风险函数：</strong>度量平均意义下模型预测的好坏  </p>
-<h4 id="常用的损失函数"><a href="#常用的损失函数" class="headerlink" title="常用的损失函数"></a>常用的损失函数</h4><p><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.PNG" alt=""></p>
-<p>损失函数值越小，模型越好。</p>
-<h4 id="风险函数（或称为期望损失）"><a href="#风险函数（或称为期望损失）" class="headerlink" title="风险函数（或称为期望损失）"></a>风险函数（或称为期望损失）</h4><p>期望损失，就是损失函数的期望值</p>
-<p><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG" alt="">  </p>
-<p> 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失</p>
-<h4 id="经验损失"><a href="#经验损失" class="headerlink" title="经验损失"></a>经验损失</h4><p>给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG" alt=""><br>大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  </p>
-<h4 id="经验风险最小化（ERM）"><a href="#经验风险最小化（ERM）" class="headerlink" title="经验风险最小化（ERM）"></a>经验风险最小化（ERM）</h4><p><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG" alt=""><br>当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）</p>
-<h4 id="结构风险最小化（SRM）"><a href="#结构风险最小化（SRM）" class="headerlink" title="结构风险最小化（SRM）"></a>结构风险最小化（SRM）</h4><p>防止过拟合而产生的<br>定义：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG" alt=""><br>J(f)为模型的复杂度 </p>
-<p>最小化：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG" alt=""></p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>最优化的解法！</p>
 
           
         
@@ -703,8 +554,8 @@ P A H  N A P L S I  I  G Y I  R
             
               
                 
-                <a class="post-title-link" href="/2016/05/05/statistics/statistics-01/" itemprop="url">
-                  监督学习（5.5号读书笔记）
+                <a class="post-title-link" href="/2016/05/06/statistics/statistics2/" itemprop="url">
+                  监督学习之模型和策略（5.6号读书笔记）
                 </a>
               
             
@@ -717,8 +568,8 @@ P A H  N A P L S I  I  G Y I  R
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T19:59:59+08:00" content="2016-05-05">
-              2016-05-05
+            <time itemprop="dateCreated" datetime="2016-05-06T19:59:59+08:00" content="2016-05-06">
+              2016-05-06
             </time>
           </span>
 
@@ -759,8 +610,8 @@ P A H  N A P L S I  I  G Y I  R
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/05/statistics/statistics-01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/statistics/statistics-01/" itemprop="commentsCount"></span>
+                <a href="/2016/05/06/statistics/statistics2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/statistics/statistics2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -770,7 +621,7 @@ P A H  N A P L S I  I  G Y I  R
 
           
           
-             <span id="/2016/05/05/statistics/statistics-01/" class="leancloud_visitors" data-flag-title="监督学习（5.5号读书笔记）">
+             <span id="/2016/05/06/statistics/statistics2/" class="leancloud_visitors" data-flag-title="监督学习之模型和策略（5.6号读书笔记）">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -792,12 +643,23 @@ P A H  N A P L S I  I  G Y I  R
 
       
         
-          <p>前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/05/statistics/statistics-01/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="模型和策略"><a href="#模型和策略" class="headerlink" title="模型和策略"></a>模型和策略</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>监督学习过程中，模型就是所要学习的条件概率分布或决策函数。<br>模型的假设空间包含所有可能的条件概率分布或决策函数。<br><strong>假设空间</strong><br>用F表示：<br>决策函数的集合：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG" alt="决策函数假设空间"></p>
+<p>条件概率的集合：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG" alt="条件概率假设空间"></p>
+<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  </p>
+<p><strong>损失函数：</strong>度量模型一次预测的好坏<br><strong>风险函数：</strong>度量平均意义下模型预测的好坏  </p>
+<h4 id="常用的损失函数"><a href="#常用的损失函数" class="headerlink" title="常用的损失函数"></a>常用的损失函数</h4><p><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.PNG" alt=""></p>
+<p>损失函数值越小，模型越好。</p>
+<h4 id="风险函数（或称为期望损失）"><a href="#风险函数（或称为期望损失）" class="headerlink" title="风险函数（或称为期望损失）"></a>风险函数（或称为期望损失）</h4><p>期望损失，就是损失函数的期望值</p>
+<p><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG" alt="">  </p>
+<p> 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失</p>
+<h4 id="经验损失"><a href="#经验损失" class="headerlink" title="经验损失"></a>经验损失</h4><p>给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG" alt=""><br>大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  </p>
+<h4 id="经验风险最小化（ERM）"><a href="#经验风险最小化（ERM）" class="headerlink" title="经验风险最小化（ERM）"></a>经验风险最小化（ERM）</h4><p><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG" alt=""><br>当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）</p>
+<h4 id="结构风险最小化（SRM）"><a href="#结构风险最小化（SRM）" class="headerlink" title="结构风险最小化（SRM）"></a>结构风险最小化（SRM）</h4><p>防止过拟合而产生的<br>定义：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG" alt=""><br>J(f)为模型的复杂度 </p>
+<p>最小化：<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG" alt=""></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>最优化的解法！</p>
+
+          
         
       
     </div>
@@ -953,6 +815,144 @@ P A H  N A P L S I  I  G Y I  R
 </code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/05/leetcode/binary-tree-paths/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/05/statistics/statistics-01/" itemprop="url">
+                  监督学习（5.5号读书笔记）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-05T19:59:59+08:00" content="2016-05-05">
+              2016-05-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/统计学学习方法/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学学习方法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/05/statistics/statistics-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/statistics/statistics-01/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/05/statistics/statistics-01/" class="leancloud_visitors" data-flag-title="监督学习（5.5号读书笔记）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/05/statistics/statistics-01/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

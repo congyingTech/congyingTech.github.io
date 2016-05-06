@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-29T11:31:33.000Z</updated>
+  <updated>2016-05-06T13:40:22.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,12 +19,12 @@
     <title>5月份计划</title>
     <link href="http://yoursite.com/2016/05/06/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
     <id>http://yoursite.com/2016/05/06/plan/5月份计划/</id>
-    <published>2016-05-06T13:32:40.242Z</published>
-    <updated>2016-04-29T11:31:33.000Z</updated>
+    <published>2016-05-06T13:41:37.969Z</published>
+    <updated>2016-05-06T13:40:22.000Z</updated>
     
     <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
 &lt;p&gt;阅读计划:&lt;br&gt;1.技术类:统计学基础电子版&lt;br&gt;2.小说类:百年孤独  &lt;/p&gt;
-&lt;p&gt;娱乐计划:&lt;br&gt;1.单反上的照片的归纳整理,打印出来几张好的照片,在网上做成明信片.&lt;br&gt;2.有时间的话把欢乐颂追完,没时间的话再说吧&lt;br&gt;3.约小伙伴出来次饭.  &lt;/p&gt;
+&lt;p&gt;娱乐计划:&lt;br&gt;1.单反上的照片的归纳整理,打印出来几张好的照片,在网上做成明信片.&lt;br&gt;~~ 2.有时间的话把欢乐颂追完,没时间的话再说吧 ~~&lt;br&gt;~~ 3.约小伙伴出来次饭. ~~  &lt;/p&gt;
 &lt;p&gt;财务计划:&lt;br&gt;不能再拖啦 把存折上的钱转到银行卡!!!再整到支付宝上!!!!  &lt;/p&gt;
 &lt;p&gt;刚巴爹!!!&lt;/p&gt;
 </content>
@@ -39,48 +39,6 @@
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>监督学习之模型和策略（5.6号读书笔记）</title>
-    <link href="http://yoursite.com/2016/05/06/statistics/statistics2/"/>
-    <id>http://yoursite.com/2016/05/06/statistics/statistics2/</id>
-    <published>2016-05-06T11:59:59.000Z</published>
-    <updated>2016-05-06T13:31:46.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。&lt;br&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
-&lt;p&gt;条件概率的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG&quot; alt=&quot;条件概率假设空间&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;策略&quot;&gt;&lt;a href=&quot;#策略&quot; class=&quot;headerlink&quot; title=&quot;策略&quot;&gt;&lt;/a&gt;策略&lt;/h3&gt;&lt;p&gt;有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;损失函数：&lt;/strong&gt;度量模型一次预测的好坏&lt;br&gt;&lt;strong&gt;风险函数：&lt;/strong&gt;度量平均意义下模型预测的好坏  &lt;/p&gt;
-&lt;h4 id=&quot;常用的损失函数&quot;&gt;&lt;a href=&quot;#常用的损失函数&quot; class=&quot;headerlink&quot; title=&quot;常用的损失函数&quot;&gt;&lt;/a&gt;常用的损失函数&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;损失函数值越小，模型越好。&lt;/p&gt;
-&lt;h4 id=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;a href=&quot;#风险函数（或称为期望损失）&quot; class=&quot;headerlink&quot; title=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;/a&gt;风险函数（或称为期望损失）&lt;/h4&gt;&lt;p&gt;期望损失，就是损失函数的期望值&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
-&lt;p&gt; 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失&lt;/p&gt;
-&lt;h4 id=&quot;经验损失&quot;&gt;&lt;a href=&quot;#经验损失&quot; class=&quot;headerlink&quot; title=&quot;经验损失&quot;&gt;&lt;/a&gt;经验损失&lt;/h4&gt;&lt;p&gt;给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  &lt;/p&gt;
-&lt;h4 id=&quot;经验风险最小化（ERM）&quot;&gt;&lt;a href=&quot;#经验风险最小化（ERM）&quot; class=&quot;headerlink&quot; title=&quot;经验风险最小化（ERM）&quot;&gt;&lt;/a&gt;经验风险最小化（ERM）&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）&lt;/p&gt;
-&lt;h4 id=&quot;结构风险最小化（SRM）&quot;&gt;&lt;a href=&quot;#结构风险最小化（SRM）&quot; class=&quot;headerlink&quot; title=&quot;结构风险最小化（SRM）&quot;&gt;&lt;/a&gt;结构风险最小化（SRM）&lt;/h4&gt;&lt;p&gt;防止过拟合而产生的&lt;br&gt;定义：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;J(f)为模型的复杂度 &lt;/p&gt;
-&lt;p&gt;最小化：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h2&gt;&lt;p&gt;最优化的解法！&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
@@ -178,28 +136,31 @@ P A H  N A P L S I  I  G Y I  R
   </entry>
   
   <entry>
-    <title>监督学习（5.5号读书笔记）</title>
-    <link href="http://yoursite.com/2016/05/05/statistics/statistics-01/"/>
-    <id>http://yoursite.com/2016/05/05/statistics/statistics-01/</id>
-    <published>2016-05-05T11:59:59.000Z</published>
-    <updated>2016-05-05T15:13:34.000Z</updated>
+    <title>监督学习之模型和策略（5.6号读书笔记）</title>
+    <link href="http://yoursite.com/2016/05/06/statistics/statistics2/"/>
+    <id>http://yoursite.com/2016/05/06/statistics/statistics2/</id>
+    <published>2016-05-06T11:59:59.000Z</published>
+    <updated>2016-05-06T13:31:46.000Z</updated>
     
-    <content type="html">&lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;统计学简介：统计学习的方法是基于数据构建统计模型从而对数据进行预测与分析。统计学习有&lt;strong&gt;监督学习&lt;/strong&gt;、&lt;strong&gt;非监督学习&lt;/strong&gt;、&lt;strong&gt;半监督学习&lt;/strong&gt;、&lt;strong&gt;强化学习&lt;/strong&gt;等组成。&lt;br&gt;统计学习的方法可以概括如下：从给定的、有限的、用于学习的训练数据（training data）集合出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个函数的集合，称为假设空间(hypothesis space); 应用某个评价准则， 从假设空间中选取一个最优的模型， 使它对已知训练数据及未知测试数据(test data)在给定的评价标准下有最优的预测；最优模型的选取由算法实现。&lt;br&gt;这样，统计学习方法包括模型的假设空间、模型选择的准则以及模型学习的算法，称其为三要素，model，strategy，algorithm&lt;/p&gt;
-&lt;h2 id=&quot;1-1基本概念&quot;&gt;&lt;a href=&quot;#1-1基本概念&quot; class=&quot;headerlink&quot; title=&quot;1.1基本概念&quot;&gt;&lt;/a&gt;1.1基本概念&lt;/h2&gt;&lt;h3 id=&quot;1-输入空间、特征空间、输出空间&quot;&gt;&lt;a href=&quot;#1-输入空间、特征空间、输出空间&quot; class=&quot;headerlink&quot; title=&quot;1.输入空间、特征空间、输出空间&quot;&gt;&lt;/a&gt;1.输入空间、特征空间、输出空间&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;输入空间：&lt;/strong&gt;X={x1,x2,x3,x4,…xi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;&lt;strong&gt;输出空间：&lt;/strong&gt;Y={y1,y2,y2,y3,…yi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;输入空间与输出空间可能是同一个空间，也可能不是，一般输出空间要远小于输入空间。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;特征空间：&lt;/strong&gt;每个具体的输入是一个特征向量，由特征向量组成的空间为特征空间。 &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;训练数据&lt;/strong&gt;（training data）：输入+输出 成对组成 (test data 同样)&lt;br&gt;                         &lt;code&gt;T = {(x1,y1),....}&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-联合概率分布&quot;&gt;&lt;a href=&quot;#2-联合概率分布&quot; class=&quot;headerlink&quot; title=&quot;2.联合概率分布&quot;&gt;&lt;/a&gt;2.联合概率分布&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;有监督学习假设&lt;/strong&gt;X,Y遵循联合概率分布P(X, Y), 我们只是假设它存在，但是对于学习系统，联合概率分布的具体定义是未知的。    &lt;/p&gt;
-&lt;p&gt;training data 和test data被看做是依联合概率分布P(X,Y)&lt;strong&gt;独立同分布产生&lt;/strong&gt;的。    &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;X和Y具有联合概率分布的假设是统计学习关于数据的基本假设&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3-假设空间&quot;&gt;&lt;a href=&quot;#3-假设空间&quot; class=&quot;headerlink&quot; title=&quot;3.假设空间&quot;&gt;&lt;/a&gt;3.假设空间&lt;/h3&gt;&lt;p&gt;输入输出空间的映射的集合是&lt;strong&gt;假设空间&lt;/strong&gt;.&lt;br&gt;&lt;strong&gt;模型&lt;/strong&gt;属于假设空间,目的是找到这个模型， 可以是概率的或者非概率模型。&lt;/p&gt;
-&lt;h2 id=&quot;1-2-问题形式化&quot;&gt;&lt;a href=&quot;#1-2-问题形式化&quot; class=&quot;headerlink&quot; title=&quot;1.2 问题形式化&quot;&gt;&lt;/a&gt;1.2 问题形式化&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。&lt;br&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
+&lt;p&gt;条件概率的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG&quot; alt=&quot;条件概率假设空间&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;策略&quot;&gt;&lt;a href=&quot;#策略&quot; class=&quot;headerlink&quot; title=&quot;策略&quot;&gt;&lt;/a&gt;策略&lt;/h3&gt;&lt;p&gt;有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;损失函数：&lt;/strong&gt;度量模型一次预测的好坏&lt;br&gt;&lt;strong&gt;风险函数：&lt;/strong&gt;度量平均意义下模型预测的好坏  &lt;/p&gt;
+&lt;h4 id=&quot;常用的损失函数&quot;&gt;&lt;a href=&quot;#常用的损失函数&quot; class=&quot;headerlink&quot; title=&quot;常用的损失函数&quot;&gt;&lt;/a&gt;常用的损失函数&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;损失函数值越小，模型越好。&lt;/p&gt;
+&lt;h4 id=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;a href=&quot;#风险函数（或称为期望损失）&quot; class=&quot;headerlink&quot; title=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;/a&gt;风险函数（或称为期望损失）&lt;/h4&gt;&lt;p&gt;期望损失，就是损失函数的期望值&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt; 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失&lt;/p&gt;
+&lt;h4 id=&quot;经验损失&quot;&gt;&lt;a href=&quot;#经验损失&quot; class=&quot;headerlink&quot; title=&quot;经验损失&quot;&gt;&lt;/a&gt;经验损失&lt;/h4&gt;&lt;p&gt;给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  &lt;/p&gt;
+&lt;h4 id=&quot;经验风险最小化（ERM）&quot;&gt;&lt;a href=&quot;#经验风险最小化（ERM）&quot; class=&quot;headerlink&quot; title=&quot;经验风险最小化（ERM）&quot;&gt;&lt;/a&gt;经验风险最小化（ERM）&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）&lt;/p&gt;
+&lt;h4 id=&quot;结构风险最小化（SRM）&quot;&gt;&lt;a href=&quot;#结构风险最小化（SRM）&quot; class=&quot;headerlink&quot; title=&quot;结构风险最小化（SRM）&quot;&gt;&lt;/a&gt;结构风险最小化（SRM）&lt;/h4&gt;&lt;p&gt;防止过拟合而产生的&lt;br&gt;定义：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;J(f)为模型的复杂度 &lt;/p&gt;
+&lt;p&gt;最小化：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h2&gt;&lt;p&gt;最优化的解法！&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
+      &lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模
     
     </summary>
     
@@ -307,6 +268,45 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
       <category term="二叉树DFS遍历" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91DFS%E9%81%8D%E5%8E%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>监督学习（5.5号读书笔记）</title>
+    <link href="http://yoursite.com/2016/05/05/statistics/statistics-01/"/>
+    <id>http://yoursite.com/2016/05/05/statistics/statistics-01/</id>
+    <published>2016-05-05T11:59:59.000Z</published>
+    <updated>2016-05-05T15:13:34.000Z</updated>
+    
+    <content type="html">&lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;统计学简介：统计学习的方法是基于数据构建统计模型从而对数据进行预测与分析。统计学习有&lt;strong&gt;监督学习&lt;/strong&gt;、&lt;strong&gt;非监督学习&lt;/strong&gt;、&lt;strong&gt;半监督学习&lt;/strong&gt;、&lt;strong&gt;强化学习&lt;/strong&gt;等组成。&lt;br&gt;统计学习的方法可以概括如下：从给定的、有限的、用于学习的训练数据（training data）集合出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个函数的集合，称为假设空间(hypothesis space); 应用某个评价准则， 从假设空间中选取一个最优的模型， 使它对已知训练数据及未知测试数据(test data)在给定的评价标准下有最优的预测；最优模型的选取由算法实现。&lt;br&gt;这样，统计学习方法包括模型的假设空间、模型选择的准则以及模型学习的算法，称其为三要素，model，strategy，algorithm&lt;/p&gt;
+&lt;h2 id=&quot;1-1基本概念&quot;&gt;&lt;a href=&quot;#1-1基本概念&quot; class=&quot;headerlink&quot; title=&quot;1.1基本概念&quot;&gt;&lt;/a&gt;1.1基本概念&lt;/h2&gt;&lt;h3 id=&quot;1-输入空间、特征空间、输出空间&quot;&gt;&lt;a href=&quot;#1-输入空间、特征空间、输出空间&quot; class=&quot;headerlink&quot; title=&quot;1.输入空间、特征空间、输出空间&quot;&gt;&lt;/a&gt;1.输入空间、特征空间、输出空间&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;输入空间：&lt;/strong&gt;X={x1,x2,x3,x4,…xi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;&lt;strong&gt;输出空间：&lt;/strong&gt;Y={y1,y2,y2,y3,…yi} 可以是有限集，也可以是无限空间上的。&lt;br&gt;输入空间与输出空间可能是同一个空间，也可能不是，一般输出空间要远小于输入空间。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特征空间：&lt;/strong&gt;每个具体的输入是一个特征向量，由特征向量组成的空间为特征空间。 &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;训练数据&lt;/strong&gt;（training data）：输入+输出 成对组成 (test data 同样)&lt;br&gt;                         &lt;code&gt;T = {(x1,y1),....}&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-联合概率分布&quot;&gt;&lt;a href=&quot;#2-联合概率分布&quot; class=&quot;headerlink&quot; title=&quot;2.联合概率分布&quot;&gt;&lt;/a&gt;2.联合概率分布&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;有监督学习假设&lt;/strong&gt;X,Y遵循联合概率分布P(X, Y), 我们只是假设它存在，但是对于学习系统，联合概率分布的具体定义是未知的。    &lt;/p&gt;
+&lt;p&gt;training data 和test data被看做是依联合概率分布P(X,Y)&lt;strong&gt;独立同分布产生&lt;/strong&gt;的。    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;X和Y具有联合概率分布的假设是统计学习关于数据的基本假设&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-假设空间&quot;&gt;&lt;a href=&quot;#3-假设空间&quot; class=&quot;headerlink&quot; title=&quot;3.假设空间&quot;&gt;&lt;/a&gt;3.假设空间&lt;/h3&gt;&lt;p&gt;输入输出空间的映射的集合是&lt;strong&gt;假设空间&lt;/strong&gt;.&lt;br&gt;&lt;strong&gt;模型&lt;/strong&gt;属于假设空间,目的是找到这个模型， 可以是概率的或者非概率模型。&lt;/p&gt;
+&lt;h2 id=&quot;1-2-问题形式化&quot;&gt;&lt;a href=&quot;#1-2-问题形式化&quot; class=&quot;headerlink&quot; title=&quot;1.2 问题形式化&quot;&gt;&lt;/a&gt;1.2 问题形式化&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前言：从这个月开始阅读《统计学学习方法这本书》，不能再拖了呀！感觉再拖就真的不好啦~坚持每天下班之后读一个小时，然后在此做一下读书笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
