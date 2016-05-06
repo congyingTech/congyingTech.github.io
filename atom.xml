@@ -19,7 +19,7 @@
     <title>5月份计划</title>
     <link href="http://yoursite.com/2016/05/06/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
     <id>http://yoursite.com/2016/05/06/plan/5月份计划/</id>
-    <published>2016-05-06T13:42:55.333Z</published>
+    <published>2016-05-06T13:44:54.869Z</published>
     <updated>2016-05-06T13:42:39.000Z</updated>
     
     <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
@@ -137,12 +137,14 @@ P A H  N A P L S I  I  G Y I  R
   
   <entry>
     <title>监督学习之模型和策略（5.6号读书笔记）</title>
-    <link href="http://yoursite.com/2016/05/06/statistics/statistics2/"/>
-    <id>http://yoursite.com/2016/05/06/statistics/statistics2/</id>
+    <link href="http://yoursite.com/2016/05/06/statistics/statistics-02/"/>
+    <id>http://yoursite.com/2016/05/06/statistics/statistics-02/</id>
     <published>2016-05-06T11:59:59.000Z</published>
-    <updated>2016-05-06T13:31:46.000Z</updated>
+    <updated>2016-05-06T13:44:35.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。&lt;br&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
 &lt;p&gt;条件概率的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG&quot; alt=&quot;条件概率假设空间&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;策略&quot;&gt;&lt;a href=&quot;#策略&quot; class=&quot;headerlink&quot; title=&quot;策略&quot;&gt;&lt;/a&gt;策略&lt;/h3&gt;&lt;p&gt;有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;损失函数：&lt;/strong&gt;度量模型一次预测的好坏&lt;br&gt;&lt;strong&gt;风险函数：&lt;/strong&gt;度量平均意义下模型预测的好坏  &lt;/p&gt;
@@ -160,7 +162,7 @@ P A H  N A P L S I  I  G Y I  R
     
     <summary type="html">
     
-      &lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模
+      &lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。  &lt;/p&gt;
     
     </summary>
     
@@ -1041,52 +1043,6 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
   </entry>
   
   <entry>
-    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
-    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
-    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-13T15:22:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution:
-    def maxProfit(self, prices):
-        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
-        for price in prices:
-            minPrice = min(minPrice, price)
-            max_profit = max(max_profit, price - minPrice)
-        return max_profit
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
-    print(result)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:字符串同构</title>
     <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
     <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
@@ -1184,6 +1140,52 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
     
       <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-13T15:22:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution:
+    def maxProfit(self, prices):
+        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
+        for price in prices:
+            minPrice = min(minPrice, price)
+            max_profit = max(max_profit, price - minPrice)
+        return max_profit
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
+    print(result)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
