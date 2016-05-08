@@ -17,9 +17,9 @@
   
   <entry>
     <title>5月份计划</title>
-    <link href="http://yoursite.com/2016/05/06/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
-    <id>http://yoursite.com/2016/05/06/plan/5月份计划/</id>
-    <published>2016-05-06T13:44:54.869Z</published>
+    <link href="http://yoursite.com/2016/05/08/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2016/05/08/plan/5月份计划/</id>
+    <published>2016-05-08T01:57:33.708Z</published>
     <updated>2016-05-06T13:42:39.000Z</updated>
     
     <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
@@ -1043,6 +1043,52 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
   </entry>
   
   <entry>
+    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
+    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
+    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
+    <published>2016-04-11T11:59:59.000Z</published>
+    <updated>2016-04-13T15:22:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Solution:
+    def maxProfit(self, prices):
+        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
+        for price in prices:
+            minPrice = min(minPrice, price)
+            max_profit = max(max_profit, price - minPrice)
+        return max_profit
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
+    print(result)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:字符串同构</title>
     <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
     <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
@@ -1140,52 +1186,6 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
     
       <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:121--Best Time to Buy and Sell Stock</title>
-    <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
-    <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-13T15:22:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;在输入的list中，找到最低和最高的股票价格，他们的差值即为最大利润。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Solution:
-    def maxProfit(self, prices):
-        max_profit, minPrice = 0, float(&amp;quot;inf&amp;quot;)
-        for price in prices:
-            minPrice = min(minPrice, price)
-            max_profit = max(max_profit, price - minPrice)
-        return max_profit
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    result = Solution().maxProfit([3,2,1,5,4,2,5,6])
-    print(result)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;最佳的买卖股票—设计一个算法找到买卖股票的最大利润，假设你只能买一只股票。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
