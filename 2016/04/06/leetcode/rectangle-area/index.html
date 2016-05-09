@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="题目描述：查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。">
 <meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png">
-<meta property="og:updated_time" content="2016-04-11T16:02:13.000Z">
+<meta property="og:updated_time" content="2016-05-09T13:16:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:223--Rectangle Area">
 <meta name="twitter:description" content="题目描述：查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。">
@@ -372,29 +372,30 @@
 <a id="more"></a>
 <h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角<br>(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角<br>查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。<br>            <strong>覆盖面积=总面积 - 重叠面积</strong><br>1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和<br>2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积</p>
 <p><strong>Python Code:</strong>  </p>
-<pre><code>class Solution(object):
-    def computeArea(self, A, B, C, D, E, F, G, H):
-        #(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角
-        #(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角
-        #查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。
-        #覆盖面积=总面积 - 重叠面积
-        #1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和
-        #2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积
+<pre><code class="Python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">computeArea</span><span class="params">(self, A, B, C, D, E, F, G, H)</span>:</span>
+        <span class="comment">#(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角</span>
+        <span class="comment">#(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角</span>
+        <span class="comment">#查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。</span>
+        <span class="comment">#覆盖面积=总面积 - 重叠面积</span>
+        <span class="comment">#1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和</span>
+        <span class="comment">#2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积</span>
         area = (D - B)*(C - A) + (H -F)*(G - E)
-        #两个矩形不相交的情况
-        if B &gt;= H or E &gt;= C or A &gt;= G or F &gt;= D:
-            return area  
-        #相交的情况下,求相交矩形的左下角和右上角
+        <span class="comment">#两个矩形不相交的情况</span>
+        <span class="keyword">if</span> B &gt;= H <span class="keyword">or</span> E &gt;= C <span class="keyword">or</span> A &gt;= G <span class="keyword">or</span> F &gt;= D:
+            <span class="keyword">return</span> area  
+        <span class="comment">#相交的情况下,求相交矩形的左下角和右上角</span>
         leftbottomx = max(A, E)
         leftbottomy = max(B, F)
         righttopx = min(C, G)
         righttopy = min(D, H)
 
-        return area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
+        <span class="keyword">return</span> area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
 
-if __name__ ==&quot;__main__&quot;:
-    print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
-</code></pre><h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>NO</p>
+<span class="keyword">if</span> __name__ ==<span class="string">"__main__"</span>:
+    print(Solution().computeArea(<span class="number">-3</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">9</span>, <span class="number">2</span>))
+</code></pre>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>NO</p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>NO</p>
 
       

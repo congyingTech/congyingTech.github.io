@@ -79,7 +79,7 @@ All root-to-leaf paths are:
   5
 All root-to-leaf paths are: 
 [&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-&amp;gt;3&amp;quot;]">
-<meta property="og:updated_time" content="2016-05-05T07:52:28.000Z">
+<meta property="og:updated_time" content="2016-05-09T13:18:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:257--Binary Tree Paths">
 <meta name="twitter:description" content="题目描述：对一棵二叉树的根到叶子节点进行输出，eg:  
@@ -385,49 +385,8 @@ All root-to-leaf paths are:
 <pre><code>[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]
 </code></pre><a id="more"></a>
 <h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>首先，得到path肯定是要对二叉树进行遍历的，这里采用DFS深度优先遍历。</p>
-<p><strong>Python Code:</strong>    </p>
-<pre><code>#找二叉树的路径，首先就要遍历二叉树，遍历二叉树的方式有两种，深度优先遍历（DFS）和广度优先遍历
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-
-class Solution:
-    def binaryTreePaths(self, root):
-        res, path = [], []
-        if root is None:
-            return res
-        self.dfs(root, path, res)
-        return res
-
-    def dfs(self, root, path, res):
-        if root is None:
-            return
-        #当左右孩子都没有的时候，整理结果
-        if root.left is None and root.right is None:
-            ans = &quot;&quot;
-            for n in path:
-                ans += str(n.val) + &quot;-&gt;&quot;
-            res.append(ans + str(root.val)) 
-
-        if root.left:
-            path.append(root)
-            self.dfs(root.left, path,res)
-            #这里一定要进行pop，返回当前节点的父节点
-            path.pop()
-
-        if root.right:
-            path.append(root)
-            self.dfs(root.right, path, res)
-            path.pop()
-if __name__ == &quot;__main__&quot;:
-    root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(3)
-    root.left.right = TreeNode(5)
-    print(Solution().binaryTreePaths(root))   
-</code></pre><h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem"></a>My Problem</h3><p><a href="http://blog.csdn.net/bone_ace/article/details/46718683" target="_blank" rel="external">Python中二叉树的遍历操作</a></p>
+<p><strong>Python Code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#找二叉树的路径，首先就要遍历二叉树，遍历二叉树的方式有两种，深度优先遍历（DFS）和广度优先遍历</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.left = <span class="keyword">None</span></span><br><span class="line">        self.right = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">binaryTreePaths</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        res, path = [], []</span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        self.dfs(root, path, res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, root, path, res)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="comment">#当左右孩子都没有的时候，整理结果</span></span><br><span class="line">        <span class="keyword">if</span> root.left <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">and</span> root.right <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            ans = <span class="string">""</span></span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> path:</span><br><span class="line">                ans += str(n.val) + <span class="string">"-&gt;"</span></span><br><span class="line">            res.append(ans + str(root.val)) </span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span> root.left:</span><br><span class="line">            path.append(root)</span><br><span class="line">            self.dfs(root.left, path,res)</span><br><span class="line">			<span class="comment">#这里一定要进行pop，返回当前节点的父节点</span></span><br><span class="line">            path.pop()</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span> root.right:</span><br><span class="line">            path.append(root)</span><br><span class="line">            self.dfs(root.right, path, res)</span><br><span class="line">            path.pop()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    root = TreeNode(<span class="number">1</span>)</span><br><span class="line">    root.left = TreeNode(<span class="number">2</span>)</span><br><span class="line">    root.right = TreeNode(<span class="number">3</span>)</span><br><span class="line">    root.left.right = TreeNode(<span class="number">5</span>)</span><br><span class="line">    print(Solution().binaryTreePaths(root))</span><br></pre></td></tr></table></figure></p>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem"></a>My Problem</h3><p><a href="http://blog.csdn.net/bone_ace/article/details/46718683" target="_blank" rel="external">Python中二叉树的遍历操作</a></p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>No</p>
 
       
@@ -458,16 +417,16 @@ if __name__ == &quot;__main__&quot;:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/05/statistics/statistics-01/" rel="next" title="监督学习（5.5号读书笔记）">
-                <i class="fa fa-chevron-left"></i> 监督学习（5.5号读书笔记）
+              <a href="/2016/05/03/leetcode/reverse-bits/" rel="next" title="leetcode:190--Reverse Bits">
+                <i class="fa fa-chevron-left"></i> leetcode:190--Reverse Bits
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/06/statistics/statistics-02/" rel="prev" title="监督学习之模型和策略（5.6号读书笔记）">
-                监督学习之模型和策略（5.6号读书笔记） <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/05/statistics/statistics-01/" rel="prev" title="监督学习（5.5号读书笔记）">
+                监督学习（5.5号读书笔记） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

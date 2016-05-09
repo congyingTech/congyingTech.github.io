@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/02/leetcode/linked-list-cycle/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="题目描述:Given a linked list, determine if it has a cycle in it.Follow up:Can you solve it without using extra space?该题目意思是判断这个linkedlist是不是有环的.并且最好不要浪费多余的空间.">
-<meta property="og:updated_time" content="2016-05-03T15:40:29.000Z">
+<meta property="og:updated_time" content="2016-05-09T13:17:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:141--Linked List Cycle">
 <meta name="twitter:description" content="题目描述:Given a linked list, determine if it has a cycle in it.Follow up:Can you solve it without using extra space?该题目意思是判断这个linkedlist是不是有环的.并且最好不要浪费多余的空间.">
@@ -358,43 +358,44 @@
 <a id="more"></a>
 <h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>1)第一种算法是快慢指针的方法,快指针每次前进两个,慢指针每次前进一个,如果快指针追上了慢指针,则说明是有环的,否则是没有环的.<br>2)第二种方法又用到了神奇的set,用set记录访问过的结点,(注意这里是记录结点,而不是结点值!!!),如果某结点被访问了第二次,则说明有环.</p>
 <p><strong>Python Code:</strong>  </p>
-<pre><code>#-*- coding:utf-8 -*-
-#两种解法:1)快慢指针 2)利用python中的set
+<pre><code class="Python"><span class="comment">#-*- coding:utf-8 -*-</span>
+<span class="comment">#两种解法:1)快慢指针 2)利用python中的set</span>
 
-# Definition for singly-linked list.
-class ListNode(object):
-    def __init__(self, x):
+<span class="comment"># Definition for singly-linked list.</span>
+<span class="class"><span class="keyword">class</span> <span class="title">ListNode</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span>
          self.val = x
-         self.next = None
+         self.next = <span class="keyword">None</span>
 
-class Solution(object):
-    def hasCycle(self, head):
-       #定义快指针和慢指针
+<span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span><span class="params">(self, head)</span>:</span>
+       <span class="comment">#定义快指针和慢指针</span>
        fast, slow = head, head
-       while fast and fast.next:
+       <span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:
            fast, slow = fast.next.next, slow.next
-           if fast is slow:
-               return True
-       return False
-#2)set的方法
-class Solution2(object):
-    def hasCycle(self, head):
+           <span class="keyword">if</span> fast <span class="keyword">is</span> slow:
+               <span class="keyword">return</span> <span class="keyword">True</span>
+       <span class="keyword">return</span> <span class="keyword">False</span>
+<span class="comment">#2)set的方法</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Solution2</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span><span class="params">(self, head)</span>:</span>
         nodeset = set()
         p = head
-        while p:
-            if p in nodeset:
-                return True
+        <span class="keyword">while</span> p:
+            <span class="keyword">if</span> p <span class="keyword">in</span> nodeset:
+                <span class="keyword">return</span> <span class="keyword">True</span>
             nodeset.add(p)
             p = p.next
-        return False
+        <span class="keyword">return</span> <span class="keyword">False</span>
 
-if __name__ == &quot;__main__&quot;:
-    head = ListNode(1)
-    head.next = ListNode(2)
-    head.next.next = ListNode(3)
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    head = ListNode(<span class="number">1</span>)
+    head.next = ListNode(<span class="number">2</span>)
+    head.next.next = ListNode(<span class="number">3</span>)
     head.next.next.next = head.next
-    print Solution2().hasCycle(head)
-</code></pre><h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>No</p>
+    <span class="keyword">print</span> Solution2().hasCycle(head)
+</code></pre>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>No</p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>No</p>
 
       
@@ -431,8 +432,8 @@ if __name__ == &quot;__main__&quot;:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/03/leetcode/word-pattern/" rel="prev" title="leetcode:290--Word Pattern">
-                leetcode:290--Word Pattern <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/03/leetcode/length-of-last-word/" rel="prev" title="leetcode:58--Length of Last Word">
+                leetcode:58--Length of Last Word <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

@@ -85,7 +85,7 @@ A:          a1 → a2
                      c1 → c2 → c3
                    ↗            
 B:">
-<meta property="og:updated_time" content="2016-04-11T16:01:51.000Z">
+<meta property="og:updated_time" content="2016-05-09T13:18:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:160--Intersection of Two Linked Lists">
 <meta name="twitter:description" content="题目描述：编程求两个单链表的交点
@@ -418,62 +418,8 @@ B:     b1 → b2 → b3
 <p>空间复杂度o(1),时间复杂度o(m+n)  </p>
 </li>
 </ol>
-<p><strong>Python Code:</strong>  </p>
-<pre><code>#1. 得到两个链表的长度
-#2. 将长链表向前移动差值
-#3. 两个指针一起前进，遇到相同的即是交点，如果没有找到，返回null  
-#空间复杂度o(1),时间复杂度o(m+n) 
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-class Solution(object):
-    def getIntersectionNode(self, headA, headB):
-
-
-        #求出A的长度
-        lenA = Solution().getLength(headA)
-        #print(&apos;A length % s&apos; % lenA)
-        #求出B的长度
-        lenB = Solution().getLength(headB)
-        #print(&apos;B length % s&apos; % lenB)
-        #B是长链表,B的头指针向前移动
-        if lenB &gt; lenA:
-            while lenB &gt; lenA:
-                lenB -= 1
-                headB = headB.next
-                #print(&quot;hereBbig&quot;)
-            #print(headB.val)
-        #A是长链表，A的头指针向前移动
-        else:    
-            while lenA &gt; lenB:
-                lenA -= 1
-                headA = headA.next
-                #print(&quot;hereAbig&quot;)
-            #print(headA.val)
-
-        #print(&apos;此时a的head值 %s&apos; % headA.val)
-        #print(&apos;此时b的head值%s &apos; % headB.val)
-        #A与B齐头并进，直到链表中不再有元素
-        while headA:
-            if headA == headB:
-                return headA
-            headA = headA.next
-            headB = headB.next
-
-        #如果没有相同的话，返回null
-        return None
-
-
-    #获得链表长度的函数
-    def getLength(self, node):
-        #初始化len
-        len = 0
-        while node:
-            len += 1
-            node = node.next
-        return len
-</code></pre><h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>为什么一定要if else语句才能ac呢？？？？直接while不可以吗？？？<br>路过的大神们，求留言解答疑惑！！！</p>
+<p><strong>Python Code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#1. 得到两个链表的长度</span></span><br><span class="line"><span class="comment">#2. 将长链表向前移动差值</span></span><br><span class="line"><span class="comment">#3. 两个指针一起前进，遇到相同的即是交点，如果没有找到，返回null  </span></span><br><span class="line"><span class="comment">#空间复杂度o(1),时间复杂度o(m+n) </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span><span class="params">(self, headA, headB)</span>:</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">#求出A的长度</span></span><br><span class="line">        lenA = Solution().getLength(headA)</span><br><span class="line">        <span class="comment">#print('A length % s' % lenA)</span></span><br><span class="line">        <span class="comment">#求出B的长度</span></span><br><span class="line">        lenB = Solution().getLength(headB)</span><br><span class="line">        <span class="comment">#print('B length % s' % lenB)</span></span><br><span class="line">        <span class="comment">#B是长链表,B的头指针向前移动</span></span><br><span class="line">        <span class="keyword">if</span> lenB &gt; lenA:</span><br><span class="line">            <span class="keyword">while</span> lenB &gt; lenA:</span><br><span class="line">                lenB -= <span class="number">1</span></span><br><span class="line">                headB = headB.next</span><br><span class="line">                <span class="comment">#print("hereBbig")</span></span><br><span class="line">            <span class="comment">#print(headB.val)</span></span><br><span class="line">        <span class="comment">#A是长链表，A的头指针向前移动</span></span><br><span class="line">        <span class="keyword">else</span>:    </span><br><span class="line">            <span class="keyword">while</span> lenA &gt; lenB:</span><br><span class="line">                lenA -= <span class="number">1</span></span><br><span class="line">                headA = headA.next</span><br><span class="line">                <span class="comment">#print("hereAbig")</span></span><br><span class="line">            <span class="comment">#print(headA.val)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#print('此时a的head值 %s' % headA.val)</span></span><br><span class="line">        <span class="comment">#print('此时b的head值%s ' % headB.val)</span></span><br><span class="line">        <span class="comment">#A与B齐头并进，直到链表中不再有元素</span></span><br><span class="line">        <span class="keyword">while</span> headA:</span><br><span class="line">            <span class="keyword">if</span> headA == headB:</span><br><span class="line">                <span class="keyword">return</span> headA</span><br><span class="line">            headA = headA.next</span><br><span class="line">            headB = headB.next</span><br><span class="line">            </span><br><span class="line">        <span class="comment">#如果没有相同的话，返回null</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#获得链表长度的函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getLength</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="comment">#初始化len</span></span><br><span class="line">        len = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> node:</span><br><span class="line">            len += <span class="number">1</span></span><br><span class="line">            node = node.next</span><br><span class="line">        <span class="keyword">return</span> len</span><br></pre></td></tr></table></figure></p>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>为什么一定要if else语句才能ac呢？？？？直接while不可以吗？？？<br>路过的大神们，求留言解答疑惑！！！</p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>妈的。。。事实证明是oj抽风了。。。if else,可以去掉~</p>
 
       
@@ -504,16 +450,16 @@ class Solution(object):
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/05/leetcode/contains-duplicate-ii/" rel="next" title="leetcode:219--Contains Duplicate II">
-                <i class="fa fa-chevron-left"></i> leetcode:219--Contains Duplicate II
+              <a href="/2016/04/03/Blog/createblog/" rel="next" title="Ubuntu+GitHub+hexo搭建自己的专属博客">
+                <i class="fa fa-chevron-left"></i> Ubuntu+GitHub+hexo搭建自己的专属博客
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/06/leetcode/merge-sorted-array/" rel="prev" title="leetcode:88--Merge Sorted Array">
-                leetcode:88--Merge Sorted Array <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/05/leetcode/contains-duplicate-ii/" rel="prev" title="leetcode:219--Contains Duplicate II">
+                leetcode:219--Contains Duplicate II <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

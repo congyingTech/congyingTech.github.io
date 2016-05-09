@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/28/leetcode/reverse-string/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="题目描述：翻转字符串,将hello变为olleh">
-<meta property="og:updated_time" content="2016-04-29T11:02:28.000Z">
+<meta property="og:updated_time" content="2016-05-09T13:15:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:344--Reverse String">
 <meta name="twitter:description" content="题目描述：翻转字符串,将hello变为olleh">
@@ -358,22 +358,23 @@
 <a id="more"></a>
 <h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>我的想法是将string类型的字符串首先变为list,然后对list进行操作,最后再将list转换为string<br>(1)string to list:list(s)<br>(2)for循环进行list的翻转,其中i进行index的控制<br>(3)list to string:””.join(list)  </p>
 <p><strong>Python Code:</strong>  </p>
-<pre><code>class Solution(object):
-    def reverseString(self, s):
+<pre><code class="Python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s)</span>:</span>
         lengthOfs = len(s)
-        #list类型转换可以将string类型转换为list
+        <span class="comment">#list类型转换可以将string类型转换为list</span>
         stringL = list(s)
-        i = 0
-        news = [None] * lengthOfs
-        for e in stringL:
-            news[lengthOfs - i - 1] = e
-            i = i + 1
-        #&quot;&quot;.join的方法可以将list转换为string
-        return &quot;&quot;.join(news)
-if __name__ == &quot;__main__&quot;:
-     s = &quot;hello&quot;
-     print Solution().reverseString(s)
-</code></pre><h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>在python中对字符串的操作还是不太熟练,可能因为度假的时间太久了=.=  </p>
+        i = <span class="number">0</span>
+        news = [<span class="keyword">None</span>] * lengthOfs
+        <span class="keyword">for</span> e <span class="keyword">in</span> stringL:
+            news[lengthOfs - i - <span class="number">1</span>] = e
+            i = i + <span class="number">1</span>
+        <span class="comment">#"".join的方法可以将list转换为string</span>
+        <span class="keyword">return</span> <span class="string">""</span>.join(news)
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+     s = <span class="string">"hello"</span>
+     <span class="keyword">print</span> Solution().reverseString(s)
+</code></pre>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>在python中对字符串的操作还是不太熟练,可能因为度假的时间太久了=.=  </p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p><a href="http://www.cnblogs.com/huangcong/archive/2011/08/29/2158268.html" target="_blank" rel="external">字符串的基本操作</a></p>
 
       
@@ -404,8 +405,8 @@ if __name__ == &quot;__main__&quot;:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/14/vmware/python IO/" rel="next" title="Pyhton I/O进行文件读写">
-                <i class="fa fa-chevron-left"></i> Pyhton I/O进行文件读写
+              <a href="/2016/04/14/vmware/dell-old-driver-solution/" rel="next" title="Dell Remote Access Controller 5老旧的driver的ilo的处理">
+                <i class="fa fa-chevron-left"></i> Dell Remote Access Controller 5老旧的driver的ilo的处理
               </a>
             
           </div>

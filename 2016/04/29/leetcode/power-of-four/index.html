@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/29/leetcode/power-of-four/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="题目描述：判断一个数是不是4的次方，比如16是的，8不是的，5不是的">
-<meta property="og:updated_time" content="2016-04-29T11:30:41.000Z">
+<meta property="og:updated_time" content="2016-05-09T13:17:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:342--Power of Four">
 <meta name="twitter:description" content="题目描述：判断一个数是不是4的次方，比如16是的，8不是的，5不是的">
@@ -357,45 +357,8 @@
         <p>题目描述：判断一个数是不是4的次方，比如16是的，8不是的，5不是的</p>
 <a id="more"></a>
 <h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>判断是否是4的次方，可以考虑用二进制的方法，16的二进制数是10000，8的二进制数是1000，5的二进制数是101，由此可见，若是4^n则需要满足：<br>1）最高位为1,其他位均为0<br>2) 位数为奇数位。</p>
-<p><strong>Python Code:</strong>  </p>
-<pre><code># -*- coding:utf-8 -*-
-#满足两个条件：1）二进制数的高位为1，其余为为0，； 2）二进制的位数为奇数
-    import re
-    from posixpath import realpath
-    class Solution(object):
-        def isPowerOfFour(self, num):
-            &quot;&quot;&quot;
-            :type num: int
-            :rtype: bool
-            &quot;&quot;&quot;
-                #先将十进制转换为二进制
-                string = bin(num)
-                #二进制数的长度
-                length = len(string)
-                #真正的字符串
-                real_string = string[2:length]
-                #真正的长度
-                real_len = length - 2
-                #string to list
-                strlist = list(real_string)
-                #最高位的数字
-                gw = strlist[0]
-                count = 0
-                for e in strlist:
-                    if gw != &apos;1&apos;:
-                        return False
-                    elif e == &apos;0&apos;:
-                       count += 1
-
-                if count == real_len - 1 and count % 2 == 0:
-                    return True
-                else:
-                    return False     
-
-        if __name__ == &quot;__main__&quot;:
-            num = 16
-            print(Solution().isPowerOfFour(num))
-</code></pre><h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem"></a>My Problem</h3><p>涉及的问题：<br>1）<a href="http://www.cnblogs.com/moinmoin/archive/2011/02/28/bin_oct_int_hex.html" target="_blank" rel="external">Python的进制转换</a><br>2） 截取字符串</p>
+<p><strong>Python Code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#满足两个条件：1）二进制数的高位为1，其余为为0，； 2）二进制的位数为奇数</span></span><br><span class="line">	<span class="keyword">import</span> re</span><br><span class="line">	<span class="keyword">from</span> posixpath <span class="keyword">import</span> realpath</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">	    <span class="function"><span class="keyword">def</span> <span class="title">isPowerOfFour</span><span class="params">(self, num)</span>:</span></span><br><span class="line">	        <span class="string">"""</span><br><span class="line">	        :type num: int</span><br><span class="line">	        :rtype: bool</span><br><span class="line">	        """</span></span><br><span class="line">    	        <span class="comment">#先将十进制转换为二进制</span></span><br><span class="line">    	        string = bin(num)</span><br><span class="line">    	        <span class="comment">#二进制数的长度</span></span><br><span class="line">    	        length = len(string)</span><br><span class="line">    	        <span class="comment">#真正的字符串</span></span><br><span class="line">    	        real_string = string[<span class="number">2</span>:length]</span><br><span class="line">    	        <span class="comment">#真正的长度</span></span><br><span class="line">    	        real_len = length - <span class="number">2</span></span><br><span class="line">    	        <span class="comment">#string to list</span></span><br><span class="line">    	        strlist = list(real_string)</span><br><span class="line">    	        <span class="comment">#最高位的数字</span></span><br><span class="line">    	        gw = strlist[<span class="number">0</span>]</span><br><span class="line">    	        count = <span class="number">0</span></span><br><span class="line">    	        <span class="keyword">for</span> e <span class="keyword">in</span> strlist:</span><br><span class="line">    	            <span class="keyword">if</span> gw != <span class="string">'1'</span>:</span><br><span class="line">    	                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    	            <span class="keyword">elif</span> e == <span class="string">'0'</span>:</span><br><span class="line">    	               count += <span class="number">1</span></span><br><span class="line">    	</span><br><span class="line">    	        <span class="keyword">if</span> count == real_len - <span class="number">1</span> <span class="keyword">and</span> count % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">    	            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    	        <span class="keyword">else</span>:</span><br><span class="line">    	            <span class="keyword">return</span> <span class="keyword">False</span>     </span><br><span class="line">    	</span><br><span class="line">    	<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    	    num = <span class="number">16</span></span><br><span class="line">    	    print(Solution().isPowerOfFour(num))</span><br></pre></td></tr></table></figure></p>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem"></a>My Problem</h3><p>涉及的问题：<br>1）<a href="http://www.cnblogs.com/moinmoin/archive/2011/02/28/bin_oct_int_hex.html" target="_blank" rel="external">Python的进制转换</a><br>2） 截取字符串</p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>NO</p>
 
       
