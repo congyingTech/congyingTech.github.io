@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/14/vmware/python IO/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="前言:自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个">
-<meta property="og:updated_time" content="2016-04-14T14:27:53.000Z">
+<meta property="og:updated_time" content="2016-05-09T13:40:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pyhton I/O进行文件读写">
 <meta name="twitter:description" content="前言:自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个">
@@ -353,39 +353,8 @@ for line in fread:
     fwrite.write(line)
 fread.close()
 fwrite.close()
-</code></pre><p>============================================================</p>
-<pre><code> #-*- coding:utf-8 -*-
+</code></pre><p>============================================================<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">filedir = <span class="string">"/Users/congyingw/Desktop/sfcb.cfg"</span></span><br><span class="line">f1 = open(filedir, <span class="string">'r'</span>)</span><br><span class="line">w_str = <span class="string">""</span></span><br><span class="line">flag = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</span><br><span class="line">    <span class="comment">#check has enableSSLv3 or not</span></span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">"enableSSLv3"</span>, line):</span><br><span class="line">       flag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">       flag = <span class="number">1</span></span><br><span class="line">    <span class="comment">#check enabled and enableSSLv3 value</span></span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">"enabled:true"</span>, line) <span class="keyword">and</span> re.search(<span class="string">"enableSSLv3:true"</span>, line):</span><br><span class="line">        w_str += line </span><br><span class="line">        print(<span class="string">"right value"</span>)</span><br><span class="line">    <span class="keyword">elif</span> re.search(<span class="string">"enabled:false"</span>, line):</span><br><span class="line">        line = re.sub(<span class="string">"enabled:false"</span>, <span class="string">"enabled:true"</span>, line)</span><br><span class="line">        w_str += line</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        line = re.sub(<span class="string">"enableSSLv3:false"</span>, <span class="string">"enableSSLv3:true"</span>, line)</span><br><span class="line">        w_str += line</span><br><span class="line"><span class="keyword">if</span> flag == <span class="number">1</span>:</span><br><span class="line">     w_str += <span class="string">"\nenableSSLv3:true"</span></span><br><span class="line">print(w_str)</span><br><span class="line">f2=open(filedir, <span class="string">'w'</span>)</span><br><span class="line">f2.write(w_str)</span><br><span class="line">f1.close()</span><br><span class="line">f2.close()</span><br></pre></td></tr></table></figure></p>
 
-import re
-
-filedir = &quot;/Users/congyingw/Desktop/sfcb.cfg&quot;
-f1 = open(filedir, &apos;r&apos;)
-w_str = &quot;&quot;
-flag = 0
-for line in f1:
-    #check has enableSSLv3 or not
-    if re.search(&quot;enableSSLv3&quot;, line):
-       flag = 0
-    else:
-       flag = 1
-    #check enabled and enableSSLv3 value
-    if re.search(&quot;enabled:true&quot;, line) and re.search(&quot;enableSSLv3:true&quot;, line):
-        w_str += line 
-        print(&quot;right value&quot;)
-    elif re.search(&quot;enabled:false&quot;, line):
-        line = re.sub(&quot;enabled:false&quot;, &quot;enabled:true&quot;, line)
-        w_str += line
-    else :
-        line = re.sub(&quot;enableSSLv3:false&quot;, &quot;enableSSLv3:true&quot;, line)
-        w_str += line
-if flag == 1:
-     w_str += &quot;\nenableSSLv3:true&quot;
-print(w_str)
-f2=open(filedir, &apos;w&apos;)
-f2.write(w_str)
-f1.close()
-f2.close()
-</code></pre>
       
     </div>
 
@@ -410,16 +379,16 @@ f2.close()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/14/linux/Ubuntu下的java配置/" rel="next" title="ubuntu下java安装以及配置更改(持续更新)">
-                <i class="fa fa-chevron-left"></i> ubuntu下java安装以及配置更改(持续更新)
+              <a href="/2016/04/14/vmware/dell-old-driver-solution/" rel="next" title="Dell Remote Access Controller 5老旧的driver的ilo的处理">
+                <i class="fa fa-chevron-left"></i> Dell Remote Access Controller 5老旧的driver的ilo的处理
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/14/vmware/dell-old-driver-solution/" rel="prev" title="Dell Remote Access Controller 5老旧的driver的ilo的处理">
-                Dell Remote Access Controller 5老旧的driver的ilo的处理 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/28/leetcode/reverse-string/" rel="prev" title="leetcode:344--Reverse String">
+                leetcode:344--Reverse String <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -492,7 +461,7 @@ f2.close()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

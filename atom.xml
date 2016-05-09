@@ -19,7 +19,7 @@
     <title>5月份计划</title>
     <link href="http://yoursite.com/2016/05/09/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
     <id>http://yoursite.com/2016/05/09/plan/5月份计划/</id>
-    <published>2016-05-09T13:06:05.615Z</published>
+    <published>2016-05-09T15:46:59.434Z</published>
     <updated>2016-05-06T13:42:39.000Z</updated>
     
     <content type="html">&lt;p&gt;学习计划:&lt;br&gt;1.leetcode上的easy和medium难度的题目一定要刷完了!!!&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!  &lt;/p&gt;
@@ -39,6 +39,82 @@
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:7--Reverse Integer</title>
+    <link href="http://yoursite.com/2016/05/09/leetcode/reverse-integer/"/>
+    <id>http://yoursite.com/2016/05/09/leetcode/reverse-integer/</id>
+    <published>2016-05-09T12:59:59.000Z</published>
+    <updated>2016-05-09T15:44:10.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;Reverse digits of an integer.  &lt;/p&gt;
+&lt;p&gt;Example1: x = 123, return 321&lt;br&gt;Example2: x = -123, return -321&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;没什么算法而言,直接将int=&amp;gt;str=&amp;gt;list,然后对list的下标值进行读取,形成新的list.&lt;br&gt;值得注意的是,python中的取值范围!!!  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# -*-coding:utf-8-*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, x)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        real_x = abs(x)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; x &amp;gt;= &lt;span class=&quot;number&quot;&gt;2147483647&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        x_str = str(real_x)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        length = len(x_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        new_x_list = [&lt;span class=&quot;keyword&quot;&gt;None&lt;/span&gt;] * length&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        res_str = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        i = length&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test:print(i)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; e &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; x_str:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#test:print(i)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            new_x_list[i - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = e&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            i -= &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            res_str = &lt;span class=&quot;string&quot;&gt;&#39;-&#39;&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;.join(new_x_list)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            res_str = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;.join(new_x_list)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        res_int = int(res_str)  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; abs(res_int) &amp;lt;= &lt;span class=&quot;number&quot;&gt;2147483647&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res_int&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; (Solution().reverse(&lt;span class=&quot;number&quot;&gt;1534236469&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/congyingTech/LeetCode-1/blob/master/Python/reverse-integer.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;推荐解法&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;Reverse digits of an integer.  &lt;/p&gt;
+&lt;p&gt;Example1: x = 123, return 321&lt;br&gt;Example2: x = -123, return -321&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:125--Valid Palindrome</title>
+    <link href="http://yoursite.com/2016/05/09/leetcode/valid-palindrome/"/>
+    <id>http://yoursite.com/2016/05/09/leetcode/valid-palindrome/</id>
+    <published>2016-05-09T11:59:59.000Z</published>
+    <updated>2016-05-09T15:45:45.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.  &lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;“A man, a plan, a canal: Panama” is a palindrome.&lt;br&gt;“race a car” is not a palindrome.  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;判断是否是回文字符串:&lt;br&gt;1)按照alphanumeric characters(字母数字字符), Python中有现成的判断方法&lt;code&gt;bytes.isalnum()&lt;/code&gt; or &lt;code&gt;bytearray.isalnum()&lt;/code&gt;&lt;br&gt;2)设置两个指针,首指针和尾指针,将不属于alphanumeric characters的元素过滤掉,通过左移和右移实现.&lt;br&gt;3)将左右指针代表的元素转化为lower(),统一进行比较,如果有一个不同则停止比较,return False.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isPalindrome&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, s)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        i, j = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, len(s) - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#外层指针控制循环,i不超过j&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; i &amp;lt; j:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#两个while循环把不符合条件的,等元素给pass掉&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果不符合isalnum的要求,左指针左移一个单位&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; i &amp;lt; j &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; s[i].isalnum():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                i += &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#同理,右指针右移一位&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; i &amp;lt; j &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; s[j].isalnum():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                j -= &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; s[i].lower() != s[j].lower():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            i, j = i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, j - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    s = &lt;span class=&quot;string&quot;&gt;&quot;A man, a plan, a canal: Panama&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; Solution().isPalindrome(s)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=isalnum#bytearray.isdigit&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python官网手册中的isalnum&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.  &lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;“A man, a plan, a canal: Panama” is a palindrome.&lt;br&gt;“race a car” is not a palindrome.  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
@@ -255,6 +331,50 @@ P A H  N A P L S I  I  G Y I  R
   </entry>
   
   <entry>
+    <title>leetcode:290--Word Pattern</title>
+    <link href="http://yoursite.com/2016/05/03/leetcode/word-pattern/"/>
+    <id>http://yoursite.com/2016/05/03/leetcode/word-pattern/</id>
+    <published>2016-05-03T11:59:59.000Z</published>
+    <updated>2016-05-09T13:14:02.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;给定一个简单的模式pattern,判断给定的str是否与pattern符合.&lt;br&gt;Given a pattern and a string str, find if str follows the same pattern.  &lt;/p&gt;
+&lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.  &lt;/p&gt;
+&lt;p&gt;Examples:&lt;br&gt;pattern = “abba”, str = “dog cat cat dog” should return true.&lt;br&gt;pattern = “abba”, str = “dog cat cat fish” should return false.&lt;br&gt;pattern = “aaaa”, str = “dog cat cat dog” should return false.&lt;br&gt;pattern = “abba”, str = “dog dog dog dog” should return false.  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;My way:&lt;br&gt;1)利用dict可以value-key的方法,进行匹配判断&lt;br&gt;2)在lookup中没有重复的元素,如果有重复的元素用set过滤掉后,比较length,如果一样则是true,否则为false   &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8 -*-  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;wordPattern&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, pattern, str)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        pattern_list = list(pattern)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        str_list = str.split(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(pattern_list) != len(str_list):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        lookup = dict()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(pattern_list)):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果i下标指向的元素没有在lookup里面，就add一下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; pattern_list[i] &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; lookup:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                lookup[pattern_list[i]] = str_list[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果i下标指向的元素在lookup里面，就判断，key值对应的value是否与str_list的元素相同&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; str_list[i] != lookup[pattern_list[i]]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test lookup: print(lookup)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        key_set = set()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        value_set = set()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; key,value &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; lookup.items():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            key_set.add(key) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            value_set.add(value)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test: print(key_set)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test: print(value_set)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(key_set) != len(value_set):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().wordPattern(&lt;span class=&quot;string&quot;&gt;&quot;abba&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;cat cat cat cat&quot;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/kamyu104/LeetCode/blob/master/Python/word-pattern.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考答案1&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;从这一题终于感觉到自己有进步了,不容易啊!!!&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;给定一个简单的模式pattern,判断给定的str是否与pattern符合.&lt;br&gt;Given a pattern and a string str, find if str follows the same pattern.  &lt;/p&gt;
+&lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.  &lt;/p&gt;
+&lt;p&gt;Examples:&lt;br&gt;pattern = “abba”, str = “dog cat cat dog” should return true.&lt;br&gt;pattern = “abba”, str = “dog cat cat fish” should return false.&lt;br&gt;pattern = “aaaa”, str = “dog cat cat dog” should return false.&lt;br&gt;pattern = “abba”, str = “dog dog dog dog” should return false.  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
+    
+      <category term="set" scheme="http://yoursite.com/tags/set/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:190--Reverse Bits</title>
     <link href="http://yoursite.com/2016/05/03/leetcode/reverse-bits/"/>
     <id>http://yoursite.com/2016/05/03/leetcode/reverse-bits/</id>
@@ -335,50 +455,6 @@ P A H  N A P L S I  I  G Y I  R
       <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
     
       <category term="stack" scheme="http://yoursite.com/tags/stack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:290--Word Pattern</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/word-pattern/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/word-pattern/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-09T13:14:02.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;给定一个简单的模式pattern,判断给定的str是否与pattern符合.&lt;br&gt;Given a pattern and a string str, find if str follows the same pattern.  &lt;/p&gt;
-&lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.  &lt;/p&gt;
-&lt;p&gt;Examples:&lt;br&gt;pattern = “abba”, str = “dog cat cat dog” should return true.&lt;br&gt;pattern = “abba”, str = “dog cat cat fish” should return false.&lt;br&gt;pattern = “aaaa”, str = “dog cat cat dog” should return false.&lt;br&gt;pattern = “abba”, str = “dog dog dog dog” should return false.  &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;My way:&lt;br&gt;1)利用dict可以value-key的方法,进行匹配判断&lt;br&gt;2)在lookup中没有重复的元素,如果有重复的元素用set过滤掉后,比较length,如果一样则是true,否则为false   &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8 -*-  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;wordPattern&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, pattern, str)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        pattern_list = list(pattern)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        str_list = str.split(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(pattern_list) != len(str_list):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        lookup = dict()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(pattern_list)):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果i下标指向的元素没有在lookup里面，就add一下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; pattern_list[i] &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; lookup:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                lookup[pattern_list[i]] = str_list[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果i下标指向的元素在lookup里面，就判断，key值对应的value是否与str_list的元素相同&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; str_list[i] != lookup[pattern_list[i]]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test lookup: print(lookup)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        key_set = set()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        value_set = set()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; key,value &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; lookup.items():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            key_set.add(key) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            value_set.add(value)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test: print(key_set)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test: print(value_set)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(key_set) != len(value_set):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().wordPattern(&lt;span class=&quot;string&quot;&gt;&quot;abba&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;cat cat cat cat&quot;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/kamyu104/LeetCode/blob/master/Python/word-pattern.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考答案1&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;从这一题终于感觉到自己有进步了,不容易啊!!!&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;给定一个简单的模式pattern,判断给定的str是否与pattern符合.&lt;br&gt;Given a pattern and a string str, find if str follows the same pattern.  &lt;/p&gt;
-&lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.  &lt;/p&gt;
-&lt;p&gt;Examples:&lt;br&gt;pattern = “abba”, str = “dog cat cat dog” should return true.&lt;br&gt;pattern = “abba”, str = “dog cat cat fish” should return false.&lt;br&gt;pattern = “aaaa”, str = “dog cat cat dog” should return false.&lt;br&gt;pattern = “abba”, str = “dog dog dog dog” should return false.  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
-    
-      <category term="set" scheme="http://yoursite.com/tags/set/"/>
     
   </entry>
   
@@ -643,6 +719,44 @@ P A H  N A P L S I  I  G Y I  R
   </entry>
   
   <entry>
+    <title>Pyhton I/O进行文件读写</title>
+    <link href="http://yoursite.com/2016/04/14/vmware/python%20IO/"/>
+    <id>http://yoursite.com/2016/04/14/vmware/python IO/</id>
+    <published>2016-04-14T11:59:59.000Z</published>
+    <updated>2016-05-09T13:40:52.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Python-I-O操作&quot;&gt;&lt;a href=&quot;#Python-I-O操作&quot; class=&quot;headerlink&quot; title=&quot;Python I/O操作:&quot;&gt;&lt;/a&gt;Python I/O操作:&lt;/h2&gt;&lt;p&gt;下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.&lt;br&gt;基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.&lt;br&gt;这种方式,更方便的达到查找和替换的目的!!!&lt;br&gt;基本的格式:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;filename = &amp;quot;&amp;quot; 
+fread = open(filename, &amp;apos;r&amp;apos;)
+fwrite = open(filename, &amp;apos;w&amp;apos;)
+w_str = &amp;quot;&amp;quot;
+for line in fread:
+    #将line加入到文件中
+    fwrite.write(line)
+fread.close()
+fwrite.close()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;============================================================&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;filedir = &lt;span class=&quot;string&quot;&gt;&quot;/Users/congyingw/Desktop/sfcb.cfg&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1 = open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;r&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;w_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; f1:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line) &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&lt;span class=&quot;string&quot;&gt;&quot;right value&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; :&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; flag == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     w_str += &lt;span class=&quot;string&quot;&gt;&quot;\nenableSSLv3:true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2=open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.write(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.close()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="实习生" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%B9%A0%E7%94%9F/Python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Dell Remote Access Controller 5老旧的driver的ilo的处理</title>
     <link href="http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/"/>
     <id>http://yoursite.com/2016/04/14/vmware/dell-old-driver-solution/</id>
@@ -672,75 +786,6 @@ P A H  N A P L S I  I  G Y I  R
       <category term="driver" scheme="http://yoursite.com/tags/driver/"/>
     
       <category term="ilo" scheme="http://yoursite.com/tags/ilo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pyhton I/O进行文件读写</title>
-    <link href="http://yoursite.com/2016/04/14/vmware/python%20IO/"/>
-    <id>http://yoursite.com/2016/04/14/vmware/python IO/</id>
-    <published>2016-04-14T11:59:59.000Z</published>
-    <updated>2016-04-14T14:27:53.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Python-I-O操作&quot;&gt;&lt;a href=&quot;#Python-I-O操作&quot; class=&quot;headerlink&quot; title=&quot;Python I/O操作:&quot;&gt;&lt;/a&gt;Python I/O操作:&lt;/h2&gt;&lt;p&gt;下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.&lt;br&gt;基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.&lt;br&gt;这种方式,更方便的达到查找和替换的目的!!!&lt;br&gt;基本的格式:  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;filename = &amp;quot;&amp;quot; 
-fread = open(filename, &amp;apos;r&amp;apos;)
-fwrite = open(filename, &amp;apos;w&amp;apos;)
-w_str = &amp;quot;&amp;quot;
-for line in fread:
-    #将line加入到文件中
-    fwrite.write(line)
-fread.close()
-fwrite.close()
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;============================================================&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; #-*- coding:utf-8 -*-
-
-import re
-
-filedir = &amp;quot;/Users/congyingw/Desktop/sfcb.cfg&amp;quot;
-f1 = open(filedir, &amp;apos;r&amp;apos;)
-w_str = &amp;quot;&amp;quot;
-flag = 0
-for line in f1:
-    #check has enableSSLv3 or not
-    if re.search(&amp;quot;enableSSLv3&amp;quot;, line):
-       flag = 0
-    else:
-       flag = 1
-    #check enabled and enableSSLv3 value
-    if re.search(&amp;quot;enabled:true&amp;quot;, line) and re.search(&amp;quot;enableSSLv3:true&amp;quot;, line):
-        w_str += line 
-        print(&amp;quot;right value&amp;quot;)
-    elif re.search(&amp;quot;enabled:false&amp;quot;, line):
-        line = re.sub(&amp;quot;enabled:false&amp;quot;, &amp;quot;enabled:true&amp;quot;, line)
-        w_str += line
-    else :
-        line = re.sub(&amp;quot;enableSSLv3:false&amp;quot;, &amp;quot;enableSSLv3:true&amp;quot;, line)
-        w_str += line
-if flag == 1:
-     w_str += &amp;quot;\nenableSSLv3:true&amp;quot;
-print(w_str)
-f2=open(filedir, &amp;apos;w&amp;apos;)
-f2.write(w_str)
-f1.close()
-f2.close()
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="实习生" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%B9%A0%E7%94%9F/Python/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
     
   </entry>
   
@@ -807,42 +852,6 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
   </entry>
   
   <entry>
-    <title>leetcode:字符串同构</title>
-    <link href="http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/"/>
-    <id>http://yoursite.com/2016/04/11/leetcode/isomorphic-strings/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-05-09T13:18:01.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;Solution：&quot;&gt;&lt;a href=&quot;#Solution：&quot; class=&quot;headerlink&quot; title=&quot;Solution：&quot;&gt;&lt;/a&gt;Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;想到用map解决这个问题，因为map是key-value的映射。d[key]=value 将s放到lookup中key的位置，t放在lookup中的value的位置，当s[i]没有在lookup中出现过时，就将s[i]-t[i]这个映射关系加入到lookup中。如果说s[i]已经在lookup中，比如说food，第三个字符o已经出现在lookup中了，这时候判断已经在lookup中的s[i]作为key值对应的value值是否等于当前t[i]相同，如果相同，说明t中此时也正好有两个连续相同的字符，说明他们同构，否则return false，说明他们并不同构。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# -*-coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#算法思想：用map解决，将s和t的每个字符成映射的关系&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isIsomorphic&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, s, t)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(s) != len(t):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; self.halfIsom(s, t) &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; self.halfIsom(t, s)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;halfIsom&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, s, t)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        lookup = &amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(s)):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#这里的思想是如果s[i]没有在lookup里面，也就是没有重复元素的话，将s[i]-t[i]映射添加&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果有重复的元素，就看在lookup中s[i]作为key对应的value是否和当前的t[i]相同，若不同，则说明不同构&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; s[i] &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; lookup:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;#建立映射关系s和t&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                lookup[s[i]] = t[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; lookup[s[i]] != t[i]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(lookup)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    s = &lt;span class=&quot;string&quot;&gt;&quot;foot&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    t = &lt;span class=&quot;string&quot;&gt;&quot;look&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().isIsomorphic(s, t))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;对于dict的理解更加深入了，纠正一下前面一篇的错误，对于dict，d[key] = value,下一篇仔细的写下dict函数吧，还是挺有用的。&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：判断两个字符串是否同构，比如food和look是同构，like和love同构，find和food不是同构&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:121--Best Time to Buy and Sell Stock</title>
     <link href="http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/"/>
     <id>http://yoursite.com/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/</id>
@@ -874,44 +883,6 @@ JAVA_HOME=&amp;quot;/usr/lib/jvm/jdk1.8.0_25&amp;quot;
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>摆渡人 作者:(英)克莱尔 麦克福尔</title>
-    <link href="http://yoursite.com/2016/04/11/life/life-book-ferryman/"/>
-    <id>http://yoursite.com/2016/04/11/life/life-book-ferryman/</id>
-    <published>2016-04-11T11:59:59.000Z</published>
-    <updated>2016-04-11T16:07:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;故事梗概&quot;&gt;&lt;a href=&quot;#故事梗概&quot; class=&quot;headerlink&quot; title=&quot;故事梗概:&quot;&gt;&lt;/a&gt;故事梗概:&lt;/h2&gt;&lt;p&gt;这个故事的主人公是迪伦和崔斯坦,从名字来判断,我觉得迪伦应该是个穿着格子衬衣,打扮的如同牛仔的西部女孩,小说里她是一个苏格兰女孩,自幼父母离异,从来没有见过父亲的她,决定不辞而别,离开她的母亲,踏上看望父亲的旅程,就是在旅程中,火车发生了事故,导致她的灵魂脱壳,遇见了她的灵魂摆渡人—崔斯坦,崔斯坦,听着这个名字,感觉起来就像是一个动漫里银发碧眼温柔的男孩纸,小说中崔斯坦有着钴蓝色的眼睛,金色的头发,精致的五官,完全是迪伦喜欢的样子,就这样他们相遇,并一起穿越迪伦内心所映射的荒原,中途中一次又一次并肩战胜恶魔,让他们两个人产生了不一样的情愫.当崔斯坦将迪伦送到荒原与家的分界线时,他们决定一起踏入”家”,我认为这里的家应该称为heaven,崔斯坦发现自己并不能跨进那条界线,而跨进了heaven的迪伦则误会崔斯坦对她的感情.迪伦为了找到崔斯坦问个明白,其实是因为她内心真的特别的爱崔斯坦,于是开始了她艰难的返回荒原的旅程,我认为全书最精彩的部分,莫过于迪伦勇敢的返回荒原,独自一个人战胜恶魔,找到崔斯坦的过程.在迪伦的鼓励下,崔斯坦决定试试能不能和迪伦一起回到人间,当他们因为爱而勇敢的面对现实和未来的时候,奇迹发生了,他们一起回到了人间世界,清楚的记得全书最后,两个人的对白:”原来你在这里””我在这里”&lt;/p&gt;
-&lt;h2 id=&quot;我的评价&quot;&gt;&lt;a href=&quot;#我的评价&quot; class=&quot;headerlink&quot; title=&quot;我的评价:&quot;&gt;&lt;/a&gt;我的评价:&lt;/h2&gt;&lt;p&gt;I exist because you need me.这是崔斯坦对迪伦说的一句话,如果我真的存在,也是因为你需要我.治愈系满分的小说,尤其是在失恋后,挫折时,读完后简直会觉得少女心爆棚,人间有真情,人间有真爱啊!很佩服迪伦折回寻找崔斯坦的勇气,很佩服她能够冒着魂飞魄散的危险去做大胆的尝试.我觉得她身上的那种勇敢值得我去学习.如果说呆在一个安稳的heaven里面,只能是无尽的等待,得不到自己想要的东西,想爱的人,何不去冒险?去尝试,勇敢的迈开自己的脚步,也许会失败,但是至少内心不会后悔.&lt;br&gt;再说细节部分,我觉得作者的细节描写还是蛮好的,荒原的景象,人物的心理和形象都还算细致,栩栩如生.&lt;/p&gt;
-&lt;h2 id=&quot;相关链接&quot;&gt;&lt;a href=&quot;#相关链接&quot; class=&quot;headerlink&quot; title=&quot;相关链接:&quot;&gt;&lt;/a&gt;相关链接:&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26356948/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;豆瓣读书—摆渡人&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/33982768&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—摆渡人是否过誉?&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/28019019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎—你对摆渡人的理解?&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;前言:最近水题看书看视频很累,趁着周末实在不想学习,也不想抱着手机,就看了这本小说.买这本小说的初衷,一是因为豆瓣评分比较高,二是因为其一句话的简述:If life were a lonely river, who would be the ferryman of your soul?如果命运是一条孤独的河流,谁会是你的灵魂摆渡人?三是因为买了一堆的技术书,纯粹来凑个单&lt;/blockquote&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-      <category term="foreign literature" scheme="http://yoursite.com/categories/life/foreign-literature/"/>
-    
-      <category term="治愈系" scheme="http://yoursite.com/categories/life/foreign-literature/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
-      <category term="foreign fiction" scheme="http://yoursite.com/tags/foreign-fiction/"/>
-    
-      <category term="治愈系" scheme="http://yoursite.com/tags/%E6%B2%BB%E6%84%88%E7%B3%BB/"/>
-    
-      <category term="少女心" scheme="http://yoursite.com/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/"/>
     
   </entry>
   
