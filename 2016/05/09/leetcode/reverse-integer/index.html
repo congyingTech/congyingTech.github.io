@@ -67,7 +67,7 @@ Example1: x = 123, return 321Example2: x = -123, return -321">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="题目描述：Reverse digits of an integer.  
 Example1: x = 123, return 321Example2: x = -123, return -321">
-<meta property="og:updated_time" content="2016-05-09T15:44:10.000Z">
+<meta property="og:updated_time" content="2016-05-10T15:00:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:7--Reverse Integer">
 <meta name="twitter:description" content="题目描述：Reverse digits of an integer.  
@@ -309,8 +309,8 @@ Example1: x = 123, return 321Example2: x = -123, return -321">
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/" itemprop="url" rel="index">
-                    <span itemprop="name">jobs</span>
+                  <a href="/categories/Python/leetcode/string/" itemprop="url" rel="index">
+                    <span itemprop="name">string</span>
                   </a>
                 </span>
 
@@ -360,7 +360,7 @@ Example1: x = 123, return 321Example2: x = -123, return -321">
         <p>题目描述：<br>Reverse digits of an integer.  </p>
 <p>Example1: x = 123, return 321<br>Example2: x = -123, return -321</p>
 <a id="more"></a>
-<h3 id="Solution："><a href="#Solution：" class="headerlink" title="Solution："></a>Solution：</h3><p><strong>算法思想：</strong><br>没什么算法而言,直接将int=&gt;str=&gt;list,然后对list的下标值进行读取,形成新的list.<br>值得注意的是,python中的取值范围!!!  </p>
+<h3 id="Solution："><a href="#Solution：" class="headerlink" title="Solution："></a>Solution：</h3><p><strong>算法思想：</strong><br>没什么算法而言,直接将int=&gt;str=&gt;list,然后对list的下标值进行读取,形成新的list.<br>值得注意的是,python中的取值范围!!!<br>和reverse-string没什么区别了,还是看参考答案吧</p>
 <p><strong>Python Code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8-*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        real_x = abs(x)</span><br><span class="line">        <span class="keyword">if</span> x &gt;= <span class="number">2147483647</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        x_str = str(real_x)</span><br><span class="line">        length = len(x_str)</span><br><span class="line">        new_x_list = [<span class="keyword">None</span>] * length</span><br><span class="line">        res_str = <span class="string">''</span></span><br><span class="line">        i = length</span><br><span class="line">        <span class="comment">#test:print(i)</span></span><br><span class="line">        <span class="keyword">for</span> e <span class="keyword">in</span> x_str:</span><br><span class="line">            <span class="comment">#test:print(i)</span></span><br><span class="line">            new_x_list[i - <span class="number">1</span>] = e</span><br><span class="line">            i -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">            res_str = <span class="string">'-'</span> + <span class="string">''</span>.join(new_x_list)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res_str = <span class="string">''</span>.join(new_x_list)</span><br><span class="line">        res_int = int(res_str)  </span><br><span class="line">        <span class="keyword">if</span> abs(res_int) &lt;= <span class="number">2147483647</span>:</span><br><span class="line">            <span class="keyword">return</span> res_int</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">print</span> (Solution().reverse(<span class="number">1534236469</span>))</span><br></pre></td></tr></table></figure></p>
 <h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p><a href="https://github.com/congyingTech/LeetCode-1/blob/master/Python/reverse-integer.py" target="_blank" rel="external">推荐解法</a></p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>No</p>
@@ -391,8 +391,8 @@ Example1: x = 123, return 321Example2: x = -123, return -321">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/09/statistics/statistics-03/" rel="next" title="模型评估(5.9号读书笔记)">
-                <i class="fa fa-chevron-left"></i> 模型评估(5.9号读书笔记)
+              <a href="/2016/05/09/leetcode/valid-palindrome/" rel="next" title="leetcode:125--Valid Palindrome">
+                <i class="fa fa-chevron-left"></i> leetcode:125--Valid Palindrome
               </a>
             
           </div>
@@ -481,7 +481,7 @@ Example1: x = 123, return 321Example2: x = -123, return -321">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -490,7 +490,7 @@ Example1: x = 123, return 321Example2: x = -123, return -321">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
