@@ -61,13 +61,13 @@
 
 <meta name="description" content="前言：NOVA是vmware为了应付德国官司开发的本地的native driver。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NOVA testing">
+<meta property="og:title" content="NOVA测试中ILO问题解决">
 <meta property="og:url" content="http://yoursite.com/2016/05/11/vmware/ILO问题解决/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="前言：NOVA是vmware为了应付德国官司开发的本地的native driver。">
-<meta property="og:updated_time" content="2016-05-11T14:42:37.000Z">
+<meta property="og:updated_time" content="2016-05-24T14:21:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NOVA testing">
+<meta name="twitter:title" content="NOVA测试中ILO问题解决">
 <meta name="twitter:description" content="前言：NOVA是vmware为了应付德国官司开发的本地的native driver。">
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> NOVA testing | MohnTech </title>
+  <title> NOVA测试中ILO问题解决 | MohnTech </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +256,7 @@
             
             
               
-                NOVA testing
+                NOVA测试中ILO问题解决
               
             
           </h1>
@@ -321,7 +321,7 @@
 
           
           
-             <span id="/2016/05/11/vmware/ILO问题解决/" class="leancloud_visitors" data-flag-title="NOVA testing">
+             <span id="/2016/05/11/vmware/ILO问题解决/" class="leancloud_visitors" data-flag-title="NOVA测试中ILO问题解决">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -346,12 +346,16 @@
 <p>前言：NOVA是vmware为了应付德国官司开发的本地的native driver。</p>
 </blockquote>
 <a id="more"></a>
-<p>对于prme-hwe-drv-stor-016这个老旧 driver，从打开ILO开始遇到了很多的问题。<br>1）重启ILO<br><strong>Q:</strong>打不开ilo地址？<br><strong>A:</strong>ilo地址挂了，要reset一下ilo，方法是：  <code>ssh username@prme-hwe-drv-stor-016-ilo  -&gt; help  -&gt;resetsp</code>等待重启<br>2）remote console<br><strong>Q:</strong>打不开remote console?<br><strong>A:</strong>  </p>
+<p>对于prme-hwe-drv-stor-016这个老旧 driver，从打开ILO开始遇到了很多的问题。  </p>
+<h4 id="1）重启ILO"><a href="#1）重启ILO" class="headerlink" title="1）重启ILO"></a>1）重启ILO</h4><p><strong>Q:</strong>打不开ilo地址？<br><strong>A:</strong>ilo地址挂了，要reset一下ilo，方法是：  <code>ssh username@prme-hwe-drv-stor-016-ilo  -&gt; help  -&gt;resetsp</code>等待重启  </p>
+<h4 id="2）remote-console"><a href="#2）remote-console" class="headerlink" title="2）remote console"></a>2）remote console</h4><p><strong>Q:</strong>打不开remote console?<br><strong>A:</strong>  </p>
 <ul>
 <li>1）检查java。   </li>
-<li>2）ping prme-hwe-drv-stor-016   </li>
-<li>3）如果能ping 通，获得ip地址，通过ip地址打开ilo。</li>
+<li>2）ping prme-hwe-drv-stor-016 (may be 这里是ping XXXXXX-ilo?)  </li>
+<li>3）如果能ping 通，获得ip地址，通过ip地址打开ilo。    </li>
 </ul>
+<h4 id="3）reboot"><a href="#3）reboot" class="headerlink" title="3）reboot"></a>3）reboot</h4><p><strong>Q:</strong>reboot之后，起不来esxi？<br><strong>A:</strong>F12–&gt;BOOT Manager选项–&gt;add boot–&gt;boot from file –&gt;找到esxi-scsi开头的文件，这个文件就是我装在local disk上的系统。然后选一个貌似是x86_64结尾的东东？    </p>
+<p><strong>Summary:</strong>根据近日的装系统,装好的系统起不来,一定是因为,boot的选项不对,050这台机器,按F2进入boot选项,然后对boot first选项进行修改.  </p>
 
       
     </div>
@@ -377,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/10/leetcode/two-sum/" rel="next" title="leetcode:1--Two Sum">
-                <i class="fa fa-chevron-left"></i> leetcode:1--Two Sum
+              <a href="/2016/05/10/leetcode/excel-sheet-column-title/" rel="next" title="leetcode:168--Excel Sheet Column Title">
+                <i class="fa fa-chevron-left"></i> leetcode:168--Excel Sheet Column Title
               </a>
             
           </div>
@@ -414,7 +418,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/05/11/vmware/ILO问题解决/"
-           data-title="NOVA testing" data-url="http://yoursite.com/2016/05/11/vmware/ILO问题解决/">
+           data-title="NOVA测试中ILO问题解决" data-url="http://yoursite.com/2016/05/11/vmware/ILO问题解决/">
       </div>
     
   </div>
@@ -459,7 +463,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -467,7 +471,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -476,7 +480,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -552,7 +556,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）重启ILO"><span class="nav-number">1.</span> <span class="nav-text">1）重启ILO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）remote-console"><span class="nav-number">2.</span> <span class="nav-text">2）remote console</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）reboot"><span class="nav-number">3.</span> <span class="nav-text">3）reboot</span></a></li></ol></div>
             
           </div>
         </section>
