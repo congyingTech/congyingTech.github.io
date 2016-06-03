@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-24T16:22:00.000Z</updated>
+  <updated>2016-06-03T12:18:50.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,253 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Pyhton I/O进行文件读写(持续更新)</title>
+    <link href="http://yoursite.com/2016/06/03/Python/python%20IO/"/>
+    <id>http://yoursite.com/2016/06/03/Python/python IO/</id>
+    <published>2016-06-03T11:59:59.000Z</published>
+    <updated>2016-06-03T12:18:50.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Python-I-O操作&quot;&gt;&lt;a href=&quot;#Python-I-O操作&quot; class=&quot;headerlink&quot; title=&quot;Python I/O操作:&quot;&gt;&lt;/a&gt;Python I/O操作:&lt;/h2&gt;&lt;p&gt;下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.&lt;br&gt;基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.&lt;br&gt;这种方式,更方便的达到查找和替换的目的!!!&lt;br&gt;基本的格式:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;filename = &amp;quot;&amp;quot; 
+fread = open(filename, &amp;apos;r&amp;apos;)
+fwrite = open(filename, &amp;apos;w&amp;apos;)
+w_str = &amp;quot;&amp;quot;
+for line in fread:
+    #将line加入到文件中
+    fwrite.write(line)
+fread.close()
+fwrite.close()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;============================================================&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;filedir = &lt;span class=&quot;string&quot;&gt;&quot;/Users/congyingw/Desktop/sfcb.cfg&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1 = open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;r&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;w_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; f1:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line) &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&lt;span class=&quot;string&quot;&gt;&quot;right value&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; :&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; flag == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     w_str += &lt;span class=&quot;string&quot;&gt;&quot;\nenableSSLv3:true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2=open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.write(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.close()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;==================================================================================&lt;br&gt;待更新(lani给我的烂代码提供了一些简化的意见)&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CheckIODMValues&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       This function to check if values in /etc/sfcb/sfcb.cfg are right.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       @return True/False&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       remote = STAFRemote(self.hostname)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       data = remote.GetFileContent(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       w_str = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; data.split(&lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          isenableSSLv3 = &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; line.startswith(&lt;span class=&quot;string&quot;&gt;&#39;enabled:&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              w_str += &lt;span class=&quot;string&quot;&gt;&#39;enabled:        true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              log.debug(&lt;span class=&quot;string&quot;&gt;&quot;Set value of enabled to true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; line.startswith(&lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              w_str += &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:    true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              log.debug(&lt;span class=&quot;string&quot;&gt;&quot;Set value of enableSSLv3 to true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; line:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  w_str += line + &lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; isenableSSLv3:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:    true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 not in /etc/sfcb/sfcb.cfg.We should add enableSSLv3 in /etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       remote.WriteFile(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;, w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       rc, result = remote.ExecuteCmd(&lt;span class=&quot;string&quot;&gt;&quot;/etc/init.d/sfcbd-watchdog&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; rc != ReVal.PASSED:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          log.error(&lt;span class=&quot;string&quot;&gt;&quot;Restart /etc/init.d/sfcbd-watchdog failed. Error : %s&quot;&lt;/span&gt; % result)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;=========================================================================================&lt;br&gt;这个是最后提交的代码,并没有体现python文件读写,因为用了公司写好的现成的接口!!!待更新(从dashboard上扒一扒)&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="I/O" scheme="http://yoursite.com/categories/Python/I-O/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
+    
+      <category term="实习生" scheme="http://yoursite.com/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本进行文件读写操作(持续更新中...)</title>
+    <link href="http://yoursite.com/2016/06/03/Shell/shell%20script/"/>
+    <id>http://yoursite.com/2016/06/03/Shell/shell script/</id>
+    <published>2016-06-03T11:59:59.000Z</published>
+    <updated>2016-06-03T12:20:39.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h3&gt;&lt;p&gt;该脚本解决了从目标文件进行读写，修改指定值的问题。&lt;br&gt;基本上涉及了：shell脚本进行文件读写操作-&amp;gt;sed&lt;/p&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Shell Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lineNumber=$(cat /etc/sfcb/sfcb.cfg |wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;lineNumber is &lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;isenableSSLv3 is &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-ne&lt;/span&gt; 0 ];&lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 has add&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 is not added,we should add it&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   sed &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt; aenableSSLv3:    true&quot;&lt;/span&gt; -i /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 are true or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;SSLv3Value=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabledValue=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enabled&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3Value is &lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabledValue is &lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;set value right&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabled value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enabled:        false/enabled:        true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enableSSLv3:    false/enableSSLv3:    true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h3&gt;&lt;p&gt;sed是管道命令，是用shell进行文件读写的关键，待补充！！！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+      <category term="Sed文件读写" scheme="http://yoursite.com/categories/Shell/Sed%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
+    
+    
+      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+      <category term="if-else" scheme="http://yoursite.com/tags/if-else/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>贪心算法</title>
+    <link href="http://yoursite.com/2016/06/03/Algorithm/%E8%B4%AA%E5%BF%83%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/06/03/Algorithm/贪心法/</id>
+    <published>2016-06-03T11:59:59.000Z</published>
+    <updated>2016-06-03T13:59:23.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;序言：开刷leetcode的medium难度的题目，一开始就出现贪心法这样的基本算法，然而我作为本科计算机专业水水过来的渣渣，基本什么都不懂…还是趁现在年轻研究一下吧~&lt;br&gt;参考文章：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;五大常用算法之三：贪心算法&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/tengweitw/article/details/17054009&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;贪心算法之背包问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://love-oriented.com/pack/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;背包问题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;贪心算法是指，在对问题求解时，总是&lt;font color=&quot;green&quot;&gt;做出在当前看来是最好的选择。&lt;/font&gt;  也就是说，不从整体最优上加以考虑—-&lt;font color=&quot;green&quot; size=&quot;4&quot;&gt;局部最优解.&lt;/font&gt;&lt;br&gt;贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须&lt;font color=&quot;green&quot;&gt;具备无后效性&lt;/font&gt;，即某个状态以后的过程不会影响以前的状态，只与当前状态有关。  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所以关键是采用贪心策略一定要分析是否满足无后效性！！！&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;基本思路&quot;&gt;&lt;a href=&quot;#基本思路&quot; class=&quot;headerlink&quot; title=&quot;基本思路&quot;&gt;&lt;/a&gt;基本思路&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;建立数学模型来描述问题。&lt;/li&gt;
+&lt;li&gt;把求解的问题分成若干个子问题。&lt;/li&gt;
+&lt;li&gt;对每一个子问题求解，得到子问题的局部最优解。&lt;/li&gt;
+&lt;li&gt;把子问题的解局部最优解合成原来解问题的一个解。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;贪心算法使用的问题&quot;&gt;&lt;a href=&quot;#贪心算法使用的问题&quot; class=&quot;headerlink&quot; title=&quot;贪心算法使用的问题&quot;&gt;&lt;/a&gt;贪心算法使用的问题&lt;/h3&gt;&lt;p&gt;贪心策略适用的前提是：局部最优策略能导致产生全局最优解。&lt;br&gt;实际上，贪心算法适用的情况很少。一般，对一个问题分析是否适用于贪心算法，可以先选择该问题下的几个实际数据进行分析，就可做出判断。&lt;/p&gt;
+&lt;h3 id=&quot;贪心算法的实现框架&quot;&gt;&lt;a href=&quot;#贪心算法的实现框架&quot; class=&quot;headerlink&quot; title=&quot;贪心算法的实现框架&quot;&gt;&lt;/a&gt;贪心算法的实现框架&lt;/h3&gt;&lt;p&gt;从问题的某一初始解出发；&lt;br&gt;    &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; （能朝给定总目标前进一步）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      利用可行的决策，求出可行解的一个解元素；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;由所有解元素组合成问题的一个可行解；&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;贪心策略的选择&quot;&gt;&lt;a href=&quot;#贪心策略的选择&quot; class=&quot;headerlink&quot; title=&quot;贪心策略的选择&quot;&gt;&lt;/a&gt;贪心策略的选择&lt;/h3&gt;&lt;p&gt; 因为用贪心算法只能通过解局部最优解的策略来达到全局最优解，因此，一定要注意判断问题是否适合采用贪心算法策略，找到的解是否一定是问题的最优解。  &lt;/p&gt;
+&lt;h3 id=&quot;例题分析—背包问题&quot;&gt;&lt;a href=&quot;#例题分析—背包问题&quot; class=&quot;headerlink&quot; title=&quot;例题分析—背包问题&quot;&gt;&lt;/a&gt;例题分析—背包问题&lt;/h3&gt;&lt;h4 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot; title=&quot;问题描述：&quot;&gt;&lt;/a&gt;问题描述：&lt;/h4&gt;&lt;p&gt;[0-1背包问题]有一个背包，背包的容量M=150。有7个物品，物品只能完整的取。要求尽可能让装入背包的物品总价值最大，但不能超过总容量。  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Goods&lt;/th&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;th&gt;C&lt;/th&gt;
+&lt;th&gt;D&lt;/th&gt;
+&lt;th&gt;E&lt;/th&gt;
+&lt;th&gt;F&lt;/th&gt;
+&lt;th&gt;G&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Weight&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;40&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Value&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;40&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;40&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&quot;问题分析：&quot;&gt;&lt;a href=&quot;#问题分析：&quot; class=&quot;headerlink&quot; title=&quot;问题分析：&quot;&gt;&lt;/a&gt;问题分析：&lt;/h4&gt;&lt;h5 id=&quot;分析：&quot;&gt;&lt;a href=&quot;#分析：&quot; class=&quot;headerlink&quot; title=&quot;分析：&quot;&gt;&lt;/a&gt;分析：&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;目标函数： ∑pi最大  
+约束条件是装入的物品总重量不超过背包容量：∑wi&amp;lt;=M( M=150)  
+（1）根据贪心的策略，每次挑选价值最大的物品装入背包，得到的结果是否最优？  
+（2）每次挑选所占重量最小的物品装入是否能得到最优解？  
+（3）每次选取单位重量价值最大的物品，成为解本题的策略。  
+值得注意的是，贪心算法并不是完全不可以使用，贪心策略一旦经过证明成立后，它就是一种高效的算法。  
+贪心算法还是很常见的算法之一，这是由于它简单易行，构造贪心策略不是很困难。  
+可惜的是，它需要证明后才能真正运用到题目的算法中。  
+一般来说，贪心算法的证明围绕着：整个问题的最优解一定由在贪心策略中存在的子问题的最优解得来的。  
+对于例题中的3种贪心策略，都是无法成立（无法被证明）的，解释如下：  
+（1）贪心策略：选取价值最大者。反例：  
+W=30  
+物品：A B C  
+重量：28 12 12  
+价值：30 20 20  
+根据策略，首先选取物品A，接下来就无法再选取了，可是，选取B、C则更好。  
+（2）贪心策略：选取重量最小。它的反例与第一种策略的反例差不多。  
+（3）贪心策略：选取单位重量价值最大的物品。反例：   
+W=30  
+物品：A B C  
+重量：28 20 10  
+价值：28 20 10  
+根据策略，三种物品单位重量价值一样，程序无法依据现有策略作出判断，如果选择A，则答案错误。  
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;结论：&quot;&gt;&lt;a href=&quot;#结论：&quot; class=&quot;headerlink&quot; title=&quot;结论：&quot;&gt;&lt;/a&gt;结论：&lt;/h5&gt;&lt;p&gt;   贪心算法只是贪心的选择当下最优的解，并没有从全局的角度考虑，所以在解决0-1背包问题的时候，并不能得到最优解，这时候就要考虑动态规划了。&lt;/p&gt;
+&lt;h3 id=&quot;贪心和动态规划：&quot;&gt;&lt;a href=&quot;#贪心和动态规划：&quot; class=&quot;headerlink&quot; title=&quot;贪心和动态规划：&quot;&gt;&lt;/a&gt;贪心和动态规划：&lt;/h3&gt;&lt;p&gt;   贪心不一定能得到最优解，得到最优解需要满足：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;贪心选择性质：&lt;/strong&gt;一个全局最优解可以通过局部最优解来得到。that is to say,当考虑如何做选择时，我们只考虑对当前问题最佳的选择而不考虑子问题的结果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最优子结构：&lt;/strong&gt;全局最优解包含子问题的最优解。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;贪心和动态规划的区别：&lt;/strong&gt;在动态规划中，每一步都要做出选择，但是这些选择都依赖于子问题的解。因此，解动态规划问题一般是自底向上，由子问题到问题。在贪心算法中，我们总是做出当前的最好选择，而这些选择都不是依赖子问题，选择后再解决选择之后出现的子问题。因此，解贪心算法问题一般是自顶向下，一个一个地做出贪心选择。  &lt;/p&gt;
+&lt;p&gt;从上面的描述可知，动态规划中解决问题，需要先解决子问题，因此可能用到递归（当然可以将递归化为非递归），计算复杂度要比贪心算法高。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;序言：开刷leetcode的medium难度的题目，一开始就出现贪心法这样的基本算法，然而我作为本科计算机专业水水过来的渣渣，基本什么都不懂…还是趁现在年轻研究一下吧~&lt;br&gt;参考文章：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html&quot;&gt;五大常用算法之三：贪心算法&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/tengweitw/article/details/17054009&quot;&gt;贪心算法之背包问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://love-oriented.com/pack/&quot;&gt;背包问题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
+    
+      <category term="贪心算法" scheme="http://yoursite.com/categories/Algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:122--Best Time to Buy and Sell Stock II</title>
+    <link href="http://yoursite.com/2016/06/01/leetcode/best-time-to-buy-and-sell-stock-ii/"/>
+    <id>http://yoursite.com/2016/06/01/leetcode/best-time-to-buy-and-sell-stock-ii/</id>
+    <published>2016-06-01T11:59:59.000Z</published>
+    <updated>2016-06-03T12:18:05.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;题目描述：&lt;br&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
+&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;最佳时间买入卖出股票：你有一个数组保存了股票在第i天的价钱，现在你可以进行多次买入卖出，但同一时间你手上只能保持一个股票，如何赚的最多。&lt;br&gt;贪心法，和第一道股票的题目不同之处在于可以多次买卖股票，从而累积赚取所有的价格差。因此使用贪心算法，基本思想是锁定一个低价，然后在价格升到局部最高点（下一天的价格就下降）的时候，抛出股票，然后把下一天价格较低的股票买入。&lt;br&gt;核心就是&lt;strong&gt;局部最优化&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#贪心法：局部最优化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;maxProfit&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, prices)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        profit = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(prices) - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            profit += max(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, prices[i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] - prices[i])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; profit&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&#39;__main__&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    result = Solution().maxProfit([&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;54&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;56&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(result)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;这里延伸一下贪心算法：&lt;a href=&quot;http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考链接&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;下一篇单独学一下贪心法。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;题目描述：&lt;br&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
+&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+    
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>5月份计划</title>
-    <link href="http://yoursite.com/2016/05/25/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
-    <id>http://yoursite.com/2016/05/25/plan/5月份计划/</id>
-    <published>2016-05-24T16:22:53.507Z</published>
-    <updated>2016-05-24T16:22:00.000Z</updated>
+    <link href="http://yoursite.com/2016/05/31/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2016/05/31/plan/5月份计划/</id>
+    <published>2016-05-31T11:59:59.000Z</published>
+    <updated>2016-06-03T12:06:56.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Summary&lt;br&gt;五月份,还是觉得过得超级快,要完成的计划,差的还很远,看看那百分之0的进度条吧,MY GOD,时间都去哪里了…MD&lt;br&gt;虽然计划没有完成,也并非没有收获,开始测试NOVA case,学了些统计学知识.学了python的知识&lt;br&gt;在此,感谢丁丁耐心的给我写下了进度条应该怎么实现:）&lt;br&gt;希望自己能心无旁骛的过好自己的人生!&lt;/p&gt;
@@ -48,48 +290,6 @@
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pyhton I/O进行文件读写</title>
-    <link href="http://yoursite.com/2016/05/24/vmware/python%20IO/"/>
-    <id>http://yoursite.com/2016/05/24/vmware/python IO/</id>
-    <published>2016-05-24T11:59:59.000Z</published>
-    <updated>2016-05-24T14:14:31.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Python-I-O操作&quot;&gt;&lt;a href=&quot;#Python-I-O操作&quot; class=&quot;headerlink&quot; title=&quot;Python I/O操作:&quot;&gt;&lt;/a&gt;Python I/O操作:&lt;/h2&gt;&lt;p&gt;下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.&lt;br&gt;基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.&lt;br&gt;这种方式,更方便的达到查找和替换的目的!!!&lt;br&gt;基本的格式:  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;filename = &amp;quot;&amp;quot; 
-fread = open(filename, &amp;apos;r&amp;apos;)
-fwrite = open(filename, &amp;apos;w&amp;apos;)
-w_str = &amp;quot;&amp;quot;
-for line in fread:
-    #将line加入到文件中
-    fwrite.write(line)
-fread.close()
-fwrite.close()
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;============================================================&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;filedir = &lt;span class=&quot;string&quot;&gt;&quot;/Users/congyingw/Desktop/sfcb.cfg&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1 = open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;r&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;w_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; f1:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line) &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&lt;span class=&quot;string&quot;&gt;&quot;right value&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; :&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; flag == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     w_str += &lt;span class=&quot;string&quot;&gt;&quot;\nenableSSLv3:true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2=open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.write(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.close()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;==================================================================================&lt;br&gt;待更新(lani给我的烂代码提供了一些简化的意见)&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="I/O" scheme="http://yoursite.com/categories/Python/I-O/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
-    
-      <category term="实习生" scheme="http://yoursite.com/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
     
   </entry>
   
@@ -140,9 +340,9 @@ fwrite.close()
       <category term="XML" scheme="http://yoursite.com/categories/Python/XML/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="XML" scheme="http://yoursite.com/tags/XML/"/>
     
@@ -291,43 +491,37 @@ fwrite.close()
   </entry>
   
   <entry>
-    <title>leetcode:278--First Bad Version</title>
-    <link href="http://yoursite.com/2016/05/10/leetcode/first-bad-version/"/>
-    <id>http://yoursite.com/2016/05/10/leetcode/first-bad-version/</id>
+    <title>模型选择:正则化与交叉验证(5.10号读书笔记)</title>
+    <link href="http://yoursite.com/2016/05/10/statistics/statistics-04/"/>
+    <id>http://yoursite.com/2016/05/10/statistics/statistics-04/</id>
     <published>2016-05-10T11:59:59.000Z</published>
-    <updated>2016-05-10T06:21:56.000Z</updated>
+    <updated>2016-05-10T14:47:05.000Z</updated>
     
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
-&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
-&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;二分法（Binary Search）&lt;br&gt;最后return的一定要是left，因为要找到的是最初的损坏的版本。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8-*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;firstBadVersion&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        left, right =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; left &amp;lt;= right:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            mid = (left + right) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isBadVersion(mid):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                right = mid - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                left = mid + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; left&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+    <content type="html">&lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;结构风险最小化策略的实现,是在经验风险上加一个正则化项或罚项.正则化项一般是模型复杂度的单调递增函数,模型越复杂,正则化值越大.&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%AD%A3%E5%88%99%E5%8C%96%E5%BD%A2%E5%BC%8F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;公式项含义&quot;&gt;&lt;a href=&quot;#公式项含义&quot; class=&quot;headerlink&quot; title=&quot;公式项含义&quot;&gt;&lt;/a&gt;公式项含义&lt;/h4&gt;&lt;p&gt;第一项是经验风险,第二项是正则化项,拉姆达&amp;gt;=0调整两者之间的关系系数.&lt;br&gt;第一项的经验风险比较小的模型可能比较复杂,这时第二项的模型复杂度会较大,&lt;strong&gt;正则化的作用&lt;/strong&gt;是选择经验风险与模型复杂度同时较小的模型.&lt;/p&gt;
+&lt;h3 id=&quot;交叉验证&quot;&gt;&lt;a href=&quot;#交叉验证&quot; class=&quot;headerlink&quot; title=&quot;交叉验证&quot;&gt;&lt;/a&gt;交叉验证&lt;/h3&gt;&lt;h4 id=&quot;选择交叉验证的情况&quot;&gt;&lt;a href=&quot;#选择交叉验证的情况&quot; class=&quot;headerlink&quot; title=&quot;选择交叉验证的情况&quot;&gt;&lt;/a&gt;选择交叉验证的情况&lt;/h4&gt;&lt;p&gt;给定的样本数据充足时,数据随机切分为训练集(用于训练模型),验证集(用于模型选择),测试集(学习方法评估)&lt;br&gt;不充足时常发生,这时可以&lt;strong&gt;选择交叉验证&lt;/strong&gt;  &lt;/p&gt;
+&lt;h4 id=&quot;基本思想&quot;&gt;&lt;a href=&quot;#基本思想&quot; class=&quot;headerlink&quot; title=&quot;基本思想&quot;&gt;&lt;/a&gt;基本思想&lt;/h4&gt;&lt;p&gt;重复的使用数据:把给定的数据切分,将切分的数据集组合为&lt;strong&gt;训练集&lt;/strong&gt;和&lt;strong&gt;测试集&lt;/strong&gt;,在此基础上,反复训练,测试以及模型选择.  &lt;/p&gt;
+&lt;h4 id=&quot;1-简单交叉验证&quot;&gt;&lt;a href=&quot;#1-简单交叉验证&quot; class=&quot;headerlink&quot; title=&quot;1.简单交叉验证&quot;&gt;&lt;/a&gt;1.简单交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-s折交叉验证&quot;&gt;&lt;a href=&quot;#2-s折交叉验证&quot; class=&quot;headerlink&quot; title=&quot;2.s折交叉验证&quot;&gt;&lt;/a&gt;2.s折交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/s%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-留一交叉验证&quot;&gt;&lt;a href=&quot;#3-留一交叉验证&quot; class=&quot;headerlink&quot; title=&quot;3.留一交叉验证&quot;&gt;&lt;/a&gt;3.留一交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%95%99%E4%B8%80%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
-&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
-&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
+      &lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;he
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
     
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
@@ -370,46 +564,52 @@ return [0, 1].
       <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>模型选择:正则化与交叉验证(5.10号读书笔记)</title>
-    <link href="http://yoursite.com/2016/05/10/statistics/statistics-04/"/>
-    <id>http://yoursite.com/2016/05/10/statistics/statistics-04/</id>
+    <title>leetcode:278--First Bad Version</title>
+    <link href="http://yoursite.com/2016/05/10/leetcode/first-bad-version/"/>
+    <id>http://yoursite.com/2016/05/10/leetcode/first-bad-version/</id>
     <published>2016-05-10T11:59:59.000Z</published>
-    <updated>2016-05-10T14:47:05.000Z</updated>
+    <updated>2016-05-10T06:21:56.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;结构风险最小化策略的实现,是在经验风险上加一个正则化项或罚项.正则化项一般是模型复杂度的单调递增函数,模型越复杂,正则化值越大.&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%AD%A3%E5%88%99%E5%8C%96%E5%BD%A2%E5%BC%8F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;公式项含义&quot;&gt;&lt;a href=&quot;#公式项含义&quot; class=&quot;headerlink&quot; title=&quot;公式项含义&quot;&gt;&lt;/a&gt;公式项含义&lt;/h4&gt;&lt;p&gt;第一项是经验风险,第二项是正则化项,拉姆达&amp;gt;=0调整两者之间的关系系数.&lt;br&gt;第一项的经验风险比较小的模型可能比较复杂,这时第二项的模型复杂度会较大,&lt;strong&gt;正则化的作用&lt;/strong&gt;是选择经验风险与模型复杂度同时较小的模型.&lt;/p&gt;
-&lt;h3 id=&quot;交叉验证&quot;&gt;&lt;a href=&quot;#交叉验证&quot; class=&quot;headerlink&quot; title=&quot;交叉验证&quot;&gt;&lt;/a&gt;交叉验证&lt;/h3&gt;&lt;h4 id=&quot;选择交叉验证的情况&quot;&gt;&lt;a href=&quot;#选择交叉验证的情况&quot; class=&quot;headerlink&quot; title=&quot;选择交叉验证的情况&quot;&gt;&lt;/a&gt;选择交叉验证的情况&lt;/h4&gt;&lt;p&gt;给定的样本数据充足时,数据随机切分为训练集(用于训练模型),验证集(用于模型选择),测试集(学习方法评估)&lt;br&gt;不充足时常发生,这时可以&lt;strong&gt;选择交叉验证&lt;/strong&gt;  &lt;/p&gt;
-&lt;h4 id=&quot;基本思想&quot;&gt;&lt;a href=&quot;#基本思想&quot; class=&quot;headerlink&quot; title=&quot;基本思想&quot;&gt;&lt;/a&gt;基本思想&lt;/h4&gt;&lt;p&gt;重复的使用数据:把给定的数据切分,将切分的数据集组合为&lt;strong&gt;训练集&lt;/strong&gt;和&lt;strong&gt;测试集&lt;/strong&gt;,在此基础上,反复训练,测试以及模型选择.  &lt;/p&gt;
-&lt;h4 id=&quot;1-简单交叉验证&quot;&gt;&lt;a href=&quot;#1-简单交叉验证&quot; class=&quot;headerlink&quot; title=&quot;1.简单交叉验证&quot;&gt;&lt;/a&gt;1.简单交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2-s折交叉验证&quot;&gt;&lt;a href=&quot;#2-s折交叉验证&quot; class=&quot;headerlink&quot; title=&quot;2.s折交叉验证&quot;&gt;&lt;/a&gt;2.s折交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/s%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3-留一交叉验证&quot;&gt;&lt;a href=&quot;#3-留一交叉验证&quot; class=&quot;headerlink&quot; title=&quot;3.留一交叉验证&quot;&gt;&lt;/a&gt;3.留一交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%95%99%E4%B8%80%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
+&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
+&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;二分法（Binary Search）&lt;br&gt;最后return的一定要是left，因为要找到的是最初的损坏的版本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8-*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;firstBadVersion&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        left, right =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; left &amp;lt;= right:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            mid = (left + right) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isBadVersion(mid):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                right = mid - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                left = mid + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; left&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;he
+      &lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
+&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
+&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
     
     </summary>
     
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
     
-      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
     
     
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
   </entry>
   
@@ -461,9 +661,9 @@ return [0, 1].
       <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
@@ -503,9 +703,9 @@ return [0, 1].
       <category term="string" scheme="http://yoursite.com/categories/Python/leetcode/string/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
@@ -589,6 +789,50 @@ return [0, 1].
   </entry>
   
   <entry>
+    <title>监督学习之模型和策略（5.6号读书笔记）</title>
+    <link href="http://yoursite.com/2016/05/06/statistics/statistics-02/"/>
+    <id>http://yoursite.com/2016/05/06/statistics/statistics-02/</id>
+    <published>2016-05-06T11:59:59.000Z</published>
+    <updated>2016-05-10T14:03:10.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
+&lt;p&gt;条件概率的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG&quot; alt=&quot;条件概率假设空间&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;策略&quot;&gt;&lt;a href=&quot;#策略&quot; class=&quot;headerlink&quot; title=&quot;策略&quot;&gt;&lt;/a&gt;策略&lt;/h3&gt;&lt;p&gt;有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;损失函数：&lt;/strong&gt;度量模型一次预测的好坏&lt;br&gt;&lt;strong&gt;风险函数：&lt;/strong&gt;度量平均意义下模型预测的好坏  &lt;/p&gt;
+&lt;h4 id=&quot;常用的损失函数&quot;&gt;&lt;a href=&quot;#常用的损失函数&quot; class=&quot;headerlink&quot; title=&quot;常用的损失函数&quot;&gt;&lt;/a&gt;常用的损失函数&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;损失函数值越小，模型越好。&lt;/p&gt;
+&lt;h4 id=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;a href=&quot;#风险函数（或称为期望损失）&quot; class=&quot;headerlink&quot; title=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;/a&gt;风险函数（或称为期望损失）&lt;/h4&gt;&lt;p&gt;期望损失，就是损失函数的期望值&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt; 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失&lt;/p&gt;
+&lt;h4 id=&quot;经验损失&quot;&gt;&lt;a href=&quot;#经验损失&quot; class=&quot;headerlink&quot; title=&quot;经验损失&quot;&gt;&lt;/a&gt;经验损失&lt;/h4&gt;&lt;p&gt;给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  &lt;/p&gt;
+&lt;h4 id=&quot;经验风险最小化（ERM）&quot;&gt;&lt;a href=&quot;#经验风险最小化（ERM）&quot; class=&quot;headerlink&quot; title=&quot;经验风险最小化（ERM）&quot;&gt;&lt;/a&gt;经验风险最小化（ERM）&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）&lt;/p&gt;
+&lt;h4 id=&quot;结构风险最小化（SRM）&quot;&gt;&lt;a href=&quot;#结构风险最小化（SRM）&quot; class=&quot;headerlink&quot; title=&quot;结构风险最小化（SRM）&quot;&gt;&lt;/a&gt;结构风险最小化（SRM）&lt;/h4&gt;&lt;p&gt;防止过拟合而产生的,等价于正则化,后面正则化有详细介绍.&lt;br&gt;定义：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;J(f)为模型的复杂度 &lt;/p&gt;
+&lt;p&gt;最小化：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h2&gt;&lt;p&gt;最优化的解法！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:6--ZigZag Conversion</title>
     <link href="http://yoursite.com/2016/05/06/leetcode/zigzag-conversion/"/>
     <id>http://yoursite.com/2016/05/06/leetcode/zigzag-conversion/</id>
@@ -652,59 +896,15 @@ P A H  N A P L S I  I  G Y I  R
       <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
       <category term="模拟题" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%8B%9F%E9%A2%98/"/>
     
       <category term="for循环" scheme="http://yoursite.com/tags/for%E5%BE%AA%E7%8E%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>监督学习之模型和策略（5.6号读书笔记）</title>
-    <link href="http://yoursite.com/2016/05/06/statistics/statistics-02/"/>
-    <id>http://yoursite.com/2016/05/06/statistics/statistics-02/</id>
-    <published>2016-05-06T11:59:59.000Z</published>
-    <updated>2016-05-10T14:03:10.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。  &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;假设空间&lt;/strong&gt;&lt;br&gt;用F表示：&lt;br&gt;决策函数的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B0-%E5%86%B3%E7%AD%96%E5%87%BD%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F.PNG&quot; alt=&quot;决策函数假设空间&quot;&gt;&lt;/p&gt;
-&lt;p&gt;条件概率的集合：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E5%87%BD%E6%95%B02-%E6%9D%A1%E4%BB%B6.PNG&quot; alt=&quot;条件概率假设空间&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;策略&quot;&gt;&lt;a href=&quot;#策略&quot; class=&quot;headerlink&quot; title=&quot;策略&quot;&gt;&lt;/a&gt;策略&lt;/h3&gt;&lt;p&gt;有了模型的假设空间，统计学习借着需要考虑的是按照什么样的准则学习或者选择最优的模型。  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;损失函数：&lt;/strong&gt;度量模型一次预测的好坏&lt;br&gt;&lt;strong&gt;风险函数：&lt;/strong&gt;度量平均意义下模型预测的好坏  &lt;/p&gt;
-&lt;h4 id=&quot;常用的损失函数&quot;&gt;&lt;a href=&quot;#常用的损失函数&quot; class=&quot;headerlink&quot; title=&quot;常用的损失函数&quot;&gt;&lt;/a&gt;常用的损失函数&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;损失函数值越小，模型越好。&lt;/p&gt;
-&lt;h4 id=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;a href=&quot;#风险函数（或称为期望损失）&quot; class=&quot;headerlink&quot; title=&quot;风险函数（或称为期望损失）&quot;&gt;&lt;/a&gt;风险函数（或称为期望损失）&lt;/h4&gt;&lt;p&gt;期望损失，就是损失函数的期望值&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%9C%9F%E6%9C%9B%E6%8D%9F%E5%A4%B1.PNG&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
-&lt;p&gt; 学习的目标是选择期望风险最小的模型。然而期望损失是不能直接计算的，于是有了经验损失&lt;/p&gt;
-&lt;h4 id=&quot;经验损失&quot;&gt;&lt;a href=&quot;#经验损失&quot; class=&quot;headerlink&quot; title=&quot;经验损失&quot;&gt;&lt;/a&gt;经验损失&lt;/h4&gt;&lt;p&gt;给定一个训练的数据集，模型f(X)关于训练数据集的平均损失称为经验风险或经验损失。&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;大数定律知，N趋向于无穷时，经验风险可以更好的用来估计期望风险。  &lt;/p&gt;
-&lt;h4 id=&quot;经验风险最小化（ERM）&quot;&gt;&lt;a href=&quot;#经验风险最小化（ERM）&quot; class=&quot;headerlink&quot; title=&quot;经验风险最小化（ERM）&quot;&gt;&lt;/a&gt;经验风险最小化（ERM）&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;当样本足够大时，ERM能保证有很好的学习效果，然而样本小的时候，会产生过拟合，引入结构风险最小化（SRM）&lt;/p&gt;
-&lt;h4 id=&quot;结构风险最小化（SRM）&quot;&gt;&lt;a href=&quot;#结构风险最小化（SRM）&quot; class=&quot;headerlink&quot; title=&quot;结构风险最小化（SRM）&quot;&gt;&lt;/a&gt;结构风险最小化（SRM）&lt;/h4&gt;&lt;p&gt;防止过拟合而产生的,等价于正则化,后面正则化有详细介绍.&lt;br&gt;定义：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;J(f)为模型的复杂度 &lt;/p&gt;
-&lt;p&gt;最小化：&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h2&gt;&lt;p&gt;最优化的解法！&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;模型和策略&quot;&gt;&lt;a href=&quot;#模型和策略&quot; class=&quot;headerlink&quot; title=&quot;模型和策略&quot;&gt;&lt;/a&gt;模型和策略&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h3&gt;&lt;p&gt;监督学习过程中，模型就是所要学习的条件概率分布或决策函数。&lt;br&gt;模型的假设空间包含所有可能的条件概率分布或决策函数。  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
@@ -790,146 +990,13 @@ P A H  N A P L S I  I  G Y I  R
       <category term="二叉树遍历" scheme="http://yoursite.com/categories/Python/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
       <category term="二叉树DFS遍历" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91DFS%E9%81%8D%E5%8E%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:290--Word Pattern</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/word-pattern/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/word-pattern/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-10T15:08:28.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;给定一个简单的模式pattern,判断给定的str是否与pattern符合.&lt;br&gt;Given a pattern and a string str, find if str follows the same pattern.  &lt;/p&gt;
-&lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.  &lt;/p&gt;
-&lt;p&gt;Examples:&lt;br&gt;pattern = “abba”, str = “dog cat cat dog” should return true.&lt;br&gt;pattern = “abba”, str = “dog cat cat fish” should return false.&lt;br&gt;pattern = “aaaa”, str = “dog cat cat dog” should return false.&lt;br&gt;pattern = “abba”, str = “dog dog dog dog” should return false.  &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;My way:&lt;br&gt;1)利用dict可以value-key的方法,进行匹配判断&lt;br&gt;2)在lookup中没有重复的元素,如果有重复的元素用set过滤掉后,比较length,如果一样则是true,否则为false   &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8 -*-  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;wordPattern&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, pattern, str)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        pattern_list = list(pattern)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        str_list = str.split(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(pattern_list) != len(str_list):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        lookup = dict()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(pattern_list)):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果i下标指向的元素没有在lookup里面，就add一下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; pattern_list[i] &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; lookup:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                lookup[pattern_list[i]] = str_list[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#如果i下标指向的元素在lookup里面，就判断，key值对应的value是否与str_list的元素相同&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; str_list[i] != lookup[pattern_list[i]]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test lookup: print(lookup)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        key_set = set()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        value_set = set()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; key,value &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; lookup.items():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            key_set.add(key) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            value_set.add(value)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test: print(key_set)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#test: print(value_set)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(key_set) != len(value_set):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().wordPattern(&lt;span class=&quot;string&quot;&gt;&quot;abba&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;cat cat cat cat&quot;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/kamyu104/LeetCode/blob/master/Python/word-pattern.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考答案1&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;从这一题终于感觉到自己有进步了,不容易啊!!!&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;给定一个简单的模式pattern,判断给定的str是否与pattern符合.&lt;br&gt;Given a pattern and a string str, find if str follows the same pattern.  &lt;/p&gt;
-&lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.  &lt;/p&gt;
-&lt;p&gt;Examples:&lt;br&gt;pattern = “abba”, str = “dog cat cat dog” should return true.&lt;br&gt;pattern = “abba”, str = “dog cat cat fish” should return false.&lt;br&gt;pattern = “aaaa”, str = “dog cat cat dog” should return false.&lt;br&gt;pattern = “abba”, str = “dog dog dog dog” should return false.  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/categories/Python/leetcode/dict/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="dict" scheme="http://yoursite.com/tags/dict/"/>
-    
-      <category term="set" scheme="http://yoursite.com/tags/set/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:190--Reverse Bits</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/reverse-bits/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/reverse-bits/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-10T14:59:21.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：十进制转换为二进制，32位二进制数进行逆置，得到的二进制再转换为十进制。&lt;br&gt;eg:8=&amp;gt;0000000000000000000….001000=&amp;gt;0001…..00000000000=&amp;gt;268435456&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;我的想法：1)进制的相互转换：十进制&amp;lt;=&amp;gt;二进制  2）类型的相互转换：string&amp;lt;=&amp;gt;list 十进制转换为二进制之后进行逆置操作，然后再转换为十进制。&lt;br&gt;显然这种方法是最笨的方法了，用二进制位操作是简单的方法，我咋又忘了呢？！！！&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#1)进制的相互转换：十进制&amp;lt;=&amp;gt;二进制&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#2）类型的相互转换：string&amp;lt;=&amp;gt;list&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;reverseBits&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#十进制转换为二进制&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        string = bin(n)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        length = len(string)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        real_string = string[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;:length]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        real_len = length - &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        strlist = list(real_string)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#初始化list&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        new_strlist = [&lt;span class=&quot;string&quot;&gt;&#39;0&#39;&lt;/span&gt;] * &lt;span class=&quot;number&quot;&gt;32&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#reverse strlist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(real_len):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            new_strlist[i] = strlist[real_len - i - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#list to str&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        reverse_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;.join(new_strlist)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#二进制转换为十进制&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        result = int(reverse_str, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().reverseBits(&lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;二进制位操作解法：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# @param n, an integer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# @return an integer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;reverseBits&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        result = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; xrange(&lt;span class=&quot;number&quot;&gt;32&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result &amp;lt;&amp;lt;= &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result |= n &amp;amp; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            n &amp;gt;&amp;gt;= &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&#39;__main__&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; Solution().reverseBits(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://blog.sina.com.cn/s/blog_4b5039210100gkst.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二进制位操作&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;result位操作左移1位相当于乘以2的一次幂&lt;br&gt;n右移一位相当于除以2的一次幂。&lt;br&gt;这样实现逆置???不是很理解~&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：十进制转换为二进制，32位二进制数进行逆置，得到的二进制再转换为十进制。&lt;br&gt;eg:8=&amp;gt;0000000000000000000….001000=&amp;gt;0001…..00000000000=&amp;gt;268435456&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="进制" scheme="http://yoursite.com/categories/Python/leetcode/%E8%BF%9B%E5%88%B6/"/>
-    
-      <category term="位操作" scheme="http://yoursite.com/categories/Python/leetcode/%E8%BF%9B%E5%88%B6/%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python进制转换" scheme="http://yoursite.com/tags/Python%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
-    
-      <category term="二进制位操作" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:58--Length of Last Word</title>
-    <link href="http://yoursite.com/2016/05/03/leetcode/length-of-last-word/"/>
-    <id>http://yoursite.com/2016/05/03/leetcode/length-of-last-word/</id>
-    <published>2016-05-03T11:59:59.000Z</published>
-    <updated>2016-05-10T14:54:31.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;solution：&quot;&gt;&lt;a href=&quot;#solution：&quot; class=&quot;headerlink&quot; title=&quot;solution：&quot;&gt;&lt;/a&gt;solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题只要能想到用Python中对应的函数，就非常快的能够解决，strip([chars])函数，官方解释是：Return a copy of the string with the leading and trailing characters removed.删除头和尾的字串。在这里正好可以满足像&lt;code&gt;“a   “&lt;/code&gt;这样的字串空格的过滤。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8-*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;lengthOfLastWord&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, s)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#这里用到strip(rm)函数，strip可以删除s开头和结尾的rm，若为空，默认删除开头和结尾的空白字符&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; len(s.strip().split(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().lengthOfLastWord(&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem&quot;&gt;&lt;/a&gt;My Problem&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/stdtypes.html?highlight=strip#str.strip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python 中 strip()函数 官方解释&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/kaituorensheng/archive/2013/05/23/3096028.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strip()中文解释应用&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.&lt;/p&gt;
-&lt;p&gt;If the last word does not exist, return 0.&lt;/p&gt;
-&lt;p&gt;Note: A word is defined as a character sequence consists of non-space characters only.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;1）Given s = “Hello World”,return 5.&lt;br&gt;2）Given s = “a   “,return 1&lt;br&gt;3）Given s = “”,return 0 &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="list" scheme="http://yoursite.com/categories/Python/leetcode/list/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="strip()函数" scheme="http://yoursite.com/tags/strip-%E5%87%BD%E6%95%B0/"/>
-    
-      <category term="list" scheme="http://yoursite.com/tags/list/"/>
     
   </entry>
   
