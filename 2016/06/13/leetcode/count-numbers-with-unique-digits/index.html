@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jobs,Python,leetcode,智力题," />
+  <meta name="keywords" content="Python,leetcode,数学题," />
 
 
 
@@ -59,18 +59,19 @@
 
 
 
-<meta name="description" content="题目描述：查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。">
+<meta name="description" content="题目描述：Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  
+Example:Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode:223--Rectangle Area">
-<meta property="og:url" content="http://yoursite.com/2016/04/06/leetcode/rectangle-area/index.html">
+<meta property="og:title" content="leetcode:357--Count Numbers with Unique Digits">
+<meta property="og:url" content="http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/index.html">
 <meta property="og:site_name" content="MohnTech">
-<meta property="og:description" content="题目描述：查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。">
-<meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png">
-<meta property="og:updated_time" content="2016-05-10T14:57:00.000Z">
+<meta property="og:description" content="题目描述：Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  
+Example:Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt;">
+<meta property="og:updated_time" content="2016-06-13T15:25:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode:223--Rectangle Area">
-<meta name="twitter:description" content="题目描述：查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。">
-<meta name="twitter:image" content="http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png">
+<meta name="twitter:title" content="leetcode:357--Count Numbers with Unique Digits">
+<meta name="twitter:description" content="题目描述：Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  
+Example:Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt;">
 
 
 
@@ -88,7 +89,7 @@
   };
 </script>
 
-  <title> leetcode:223--Rectangle Area | MohnTech </title>
+  <title> leetcode:357--Count Numbers with Unique Digits | MohnTech </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +259,7 @@
             
             
               
-                leetcode:223--Rectangle Area
+                leetcode:357--Count Numbers with Unique Digits
               
             
           </h1>
@@ -270,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-06T19:59:59+08:00" content="2016-04-06">
-              2016-04-06
+            <time itemprop="dateCreated" datetime="2016-06-13T19:59:59+08:00" content="2016-06-13">
+              2016-06-13
             </time>
           </span>
 
@@ -324,8 +325,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/06/leetcode/rectangle-area/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/leetcode/rectangle-area/" itemprop="commentsCount"></span>
+                <a href="/2016/06/13/leetcode/count-numbers-with-unique-digits/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/13/leetcode/count-numbers-with-unique-digits/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -335,7 +336,7 @@
 
           
           
-             <span id="/2016/04/06/leetcode/rectangle-area/" class="leancloud_visitors" data-flag-title="leetcode:223--Rectangle Area">
+             <span id="/2016/06/13/leetcode/count-numbers-with-unique-digits/" class="leancloud_visitors" data-flag-title="leetcode:357--Count Numbers with Unique Digits">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,34 +357,13 @@
       
 
       
-        <p>题目描述：<br>查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。<br><img src="http://7xskaf.com1.z0.glb.clouddn.com/rectangle_area.png" alt="retangle_area"></p>
+        <p>题目描述：<br>Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &lt; 10n.  </p>
+<p>Example:<br>Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &lt; 100, excluding [11,22,33,44,55,66,77,88,99])  </p>
 <a id="more"></a>
-<h3 id="solution："><a href="#solution：" class="headerlink" title="solution："></a>solution：</h3><p><strong>算法思想：</strong><br>(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角<br>(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角<br>查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。<br>            <strong>覆盖面积=总面积 - 重叠面积</strong><br>1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和<br>2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积</p>
-<p><strong>Python Code:</strong>  </p>
-<pre><code class="Python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">computeArea</span><span class="params">(self, A, B, C, D, E, F, G, H)</span>:</span>
-        <span class="comment">#(A,B)第一个矩形的左下角，(C,D)第一个矩形的右上角</span>
-        <span class="comment">#(E,F)第二个矩形的左下角，(G,H)第二个矩形的右上角</span>
-        <span class="comment">#查找两个直线矩形的二维平面覆盖的总面积。 如该图所示的每个矩形由其左下角和右上角限定。</span>
-        <span class="comment">#覆盖面积=总面积 - 重叠面积</span>
-        <span class="comment">#1）当两个矩形没有重叠的时候，覆盖面积就是两个矩形面积和</span>
-        <span class="comment">#2）当有重叠的时候，要找到重叠部分的左下角和右上角，根据坐标计算出面积</span>
-        area = (D - B)*(C - A) + (H -F)*(G - E)
-        <span class="comment">#两个矩形不相交的情况</span>
-        <span class="keyword">if</span> B &gt;= H <span class="keyword">or</span> E &gt;= C <span class="keyword">or</span> A &gt;= G <span class="keyword">or</span> F &gt;= D:
-            <span class="keyword">return</span> area  
-        <span class="comment">#相交的情况下,求相交矩形的左下角和右上角</span>
-        leftbottomx = max(A, E)
-        leftbottomy = max(B, F)
-        righttopx = min(C, G)
-        righttopy = min(D, H)
-
-        <span class="keyword">return</span> area - (righttopx - leftbottomx)*(righttopy - leftbottomy)
-
-<span class="keyword">if</span> __name__ ==<span class="string">"__main__"</span>:
-    print(Solution().computeArea(<span class="number">-3</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">9</span>, <span class="number">2</span>))
-</code></pre>
-<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>NO</p>
+<h3 id="My-Solution："><a href="#My-Solution：" class="headerlink" title="My Solution："></a>My Solution：</h3><p><strong>算法思想：</strong><br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">这个题目的主要算法思想就是,排列组合!!!!!!  </span><br><span class="line">这道题目的题意是:给定一个n,然后 <span class="number">0</span>&lt;=N&lt;<span class="number">10</span>^n ,在N的取值范围内,找出unique的number,  </span><br><span class="line">比如,n = <span class="number">2</span>时,N取值范围是[<span class="number">0</span>, <span class="number">100</span>),那就要排除[<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span>], return <span class="number">91</span>  </span><br><span class="line">这就是一道排列组合的题目:  </span><br><span class="line">对于两位数,高位取值:(<span class="number">1</span>-<span class="number">9</span>)---&gt;<span class="number">9</span>个选择 低位为了不与高位重复:(<span class="number">0</span>-<span class="number">9</span>) - <span class="number">1</span>(高位选择)---&gt;<span class="number">9</span>个选择   </span><br><span class="line">对于三位数,高位取值:(<span class="number">1</span>-<span class="number">9</span>)  中间位取值:(<span class="number">0</span>-<span class="number">9</span>)-<span class="number">1</span>(高位选择)  低位取值:中间位取值 - <span class="number">1</span>(中间位选择)</span><br></pre></td></tr></table></figure></p>
+<p>规律:<code>f(k) = 9 * 9 * 8 ...(9 - k + 2) sum = f(1) + f(2) + ... + f(k)</code></p>
+<p><strong>Python Code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        f = <span class="number">9</span></span><br><span class="line">        result = <span class="number">10</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n + <span class="number">1</span>):</span><br><span class="line">            f *= <span class="number">9</span> - i + <span class="number">2</span></span><br><span class="line">            result += f</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    n = <span class="number">2</span></span><br><span class="line">    print(Solution().countNumbersWithUniqueDigits(n))</span><br></pre></td></tr></table></figure></p>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>我特么就是个傻逼!!!!什么事情都特么做不好!!!</p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>NO</p>
 
       
@@ -399,13 +379,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jobs/" rel="tag">#jobs</a>
-          
             <a href="/tags/Python/" rel="tag">#Python</a>
           
             <a href="/tags/leetcode/" rel="tag">#leetcode</a>
           
-            <a href="/tags/智力题/" rel="tag">#智力题</a>
+            <a href="/tags/数学题/" rel="tag">#数学题</a>
           
         </div>
       
@@ -414,16 +392,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/06/leetcode/merge-sorted-array/" rel="next" title="leetcode:88--Merge Sorted Array">
-                <i class="fa fa-chevron-left"></i> leetcode:88--Merge Sorted Array
+              <a href="/2016/06/06/leetcode/container-with-most-water/" rel="next" title="leetcode:11--Container With Most Water">
+                <i class="fa fa-chevron-left"></i> leetcode:11--Container With Most Water
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/07/leetcode/remove-nth-node-from-end-of-list/" rel="prev" title="leetcode:19--Remove Nth Node From End of List">
-                leetcode:19--Remove Nth Node From End of List <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/13/leetcode/trapping-rain-water/" rel="prev" title="leetcode:42--Trapping Rain Water">
+                leetcode:42--Trapping Rain Water <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,8 +428,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/06/leetcode/rectangle-area/"
-           data-title="leetcode:223--Rectangle Area" data-url="http://yoursite.com/2016/04/06/leetcode/rectangle-area/">
+      <div class="ds-thread" data-thread-key="2016/06/13/leetcode/count-numbers-with-unique-digits/"
+           data-title="leetcode:357--Count Numbers with Unique Digits" data-url="http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/">
       </div>
     
   </div>
@@ -589,7 +567,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution："><span class="nav-number">1.</span> <span class="nav-text">solution：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Problem"><span class="nav-number">2.</span> <span class="nav-text">My Problem:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Solution："><span class="nav-number">1.</span> <span class="nav-text">My Solution：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Problem"><span class="nav-number">2.</span> <span class="nav-text">My Problem:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
             
           </div>
         </section>
