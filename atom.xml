@@ -49,9 +49,9 @@
       <category term="Greedy" scheme="http://yoursite.com/categories/Python/leetcode/Greedy/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
     
@@ -88,95 +88,13 @@
       <category term="Greedy" scheme="http://yoursite.com/categories/Python/leetcode/Greedy/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
     
       <category term="贪心" scheme="http://yoursite.com/tags/%E8%B4%AA%E5%BF%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pyhton I/O进行文件读写(持续更新)</title>
-    <link href="http://yoursite.com/2016/06/03/Python/python%20IO/"/>
-    <id>http://yoursite.com/2016/06/03/Python/python IO/</id>
-    <published>2016-06-03T11:59:59.000Z</published>
-    <updated>2016-06-13T13:23:46.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Python-I-O操作&quot;&gt;&lt;a href=&quot;#Python-I-O操作&quot; class=&quot;headerlink&quot; title=&quot;Python I/O操作:&quot;&gt;&lt;/a&gt;Python I/O操作:&lt;/h2&gt;&lt;p&gt;下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.&lt;br&gt;基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.&lt;br&gt;这种方式,更方便的达到查找和替换的目的!!!&lt;br&gt;基本的格式:  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;filename = &amp;quot;&amp;quot; 
-fread = open(filename, &amp;apos;r&amp;apos;)
-fwrite = open(filename, &amp;apos;w&amp;apos;)
-w_str = &amp;quot;&amp;quot;
-for line in fread:
-    #将line加入到文件中
-    fwrite.write(line)
-fread.close()
-fwrite.close()
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;============================================================&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;filedir = &lt;span class=&quot;string&quot;&gt;&quot;/Users/congyingw/Desktop/sfcb.cfg&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1 = open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;r&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;w_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; f1:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line) &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&lt;span class=&quot;string&quot;&gt;&quot;right value&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; :&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; flag == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     w_str += &lt;span class=&quot;string&quot;&gt;&quot;\nenableSSLv3:true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2=open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.write(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.close()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;一般文件读写都是用 with open() as f:这样就省去了try catch语块,不然还要考虑这种情况!&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;This function to check if values in /etc/sfcb/sfcb.cfg are right.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@return True/False&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote = STAFRemote(self.hostname)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote.CopyFromHost(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;/tmp&quot;&lt;/span&gt;, self.Launcher_VM)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;checkf_name = &lt;span class=&quot;string&quot;&gt;&quot;/tmp/sfcb.cfg&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;w_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; open(checkf_name, &lt;span class=&quot;string&quot;&gt;&#39;r&#39;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           isenableSSLv3 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           isenableSSLv3 = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:        true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enabled in /etc/sfcb/sfcb.cfg, and values of it is true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 in /etc/sfcb/sfcb.cfg, and values of it is true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:        false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enabled in /etc/sfcb/sfcb.cfg, but value of it is false.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enabled:        false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enabled:        true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 in /etc/sfcb/sfcb.cfg, but value of it is false.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isenableSSLv3 == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 not in /etc/sfcb/sfcb.cfg.We should add enableSSLv3 in /etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; open(checkf_name, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.write(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote.CopyToHost(&lt;span class=&quot;string&quot;&gt;&quot;/tmp/sfcb.cfg&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rc, result = remote.ExecuteCmd(&lt;span class=&quot;string&quot;&gt;&quot;/etc/init.d/sfcbd-watchdog&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; rc != ReVal.PASSED:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   log.error(&lt;span class=&quot;string&quot;&gt;&quot;Restart /etc/init.d/sfcbd-watchdog failed, please check param again.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;hr&gt;
-&lt;p&gt;lani给我的烂代码提供了一些简化的意见&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CheckIODMValues&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       This function to check if values in /etc/sfcb/sfcb.cfg are right.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       @return True/False&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       remote = STAFRemote(self.hostname)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       data = remote.GetFileContent(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       w_str = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; data.split(&lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          isenableSSLv3 = &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; line.startswith(&lt;span class=&quot;string&quot;&gt;&#39;enabled:&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              w_str += &lt;span class=&quot;string&quot;&gt;&#39;enabled:        true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              log.debug(&lt;span class=&quot;string&quot;&gt;&quot;Set value of enabled to true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; line.startswith(&lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              w_str += &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:    true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              log.debug(&lt;span class=&quot;string&quot;&gt;&quot;Set value of enableSSLv3 to true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; line:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  w_str += line + &lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; isenableSSLv3:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:    true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 not in /etc/sfcb/sfcb.cfg.We should add enableSSLv3 in /etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       remote.WriteFile(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;, w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       rc, result = remote.ExecuteCmd(&lt;span class=&quot;string&quot;&gt;&quot;/etc/init.d/sfcbd-watchdog&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; rc != ReVal.PASSED:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          log.error(&lt;span class=&quot;string&quot;&gt;&quot;Restart /etc/init.d/sfcbd-watchdog failed. Error : %s&quot;&lt;/span&gt; % result)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;=========================================================================================&lt;br&gt;这个是最后提交的代码,并没有体现python文件读写,因为用了公司写好的现成的接口!!!待更新(从dashboard上扒一扒)&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="I/O" scheme="http://yoursite.com/categories/Python/I-O/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
-    
-      <category term="实习生" scheme="http://yoursite.com/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell脚本进行文件读写操作(持续更新中...)</title>
-    <link href="http://yoursite.com/2016/06/03/Shell/shell%20script/"/>
-    <id>http://yoursite.com/2016/06/03/Shell/shell script/</id>
-    <published>2016-06-03T11:59:59.000Z</published>
-    <updated>2016-06-03T12:20:39.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h3&gt;&lt;p&gt;该脚本解决了从目标文件进行读写，修改指定值的问题。&lt;br&gt;基本上涉及了：shell脚本进行文件读写操作-&amp;gt;sed&lt;/p&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Shell Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lineNumber=$(cat /etc/sfcb/sfcb.cfg |wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;lineNumber is &lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;isenableSSLv3 is &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-ne&lt;/span&gt; 0 ];&lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 has add&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 is not added,we should add it&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   sed &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt; aenableSSLv3:    true&quot;&lt;/span&gt; -i /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 are true or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;SSLv3Value=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabledValue=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enabled&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3Value is &lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabledValue is &lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;set value right&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabled value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enabled:        false/enabled:        true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enableSSLv3:    false/enableSSLv3:    true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h3&gt;&lt;p&gt;sed是管道命令，是用shell进行文件读写的关键，待补充！！！&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
-    
-      <category term="Sed文件读写" scheme="http://yoursite.com/categories/Shell/Sed%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
-    
-    
-      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
-    
-      <category term="if-else" scheme="http://yoursite.com/tags/if-else/"/>
     
   </entry>
   
@@ -303,6 +221,88 @@ W=30
   </entry>
   
   <entry>
+    <title>shell脚本进行文件读写操作(持续更新中...)</title>
+    <link href="http://yoursite.com/2016/06/03/Shell/shell%20script/"/>
+    <id>http://yoursite.com/2016/06/03/Shell/shell script/</id>
+    <published>2016-06-03T11:59:59.000Z</published>
+    <updated>2016-06-03T12:20:39.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h3&gt;&lt;p&gt;该脚本解决了从目标文件进行读写，修改指定值的问题。&lt;br&gt;基本上涉及了：shell脚本进行文件读写操作-&amp;gt;sed&lt;/p&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Shell Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lineNumber=$(cat /etc/sfcb/sfcb.cfg |wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;lineNumber is &lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;isenableSSLv3 is &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-ne&lt;/span&gt; 0 ];&lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 has add&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 is not added,we should add it&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   sed &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt; aenableSSLv3:    true&quot;&lt;/span&gt; -i /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 are true or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;SSLv3Value=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabledValue=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enabled&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3Value is &lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabledValue is &lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;set value right&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabled value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enabled:        false/enabled:        true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enableSSLv3:    false/enableSSLv3:    true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h3&gt;&lt;p&gt;sed是管道命令，是用shell进行文件读写的关键，待补充！！！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+      <category term="Sed文件读写" scheme="http://yoursite.com/categories/Shell/Sed%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
+    
+    
+      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+      <category term="if-else" scheme="http://yoursite.com/tags/if-else/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pyhton I/O进行文件读写(持续更新)</title>
+    <link href="http://yoursite.com/2016/06/03/Python/python%20IO/"/>
+    <id>http://yoursite.com/2016/06/03/Python/python IO/</id>
+    <published>2016-06-03T11:59:59.000Z</published>
+    <updated>2016-06-13T13:23:46.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Python-I-O操作&quot;&gt;&lt;a href=&quot;#Python-I-O操作&quot; class=&quot;headerlink&quot; title=&quot;Python I/O操作:&quot;&gt;&lt;/a&gt;Python I/O操作:&lt;/h2&gt;&lt;p&gt;下面这段代码里面用的是正则表达式中的search和sub的方法,进行字符串匹配和替换.&lt;br&gt;基本思想是每读取一行文件,看是否值是正确的,如果不正确,就进行替换并且将这一行line加入到字符串w_str中,如果正确,则直接将此行加入到字符串w_str中.&lt;br&gt;这种方式,更方便的达到查找和替换的目的!!!&lt;br&gt;基本的格式:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;filename = &amp;quot;&amp;quot; 
+fread = open(filename, &amp;apos;r&amp;apos;)
+fwrite = open(filename, &amp;apos;w&amp;apos;)
+w_str = &amp;quot;&amp;quot;
+for line in fread:
+    #将line加入到文件中
+    fwrite.write(line)
+fread.close()
+fwrite.close()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;============================================================&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;filedir = &lt;span class=&quot;string&quot;&gt;&quot;/Users/congyingw/Desktop/sfcb.cfg&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1 = open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;r&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;w_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; f1:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       flag = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line) &lt;span class=&quot;keyword&quot;&gt;and&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&lt;span class=&quot;string&quot;&gt;&quot;right value&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enabled:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enabled:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; :&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; flag == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     w_str += &lt;span class=&quot;string&quot;&gt;&quot;\nenableSSLv3:true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2=open(filedir, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.write(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f1.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f2.close()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一般文件读写都是用 with open() as f:这样就省去了try catch语块,不然还要考虑这种情况!&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;This function to check if values in /etc/sfcb/sfcb.cfg are right.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@return True/False&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote = STAFRemote(self.hostname)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote.CopyFromHost(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;/tmp&quot;&lt;/span&gt;, self.Launcher_VM)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;checkf_name = &lt;span class=&quot;string&quot;&gt;&quot;/tmp/sfcb.cfg&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;w_str = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; open(checkf_name, &lt;span class=&quot;string&quot;&gt;&#39;r&#39;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           isenableSSLv3 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           isenableSSLv3 = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:        true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enabled in /etc/sfcb/sfcb.cfg, and values of it is true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    true&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 in /etc/sfcb/sfcb.cfg, and values of it is true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enabled:        false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enabled in /etc/sfcb/sfcb.cfg, but value of it is false.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enabled:        false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enabled:        true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; re.search(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    false&quot;&lt;/span&gt;, line):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 in /etc/sfcb/sfcb.cfg, but value of it is false.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           line = re.sub(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    false&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    true&quot;&lt;/span&gt;, line)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isenableSSLv3 == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        w_str += &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3:    true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 not in /etc/sfcb/sfcb.cfg.We should add enableSSLv3 in /etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; open(checkf_name, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.write(w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote.CopyToHost(&lt;span class=&quot;string&quot;&gt;&quot;/tmp/sfcb.cfg&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rc, result = remote.ExecuteCmd(&lt;span class=&quot;string&quot;&gt;&quot;/etc/init.d/sfcbd-watchdog&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; rc != ReVal.PASSED:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   log.error(&lt;span class=&quot;string&quot;&gt;&quot;Restart /etc/init.d/sfcbd-watchdog failed, please check param again.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+&lt;p&gt;lani给我的烂代码提供了一些简化的意见&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CheckIODMValues&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       This function to check if values in /etc/sfcb/sfcb.cfg are right.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       @return True/False&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       remote = STAFRemote(self.hostname)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       data = remote.GetFileContent(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       w_str = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; line &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; data.split(&lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;comment&quot;&gt;#check has enableSSLv3 or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          isenableSSLv3 = &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 value&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; line.startswith(&lt;span class=&quot;string&quot;&gt;&#39;enabled:&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              w_str += &lt;span class=&quot;string&quot;&gt;&#39;enabled:        true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              log.debug(&lt;span class=&quot;string&quot;&gt;&quot;Set value of enabled to true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; line.startswith(&lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              w_str += &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:    true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              log.debug(&lt;span class=&quot;string&quot;&gt;&quot;Set value of enableSSLv3 to true.&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; line:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  w_str += line + &lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; isenableSSLv3:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           w_str += &lt;span class=&quot;string&quot;&gt;&#39;enableSSLv3:    true\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           log.debug(&lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 not in /etc/sfcb/sfcb.cfg.We should add enableSSLv3 in /etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       remote.WriteFile(&lt;span class=&quot;string&quot;&gt;&quot;/etc/sfcb/sfcb.cfg&quot;&lt;/span&gt;, w_str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       rc, result = remote.ExecuteCmd(&lt;span class=&quot;string&quot;&gt;&quot;/etc/init.d/sfcbd-watchdog&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; rc != ReVal.PASSED:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          log.error(&lt;span class=&quot;string&quot;&gt;&quot;Restart /etc/init.d/sfcbd-watchdog failed. Error : %s&quot;&lt;/span&gt; % result)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;=========================================================================================&lt;br&gt;这个是最后提交的代码,并没有体现python文件读写,因为用了公司写好的现成的接口!!!待更新(从dashboard上扒一扒)&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;p&gt;自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="I/O" scheme="http://yoursite.com/categories/Python/I-O/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
+    
+      <category term="实习生" scheme="http://yoursite.com/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:122--Best Time to Buy and Sell Stock II</title>
     <link href="http://yoursite.com/2016/06/01/leetcode/best-time-to-buy-and-sell-stock-ii/"/>
     <id>http://yoursite.com/2016/06/01/leetcode/best-time-to-buy-and-sell-stock-ii/</id>
@@ -338,9 +338,9 @@ W=30
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
     
@@ -529,9 +529,9 @@ W=30
       <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
     
       <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
@@ -580,82 +580,6 @@ W=30
   </entry>
   
   <entry>
-    <title>模型选择:正则化与交叉验证(5.10号读书笔记)</title>
-    <link href="http://yoursite.com/2016/05/10/statistics/statistics-04/"/>
-    <id>http://yoursite.com/2016/05/10/statistics/statistics-04/</id>
-    <published>2016-05-10T11:59:59.000Z</published>
-    <updated>2016-05-10T14:47:05.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;结构风险最小化策略的实现,是在经验风险上加一个正则化项或罚项.正则化项一般是模型复杂度的单调递增函数,模型越复杂,正则化值越大.&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%AD%A3%E5%88%99%E5%8C%96%E5%BD%A2%E5%BC%8F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;公式项含义&quot;&gt;&lt;a href=&quot;#公式项含义&quot; class=&quot;headerlink&quot; title=&quot;公式项含义&quot;&gt;&lt;/a&gt;公式项含义&lt;/h4&gt;&lt;p&gt;第一项是经验风险,第二项是正则化项,拉姆达&amp;gt;=0调整两者之间的关系系数.&lt;br&gt;第一项的经验风险比较小的模型可能比较复杂,这时第二项的模型复杂度会较大,&lt;strong&gt;正则化的作用&lt;/strong&gt;是选择经验风险与模型复杂度同时较小的模型.&lt;/p&gt;
-&lt;h3 id=&quot;交叉验证&quot;&gt;&lt;a href=&quot;#交叉验证&quot; class=&quot;headerlink&quot; title=&quot;交叉验证&quot;&gt;&lt;/a&gt;交叉验证&lt;/h3&gt;&lt;h4 id=&quot;选择交叉验证的情况&quot;&gt;&lt;a href=&quot;#选择交叉验证的情况&quot; class=&quot;headerlink&quot; title=&quot;选择交叉验证的情况&quot;&gt;&lt;/a&gt;选择交叉验证的情况&lt;/h4&gt;&lt;p&gt;给定的样本数据充足时,数据随机切分为训练集(用于训练模型),验证集(用于模型选择),测试集(学习方法评估)&lt;br&gt;不充足时常发生,这时可以&lt;strong&gt;选择交叉验证&lt;/strong&gt;  &lt;/p&gt;
-&lt;h4 id=&quot;基本思想&quot;&gt;&lt;a href=&quot;#基本思想&quot; class=&quot;headerlink&quot; title=&quot;基本思想&quot;&gt;&lt;/a&gt;基本思想&lt;/h4&gt;&lt;p&gt;重复的使用数据:把给定的数据切分,将切分的数据集组合为&lt;strong&gt;训练集&lt;/strong&gt;和&lt;strong&gt;测试集&lt;/strong&gt;,在此基础上,反复训练,测试以及模型选择.  &lt;/p&gt;
-&lt;h4 id=&quot;1-简单交叉验证&quot;&gt;&lt;a href=&quot;#1-简单交叉验证&quot; class=&quot;headerlink&quot; title=&quot;1.简单交叉验证&quot;&gt;&lt;/a&gt;1.简单交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2-s折交叉验证&quot;&gt;&lt;a href=&quot;#2-s折交叉验证&quot; class=&quot;headerlink&quot; title=&quot;2.s折交叉验证&quot;&gt;&lt;/a&gt;2.s折交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/s%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3-留一交叉验证&quot;&gt;&lt;a href=&quot;#3-留一交叉验证&quot; class=&quot;headerlink&quot; title=&quot;3.留一交叉验证&quot;&gt;&lt;/a&gt;3.留一交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%95%99%E4%B8%80%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;he
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:278--First Bad Version</title>
-    <link href="http://yoursite.com/2016/05/10/leetcode/first-bad-version/"/>
-    <id>http://yoursite.com/2016/05/10/leetcode/first-bad-version/</id>
-    <published>2016-05-10T11:59:59.000Z</published>
-    <updated>2016-06-13T13:31:30.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
-&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
-&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;二分法（Binary Search）&lt;br&gt;最后return的一定要是left，因为要找到的是最初的损坏的版本。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8-*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;firstBadVersion&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        left, right =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; left &amp;lt;= right:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            mid = (left + right) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isBadVersion(mid):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                right = mid - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                left = mid + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; left&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
-&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
-&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="二分法" scheme="http://yoursite.com/categories/Python/leetcode/%E4%BA%8C%E5%88%86%E6%B3%95/"/>
-    
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:1--Two Sum</title>
     <link href="http://yoursite.com/2016/05/10/leetcode/two-sum/"/>
     <id>http://yoursite.com/2016/05/10/leetcode/two-sum/</id>
@@ -696,9 +620,85 @@ return [0, 1].
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
+  </entry>
+  
+  <entry>
+    <title>模型选择:正则化与交叉验证(5.10号读书笔记)</title>
+    <link href="http://yoursite.com/2016/05/10/statistics/statistics-04/"/>
+    <id>http://yoursite.com/2016/05/10/statistics/statistics-04/</id>
+    <published>2016-05-10T11:59:59.000Z</published>
+    <updated>2016-05-10T14:47:05.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;结构风险最小化策略的实现,是在经验风险上加一个正则化项或罚项.正则化项一般是模型复杂度的单调递增函数,模型越复杂,正则化值越大.&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%AD%A3%E5%88%99%E5%8C%96%E5%BD%A2%E5%BC%8F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;公式项含义&quot;&gt;&lt;a href=&quot;#公式项含义&quot; class=&quot;headerlink&quot; title=&quot;公式项含义&quot;&gt;&lt;/a&gt;公式项含义&lt;/h4&gt;&lt;p&gt;第一项是经验风险,第二项是正则化项,拉姆达&amp;gt;=0调整两者之间的关系系数.&lt;br&gt;第一项的经验风险比较小的模型可能比较复杂,这时第二项的模型复杂度会较大,&lt;strong&gt;正则化的作用&lt;/strong&gt;是选择经验风险与模型复杂度同时较小的模型.&lt;/p&gt;
+&lt;h3 id=&quot;交叉验证&quot;&gt;&lt;a href=&quot;#交叉验证&quot; class=&quot;headerlink&quot; title=&quot;交叉验证&quot;&gt;&lt;/a&gt;交叉验证&lt;/h3&gt;&lt;h4 id=&quot;选择交叉验证的情况&quot;&gt;&lt;a href=&quot;#选择交叉验证的情况&quot; class=&quot;headerlink&quot; title=&quot;选择交叉验证的情况&quot;&gt;&lt;/a&gt;选择交叉验证的情况&lt;/h4&gt;&lt;p&gt;给定的样本数据充足时,数据随机切分为训练集(用于训练模型),验证集(用于模型选择),测试集(学习方法评估)&lt;br&gt;不充足时常发生,这时可以&lt;strong&gt;选择交叉验证&lt;/strong&gt;  &lt;/p&gt;
+&lt;h4 id=&quot;基本思想&quot;&gt;&lt;a href=&quot;#基本思想&quot; class=&quot;headerlink&quot; title=&quot;基本思想&quot;&gt;&lt;/a&gt;基本思想&lt;/h4&gt;&lt;p&gt;重复的使用数据:把给定的数据切分,将切分的数据集组合为&lt;strong&gt;训练集&lt;/strong&gt;和&lt;strong&gt;测试集&lt;/strong&gt;,在此基础上,反复训练,测试以及模型选择.  &lt;/p&gt;
+&lt;h4 id=&quot;1-简单交叉验证&quot;&gt;&lt;a href=&quot;#1-简单交叉验证&quot; class=&quot;headerlink&quot; title=&quot;1.简单交叉验证&quot;&gt;&lt;/a&gt;1.简单交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-s折交叉验证&quot;&gt;&lt;a href=&quot;#2-s折交叉验证&quot; class=&quot;headerlink&quot; title=&quot;2.s折交叉验证&quot;&gt;&lt;/a&gt;2.s折交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/s%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-留一交叉验证&quot;&gt;&lt;a href=&quot;#3-留一交叉验证&quot; class=&quot;headerlink&quot; title=&quot;3.留一交叉验证&quot;&gt;&lt;/a&gt;3.留一交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%95%99%E4%B8%80%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;he
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:278--First Bad Version</title>
+    <link href="http://yoursite.com/2016/05/10/leetcode/first-bad-version/"/>
+    <id>http://yoursite.com/2016/05/10/leetcode/first-bad-version/</id>
+    <published>2016-05-10T11:59:59.000Z</published>
+    <updated>2016-06-13T13:31:30.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
+&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
+&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;二分法（Binary Search）&lt;br&gt;最后return的一定要是left，因为要找到的是最初的损坏的版本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*-coding:utf-8-*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;firstBadVersion&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        left, right =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; left &amp;lt;= right:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            mid = (left + right) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isBadVersion(mid):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                right = mid - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                left = mid + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; left&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;No&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;你是一名产品经理，正在领导团队开发一个新产品。不幸的是，产品的最新版本没有通过质量检测。由于每一个版本都是基于上一个版本开发的，某一个损坏的版本之后的所有版本全都是坏的。  &lt;/p&gt;
+&lt;p&gt;假设有n个版本[1, 2, …, n]，你想要找出第一个损坏的版本，它导致所有后面的版本都坏掉了。  &lt;/p&gt;
+&lt;p&gt;给你一个API bool isBadVersion(version)，返回某一个版本是否损坏。实现一个函数找出第一个损坏的版本。你应该最小化调用API的次数。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="二分法" scheme="http://yoursite.com/categories/Python/leetcode/%E4%BA%8C%E5%88%86%E6%B3%95/"/>
+    
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -752,9 +752,9 @@ return [0, 1].
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="字符串逆置" scheme="http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%86%E7%BD%AE/"/>
     
@@ -794,9 +794,46 @@ return [0, 1].
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+  </entry>
+  
+  <entry>
+    <title>模型评估(5.9号读书笔记)</title>
+    <link href="http://yoursite.com/2016/05/09/statistics/statistics-03/"/>
+    <id>http://yoursite.com/2016/05/09/statistics/statistics-03/</id>
+    <published>2016-05-09T11:59:59.000Z</published>
+    <updated>2016-05-10T13:50:32.000Z</updated>
+    
+    <content type="html">&lt;p&gt;当损失函数给定时,基于损失函数的模型的training error和模型的test error成为学习方法评估的标准.&lt;br&gt;注意,统计学习方法具体采用的损失函数未必是评估时使用的损失函数.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;训练误差与测试误差&quot;&gt;&lt;a href=&quot;#训练误差与测试误差&quot; class=&quot;headerlink&quot; title=&quot;训练误差与测试误差&quot;&gt;&lt;/a&gt;训练误差与测试误差&lt;/h3&gt;&lt;h4 id=&quot;训练误差-平均损失&quot;&gt;&lt;a href=&quot;#训练误差-平均损失&quot; class=&quot;headerlink&quot; title=&quot;训练误差: 平均损失&quot;&gt;&lt;/a&gt;训练误差: 平均损失&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%B9%B3%E5%9D%87%E6%8D%9F%E5%A4%B1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;测试误差-平均损失&quot;&gt;&lt;a href=&quot;#测试误差-平均损失&quot; class=&quot;headerlink&quot; title=&quot;测试误差:  平均损失&quot;&gt;&lt;/a&gt;测试误差:  平均损失&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%B9%B3%E5%9D%87%E6%8D%9F%E5%A4%B1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;主要是看测试误差,测试误差小的方法有更好的预测能力,通常将学习方法对未知数据的预测能力称为&lt;strong&gt;泛化能力&lt;/strong&gt;.  &lt;/p&gt;
+&lt;h3 id=&quot;过拟合&quot;&gt;&lt;a href=&quot;#过拟合&quot; class=&quot;headerlink&quot; title=&quot;过拟合&quot;&gt;&lt;/a&gt;过拟合&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义:&quot;&gt;&lt;/a&gt;定义:&lt;/h4&gt;&lt;p&gt;如果一味追求提高对训练数据的预测能力,所选模型的复杂度往往会比真模型更高,这种现象称为&lt;strong&gt;过拟合.&lt;/strong&gt;&lt;br&gt;对已知数据预测的很好,但对未知数据预测的很差的现象.&lt;br&gt;可以说模型选择旨在避免过拟合并提高模型的预测能力.&lt;/p&gt;
+&lt;h4 id=&quot;解决方法&quot;&gt;&lt;a href=&quot;#解决方法&quot; class=&quot;headerlink&quot; title=&quot;解决方法:&quot;&gt;&lt;/a&gt;解决方法:&lt;/h4&gt;&lt;p&gt;1)首先确定模型的复杂度,即确定多项式的次数.&lt;br&gt;2)在给定的模型复杂度下,按照&lt;strong&gt;经验风险最小化&lt;/strong&gt;的策略求解参数—多项式的系数&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For example:&lt;/strong&gt;&lt;br&gt;M次多项式:&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/M%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;strong&gt;目的是求w的&lt;/strong&gt;&lt;br&gt;按照上面的步骤解决问题&lt;br&gt;1)求经验风险最小化&lt;br&gt;其中1/2是为了方便计算,损失函数是平方&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;2)将模型与训练数据带入上式&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%B8%A6%E5%85%A5%E5%90%8E%E7%9A%84%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;3)因为要求最小化,对式子系数w进行求偏导数,并令左边L(w)求偏导数后为0,求得拟合多项式系数w&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/w%E5%80%BC.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;多项式拟合情况:&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%8B%9F%E5%90%88%E9%97%AE%E9%A2%98%E7%BB%93%E6%9E%9C%E5%9B%BE.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;由上图知,M=9时 产生过拟合, M=3时 是比较符合测试误差较小的情况的.&lt;/p&gt;
+&lt;h3 id=&quot;结论&quot;&gt;&lt;a href=&quot;#结论&quot; class=&quot;headerlink&quot; title=&quot;结论&quot;&gt;&lt;/a&gt;结论&lt;/h3&gt;&lt;p&gt;由上例中拟合情况得:&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E6%B5%8B%E8%AF%95%E8%AF%AF%E5%B7%AE%E4%B8%8E%E6%A8%A1%E5%9E%8B%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%85%B3%E7%B3%BB.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;模型的复杂度越高,训练误差越小,测试误差先变小后变大,变大的时候发生过拟合现象,我们就是要找测试误差最低点.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当损失函数给定时,基于损失函数的模型的training error和模型的test error成为学习方法评估的标准.&lt;br&gt;注意,统计学习方法具体采用的损失函数未必是评估时使用的损失函数.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
+    
+      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
@@ -830,50 +867,13 @@ return [0, 1].
       <category term="string" scheme="http://yoursite.com/categories/Python/leetcode/string/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="首尾双指针" scheme="http://yoursite.com/tags/%E9%A6%96%E5%B0%BE%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
       <category term="isalnum()" scheme="http://yoursite.com/tags/isalnum/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模型评估(5.9号读书笔记)</title>
-    <link href="http://yoursite.com/2016/05/09/statistics/statistics-03/"/>
-    <id>http://yoursite.com/2016/05/09/statistics/statistics-03/</id>
-    <published>2016-05-09T11:59:59.000Z</published>
-    <updated>2016-05-10T13:50:32.000Z</updated>
-    
-    <content type="html">&lt;p&gt;当损失函数给定时,基于损失函数的模型的training error和模型的test error成为学习方法评估的标准.&lt;br&gt;注意,统计学习方法具体采用的损失函数未必是评估时使用的损失函数.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;训练误差与测试误差&quot;&gt;&lt;a href=&quot;#训练误差与测试误差&quot; class=&quot;headerlink&quot; title=&quot;训练误差与测试误差&quot;&gt;&lt;/a&gt;训练误差与测试误差&lt;/h3&gt;&lt;h4 id=&quot;训练误差-平均损失&quot;&gt;&lt;a href=&quot;#训练误差-平均损失&quot; class=&quot;headerlink&quot; title=&quot;训练误差: 平均损失&quot;&gt;&lt;/a&gt;训练误差: 平均损失&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%B9%B3%E5%9D%87%E6%8D%9F%E5%A4%B1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;测试误差-平均损失&quot;&gt;&lt;a href=&quot;#测试误差-平均损失&quot; class=&quot;headerlink&quot; title=&quot;测试误差:  平均损失&quot;&gt;&lt;/a&gt;测试误差:  平均损失&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%B9%B3%E5%9D%87%E6%8D%9F%E5%A4%B1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;主要是看测试误差,测试误差小的方法有更好的预测能力,通常将学习方法对未知数据的预测能力称为&lt;strong&gt;泛化能力&lt;/strong&gt;.  &lt;/p&gt;
-&lt;h3 id=&quot;过拟合&quot;&gt;&lt;a href=&quot;#过拟合&quot; class=&quot;headerlink&quot; title=&quot;过拟合&quot;&gt;&lt;/a&gt;过拟合&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义:&quot;&gt;&lt;/a&gt;定义:&lt;/h4&gt;&lt;p&gt;如果一味追求提高对训练数据的预测能力,所选模型的复杂度往往会比真模型更高,这种现象称为&lt;strong&gt;过拟合.&lt;/strong&gt;&lt;br&gt;对已知数据预测的很好,但对未知数据预测的很差的现象.&lt;br&gt;可以说模型选择旨在避免过拟合并提高模型的预测能力.&lt;/p&gt;
-&lt;h4 id=&quot;解决方法&quot;&gt;&lt;a href=&quot;#解决方法&quot; class=&quot;headerlink&quot; title=&quot;解决方法:&quot;&gt;&lt;/a&gt;解决方法:&lt;/h4&gt;&lt;p&gt;1)首先确定模型的复杂度,即确定多项式的次数.&lt;br&gt;2)在给定的模型复杂度下,按照&lt;strong&gt;经验风险最小化&lt;/strong&gt;的策略求解参数—多项式的系数&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;For example:&lt;/strong&gt;&lt;br&gt;M次多项式:&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/M%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;strong&gt;目的是求w的&lt;/strong&gt;&lt;br&gt;按照上面的步骤解决问题&lt;br&gt;1)求经验风险最小化&lt;br&gt;其中1/2是为了方便计算,损失函数是平方&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;2)将模型与训练数据带入上式&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E5%B8%A6%E5%85%A5%E5%90%8E%E7%9A%84%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;3)因为要求最小化,对式子系数w进行求偏导数,并令左边L(w)求偏导数后为0,求得拟合多项式系数w&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/w%E5%80%BC.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;多项式拟合情况:&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%8B%9F%E5%90%88%E9%97%AE%E9%A2%98%E7%BB%93%E6%9E%9C%E5%9B%BE.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;由上图知,M=9时 产生过拟合, M=3时 是比较符合测试误差较小的情况的.&lt;/p&gt;
-&lt;h3 id=&quot;结论&quot;&gt;&lt;a href=&quot;#结论&quot; class=&quot;headerlink&quot; title=&quot;结论&quot;&gt;&lt;/a&gt;结论&lt;/h3&gt;&lt;p&gt;由上例中拟合情况得:&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E6%B5%8B%E8%AF%95%E8%AF%AF%E5%B7%AE%E4%B8%8E%E6%A8%A1%E5%9E%8B%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%85%B3%E7%B3%BB.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;模型的复杂度越高,训练误差越小,测试误差先变小后变大,变大的时候发生过拟合现象,我们就是要找测试误差最低点.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;当损失函数给定时,基于损失函数的模型的training error和模型的test error成为学习方法评估的标准.&lt;br&gt;注意,统计学习方法具体采用的损失函数未必是评估时使用的损失函数.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
@@ -913,9 +913,9 @@ return [0, 1].
       <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="read" scheme="http://yoursite.com/tags/read/"/>
     
       <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
@@ -987,9 +987,9 @@ P A H  N A P L S I  I  G Y I  R
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="模拟题" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%8B%9F%E9%A2%98/"/>
     
