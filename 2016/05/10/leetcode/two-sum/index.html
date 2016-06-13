@@ -71,7 +71,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9,">
 Given nums = [2, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,">
-<meta property="og:updated_time" content="2016-05-10T02:04:08.000Z">
+<meta property="og:updated_time" content="2016-06-13T13:33:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode:1--Two Sum">
 <meta name="twitter:description" content="题目描述：Given an array of integers, return indices of the two numbers such that they add up to a specific target.Example:
@@ -315,8 +315,8 @@ Because nums[0] + nums[1] = 2 + 7 = 9,">
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/leetcode/jobs/" itemprop="url" rel="index">
-                    <span itemprop="name">jobs</span>
+                  <a href="/categories/Python/leetcode/dict/" itemprop="url" rel="index">
+                    <span itemprop="name">dict</span>
                   </a>
                 </span>
 
@@ -370,9 +370,9 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 </code></pre><a id="more"></a>
 <h3 id="My-Solution："><a href="#My-Solution：" class="headerlink" title="My Solution："></a>My Solution：</h3><p><strong>算法思想：</strong><br>1）双重循环，最暴力直接的解决办法，当然这种笨方法是我自己的解法<br>2）利用字典，灰常心机的解法，只要一层循环就够了~</p>
-<p><strong>Python Code:</strong><br>1)双重循环<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*-coding:utf-8-*-</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        length = len(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, length):</span><br><span class="line">            <span class="comment">#test:print(i)</span></span><br><span class="line">            <span class="comment">#test:print(nums[i])</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, length):</span><br><span class="line">                <span class="comment">#test:print(j)</span></span><br><span class="line">                <span class="comment">#test:print(nums[j])</span></span><br><span class="line">                <span class="keyword">if</span> nums[i] + nums[j] == target:</span><br><span class="line">                    <span class="keyword">return</span> [i, j]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    print(Solution().twoSum([<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>], <span class="number">6</span>))</span><br></pre></td></tr></table></figure></p>
+<p><strong>Python Code:</strong><br>1)双重循环<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8-*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        length = len(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, length):</span><br><span class="line">            <span class="comment">#test:print(i)</span></span><br><span class="line">            <span class="comment">#test:print(nums[i])</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, length):</span><br><span class="line">                <span class="comment">#test:print(j)</span></span><br><span class="line">                <span class="comment">#test:print(nums[j])</span></span><br><span class="line">                <span class="keyword">if</span> nums[i] + nums[j] == target:</span><br><span class="line">                    <span class="keyword">return</span> [i, j]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    print(Solution().twoSum([<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>], <span class="number">6</span>))</span><br></pre></td></tr></table></figure></p>
 <p>2)一层循环</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*-coding:utf-8-*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">  		lookup = &#123;&#125;</span><br><span class="line">        <span class="comment">#其中i是index，num是元素</span></span><br><span class="line">        <span class="keyword">for</span> i, num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">     		<span class="keyword">if</span> target - num <span class="keyword">in</span> loopup:</span><br><span class="line">				<span class="keyword">return</span> [lookup[target - num], i]</span><br><span class="line">            <span class="comment">#lookup[value] = key加入到字典lookup中</span></span><br><span class="line">            lookup[num] = i</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">       print(Solution().twoSum([<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>], <span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8-*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">  		lookup = &#123;&#125;</span><br><span class="line">        <span class="comment">#其中i是index，num是元素</span></span><br><span class="line">        <span class="keyword">for</span> i, num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">     		<span class="keyword">if</span> target - num <span class="keyword">in</span> loopup:</span><br><span class="line">				<span class="keyword">return</span> [lookup[target - num], i]</span><br><span class="line">            <span class="comment">#lookup[value] = key加入到字典lookup中</span></span><br><span class="line">            lookup[num] = i</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">       print(Solution().twoSum([<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>], <span class="number">6</span>))</span><br></pre></td></tr></table></figure>
 <h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>No</p>
 <h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p>No</p>
 
@@ -402,16 +402,16 @@ return [0, 1].
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/10/leetcode/first-bad-version/" rel="next" title="leetcode:278--First Bad Version">
-                <i class="fa fa-chevron-left"></i> leetcode:278--First Bad Version
+              <a href="/2016/05/10/leetcode/excel-sheet-column-title/" rel="next" title="leetcode:168--Excel Sheet Column Title">
+                <i class="fa fa-chevron-left"></i> leetcode:168--Excel Sheet Column Title
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/10/statistics/statistics-04/" rel="prev" title="模型选择:正则化与交叉验证(5.10号读书笔记)">
-                模型选择:正则化与交叉验证(5.10号读书笔记) <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/10/leetcode/first-bad-version/" rel="prev" title="leetcode:278--First Bad Version">
+                leetcode:278--First Bad Version <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -484,7 +484,7 @@ return [0, 1].
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -492,7 +492,7 @@ return [0, 1].
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -501,7 +501,7 @@ return [0, 1].
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
