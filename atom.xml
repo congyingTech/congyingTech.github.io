@@ -19,7 +19,7 @@
     <title>七月份计划</title>
     <link href="http://yoursite.com/2016/07/04/plan/7%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
     <id>http://yoursite.com/2016/07/04/plan/7月份计划/</id>
-    <published>2016-07-04T14:49:12.767Z</published>
+    <published>2016-07-04T14:52:11.071Z</published>
     <updated>2016-07-04T13:55:49.000Z</updated>
     
     <content type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -50,7 +50,7 @@
     <link href="http://yoursite.com/2016/07/04/Python/Django/"/>
     <id>http://yoursite.com/2016/07/04/Python/Django/</id>
     <published>2016-07-04T11:59:59.000Z</published>
-    <updated>2016-07-04T14:48:46.000Z</updated>
+    <updated>2016-07-04T14:51:02.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Python已经学了有大半年的时间，之前面试阿里的时候，被问，为什么喜欢python，觉得python更好？当时就懵逼了，喜欢一个人还需要理由吗？显然在面试中喜欢一门语言需要理由，况且java作为我人生接触的第一门编程语言，还是有着迷之难以舍弃的感情，之后我会更新一些java面试的准备问题，最近还又入手了java编程思想，本科那本正版的丢了TnT…&lt;br&gt;怎么扯到爪哇身上啦？言归正传，先推一篇&lt;a href=&quot;http://www.36dsj.com/archives/36732&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;为什么选择python语言作为数据分析语言？&lt;/a&gt;&lt;/p&gt;
@@ -88,9 +88,7 @@
     
       <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
     
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/categories/Python/leetcode/jobs/"/>
+      <category term="Django" scheme="http://yoursite.com/categories/Python/Django/"/>
     
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
