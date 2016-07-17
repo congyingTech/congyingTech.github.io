@@ -2,7 +2,7 @@
 
 
 
-  
+
 
 
 <html class="theme-next pisces use-motion">
@@ -64,7 +64,7 @@
 2%2.统计学基础17.5%3.利用python进行数据挖掘0.0%">
 <meta property="og:type" content="article">
 <meta property="og:title" content="七月份计划">
-<meta property="og:url" content="http://yoursite.com/2016/07/11/plan/7月份计划/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/07/17/plan/7月份计划/index.html">
 <meta property="og:site_name" content="MohnTech">
 <meta property="og:description" content="学习计划1.leetcode上medium难度.2.Java不能丢,通过面试宝典还有Think in Java进行知识的补充.3.设计模式和基本的数据结构.4.面试中会问到的计算机网络知识.
 阅读计划1.Think in Java  
@@ -274,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T22:04:36+08:00" content="2016-07-11">
-              2016-07-11
+            <time itemprop="dateCreated" datetime="2016-07-17T09:32:52+08:00" content="2016-07-17">
+              2016-07-17
             </time>
           </span>
 
@@ -304,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/11/plan/7月份计划/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/plan/7月份计划/" itemprop="commentsCount"></span>
+                <a href="/2016/07/17/plan/7月份计划/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/plan/7月份计划/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -315,7 +315,7 @@
 
           
           
-             <span id="/2016/07/11/plan/7月份计划/" class="leancloud_visitors" data-flag-title="七月份计划">
+             <span id="/2016/07/17/plan/7月份计划/" class="leancloud_visitors" data-flag-title="七月份计划">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -398,8 +398,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/11/plan/7月份计划/"
-           data-title="七月份计划" data-url="http://yoursite.com/2016/07/11/plan/7月份计划/">
+      <div class="ds-thread" data-thread-key="2016/07/17/plan/7月份计划/"
+           data-title="七月份计划" data-url="http://yoursite.com/2016/07/17/plan/7月份计划/">
       </div>
     
   </div>
@@ -795,6 +795,90 @@
 
 
   
+  
+    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("pwXpKqe8BCIwgSfhfMFPTl4o-gzGzoHsz", "oN3Ju7SqnNCgJtFfPv6ERAWo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
 
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+  
 </body>
 </html>
