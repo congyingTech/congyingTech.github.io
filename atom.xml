@@ -19,7 +19,7 @@
     <title>七月份计划</title>
     <link href="http://yoursite.com/2016/07/18/plan/7%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
     <id>http://yoursite.com/2016/07/18/plan/7月份计划/</id>
-    <published>2016-07-18T11:57:21.005Z</published>
+    <published>2016-07-18T11:59:12.719Z</published>
     <updated>2016-07-04T13:55:49.000Z</updated>
     
     <content type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -50,7 +50,7 @@
     <link href="http://yoursite.com/2016/07/17/Python/Python%E7%88%AC%E8%99%AB2/"/>
     <id>http://yoursite.com/2016/07/17/Python/Python爬虫2/</id>
     <published>2016-07-17T11:59:59.000Z</published>
-    <updated>2016-07-18T07:42:36.000Z</updated>
+    <updated>2016-07-18T11:58:55.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;实现了TOP250的爬取，就要真正的开始实现我的目的了：嘿嘿，那就是爬取unwatched的电影了！前后花了大概一天的时间，遇到的问题还是很有价值的，爬取成功的那一刻，还是蛮有成就感的，这次先上效果图，让我先小小的傲娇一秒钟，看到这篇文章的Python大神们，希望你们能留下宝贵的意见，帮助爬虫小白成长~&lt;/p&gt;
@@ -141,7 +141,7 @@
     
       <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
     
-      <category term="爬虫" scheme="http://yoursite.com/categories/Python/%E7%88%AC%E8%99%AB/"/>
+      <category term="Crawler爬虫" scheme="http://yoursite.com/categories/Python/Crawler%E7%88%AC%E8%99%AB/"/>
     
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
@@ -155,7 +155,7 @@
     <link href="http://yoursite.com/2016/07/15/Python/Python%E7%88%AC%E8%99%AB1/"/>
     <id>http://yoursite.com/2016/07/15/Python/Python爬虫1/</id>
     <published>2016-07-15T11:59:59.000Z</published>
-    <updated>2016-07-18T11:57:04.000Z</updated>
+    <updated>2016-07-18T11:58:45.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;最近想要爬取一下自己没看过的豆瓣电影里的TOP250排名，于是乎，开始了各种爬虫的尝试，先是周五做出了第一个爬虫版本，可以爬取TOP250的电影榜单，由于不涉及模拟登录，代码还是较容易的实现了。&lt;/p&gt;
@@ -203,7 +203,7 @@
     
       <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
     
-      <category term="爬虫" scheme="http://yoursite.com/categories/Python/%E7%88%AC%E8%99%AB/"/>
+      <category term="Crawler爬虫" scheme="http://yoursite.com/categories/Python/Crawler%E7%88%AC%E8%99%AB/"/>
     
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
@@ -745,41 +745,6 @@ n % 3 == 2 时，分为n个3和一个2的乘积
   </entry>
   
   <entry>
-    <title>shell脚本进行文件读写操作(持续更新中...)</title>
-    <link href="http://yoursite.com/2016/06/03/Shell/shell%20script/"/>
-    <id>http://yoursite.com/2016/06/03/Shell/shell script/</id>
-    <published>2016-06-03T11:59:59.000Z</published>
-    <updated>2016-06-03T12:20:39.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h3&gt;&lt;p&gt;该脚本解决了从目标文件进行读写，修改指定值的问题。&lt;br&gt;基本上涉及了：shell脚本进行文件读写操作-&amp;gt;sed&lt;/p&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Shell Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lineNumber=$(cat /etc/sfcb/sfcb.cfg |wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;lineNumber is &lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;isenableSSLv3 is &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-ne&lt;/span&gt; 0 ];&lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 has add&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 is not added,we should add it&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   sed &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt; aenableSSLv3:    true&quot;&lt;/span&gt; -i /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 are true or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;SSLv3Value=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabledValue=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enabled&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3Value is &lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabledValue is &lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;set value right&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabled value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enabled:        false/enabled:        true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enableSSLv3:    false/enableSSLv3:    true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h3&gt;&lt;p&gt;sed是管道命令，是用shell进行文件读写的关键，待补充！！！&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
-    
-      <category term="Sed文件读写" scheme="http://yoursite.com/categories/Shell/Sed%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
-    
-    
-      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
-    
-      <category term="if-else" scheme="http://yoursite.com/tags/if-else/"/>
-    
-  </entry>
-  
-  <entry>
     <title>贪心算法</title>
     <link href="http://yoursite.com/2016/06/03/Algorithm/%E8%B4%AA%E5%BF%83%E6%B3%95/"/>
     <id>http://yoursite.com/2016/06/03/Algorithm/贪心法/</id>
@@ -945,6 +910,41 @@ fwrite.close()
       <category term="I/O" scheme="http://yoursite.com/tags/I-O/"/>
     
       <category term="实习生" scheme="http://yoursite.com/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本进行文件读写操作(持续更新中...)</title>
+    <link href="http://yoursite.com/2016/06/03/Shell/shell%20script/"/>
+    <id>http://yoursite.com/2016/06/03/Shell/shell script/</id>
+    <published>2016-06-03T11:59:59.000Z</published>
+    <updated>2016-06-03T12:20:39.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h3&gt;&lt;p&gt;该脚本解决了从目标文件进行读写，修改指定值的问题。&lt;br&gt;基本上涉及了：shell脚本进行文件读写操作-&amp;gt;sed&lt;/p&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Shell Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lineNumber=$(cat /etc/sfcb/sfcb.cfg |wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;lineNumber is &lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;isenableSSLv3 is &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-ne&lt;/span&gt; 0 ];&lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 has add&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 is not added,we should add it&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   sed &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt; aenableSSLv3:    true&quot;&lt;/span&gt; -i /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 are true or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;SSLv3Value=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabledValue=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enabled&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3Value is &lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabledValue is &lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;set value right&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabled value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enabled:        false/enabled:        true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enableSSLv3:    false/enableSSLv3:    true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h3&gt;&lt;p&gt;sed是管道命令，是用shell进行文件读写的关键，待补充！！！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+      <category term="Sed文件读写" scheme="http://yoursite.com/categories/Shell/Sed%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
+    
+    
+      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+      <category term="if-else" scheme="http://yoursite.com/tags/if-else/"/>
     
   </entry>
   
