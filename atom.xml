@@ -17,9 +17,9 @@
   
   <entry>
     <title>七月份计划</title>
-    <link href="http://yoursite.com/2016/07/17/plan/7%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
-    <id>http://yoursite.com/2016/07/17/plan/7月份计划/</id>
-    <published>2016-07-17T02:35:55.441Z</published>
+    <link href="http://yoursite.com/2016/07/18/plan/7%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2016/07/18/plan/7月份计划/</id>
+    <published>2016-07-18T11:55:55.836Z</published>
     <updated>2016-07-04T13:55:49.000Z</updated>
     
     <content type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -42,6 +42,173 @@
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python爬虫初阶——爬取豆瓣Top250的电影</title>
+    <link href="http://yoursite.com/2016/07/17/Python/Python%E7%88%AC%E8%99%AB1/"/>
+    <id>http://yoursite.com/2016/07/17/Python/Python爬虫1/</id>
+    <published>2016-07-17T11:59:59.000Z</published>
+    <updated>2016-07-18T03:26:56.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;最近想要爬取一下自己没看过的豆瓣电影里的TOP250排名，于是乎，开始了各种爬虫的尝试，先是周五做出了第一个爬虫版本，可以爬取TOP250的电影榜单，由于不涉及模拟登录，代码还是较容易的实现了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;爬虫工具&quot;&gt;&lt;a href=&quot;#爬虫工具&quot; class=&quot;headerlink&quot; title=&quot;爬虫工具&quot;&gt;&lt;/a&gt;爬虫工具&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;re 正则表达式&lt;/li&gt;
+&lt;li&gt;urllib2 做网页下载器&lt;/li&gt;
+&lt;li&gt;pyExcelerator 做格式化输出第三方库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;分析与实现&quot;&gt;&lt;a href=&quot;#分析与实现&quot; class=&quot;headerlink&quot; title=&quot;分析与实现&quot;&gt;&lt;/a&gt;分析与实现&lt;/h3&gt;&lt;h4 id=&quot;1-url分析：&quot;&gt;&lt;a href=&quot;#1-url分析：&quot; class=&quot;headerlink&quot; title=&quot;1.url分析：&quot;&gt;&lt;/a&gt;1.url分析：&lt;/h4&gt;&lt;p&gt;  url—&amp;gt;&lt;code&gt;http://movie.douban.com/top250?start=0&amp;amp;filter=&amp;amp;type=&lt;/code&gt;&lt;br&gt;  1）&lt;code&gt;start&lt;/code&gt;的值是关键，start=0显示第一页信息，start=25显示第二页信息…&lt;br&gt;  2）&lt;code&gt;filter&lt;/code&gt;的参数值，在下一个版本筛选unwatched的电影的时候会用到。  &lt;/p&gt;
+&lt;h4 id=&quot;2-网页分析：&quot;&gt;&lt;a href=&quot;#2-网页分析：&quot; class=&quot;headerlink&quot; title=&quot;2.网页分析：&quot;&gt;&lt;/a&gt;2.网页分析：&lt;/h4&gt;&lt;p&gt;由于要提取的只有名字部分，所以暂时只对名字部分的html code进行分析&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;hd&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;https://movie.douban.com/subject/1292052/&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;title&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;肖申克的救赎&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;title&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;amp;nbsp;/&amp;amp;nbsp;The Shawshank Redemption&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;other&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;amp;nbsp;/&amp;amp;nbsp;月黑高飞(港)  /  刺激1995(台)&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;playable&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;[可播放]&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Python code:  &lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;find_title&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, my_page)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        This function is to get title from re&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        @param: my_page:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        @return: title_results &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &quot;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        re_title = &lt;span class=&quot;string&quot;&gt;r&#39;&amp;lt;span class=&quot;title&quot;&amp;gt;(.*?)&amp;lt;/span&amp;gt;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        title = re.findall(re_title, my_page, re.S)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;#过滤掉英文的名字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; e &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; title:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; e.find(&lt;span class=&quot;string&quot;&gt;&quot;&amp;amp;nbsp&quot;&lt;/span&gt;) == &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                self.datas.append(&lt;span class=&quot;string&quot;&gt;&quot;Top&quot;&lt;/span&gt;+str(self._top_num)+&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;+e)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                self._top_num += &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;得到正则表达式&lt;code&gt;re_titile = r&amp;#39;&amp;lt;span class=&amp;quot;title&amp;quot;&amp;gt;(.*?)&amp;lt;/span&amp;gt;&amp;#39;&lt;/code&gt; &lt;code&gt;title = re.findall(re_title, my_page, re.S)&lt;/code&gt;&lt;br&gt;则由最基础的正则表达式就可以得到&lt;code&gt;title&lt;/code&gt;的值。  &lt;/p&gt;
+&lt;h4 id=&quot;3-翻页实现&quot;&gt;&lt;a href=&quot;#3-翻页实现&quot; class=&quot;headerlink&quot; title=&quot;3.翻页实现&quot;&gt;&lt;/a&gt;3.翻页实现&lt;/h4&gt;&lt;p&gt;250部电影不可能在一页内实现，所以要翻页爬每一页的信息，此时控制&lt;code&gt;start&lt;/code&gt;的值就好了。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	 &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;get_page&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, cur_page)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &lt;span class=&quot;string&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        This function is to get page content.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        @param cur_page:当前的页码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        @return:  HTML&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &quot;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        url = self.cur_url&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt; :&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            &lt;span class=&quot;comment&quot;&gt;#cur_page = 1 ：start=0   cur_page = 2:start = 25&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            my_page = urllib2.urlopen(url.format(page=(cur_page&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;)*&lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;)).read().decode(&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &lt;span class=&quot;keyword&quot;&gt;except&lt;/span&gt; urllib2.URLError, e:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; hasattr(e, &lt;span class=&quot;string&quot;&gt;&quot;code&quot;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	                &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;The server couldn&#39;t fulfill the request.&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	                &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Error code: %s&quot;&lt;/span&gt; % e.code&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; hasattr(e, &lt;span class=&quot;string&quot;&gt;&quot;reason&quot;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	                &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;We failed to reach a server. Please check your url and read the Reason&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	                &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Reason: %s&quot;&lt;/span&gt; % e.reason&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; my_page&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;其中关键代码部分`my_page = urllib2.urlopen(url.format(page=(cur_page&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;)*&lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;)).read().decode`，这行代码实现了翻页爬取的功能。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#### 4.格式化输出   &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如果仅仅是打印出来，就没有太大的保存价值了，于是乎，我选择用excel表格来存储输出结果。这里用的是python的第三方库`pyExcelerator`。  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```Python  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;format_output&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, datas)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;string&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        This function is to transform datas from list to string and write to movie.xls.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        @param datas:title名字的数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        @return:  None&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &quot;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        w = Workbook()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        ws = w.add_sheet(&lt;span class=&quot;string&quot;&gt;&#39;Top100 Movies&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i,item &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; enumerate(datas):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            new_data = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;.join(item).split(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            ws.write(i,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,new_data[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            ws.write(i,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,new_data[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        w.save(&lt;span class=&quot;string&quot;&gt;&#39;movies.xls&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;5-控制器&quot;&gt;&lt;a href=&quot;#5-控制器&quot; class=&quot;headerlink&quot; title=&quot;5.控制器&quot;&gt;&lt;/a&gt;5.控制器&lt;/h4&gt;&lt;p&gt;写一个控制爬虫的函数，有助于更清晰的知晓爬虫的流程：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;start_spider&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; self.page &amp;lt; &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           my_page = self.get_page(self.page)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           self.find_title(my_page)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           self.page += &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;效果展示&quot;&gt;&lt;a href=&quot;#效果展示&quot; class=&quot;headerlink&quot; title=&quot;效果展示&quot;&gt;&lt;/a&gt;效果展示&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/Capture.PNG&quot; alt=&quot;效果展示&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/Capture2.PNG&quot; alt=&quot;效果展示2&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/3.PNG&quot; alt=&quot;效果展示3&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h3&gt;&lt;p&gt;网页解析器：爬虫的关键点，在于找到你要爬取的关键字在HTML哪里，而且要提取出来：    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/eastmount/article/details/51082253&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;正则表达式提取（很好的总结）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cuiqingcai.com/1319.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;第三方包beautiful soap（强推，基本上从安装到使用，非常详细的教程）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cuiqingcai.com/2621.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;XPath+lxml，Chrome可以直接copy as xpath&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;网页下载器：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;urllib，urllib2  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cuiqingcai.com/2556.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;第三方库request&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至此，简单的最基础的Python爬虫程序已经分析结束，其实接触入门了几天的爬虫，并不是很难，关键点在于准确的找到你要爬取的信息，这是重点也是难点，剩下的一些问题就是爬虫遇到的一些访问限制的问题。&lt;br&gt;当然这只是最基础的爬虫，之后持续学习：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动态网页的爬取&lt;/li&gt;
+&lt;li&gt;scrapy工具的使用  &lt;/li&gt;
+&lt;li&gt;多线程爬虫  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近想要爬取一下自己没看过的豆瓣电影里的TOP250排名，于是乎，开始了各种爬虫的尝试，先是周五做出了第一个爬虫版本，可以爬取TOP250的电影榜单，由于不涉及模拟登录，代码还是较容易的实现了。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/categories/Python/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Crawler" scheme="http://yoursite.com/tags/Crawler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python爬虫初阶——爬取豆瓣Top250中没有看过的电影</title>
+    <link href="http://yoursite.com/2016/07/17/Python/Python%E7%88%AC%E8%99%AB2/"/>
+    <id>http://yoursite.com/2016/07/17/Python/Python爬虫2/</id>
+    <published>2016-07-17T11:59:59.000Z</published>
+    <updated>2016-07-18T07:42:36.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;实现了TOP250的爬取，就要真正的开始实现我的目的了：嘿嘿，那就是爬取unwatched的电影了！前后花了大概一天的时间，遇到的问题还是很有价值的，爬取成功的那一刻，还是蛮有成就感的，这次先上效果图，让我先小小的傲娇一秒钟，看到这篇文章的Python大神们，希望你们能留下宝贵的意见，帮助爬虫小白成长~&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模拟登录&lt;/li&gt;
+&lt;li&gt;验证码实现&lt;/li&gt;
+&lt;li&gt;动态网页获取参数值&lt;/li&gt;
+&lt;li&gt;cookie保存信息 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;效果展示&quot;&gt;&lt;a href=&quot;#效果展示&quot; class=&quot;headerlink&quot; title=&quot;效果展示&quot;&gt;&lt;/a&gt;效果展示&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/Unwatched1.PNG&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/Uwatched2.PNG&quot; alt=&quot;2&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/Uwatched3.PNG&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这些都是博主还没看过的TOP250榜单里面的电影，总共还有168部未看，剩下的还是蛮多的=.=&lt;/p&gt;
+&lt;h2 id=&quot;分析与实现&quot;&gt;&lt;a href=&quot;#分析与实现&quot; class=&quot;headerlink&quot; title=&quot;分析与实现&quot;&gt;&lt;/a&gt;分析与实现&lt;/h2&gt;&lt;h3 id=&quot;重点预览&quot;&gt;&lt;a href=&quot;#重点预览&quot; class=&quot;headerlink&quot; title=&quot;重点预览&quot;&gt;&lt;/a&gt;重点预览&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;模拟登录&lt;/li&gt;
+&lt;li&gt;验证码实现&lt;/li&gt;
+&lt;li&gt;动态网页获取参数值&lt;/li&gt;
+&lt;li&gt;cookie保存信息  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面我们一一击破上面的难点问题&lt;/p&gt;
+&lt;h3 id=&quot;模拟登录&quot;&gt;&lt;a href=&quot;#模拟登录&quot; class=&quot;headerlink&quot; title=&quot;模拟登录&quot;&gt;&lt;/a&gt;模拟登录&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;与TOP250抓取的主要不同之处在于，获取我个人没有看过的电影，需要登录，这样就涉及到了模拟登录。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下面讲一讲模拟登录：&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/figo829/article/details/18728381#t0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考链接：python爬虫实践之模拟登录&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;浏览器访问服务器的过程：&quot;&gt;&lt;a href=&quot;#浏览器访问服务器的过程：&quot; class=&quot;headerlink&quot; title=&quot;浏览器访问服务器的过程：&quot;&gt;&lt;/a&gt;浏览器访问服务器的过程：&lt;/h4&gt;&lt;p&gt;在用户访问网页时，不论是通过URL输入域名或IP，还是点击链接，浏览器向WEB服务器发出了一个HTTP请求（Http Request），WEB服务器接收到客户端浏览器的请求之后，响应客户端的请求，发回相应的响应信息（Http Response），浏览器解析引擎，排版引擎分析返回的内容，呈现给用户。WEB应用程序在于服务器交互的过程中，HTTP请求和响应时发送的都是一个消息结构。&lt;/p&gt;
+&lt;h4 id=&quot;Http消息&quot;&gt;&lt;a href=&quot;#Http消息&quot; class=&quot;headerlink&quot; title=&quot;Http消息:&quot;&gt;&lt;/a&gt;Http消息:&lt;/h4&gt;&lt;p&gt;当浏览器向服务器发送请求的时候，发出http请求消息报文，服务器返回数据时，发出http响应消息报文，这两种类型的消息都是由一个起始行，消息头，一个指示消息头结束的空行和可选的消息体组成。&lt;br&gt;&lt;strong&gt;Http requests:&lt;/strong&gt;  Http请求消息中，&lt;font color=&quot;green&quot;&gt;起始行包括请求方法,请求的资源， HTTP协议的版本号，消息头包含各种属性，消息体包含数据。&lt;/font&gt;GET请求并没有消息主体，因此在消息头后的空白行中没有其他数据。&lt;br&gt;&lt;strong&gt;Http response:&lt;/strong&gt;Http响应消息中，&lt;font color=&quot;green&quot;&gt;起始行包括HTTP协议版本，http状态码和状态，消息头包含各种属性，&lt;/font&gt;消息体包含服务器返回的数据内容。   &lt;/p&gt;
+&lt;p&gt;如下图所示:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/summary.png&quot; alt=&quot;summary&quot;&gt;&lt;/p&gt;
+&lt;p&gt;上图展示的是Get请求方式的request，比如还没登录的时候，就会是Get的请求方式，这时候是没有data数据的，&lt;br&gt;然而当我登录之后，请求方式成了Post，那么request headers下面就有了 form_data这样的表单数据。&lt;/p&gt;
+&lt;p&gt;如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/summary2.png&quot; alt=&quot;summary2&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;cookie：&quot;&gt;&lt;a href=&quot;#cookie：&quot; class=&quot;headerlink&quot; title=&quot;cookie：&quot;&gt;&lt;/a&gt;cookie：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;什么是cookie？&lt;br&gt;当用户通过浏览器首次访问一个域名时，访问的WEB服务器会给客户端发送数据，以保持WEB服务器与客户端之间的状态保持，这些数据就是Cookie，它是 Internet 站点创建的 ,为了辨别用户身份而储存在用户本地终端上的数据，Cookie中的信息一般都是经过加密的，Cookie存在缓存中或者硬盘中，在硬盘中的是一些小文本文件,当你访问该网站时，就会读取对应网站的Cookie信息，Cookie有效地提升了我们的上网体验。一般而言，一旦将 Cookie 保存在计算机上，则只有创建该 Cookie 的网站才能读取它。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;为什么用cookie？&lt;br&gt;Http协议是一个&lt;font color=&quot;green&quot;&gt;无状态的面向连接的协议&lt;/font&gt;，Http协议是基于tcp/ip协议层之上的协议，当客户端与服务器建立连接之后，它们之间的TCP连接一直都是保持的，至于保持的时间是多久，是通过服务器端来设置的，当客户端再一次访问该服务器时，会继续使用上一次建立的连接，但是，由于Http协议是无状态的，WEB服务器并不知道这两个请求是否同一个客户端，这两次请求之间是独立的。 为了解决这个问题， Web程序引入了Cookie机制来维护状态.cookie可以记录用户的登录状态，通常web服务器会在用户登录成功后下发一个签名来标记session的有效性，这样免去了用户多次认证和登录网站。记录用户的访问状态。  &lt;/p&gt;
+&lt;font color=&quot;green&quot;&gt;cookie也是我们解决验证码问题的关键！因为我们不能每次都输入验证码，将登录的信息保存在cookie中，方便登录。&lt;/font&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cookie的种类？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;1. 会话Cookie(Session Cookie)：这个类型的cookie只在会话期间内有效，保存在浏览器的缓存之中，用户访问网站时，会话Cookie被创建，当关闭浏览器的时候，它会被浏览器删除。   
+2. 持久Cookie(Persistent Cookie): 这个类型的cookie长期在用户会话中生效。当你设置cookie的属性Max-Age为1个月的话，那么在这个月里每个相关URL的http请求中都会带有这个cookie。所以它可以记录很多用户初始化或自定义化的信息，比如什么时候第一次登录及弱登录态等。 
+3. Secure cookie：安全cookie是在https访问下的cookie形态，以确保cookie在从客户端传递到Server的过程中始终加密的。
+4. HttpOnly Cookie ：这个类型的cookie只能在http(https)请求上传递，对客户端脚本语言无效，从而有效避免了跨站攻击。 
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;参考代码：&quot;&gt;&lt;a href=&quot;#参考代码：&quot; class=&quot;headerlink&quot; title=&quot;参考代码：&quot;&gt;&lt;/a&gt;参考代码：&lt;/h4&gt;&lt;p&gt;几点说明：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在loginDB函数里面，包含验证码的处理，由于并不是每次登录都会要求输入验证码，所以我们要用if做一个判断。在有验证码的情况下，我们第一次登录根据验证码ip地址手动输入，后面将cookie保存到同一个session中的时候，就不用每一次都手动输入了。当然，豆瓣并不是傻瓜，当它知道我们用的是自动登录时，就会要求我们再次输入验证码。&lt;/li&gt;
+&lt;li&gt;关于对验证码图片id和ip的提取用到的两个方式：&lt;br&gt;1）正则表达式 get id：&lt;br&gt; &lt;code&gt;re_captchaId=r&amp;#39;&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;captcha-id&amp;quot; value=&amp;quot;(.*?)&amp;quot;.*?&amp;gt;&amp;#39;&lt;/code&gt;&lt;br&gt; &lt;code&gt;captchaId=re.findall(re_captchaId, my_page)&lt;/code&gt;&lt;br&gt;2)Beautiful Soap get ip：&lt;br&gt;&lt;code&gt;soup = bs(my_page,&amp;#39;html.parser&amp;#39;)&lt;/code&gt;&lt;br&gt;&lt;code&gt;captchaSrc = soup.find(&amp;#39;img&amp;#39;, id=&amp;#39;captcha_image&amp;#39;)[&amp;#39;src&amp;#39;]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;loginDB&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       r = self.session.post(self.loginUrl, data=self.formdata, headers = self.session.headers)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       my_page = r.text&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;before&#39;&lt;/span&gt; + r.url&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       re_captchaId=&lt;span class=&quot;string&quot;&gt;r&#39;&amp;lt;input type=&quot;hidden&quot; name=&quot;captcha-id&quot; value=&quot;(.*?)&quot;.*?&amp;gt;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       captchaId=re.findall(re_captchaId, my_page)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; captchaId:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; captchaId[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           soup = bs(my_page,&lt;span class=&quot;string&quot;&gt;&#39;html.parser&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           captchaSrc = soup.find(&lt;span class=&quot;string&quot;&gt;&#39;img&#39;&lt;/span&gt;, id=&lt;span class=&quot;string&quot;&gt;&#39;captcha_image&#39;&lt;/span&gt;)[&lt;span class=&quot;string&quot;&gt;&#39;src&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; captchaSrc:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;captchaSrc ip is :&#39;&lt;/span&gt;+captchaSrc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               captcha = raw_input(&lt;span class=&quot;string&quot;&gt;&#39;please input the captcha:&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               self.formdata[&lt;span class=&quot;string&quot;&gt;&#39;captcha-solution&#39;&lt;/span&gt;] = captcha  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               self.formdata[&lt;span class=&quot;string&quot;&gt;&#39;captcha-id&#39;&lt;/span&gt;] = captchaId&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#将验证码信息更新后，重新请求登录。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       self.formdata[&lt;span class=&quot;string&quot;&gt;&quot;user_login&quot;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&quot;登录&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       r = self.session.post(self.loginUrl, data=self.formdata, headers = self.session.headers) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;#test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;after&#39;&lt;/span&gt; + r.url&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;#验证是否登录成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; r.url == &lt;span class=&quot;string&quot;&gt;&quot;https://movie.douban.com/top250?filter=unwatched&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Login successfully!!!&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           self.cookie_save()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;failed!&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       new_page = r.text&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;#return 登录成功后的页面内容&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; new_page&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;验证码实现：&quot;&gt;&lt;a href=&quot;#验证码实现：&quot; class=&quot;headerlink&quot; title=&quot;验证码实现：&quot;&gt;&lt;/a&gt;验证码实现：&lt;/h3&gt;&lt;p&gt;在登录函数loginDB()中已经实现了验证码，代码请参考以上  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设计思想：第一次登录将验证码手动输入，之后保存为cookie，每次带着cookie登录。&lt;/li&gt;
+&lt;li&gt;参考思想：实现过程中，也看了很多网上的其他方式，有一种是识别出来验证码上的字母的，这种方式是不是要用到图像处理方面的知识？如果可以实现，就一次都不用手动的输入验证码了。。。以后有时间可以try一下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Uwatched网页爬取（带ck值）&quot;&gt;&lt;a href=&quot;#Uwatched网页爬取（带ck值）&quot; class=&quot;headerlink&quot; title=&quot;Uwatched网页爬取（带ck值）&quot;&gt;&lt;/a&gt;Uwatched网页爬取（带ck值）&lt;/h3&gt;&lt;h4 id=&quot;页面分析：&quot;&gt;&lt;a href=&quot;#页面分析：&quot; class=&quot;headerlink&quot; title=&quot;页面分析：&quot;&gt;&lt;/a&gt;页面分析：&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;url—&amp;gt;&lt;code&gt;http://movie.douban.com/top250?start=0&amp;amp;filter=unwatched&lt;/code&gt;&lt;br&gt;根据url的格式，我们要实现的就是两个参数&lt;code&gt;start&lt;/code&gt;和&lt;code&gt;filter&lt;/code&gt;，因为filter的值只有unwatched，我们可以将其固定，start的值是变动的。    &lt;/li&gt;
+&lt;li&gt;这点是我卡壳最久的地方，开始我以为用第一个版本的方法，简单的跳转页面就够了，然后too naive了，如果只用第一个版本的方法，每次爬取的还是全部的TOP电影，也就是&lt;font color=&quot;green&quot;&gt;未登录状态下的数据&lt;/font&gt;，此时就想到了应该是要带着登录信息爬取的，于是乎，再一次审查了页面元素，发现登录后的页面request headers里面是&lt;font color=&quot;green&quot;&gt;都带有ck值的cookie，而未登录页面并没有固定的ck值。&lt;/font&gt;那么，就需要把第一次登录后保存在cookie文件中的ck值传入到request的请求数据中了。果不其然，传入ck值后，就成功了！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;参考代码：-1&quot;&gt;&lt;a href=&quot;#参考代码：-1&quot; class=&quot;headerlink&quot; title=&quot;参考代码：&quot;&gt;&lt;/a&gt;参考代码：&lt;/h4&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getUnwatchedMoviPage&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self,page_num)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;string&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       This function is to get my unwatchedMoviePage&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       @param page_num: get current page number.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       @param self.cur_url: get current url. &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &quot;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       url = self.cur_url.format(page = (page_num - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)*&lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;#输出每次抓取的动态url&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;url is &#39;&lt;/span&gt;+url&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       post_data=&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 &lt;span class=&quot;string&quot;&gt;&#39;ck&#39;&lt;/span&gt;:self.ck&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       r = self.session.post(url, data = post_data)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;#将请求的有效页面my_page return&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       my_page = r.text&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; my_page&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;get_ck&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      This function is to get ck value.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      cookies = self.session.cookies.get_dict()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      r = self.session.get(&lt;span class=&quot;string&quot;&gt;&#39;https://movie.douban.com/top250?filter=unwatched&#39;&lt;/span&gt;,)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; r.cookies.get_dict():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;cookies is end of date, login again&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          self.loginDB()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          self.get_ck()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; cookies.has_key(&lt;span class=&quot;string&quot;&gt;&#39;ck&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          self.ck = cookies[&lt;span class=&quot;string&quot;&gt;&#39;ck&#39;&lt;/span&gt;].strip(&lt;span class=&quot;string&quot;&gt;&#39;&quot;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;ck:%s&quot;&lt;/span&gt; %self.ck&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;cannot get the ck.&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;cookie保存信息&quot;&gt;&lt;a href=&quot;#cookie保存信息&quot; class=&quot;headerlink&quot; title=&quot;cookie保存信息&quot;&gt;&lt;/a&gt;cookie保存信息&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://linsir.org/post/python-douban-robot&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cookie的代码部分参考了Linsir的blog&lt;/a&gt;&lt;br&gt;在模拟登录部分已经介绍了cookie的种种信息，这里不多说，直接上代码：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cookie_load&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    This function is to use pickle to load cookies.txt from file to a cookie object.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    1)file --&amp;gt; dict pickle.load&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @keyword cookiejar_from_dict: dict ---&amp;gt; cookiejar&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @keyword pickle.load: file ---&amp;gt;dict  &amp;lt;===&amp;gt; pickle.dump: dict ---&amp;gt;file(pickle持久化对象)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; open(self.cookie_file) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#格式转换，将dict形式转换为cookiejar&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;#pickle.load(f)将文件f还原为cookie对象 这里就不用文件读的方式了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            self.session.cookies = requests.utils.cookiejar_from_dict(pickle.load(f))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;except&lt;/span&gt; Exception, e :&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;failed to load cookie from file&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;False&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cookie_save&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; open(self.cookie_file, &lt;span class=&quot;string&quot;&gt;&#39;w&#39;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        pickle.dump(requests.utils.dict_from_cookiejar(self.session.cookies), f)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&#39;save cookies to file...&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h2&gt;&lt;p&gt;至此，爬取unwatched电影名称的关键代码已经介绍完了。&lt;br&gt;呼，花了一天半的时间去写代码，花了半天的时间写这篇博客，私以为这篇博客还是纯干货的。&lt;br&gt;收获嘛，非常丰富：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以好好的看一下，到底还有哪些top250是我没有看过的，达到了博主使用的目的。  &lt;/li&gt;
+&lt;li&gt;基础知识啊！！！算是明白了其中的一些原理性的东西，从浏览器发送一个url请求后，一步步是如何得到数据，以及其中数据传输的格式。  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当然，其中很多不完美：  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;并没有将影片的详细信息附上，之后会将评分和对应的影片链接给搞上去。  &lt;/li&gt;
+&lt;li&gt;将全部的电影和没有看过的电影输出到同一个表格中，好将两者做一下对比，这一点还是比较容易实现的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;ps：源代码我会抽空push到Github上，供大家参考并提出修改意见~&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;实现了TOP250的爬取，就要真正的开始实现我的目的了：嘿嘿，那就是爬取unwatched的电影了！前后花了大概一天的时间，遇到的问题还是很有价值的，爬取成功的那一刻，还是蛮有成就感的，这次先上效果图，让我先小小的傲娇一秒钟，看到这篇文章的Python大神们，希望你们能留下宝贵的意见，帮助爬虫小白成长~&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模拟登录&lt;/li&gt;
+&lt;li&gt;验证码实现&lt;/li&gt;
+&lt;li&gt;动态网页获取参数值&lt;/li&gt;
+&lt;li&gt;cookie保存信息 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/categories/Python/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Crawler" scheme="http://yoursite.com/tags/Crawler/"/>
     
   </entry>
   
@@ -279,6 +446,59 @@
   </entry>
   
   <entry>
+    <title>动态规划算法</title>
+    <link href="http://yoursite.com/2016/06/22/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    <id>http://yoursite.com/2016/06/22/Algorithm/动态规划/</id>
+    <published>2016-06-22T11:59:59.000Z</published>
+    <updated>2016-06-29T09:29:42.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
+&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
+&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;动态规划的过程：每次决策依赖于当前的状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。所以，多阶段的最优化决策解决问题的过程称为动态规划。  &lt;/p&gt;
+&lt;p&gt;wiki的定义：&lt;strong&gt;dynamic programming&lt;/strong&gt; is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.  &lt;/p&gt;
+&lt;p&gt;动态规划的本质：对问题&lt;strong&gt;状态的定义&lt;/strong&gt;和&lt;strong&gt;状态转移方程的定义&lt;/strong&gt;。&lt;br&gt;通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。&lt;/p&gt;
+&lt;h3 id=&quot;适用情况&quot;&gt;&lt;a href=&quot;#适用情况&quot; class=&quot;headerlink&quot; title=&quot;适用情况&quot;&gt;&lt;/a&gt;适用情况&lt;/h3&gt;&lt;p&gt;能采用动态规划求解的问题的一般要具有3个性质：&lt;br&gt;(1) 最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。&lt;br&gt;(2) 无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。&lt;br&gt;(3) 有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）&lt;/p&gt;
+&lt;h3 id=&quot;状态的定义&quot;&gt;&lt;a href=&quot;#状态的定义&quot; class=&quot;headerlink&quot; title=&quot;状态的定义&quot;&gt;&lt;/a&gt;状态的定义&lt;/h3&gt;&lt;p&gt;题目描述：  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;求这个数列的最长上升（递增）子数列（LIS）的长度.&lt;br&gt;以&lt;br&gt;1 7 2 8 3 4&lt;br&gt;为例。&lt;br&gt;这个数列的最长递增子数列是 1 2 3 4，长度为4；&lt;br&gt;次长的长度为3， 包括 1 7 8; 1 2 3 等.  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;要求解这个问题先要，定义这个问题。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;设 F(k) 为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;求F(1)..F(N) 中的最大值.  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;状态转移方程的定义&quot;&gt;&lt;a href=&quot;#状态转移方程的定义&quot; class=&quot;headerlink&quot; title=&quot;状态转移方程的定义&quot;&gt;&lt;/a&gt;状态转移方程的定义&lt;/h3&gt;&lt;p&gt;比如，对于LIS问题，我们的第一种定义：&lt;br&gt;设为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;设A为题中数列，状态转移方程为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;F(1) = 1 （根据状态定义导出边界情况）&lt;br&gt;F(k)=max(F(1) + 1 | A(k)&amp;gt;A(i), i in (1..k-1)) (k&amp;gt;1)&lt;br&gt; （根据状态定义导出边界情况）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;用文字解释一下是：&lt;br&gt;以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，取遍i的所有值（i小于k）。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
+&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
+&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:343--Integer Break</title>
     <link href="http://yoursite.com/2016/06/22/leetcode/integer-break/"/>
     <id>http://yoursite.com/2016/06/22/leetcode/integer-break/</id>
@@ -336,59 +556,6 @@ n % 3 == 2 时，分为n个3和一个2的乘积
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
       <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态规划算法</title>
-    <link href="http://yoursite.com/2016/06/22/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    <id>http://yoursite.com/2016/06/22/Algorithm/动态规划/</id>
-    <published>2016-06-22T11:59:59.000Z</published>
-    <updated>2016-06-29T09:29:42.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
-&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
-&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;动态规划的过程：每次决策依赖于当前的状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。所以，多阶段的最优化决策解决问题的过程称为动态规划。  &lt;/p&gt;
-&lt;p&gt;wiki的定义：&lt;strong&gt;dynamic programming&lt;/strong&gt; is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.  &lt;/p&gt;
-&lt;p&gt;动态规划的本质：对问题&lt;strong&gt;状态的定义&lt;/strong&gt;和&lt;strong&gt;状态转移方程的定义&lt;/strong&gt;。&lt;br&gt;通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。&lt;/p&gt;
-&lt;h3 id=&quot;适用情况&quot;&gt;&lt;a href=&quot;#适用情况&quot; class=&quot;headerlink&quot; title=&quot;适用情况&quot;&gt;&lt;/a&gt;适用情况&lt;/h3&gt;&lt;p&gt;能采用动态规划求解的问题的一般要具有3个性质：&lt;br&gt;(1) 最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。&lt;br&gt;(2) 无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。&lt;br&gt;(3) 有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）&lt;/p&gt;
-&lt;h3 id=&quot;状态的定义&quot;&gt;&lt;a href=&quot;#状态的定义&quot; class=&quot;headerlink&quot; title=&quot;状态的定义&quot;&gt;&lt;/a&gt;状态的定义&lt;/h3&gt;&lt;p&gt;题目描述：  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;求这个数列的最长上升（递增）子数列（LIS）的长度.&lt;br&gt;以&lt;br&gt;1 7 2 8 3 4&lt;br&gt;为例。&lt;br&gt;这个数列的最长递增子数列是 1 2 3 4，长度为4；&lt;br&gt;次长的长度为3， 包括 1 7 8; 1 2 3 等.  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;要求解这个问题先要，定义这个问题。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;设 F(k) 为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;求F(1)..F(N) 中的最大值.  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;状态转移方程的定义&quot;&gt;&lt;a href=&quot;#状态转移方程的定义&quot; class=&quot;headerlink&quot; title=&quot;状态转移方程的定义&quot;&gt;&lt;/a&gt;状态转移方程的定义&lt;/h3&gt;&lt;p&gt;比如，对于LIS问题，我们的第一种定义：&lt;br&gt;设为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;设A为题中数列，状态转移方程为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;F(1) = 1 （根据状态定义导出边界情况）&lt;br&gt;F(k)=max(F(1) + 1 | A(k)&amp;gt;A(i), i in (1..k-1)) (k&amp;gt;1)&lt;br&gt; （根据状态定义导出边界情况）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;用文字解释一下是：&lt;br&gt;以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，取遍i的所有值（i小于k）。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
-&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
-&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
-    
-      <category term="动态规划" scheme="http://yoursite.com/categories/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
@@ -1000,83 +1167,6 @@ fwrite.close()
     <summary type="html">
     
       &lt;h3 id=&quot;泛化误差&quot;&gt;&lt;a href=&quot;#泛化误差&quot; class=&quot;headerlink&quot; title=&quot;泛化误差&quot;&gt;&lt;/a&gt;泛化误差&lt;/h3&gt;&lt;h4 id=&quot;泛化能力定义&quot;&gt;&lt;a href=&quot;#泛化能力定义&quot; class=&quot;headerlink&quot; title=&quot;泛化能力定义:&quot;&gt;&lt;/a&gt;泛化能力定义:&lt;/h4&gt;&lt;p&gt;简言之,泛化能力就是对学习方法泛化能力的分析.  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="read" scheme="http://yoursite.com/tags/read/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="统计学学习方法" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NOVA测试中ILO问题解决</title>
-    <link href="http://yoursite.com/2016/05/11/vmware/ILO%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>http://yoursite.com/2016/05/11/vmware/ILO问题解决/</id>
-    <published>2016-05-11T11:59:59.000Z</published>
-    <updated>2016-05-24T14:21:26.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;前言：NOVA是vmware为了应付德国官司开发的本地的native driver。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;对于prme-hwe-drv-stor-016这个老旧 driver，从打开ILO开始遇到了很多的问题。  &lt;/p&gt;
-&lt;h4 id=&quot;1）重启ILO&quot;&gt;&lt;a href=&quot;#1）重启ILO&quot; class=&quot;headerlink&quot; title=&quot;1）重启ILO&quot;&gt;&lt;/a&gt;1）重启ILO&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt;打不开ilo地址？&lt;br&gt;&lt;strong&gt;A:&lt;/strong&gt;ilo地址挂了，要reset一下ilo，方法是：  &lt;code&gt;ssh username@prme-hwe-drv-stor-016-ilo  -&amp;gt; help  -&amp;gt;resetsp&lt;/code&gt;等待重启  &lt;/p&gt;
-&lt;h4 id=&quot;2）remote-console&quot;&gt;&lt;a href=&quot;#2）remote-console&quot; class=&quot;headerlink&quot; title=&quot;2）remote console&quot;&gt;&lt;/a&gt;2）remote console&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt;打不开remote console?&lt;br&gt;&lt;strong&gt;A:&lt;/strong&gt;  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1）检查java。   &lt;/li&gt;
-&lt;li&gt;2）ping prme-hwe-drv-stor-016 (may be 这里是ping XXXXXX-ilo?)  &lt;/li&gt;
-&lt;li&gt;3）如果能ping 通，获得ip地址，通过ip地址打开ilo。    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;3）reboot&quot;&gt;&lt;a href=&quot;#3）reboot&quot; class=&quot;headerlink&quot; title=&quot;3）reboot&quot;&gt;&lt;/a&gt;3）reboot&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt;reboot之后，起不来esxi？&lt;br&gt;&lt;strong&gt;A:&lt;/strong&gt;F12–&amp;gt;BOOT Manager选项–&amp;gt;add boot–&amp;gt;boot from file –&amp;gt;找到esxi-scsi开头的文件，这个文件就是我装在local disk上的系统。然后选一个貌似是x86_64结尾的东东？    &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;根据近日的装系统,装好的系统起不来,一定是因为,boot的选项不对,050这台机器,按F2进入boot选项,然后对boot first选项进行修改.  &lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;前言：NOVA是vmware为了应付德国官司开发的本地的native driver。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="工作" scheme="http://yoursite.com/categories/%E5%B7%A5%E4%BD%9C/"/>
-    
-      <category term="ilo" scheme="http://yoursite.com/categories/%E5%B7%A5%E4%BD%9C/ilo/"/>
-    
-    
-      <category term="vmware" scheme="http://yoursite.com/tags/vmware/"/>
-    
-      <category term="NOVA" scheme="http://yoursite.com/tags/NOVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模型选择:正则化与交叉验证(5.10号读书笔记)</title>
-    <link href="http://yoursite.com/2016/05/10/statistics/statistics-04/"/>
-    <id>http://yoursite.com/2016/05/10/statistics/statistics-04/</id>
-    <published>2016-05-10T11:59:59.000Z</published>
-    <updated>2016-05-10T14:47:05.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;结构风险最小化策略的实现,是在经验风险上加一个正则化项或罚项.正则化项一般是模型复杂度的单调递增函数,模型越复杂,正则化值越大.&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E6%AD%A3%E5%88%99%E5%8C%96%E5%BD%A2%E5%BC%8F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;公式项含义&quot;&gt;&lt;a href=&quot;#公式项含义&quot; class=&quot;headerlink&quot; title=&quot;公式项含义&quot;&gt;&lt;/a&gt;公式项含义&lt;/h4&gt;&lt;p&gt;第一项是经验风险,第二项是正则化项,拉姆达&amp;gt;=0调整两者之间的关系系数.&lt;br&gt;第一项的经验风险比较小的模型可能比较复杂,这时第二项的模型复杂度会较大,&lt;strong&gt;正则化的作用&lt;/strong&gt;是选择经验风险与模型复杂度同时较小的模型.&lt;/p&gt;
-&lt;h3 id=&quot;交叉验证&quot;&gt;&lt;a href=&quot;#交叉验证&quot; class=&quot;headerlink&quot; title=&quot;交叉验证&quot;&gt;&lt;/a&gt;交叉验证&lt;/h3&gt;&lt;h4 id=&quot;选择交叉验证的情况&quot;&gt;&lt;a href=&quot;#选择交叉验证的情况&quot; class=&quot;headerlink&quot; title=&quot;选择交叉验证的情况&quot;&gt;&lt;/a&gt;选择交叉验证的情况&lt;/h4&gt;&lt;p&gt;给定的样本数据充足时,数据随机切分为训练集(用于训练模型),验证集(用于模型选择),测试集(学习方法评估)&lt;br&gt;不充足时常发生,这时可以&lt;strong&gt;选择交叉验证&lt;/strong&gt;  &lt;/p&gt;
-&lt;h4 id=&quot;基本思想&quot;&gt;&lt;a href=&quot;#基本思想&quot; class=&quot;headerlink&quot; title=&quot;基本思想&quot;&gt;&lt;/a&gt;基本思想&lt;/h4&gt;&lt;p&gt;重复的使用数据:把给定的数据切分,将切分的数据集组合为&lt;strong&gt;训练集&lt;/strong&gt;和&lt;strong&gt;测试集&lt;/strong&gt;,在此基础上,反复训练,测试以及模型选择.  &lt;/p&gt;
-&lt;h4 id=&quot;1-简单交叉验证&quot;&gt;&lt;a href=&quot;#1-简单交叉验证&quot; class=&quot;headerlink&quot; title=&quot;1.简单交叉验证&quot;&gt;&lt;/a&gt;1.简单交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2-s折交叉验证&quot;&gt;&lt;a href=&quot;#2-s折交叉验证&quot; class=&quot;headerlink&quot; title=&quot;2.s折交叉验证&quot;&gt;&lt;/a&gt;2.s折交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/s%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3-留一交叉验证&quot;&gt;&lt;a href=&quot;#3-留一交叉验证&quot; class=&quot;headerlink&quot; title=&quot;3.留一交叉验证&quot;&gt;&lt;/a&gt;3.留一交叉验证&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/%E7%95%99%E4%B8%80%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;正则化-结构风险最小化&quot;&gt;&lt;a href=&quot;#正则化-结构风险最小化&quot; class=&quot;headerlink&quot; title=&quot;正则化(结构风险最小化)&quot;&gt;&lt;/a&gt;正则化(结构风险最小化)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;he
     
     </summary>
     
