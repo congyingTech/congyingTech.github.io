@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jobs,leetcode,Python,dict,stack," />
+  <meta name="keywords" content="jobs,Python,leetcode,dict,stack," />
 
 
 
@@ -331,6 +331,10 @@
 
           
 
+      	 <span id="/2016/05/03/leetcode/valid-parentheses/"class="leancloud_visitors"  data-flag-title="leetcode:20--Valid Parentheses">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -368,9 +372,9 @@
           
             <a href="/tags/jobs/" rel="tag">#jobs</a>
           
-            <a href="/tags/leetcode/" rel="tag">#leetcode</a>
-          
             <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/leetcode/" rel="tag">#leetcode</a>
           
             <a href="/tags/dict/" rel="tag">#dict</a>
           
@@ -383,16 +387,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/02/leetcode/linked-list-cycle/" rel="next" title="leetcode:141--Linked List Cycle">
-                <i class="fa fa-chevron-left"></i> leetcode:141--Linked List Cycle
+              <a href="/2016/05/03/leetcode/length-of-last-word/" rel="next" title="leetcode:58--Length of Last Word">
+                <i class="fa fa-chevron-left"></i> leetcode:58--Length of Last Word
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/03/leetcode/length-of-last-word/" rel="prev" title="leetcode:58--Length of Last Word">
-                leetcode:58--Length of Last Word <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/03/leetcode/word-pattern/" rel="prev" title="leetcode:290--Word Pattern">
+                leetcode:290--Word Pattern <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -714,6 +718,99 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("pwXpKqe8BCIwgSfhfMFPTl4o-gzGzoHsz", "oN3Ju7SqnNCgJtFfPv6ERAWo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 </body>

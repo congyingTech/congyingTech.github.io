@@ -250,9 +250,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/04/11/leetcode/isomorphic-strings/" itemprop="url">
+            <a class="post-title-link" href="/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/" itemprop="url">
               
-                <span itemprop="name">leetcode:字符串同构</span>
+                <span itemprop="name">leetcode:121--Best Time to Buy and Sell Stock</span>
               
             </a>
         
@@ -278,9 +278,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/04/11/leetcode/best-time-to-buy-and-sell-stock/" itemprop="url">
+            <a class="post-title-link" href="/2016/04/11/leetcode/isomorphic-strings/" itemprop="url">
               
-                <span itemprop="name">leetcode:121--Best Time to Buy and Sell Stock</span>
+                <span itemprop="name">leetcode:字符串同构</span>
               
             </a>
         
@@ -334,34 +334,6 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/04/06/leetcode/rectangle-area/" itemprop="url">
-              
-                <span itemprop="name">leetcode:223--Rectangle Area</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-06T19:59:59+08:00"
-              content="2016-04-06" >
-          04-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
             <a class="post-title-link" href="/2016/04/06/leetcode/merge-sorted-array/" itemprop="url">
               
                 <span itemprop="name">leetcode:88--Merge Sorted Array</span>
@@ -390,9 +362,37 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/04/05/leetcode/contains-duplicate-ii/" itemprop="url">
+            <a class="post-title-link" href="/2016/04/06/leetcode/rectangle-area/" itemprop="url">
               
-                <span itemprop="name">leetcode:219--Contains Duplicate II</span>
+                <span itemprop="name">leetcode:223--Rectangle Area</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-04-06T19:59:59+08:00"
+              content="2016-04-06" >
+          04-06
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/04/05/leetcode/intersection-of-two-linked-lists/" itemprop="url">
+              
+                <span itemprop="name">leetcode:160--Intersection of Two Linked Lists</span>
               
             </a>
         
@@ -418,9 +418,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/04/05/leetcode/intersection-of-two-linked-lists/" itemprop="url">
+            <a class="post-title-link" href="/2016/04/05/leetcode/contains-duplicate-ii/" itemprop="url">
               
-                <span itemprop="name">leetcode:160--Intersection of Two Linked Lists</span>
+                <span itemprop="name">leetcode:219--Contains Duplicate II</span>
               
             </a>
         
@@ -718,6 +718,99 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("pwXpKqe8BCIwgSfhfMFPTl4o-gzGzoHsz", "oN3Ju7SqnNCgJtFfPv6ERAWo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 </body>
