@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-25T16:52:29.000Z</updated>
+  <updated>2016-08-05T12:12:02.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java垃圾回收机制</title>
+    <link href="http://yoursite.com/2016/08/05/java/GC/"/>
+    <id>http://yoursite.com/2016/08/05/java/GC/</id>
+    <published>2016-08-05T11:59:59.000Z</published>
+    <updated>2016-08-05T12:12:02.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;主要是在Java堆上的操作 ，在内存管理这块没说Java堆，就是放在这里了~&lt;/p&gt;
+&lt;p&gt;GC需要完成的三件事：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哪些内存需要回收？&lt;/li&gt;
+&lt;li&gt;什么时候回收？&lt;/li&gt;
+&lt;li&gt;如何回收？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文摘自：&lt;a href=&quot;http://www.cnblogs.com/gw811/archive/2012/10/19/2730258.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Java垃圾收集器&lt;/a&gt;，实力好文，良心推荐。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;哪些内存需要回收？&quot;&gt;&lt;a href=&quot;#哪些内存需要回收？&quot; class=&quot;headerlink&quot; title=&quot;哪些内存需要回收？&quot;&gt;&lt;/a&gt;哪些内存需要回收？&lt;/h3&gt;&lt;p&gt;Java内存运行时区域的各个部分，其中&lt;strong&gt;程序计数器、虚拟机栈、本地方法栈&lt;/strong&gt;三个区域随线程而生，随线程而灭；栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每一个栈帧中分配多少内存基本上是在类结构确定下来时就已知的（尽管在运行期会由JIT编译器进行一些优化，但在本章基于概念模型的讨论中，大体上可以认为是编译期可知的），因此&lt;strong&gt;这几个区域的内存分配和回收都具备确定性&lt;/strong&gt;，在这几个区域内不需要过多考虑回收的问题，因为方法结束或线程结束时，内存自然就跟随着回收了。&lt;/p&gt;
+&lt;h3 id=&quot;如何判断对象是否存活？&quot;&gt;&lt;a href=&quot;#如何判断对象是否存活？&quot; class=&quot;headerlink&quot; title=&quot;如何判断对象是否存活？&quot;&gt;&lt;/a&gt;如何判断对象是否存活？&lt;/h3&gt;&lt;h4 id=&quot;引用计数算法：&quot;&gt;&lt;a href=&quot;#引用计数算法：&quot; class=&quot;headerlink&quot; title=&quot;引用计数算法：&quot;&gt;&lt;/a&gt;引用计数算法：&lt;/h4&gt;&lt;p&gt;（ps:面今日头条的时候，自己胡诌的这个java也是靠引用计数算法==自己的脑洞呀，不过还真的有这个算法，而且很常用）  &lt;/p&gt;
+&lt;p&gt;　　客观地说，引用计数算法（Reference Counting）的实现简单，判定效率也很高，在大部分情况下它都是一个不错的算法，也有一些比较著名的应用案例，例如微软的COM（Component Object Model）技术、使用ActionScript 3的FlashPlayer、Python语言以及在游戏脚本领域中被广泛应用的Squirrel中都使用了引用计数算法进行内存管理。但是，Java语言中没有选用引用计数算法来管理内存，其中最主要的原因是它很难解决对象之间的相互循环引用的问题。&lt;/p&gt;
+&lt;h4 id=&quot;根搜索算法：&quot;&gt;&lt;a href=&quot;#根搜索算法：&quot; class=&quot;headerlink&quot; title=&quot;根搜索算法：&quot;&gt;&lt;/a&gt;根搜索算法：&lt;/h4&gt;&lt;p&gt;   在主流的商用程序语言中（Java和C#，甚至包括前面提到的古老的Lisp），都是使用根搜索算法（GC Roots Tracing）判定对象是否存活的。这个算法的基本思路就是通过一系列的名为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链（Reference Chain），当一个对象到GC Roots没有任何引用链相连（用图论的话来说就是从GC Roots到这个对象不可达）时，则证明此对象是不可用的。如图3-1所示，对象object 5、object 6、object7虽然互相有关联，但是它们到GC Roots是不可达的，所以它们将会被判定为是可回收的对象。&lt;/p&gt;
+&lt;p&gt;  在Java语言里，可作为GC Roots的对象包括下面几种：    &lt;/p&gt;
+&lt;font color=&quot;green&quot;&gt;&lt;br&gt;&lt;br&gt;- 虚拟机栈（栈帧中的本地变量表）中的引用的对象。&lt;br&gt;- 方法区中的类静态属性引用的对象。&lt;br&gt;- 方法区中的常量引用的对象。&lt;br&gt;- 本地方法栈中JNI（即一般说的Native方法）的引用的对象。&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;br&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/GC%E5%88%A4%E6%96%AD.PNG&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;br&gt;#### 生存还是死亡？&lt;br&gt;在根搜索算法中不可达的对象，也并非是“非死不可”的，这时候它们暂时处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程：如果对象在进行根搜索后发现没有与GC Roots相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。当对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用过，虚拟机将这两种情况都视为“没有必要执行”。&lt;br&gt;&lt;br&gt;&lt;font color=&quot;red&quot;&gt;下面这一段我也不是很懂…大概意思是通过两次判断是否执行死刑，&lt;br&gt;&lt;br&gt;- 第一次是根搜，发现它没与GC ROOTS连的引用链&lt;br&gt;- 第二次是判断是否执行finalize()…&lt;br&gt;&lt;br&gt;&lt;/font&gt;
+
+&lt;p&gt;如果这个对象被判定为有必要执行finalize()方法，那么这个对象将会被放置在一个名为F-Queue的队列之中，并在稍后由一条由虚拟机自动建立的、低优先级的Finalizer线程去执行。这里所谓的“执行”是指虚拟机会触发这个方法，但并不承诺会等待它运行结束。这样做的原因是，如果一个对象在finalize()方法中执行缓慢，或者发生了死循环（更极端的情况），将很可能会导致F-Queue队列中的其他对象永久处于等待状态，甚至导致整个内存回收系统崩溃。finalize()方法是对象逃脱死亡命运的最后一次机会，稍后GC将对F-Queue中的对象进行第二次小规模的标记，如果对象要在finalize()中成功拯救自己—只要重新与引用链上的任何一个对象建立关联即可，譬如把自己（this关键字）赋值给某个类变量或对象的成员变量，那在第二次标记时它将被移除出“即将回收”的集合；如果对象这时候还没有逃脱，那它就真的离死不远了。&lt;/p&gt;
+&lt;h3 id=&quot;如何回收？&quot;&gt;&lt;a href=&quot;#如何回收？&quot; class=&quot;headerlink&quot; title=&quot;如何回收？&quot;&gt;&lt;/a&gt;如何回收？&lt;/h3&gt;&lt;p&gt;不同平台的JVM回收的算法不同，博文作者依然很贴心的做了介绍，我就不写了，因为暂时理解不动了。。。=。=&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;主要是在Java堆上的操作 ，在内存管理这块没说Java堆，就是放在这里了~&lt;/p&gt;
+&lt;p&gt;GC需要完成的三件事：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哪些内存需要回收？&lt;/li&gt;
+&lt;li&gt;什么时候回收？&lt;/li&gt;
+&lt;li&gt;如何回收？&lt;/li&gt;
+&lt;/ul
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+      <category term="GC" scheme="http://yoursite.com/categories/Java/GC/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="GC" scheme="http://yoursite.com/tags/GC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java内存管理机制&amp;JVM相关</title>
+    <link href="http://yoursite.com/2016/08/04/java/java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%20/"/>
+    <id>http://yoursite.com/2016/08/04/java/java内存管理机制 /</id>
+    <published>2016-08-04T11:59:59.000Z</published>
+    <updated>2016-08-05T15:16:22.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文搁置了许久，因为看了许久，理解了许久，消化了许久。。。整理成两张图来粗浅的表达一下自己通过各种资料，理解的内存管理吧，当然不全面，也许有错误，大部分来自摘抄，如果有错误，希望看到的你帮忙指出，多谢！  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;JVM跨平台实现：&quot;&gt;&lt;a href=&quot;#JVM跨平台实现：&quot; class=&quot;headerlink&quot; title=&quot;JVM跨平台实现：&quot;&gt;&lt;/a&gt;JVM跨平台实现：&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/Java%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%AE%9E%E7%8E%B0.png&quot; alt=&quot;Java跨平台实现&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Java内存管理机制：&quot;&gt;&lt;a href=&quot;#Java内存管理机制：&quot; class=&quot;headerlink&quot; title=&quot;Java内存管理机制：&quot;&gt;&lt;/a&gt;Java内存管理机制：&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6.png&quot; alt=&quot;Java内存管理机制&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;summary&quot;&gt;&lt;a href=&quot;#summary&quot; class=&quot;headerlink&quot; title=&quot;summary:&quot;&gt;&lt;/a&gt;summary:&lt;/h3&gt;&lt;p&gt;编译为何？解释为何？堆栈为何？GC算法为何？&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文搁置了许久，因为看了许久，理解了许久，消化了许久。。。整理成两张图来粗浅的表达一下自己通过各种资料，理解的内存管理吧，当然不全面，也许有错误，大部分来自摘抄，如果有错误，希望看到的你帮忙指出，多谢！  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+      <category term="内存管理" scheme="http://yoursite.com/categories/Java/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈linux内存管理机制</title>
@@ -584,6 +671,59 @@
   </entry>
   
   <entry>
+    <title>动态规划算法</title>
+    <link href="http://yoursite.com/2016/06/22/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    <id>http://yoursite.com/2016/06/22/Algorithm/动态规划/</id>
+    <published>2016-06-22T11:59:59.000Z</published>
+    <updated>2016-06-29T09:29:42.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
+&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
+&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;动态规划的过程：每次决策依赖于当前的状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。所以，多阶段的最优化决策解决问题的过程称为动态规划。  &lt;/p&gt;
+&lt;p&gt;wiki的定义：&lt;strong&gt;dynamic programming&lt;/strong&gt; is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.  &lt;/p&gt;
+&lt;p&gt;动态规划的本质：对问题&lt;strong&gt;状态的定义&lt;/strong&gt;和&lt;strong&gt;状态转移方程的定义&lt;/strong&gt;。&lt;br&gt;通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。&lt;/p&gt;
+&lt;h3 id=&quot;适用情况&quot;&gt;&lt;a href=&quot;#适用情况&quot; class=&quot;headerlink&quot; title=&quot;适用情况&quot;&gt;&lt;/a&gt;适用情况&lt;/h3&gt;&lt;p&gt;能采用动态规划求解的问题的一般要具有3个性质：&lt;br&gt;(1) 最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。&lt;br&gt;(2) 无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。&lt;br&gt;(3) 有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）&lt;/p&gt;
+&lt;h3 id=&quot;状态的定义&quot;&gt;&lt;a href=&quot;#状态的定义&quot; class=&quot;headerlink&quot; title=&quot;状态的定义&quot;&gt;&lt;/a&gt;状态的定义&lt;/h3&gt;&lt;p&gt;题目描述：  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;求这个数列的最长上升（递增）子数列（LIS）的长度.&lt;br&gt;以&lt;br&gt;1 7 2 8 3 4&lt;br&gt;为例。&lt;br&gt;这个数列的最长递增子数列是 1 2 3 4，长度为4；&lt;br&gt;次长的长度为3， 包括 1 7 8; 1 2 3 等.  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;要求解这个问题先要，定义这个问题。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;设 F(k) 为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;求F(1)..F(N) 中的最大值.  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;状态转移方程的定义&quot;&gt;&lt;a href=&quot;#状态转移方程的定义&quot; class=&quot;headerlink&quot; title=&quot;状态转移方程的定义&quot;&gt;&lt;/a&gt;状态转移方程的定义&lt;/h3&gt;&lt;p&gt;比如，对于LIS问题，我们的第一种定义：&lt;br&gt;设为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;设A为题中数列，状态转移方程为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;F(1) = 1 （根据状态定义导出边界情况）&lt;br&gt;F(k)=max(F(1) + 1 | A(k)&amp;gt;A(i), i in (1..k-1)) (k&amp;gt;1)&lt;br&gt; （根据状态定义导出边界情况）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;用文字解释一下是：&lt;br&gt;以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，取遍i的所有值（i小于k）。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
+&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
+&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:343--Integer Break</title>
     <link href="http://yoursite.com/2016/06/22/leetcode/integer-break/"/>
     <id>http://yoursite.com/2016/06/22/leetcode/integer-break/</id>
@@ -641,59 +781,6 @@ n % 3 == 2 时，分为n个3和一个2的乘积
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
       <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态规划算法</title>
-    <link href="http://yoursite.com/2016/06/22/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    <id>http://yoursite.com/2016/06/22/Algorithm/动态规划/</id>
-    <published>2016-06-22T11:59:59.000Z</published>
-    <updated>2016-06-29T09:29:42.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
-&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
-&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;动态规划的过程：每次决策依赖于当前的状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。所以，多阶段的最优化决策解决问题的过程称为动态规划。  &lt;/p&gt;
-&lt;p&gt;wiki的定义：&lt;strong&gt;dynamic programming&lt;/strong&gt; is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.  &lt;/p&gt;
-&lt;p&gt;动态规划的本质：对问题&lt;strong&gt;状态的定义&lt;/strong&gt;和&lt;strong&gt;状态转移方程的定义&lt;/strong&gt;。&lt;br&gt;通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。&lt;/p&gt;
-&lt;h3 id=&quot;适用情况&quot;&gt;&lt;a href=&quot;#适用情况&quot; class=&quot;headerlink&quot; title=&quot;适用情况&quot;&gt;&lt;/a&gt;适用情况&lt;/h3&gt;&lt;p&gt;能采用动态规划求解的问题的一般要具有3个性质：&lt;br&gt;(1) 最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。&lt;br&gt;(2) 无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。&lt;br&gt;(3) 有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）&lt;/p&gt;
-&lt;h3 id=&quot;状态的定义&quot;&gt;&lt;a href=&quot;#状态的定义&quot; class=&quot;headerlink&quot; title=&quot;状态的定义&quot;&gt;&lt;/a&gt;状态的定义&lt;/h3&gt;&lt;p&gt;题目描述：  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;求这个数列的最长上升（递增）子数列（LIS）的长度.&lt;br&gt;以&lt;br&gt;1 7 2 8 3 4&lt;br&gt;为例。&lt;br&gt;这个数列的最长递增子数列是 1 2 3 4，长度为4；&lt;br&gt;次长的长度为3， 包括 1 7 8; 1 2 3 等.  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;要求解这个问题先要，定义这个问题。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;设 F(k) 为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;求F(1)..F(N) 中的最大值.  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;状态转移方程的定义&quot;&gt;&lt;a href=&quot;#状态转移方程的定义&quot; class=&quot;headerlink&quot; title=&quot;状态转移方程的定义&quot;&gt;&lt;/a&gt;状态转移方程的定义&lt;/h3&gt;&lt;p&gt;比如，对于LIS问题，我们的第一种定义：&lt;br&gt;设为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;设A为题中数列，状态转移方程为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;F(1) = 1 （根据状态定义导出边界情况）&lt;br&gt;F(k)=max(F(1) + 1 | A(k)&amp;gt;A(i), i in (1..k-1)) (k&amp;gt;1)&lt;br&gt; （根据状态定义导出边界情况）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;用文字解释一下是：&lt;br&gt;以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，取遍i的所有值（i小于k）。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
-&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
-&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
-    
-      <category term="动态规划" scheme="http://yoursite.com/categories/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
     
   </entry>
   
@@ -930,6 +1017,41 @@ fwrite.close()
   </entry>
   
   <entry>
+    <title>shell脚本进行文件读写操作(持续更新中...)</title>
+    <link href="http://yoursite.com/2016/06/03/Shell/shell%20script/"/>
+    <id>http://yoursite.com/2016/06/03/Shell/shell script/</id>
+    <published>2016-06-03T11:59:59.000Z</published>
+    <updated>2016-06-03T12:20:39.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h3&gt;&lt;p&gt;该脚本解决了从目标文件进行读写，修改指定值的问题。&lt;br&gt;基本上涉及了：shell脚本进行文件读写操作-&amp;gt;sed&lt;/p&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Shell Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lineNumber=$(cat /etc/sfcb/sfcb.cfg |wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;lineNumber is &lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;isenableSSLv3 is &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-ne&lt;/span&gt; 0 ];&lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 has add&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 is not added,we should add it&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   sed &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt; aenableSSLv3:    true&quot;&lt;/span&gt; -i /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 are true or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;SSLv3Value=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabledValue=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enabled&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3Value is &lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabledValue is &lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;set value right&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabled value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enabled:        false/enabled:        true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enableSSLv3:    false/enableSSLv3:    true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h3&gt;&lt;p&gt;sed是管道命令，是用shell进行文件读写的关键，待补充！！！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+      <category term="Sed文件读写" scheme="http://yoursite.com/categories/Shell/Sed%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
+    
+    
+      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+      <category term="if-else" scheme="http://yoursite.com/tags/if-else/"/>
+    
+  </entry>
+  
+  <entry>
     <title>贪心算法</title>
     <link href="http://yoursite.com/2016/06/03/Algorithm/%E8%B4%AA%E5%BF%83%E6%B3%95/"/>
     <id>http://yoursite.com/2016/06/03/Algorithm/贪心法/</id>
@@ -1048,121 +1170,6 @@ W=30
       <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
     
       <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell脚本进行文件读写操作(持续更新中...)</title>
-    <link href="http://yoursite.com/2016/06/03/Shell/shell%20script/"/>
-    <id>http://yoursite.com/2016/06/03/Shell/shell script/</id>
-    <published>2016-06-03T11:59:59.000Z</published>
-    <updated>2016-06-03T12:20:39.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h3&gt;&lt;p&gt;该脚本解决了从目标文件进行读写，修改指定值的问题。&lt;br&gt;基本上涉及了：shell脚本进行文件读写操作-&amp;gt;sed&lt;/p&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Shell Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isenableSSLv3=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lineNumber=$(cat /etc/sfcb/sfcb.cfg |wc &lt;span class=&quot;_&quot;&gt;-l&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;lineNumber is &lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;isenableSSLv3 is &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;variable&quot;&gt;$isenableSSLv3&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-ne&lt;/span&gt; 0 ];&lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 has add&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 is not added,we should add it&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   sed &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$lineNumber&lt;/span&gt; aenableSSLv3:    true&quot;&lt;/span&gt; -i /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#check enabled and enableSSLv3 are true or not&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;SSLv3Value=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabledValue=$(cat /etc/sfcb/sfcb.cfg | grep &lt;span class=&quot;string&quot;&gt;&quot;enabled&quot;&lt;/span&gt; | awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3Value is &lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabledValue is &lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enableSSLv3Value&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;set value right&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; [ &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$enabledValue&lt;/span&gt;&quot;&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt; ]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enabled value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enabled:        false/enabled:        true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;enableSSLv3 value is false,we change it to true&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sed -i &lt;span class=&quot;string&quot;&gt;&#39;s/enableSSLv3:    false/enableSSLv3:    true/g&#39;&lt;/span&gt; /etc/sfcb/sfcb.cfg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h3&gt;&lt;p&gt;sed是管道命令，是用shell进行文件读写的关键，待补充！！！&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这是自己第一次写的可执行的shell脚本，不得不说，shell脚本是个好用的东西，在测试中，尤其是自动化测试中起着关键的作用，这段shell代码是上个月写的，也是测试IODM的时候，对于cfg文件的一个属性值得判断，虽然最后还是用Python代替了这一判断，但是我个人认为shell还是读取文件的一把好手！！！&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
-    
-      <category term="Sed文件读写" scheme="http://yoursite.com/categories/Shell/Sed%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
-    
-    
-      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
-    
-      <category term="if-else" scheme="http://yoursite.com/tags/if-else/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:122--Best Time to Buy and Sell Stock II</title>
-    <link href="http://yoursite.com/2016/06/01/leetcode/best-time-to-buy-and-sell-stock-ii/"/>
-    <id>http://yoursite.com/2016/06/01/leetcode/best-time-to-buy-and-sell-stock-ii/</id>
-    <published>2016-06-01T11:59:59.000Z</published>
-    <updated>2016-06-13T13:28:14.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;题目描述：&lt;br&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;最佳时间买入卖出股票：你有一个数组保存了股票在第i天的价钱，现在你可以进行多次买入卖出，但同一时间你手上只能保持一个股票，如何赚的最多。&lt;br&gt;贪心法，和第一道股票的题目不同之处在于可以多次买卖股票，从而累积赚取所有的价格差。因此使用贪心算法，基本思想是锁定一个低价，然后在价格升到局部最高点（下一天的价格就下降）的时候，抛出股票，然后把下一天价格较低的股票买入。&lt;br&gt;核心就是&lt;strong&gt;局部最优化&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#贪心法：局部最优化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;maxProfit&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, prices)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        profit = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(prices) - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            profit += max(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, prices[i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] - prices[i])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; profit&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&#39;__main__&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    result = Solution().maxProfit([&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;54&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;56&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(result)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;这里延伸一下贪心算法：&lt;a href=&quot;http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考链接&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;下一篇单独学一下贪心法。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;题目描述：&lt;br&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="Greedy" scheme="http://yoursite.com/categories/Python/leetcode/Greedy/"/>
-    
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>5月份计划</title>
-    <link href="http://yoursite.com/2016/05/31/plan/5%E6%9C%88%E4%BB%BD%E8%AE%A1%E5%88%92/"/>
-    <id>http://yoursite.com/2016/05/31/plan/5月份计划/</id>
-    <published>2016-05-31T11:59:59.000Z</published>
-    <updated>2016-06-03T12:06:56.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Summary&lt;br&gt;五月份,还是觉得过得超级快,要完成的计划,差的还很远,看看那百分之0的进度条吧,MY GOD,时间都去哪里了…MD&lt;br&gt;虽然计划没有完成,也并非没有收获,开始测试NOVA case,学了些统计学知识.学了python的知识&lt;br&gt;在此,感谢丁丁耐心的给我写下了进度条应该怎么实现:）&lt;br&gt;希望自己能心无旁骛的过好自己的人生!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;学习计划&quot;&gt;&lt;a href=&quot;#学习计划&quot; class=&quot;headerlink&quot; title=&quot;学习计划:&quot;&gt;&lt;/a&gt;学习计划:&lt;/h4&gt;&lt;p&gt;1.leetcode上的&lt;del&gt;easy&lt;/del&gt;和medium难度的题目一定要刷完了!!!&lt;br&gt;easy:&lt;div class=&quot;process&quot; style=&quot;width:500px;height:20px;background:white;position:relative;border:1px solid black;&quot;&gt;&lt;div style=&quot;width:500px;height:20px;background:green;postion:absolute;top:0;left:0;z-index:1;&quot;&gt;&lt;span style=&quot;position:absolute;left:50%;top:0;z-index:2;color:black&quot;&gt;100%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;medium:&lt;div class=&quot;process&quot; style=&quot;width:500px;height:20px;background:white;position:relative;border:1px solid black;&quot;&gt;&lt;div style=&quot;width:15px;height:20px;background:green;postion:absolute;top:0;left:0;z-index:1;&quot;&gt;&lt;span style=&quot;position:absolute;left:50%;top:0;z-index:2;color:black&quot;&gt;3%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;2.开始准备雅思考试啦,每天背雅思单词,一定坚持下来!!! 每天可以看一下英语视频.&lt;br&gt;单词:&lt;div class=&quot;process&quot; style=&quot;width:500px;height:20px;background:white;position:relative;border:1px solid black;&quot;&gt;&lt;div style=&quot;width:250px;height:20px;background:green;postion:absolute;top:0;left:0;z-index:1;&quot;&gt;&lt;span style=&quot;position:absolute;left:50%;top:0;z-index:2;&quot;&gt;50%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;视频:&lt;div class=&quot;process&quot; style=&quot;width:500px;height:20px;background:white;position:relative;border:1px solid black;&quot;&gt;&lt;div style=&quot;width:0px;height:20px;background:green;postion:absolute;top:0;left:0;z-index:1;&quot;&gt;&lt;span style=&quot;position:absolute;left:50%;top:0;z-index:2;&quot;&gt;0%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;3.Python和java的基本知识要完善,基本的数据结构要过一遍.(java看java编程思想,python工作中完善)  &lt;/p&gt;
-&lt;div class=&quot;process&quot; style=&quot;width:500px;height:20px;background:white;position:relative;border:1px solid black;&quot;&gt;&lt;div style=&quot;width:0px;height:20px;background:green;postion:absolute;top:0;left:0;z-index:1;&quot;&gt;&lt;span style=&quot;position:absolute;left:50%;top:0;z-index:2;&quot;&gt;0%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;4.这个月每天晚上看1-2节的机器学习,白天补充一下统计学的知识.一定把台大的那门课给看完!!!&lt;br&gt;台大视频课:&lt;div class=&quot;process&quot; style=&quot;width:500px;height:20px;background:white;position:relative;border:1px solid black;&quot;&gt;&lt;div style=&quot;width:0px;height:20px;background:green;postion:absolute;top:0;left:0;z-index:1;&quot;&gt;&lt;span style=&quot;position:absolute;left:50%;top:0;z-index:2;&quot;&gt;0%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;统计学基础:&lt;div class=&quot;process&quot; style=&quot;width:500px;height:20px;background:white;position:relative;border:1px solid black;&quot;&gt;&lt;div style=&quot;width:50px;height:20px;background:green;postion:absolute;top:0;left:0;z-index:1;&quot;&gt;&lt;span style=&quot;position:absolute;left:50%;top:0;z-index:2;&quot;&gt;10%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt; 
-
-
-&lt;h4 id=&quot;阅读计划&quot;&gt;&lt;a href=&quot;#阅读计划&quot; class=&quot;headerlink&quot; title=&quot;阅读计划:&quot;&gt;&lt;/a&gt;阅读计划:&lt;/h4&gt;&lt;p&gt;1.技术类:统计学基础电子版&lt;br&gt;2.小说类:百年孤独  &lt;/p&gt;
-&lt;h4 id=&quot;娱乐计划&quot;&gt;&lt;a href=&quot;#娱乐计划&quot; class=&quot;headerlink&quot; title=&quot;娱乐计划:&quot;&gt;&lt;/a&gt;娱乐计划:&lt;/h4&gt;&lt;p&gt;1.单反上的照片的归纳整理,打印出来几张好的照片,在网上做成明信片.(已经整理好,纠结于选择什么材质)&lt;br&gt;&lt;del&gt;2.有时间的话把欢乐颂追完,没时间的话再说吧(弃剧,原因是觉得20集的电视剧非得演成42集,啰嗦)&lt;/del&gt;&lt;br&gt;&lt;del&gt;3.约小伙伴出来次饭.(小伙伴顺利找到工作,可喜可贺~)&lt;/del&gt;  &lt;/p&gt;
-&lt;h4 id=&quot;财务计划&quot;&gt;&lt;a href=&quot;#财务计划&quot; class=&quot;headerlink&quot; title=&quot;财务计划:&quot;&gt;&lt;/a&gt;财务计划:&lt;/h4&gt;&lt;p&gt;&lt;del&gt;不能再拖啦 把存折上的钱转到银行卡!!!再整到支付宝上!!!!(已经搞定!遇到了营业厅超级有耐心的小帅哥帮我消了之前网银)&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;刚巴爹!!!&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Summary&lt;br&gt;五月份,还是觉得过得超级快,要完成的计划,差的还很远,看看那百分之0的进度条吧,MY GOD,时间都去哪里了…MD&lt;br&gt;虽然计划没有完成,也并非没有收获,开始测试NOVA case,学了些统计学知识.学了python的知识&lt;br&gt;在此,感谢丁丁耐心的给我写下了进度条应该怎么实现:）&lt;br&gt;希望自己能心无旁骛的过好自己的人生!&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="计划" scheme="http://yoursite.com/categories/%E8%AE%A1%E5%88%92/"/>
-    
-    
-      <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
     
   </entry>
   
