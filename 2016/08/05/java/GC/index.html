@@ -66,9 +66,7 @@ GC需要完成的三件事：
 什么时候回收？
 如何回收？
 
-本文摘自：Java垃圾收集器，实力好文，良心推荐。
-
-哪些内存需要回收？Java内存运行时区域的各个部分，其中程序计数器、虚拟机栈、本地方法栈三个区域随线程而生，随线程而灭；栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每">
+本文摘自：Java垃圾收集器，实力好文，良心推荐。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java垃圾回收机制">
 <meta property="og:url" content="http://yoursite.com/2016/08/05/java/GC/index.html">
@@ -80,11 +78,9 @@ GC需要完成的三件事：
 什么时候回收？
 如何回收？
 
-本文摘自：Java垃圾收集器，实力好文，良心推荐。
-
-哪些内存需要回收？Java内存运行时区域的各个部分，其中程序计数器、虚拟机栈、本地方法栈三个区域随线程而生，随线程而灭；栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每">
+本文摘自：Java垃圾收集器，实力好文，良心推荐。">
 <meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/GC%E5%88%A4%E6%96%AD.PNG">
-<meta property="og:updated_time" content="2016-08-05T12:12:02.000Z">
+<meta property="og:updated_time" content="2016-08-05T15:18:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java垃圾回收机制">
 <meta name="twitter:description" content="主要是在Java堆上的操作 ，在内存管理这块没说Java堆，就是放在这里了~
@@ -94,9 +90,7 @@ GC需要完成的三件事：
 什么时候回收？
 如何回收？
 
-本文摘自：Java垃圾收集器，实力好文，良心推荐。
-
-哪些内存需要回收？Java内存运行时区域的各个部分，其中程序计数器、虚拟机栈、本地方法栈三个区域随线程而生，随线程而灭；栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每">
+本文摘自：Java垃圾收集器，实力好文，良心推荐。">
 <meta name="twitter:image" content="http://7xskaf.com1.z0.glb.clouddn.com/GC%E5%88%A4%E6%96%AD.PNG">
 
 
@@ -384,6 +378,7 @@ GC需要完成的三件事：
 </ul>
 <p>本文摘自：<a href="http://www.cnblogs.com/gw811/archive/2012/10/19/2730258.html" target="_blank" rel="external">Java垃圾收集器</a>，实力好文，良心推荐。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="哪些内存需要回收？"><a href="#哪些内存需要回收？" class="headerlink" title="哪些内存需要回收？"></a>哪些内存需要回收？</h3><p>Java内存运行时区域的各个部分，其中<strong>程序计数器、虚拟机栈、本地方法栈</strong>三个区域随线程而生，随线程而灭；栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每一个栈帧中分配多少内存基本上是在类结构确定下来时就已知的（尽管在运行期会由JIT编译器进行一些优化，但在本章基于概念模型的讨论中，大体上可以认为是编译期可知的），因此<strong>这几个区域的内存分配和回收都具备确定性</strong>，在这几个区域内不需要过多考虑回收的问题，因为方法结束或线程结束时，内存自然就跟随着回收了。</p>
 <h3 id="如何判断对象是否存活？"><a href="#如何判断对象是否存活？" class="headerlink" title="如何判断对象是否存活？"></a>如何判断对象是否存活？</h3><h4 id="引用计数算法："><a href="#引用计数算法：" class="headerlink" title="引用计数算法："></a>引用计数算法：</h4><p>（ps:面今日头条的时候，自己胡诌的这个java也是靠引用计数算法==自己的脑洞呀，不过还真的有这个算法，而且很常用）  </p>
 <p>　　客观地说，引用计数算法（Reference Counting）的实现简单，判定效率也很高，在大部分情况下它都是一个不错的算法，也有一些比较著名的应用案例，例如微软的COM（Component Object Model）技术、使用ActionScript 3的FlashPlayer、Python语言以及在游戏脚本领域中被广泛应用的Squirrel中都使用了引用计数算法进行内存管理。但是，Java语言中没有选用引用计数算法来管理内存，其中最主要的原因是它很难解决对象之间的相互循环引用的问题。</p>
