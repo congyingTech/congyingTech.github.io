@@ -901,45 +901,6 @@ n % 3 == 2 时，分为n个3和一个2的乘积
   </entry>
   
   <entry>
-    <title>leetcode:357--Count Numbers with Unique Digits</title>
-    <link href="http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/"/>
-    <id>http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/</id>
-    <published>2016-06-13T11:59:59.000Z</published>
-    <updated>2016-06-13T15:25:27.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight erlang-repl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;这个题目的主要算法思想就是,排列组合!!!!!!  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这道题目的题意是:给定一个n,然后 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;lt;=N&amp;lt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;^n ,在N的取值范围内,找出unique的number,  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;比如,n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;时,N取值范围是[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;),那就要排除[&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;22&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;33&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;44&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;55&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;66&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;88&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;99&lt;/span&gt;], return &lt;span class=&quot;number&quot;&gt;91&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这就是一道排列组合的题目:  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于两位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择 低位为了不与高位重复:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;) - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于三位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)  中间位取值:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)  低位取值:中间位取值 - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(中间位选择)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;规律:&lt;code&gt;f(k) = 9 * 9 * 8 ...(9 - k + 2) sum = f(1) + f(2) + ... + f(k)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;countNumbersWithUniqueDigits&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; n == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        f = &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        result = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, n + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            f *= &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; - i + &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result += f&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().countNumbersWithUniqueDigits(n))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;我特么就是个傻逼!!!!什么事情都特么做不好!!!&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="数学题" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode:42--Trapping Rain Water</title>
     <link href="http://yoursite.com/2016/06/13/leetcode/trapping-rain-water/"/>
     <id>http://yoursite.com/2016/06/13/leetcode/trapping-rain-water/</id>
@@ -978,6 +939,45 @@ n % 3 == 2 时，分为n个3和一个2的乘积
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
       <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode:357--Count Numbers with Unique Digits</title>
+    <link href="http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/"/>
+    <id>http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/</id>
+    <published>2016-06-13T11:59:59.000Z</published>
+    <updated>2016-06-13T15:25:27.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight erlang-repl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;这个题目的主要算法思想就是,排列组合!!!!!!  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这道题目的题意是:给定一个n,然后 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;lt;=N&amp;lt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;^n ,在N的取值范围内,找出unique的number,  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;比如,n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;时,N取值范围是[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;),那就要排除[&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;22&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;33&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;44&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;55&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;66&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;88&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;99&lt;/span&gt;], return &lt;span class=&quot;number&quot;&gt;91&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这就是一道排列组合的题目:  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于两位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择 低位为了不与高位重复:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;) - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于三位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)  中间位取值:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)  低位取值:中间位取值 - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(中间位选择)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;规律:&lt;code&gt;f(k) = 9 * 9 * 8 ...(9 - k + 2) sum = f(1) + f(2) + ... + f(k)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;countNumbersWithUniqueDigits&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; n == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        f = &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        result = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, n + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            f *= &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; - i + &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result += f&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().countNumbersWithUniqueDigits(n))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;我特么就是个傻逼!!!!什么事情都特么做不好!!!&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="数学题" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6%E9%A2%98/"/>
     
   </entry>
   
