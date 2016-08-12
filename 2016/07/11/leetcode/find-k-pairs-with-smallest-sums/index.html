@@ -1,0 +1,851 @@
+<!doctype html>
+
+
+
+
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="leetcode,Python,jobs," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MohnTech" type="application/atom+xml" />
+
+<link rel="shortcut icon" href="http://7xskaf.com1.z0.glb.clouddn.com/1111.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+<meta name="description" content="题目描述：Given nums1 = [1,1,2], nums2 = [1,2,3],  k = 2  
+Return: [1,1],[1,1]
+The first 2 pairs are returned from the sequence:[1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode:373--Find K Pairs with Smallest Sums">
+<meta property="og:url" content="http://yoursite.com/2016/07/11/leetcode/find-k-pairs-with-smallest-sums/index.html">
+<meta property="og:site_name" content="MohnTech">
+<meta property="og:description" content="题目描述：Given nums1 = [1,1,2], nums2 = [1,2,3],  k = 2  
+Return: [1,1],[1,1]
+The first 2 pairs are returned from the sequence:[1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]">
+<meta property="og:updated_time" content="2016-07-11T14:03:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode:373--Find K Pairs with Smallest Sums">
+<meta name="twitter:description" content="题目描述：Given nums1 = [1,1,2], nums2 = [1,2,3],  k = 2  
+Return: [1,1],[1,1]
+The first 2 pairs are returned from the sequence:[1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> leetcode:373--Find K Pairs with Smallest Sums | MohnTech </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans" style="padding-left:320px;margin-right:-320px">
+
+  <div class=" page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MohnTech</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-comments fa-fw"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'hCJ5ATBVRz74vSP_bEJ8','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode:373--Find K Pairs with Smallest Sums
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-11T19:59:59+08:00" content="2016-07-11">
+              2016-07-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/leetcode/jobs/" itemprop="url" rel="index">
+                    <span itemprop="name">jobs</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/11/leetcode/find-k-pairs-with-smallest-sums/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/leetcode/find-k-pairs-with-smallest-sums/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+
+	  
+          
+             <span id="/2016/07/11/leetcode/find-k-pairs-with-smallest-sums/" class="leancloud_visitors" data-flag-title="leetcode:373--Find K Pairs with Smallest Sums">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>题目描述：<br>Given nums1 = [1,1,2], nums2 = [1,2,3],  k = 2  </p>
+<p>Return: [1,1],[1,1]</p>
+<p>The first 2 pairs are returned from the sequence:<br>[1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]</p>
+<a id="more"></a>
+<h3 id="My-Solution："><a href="#My-Solution：" class="headerlink" title="My Solution："></a>My Solution：</h3><h4 id="Mine-Way"><a href="#Mine-Way" class="headerlink" title="Mine Way:"></a>Mine Way:</h4><p><strong>算法思想：</strong>    </p>
+<pre><code>1)将两个数组类型的nums1和nums2进行笛卡尔积，将和存储到一个字典中，字典的key是对应的index，value对应的是两个数的和，  
+ 然后对dict 的value的值进行排序，用`sorted(dict_name.items, key = lambda d:d[1])`d[1]是对value值的排序，  
+ 如果要对key值排序，就用d[0]。  
+2)取前K个dict中的key值在对应的笛卡尔积list中找到对应的list
+</code></pre><p><strong>Python Code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">#-*-coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#直接 V = [[None] * 2] * 3   这样初始化的二维数据是浅拷贝，如果给v[0][1]赋值 v[1][1]也会同样做修改。[[]]是一个含有一个空列表元素的列表,所以[[]]*3表示3个指向这            个空列表元素的引用,修改任何</span></span><br><span class="line"><span class="comment">#一个元素都会改变整个列表。所以初始化的时候应该A = [[None] * 2 for x in range(3)]这样</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">kSmallestPairs</span><span class="params">(self, nums1, nums2, k)</span>:</span></span><br><span class="line">        n = len(nums1)</span><br><span class="line">        m = len(nums2)</span><br><span class="line">        <span class="comment">#res = [[None] * 2 ]*3</span></span><br><span class="line">        <span class="comment">#初始化可以是list(),也可以是[]</span></span><br><span class="line">        res = list()</span><br><span class="line">        <span class="comment">#print(res)</span></span><br><span class="line">        <span class="keyword">for</span>  e1 <span class="keyword">in</span> nums1:</span><br><span class="line">            <span class="keyword">for</span> e2 <span class="keyword">in</span> nums2:</span><br><span class="line">                res.append([e1,e2])</span><br><span class="line">        <span class="comment">#print(res)</span></span><br><span class="line">        res_sum_dict = dict()</span><br><span class="line">        e_sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i,e <span class="keyword">in</span> enumerate(res):</span><br><span class="line">            e_sum = e[<span class="number">0</span>] + e[<span class="number">1</span>]</span><br><span class="line">            <span class="comment">#print('here % s' % e_sum)</span></span><br><span class="line">            <span class="comment">#print(i)</span></span><br><span class="line">            res_sum_dict[i] = e_sum</span><br><span class="line">        <span class="comment">#print(res_sum_dict)</span></span><br><span class="line">        newdict = []</span><br><span class="line">        newdict = sorted(res_sum_dict.items(), key = <span class="keyword">lambda</span> d:d[<span class="number">1</span>])</span><br><span class="line">        <span class="comment">#print(newdict)</span></span><br><span class="line">        res_list = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">            res_list.append(res[newdict[i][<span class="number">0</span>]])</span><br><span class="line">        <span class="keyword">return</span> res_list</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    print(Solution().kSmallestPairs([<span class="number">1</span>,<span class="number">7</span>,<span class="number">11</span>], [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>], <span class="number">3</span>))</span><br><span class="line">    <span class="comment">#[1,2],[1,4],[2,2],[2,4],[3,2],[3,4]</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Refer-Way"><a href="#Refer-Way" class="headerlink" title="Refer Way:"></a>Refer Way:</h4><p><strong>算法思想：</strong>    </p>
+<pre><code>记nums1的下标为i，nums2下标为j；数组长度为size1，size2；
+
+首先将“守卫元素”（MaxInt, None, None）加入堆
+
+令i = j = 0
+
+将nums1[0] + nums2[j]与堆顶元素top进行比较：
+
+若堆顶元素较大，则将(nums1[i] + nums2[j], i, j)加入堆，i取值[0, size1)；然后令j = j + 1
+
+将堆顶元素弹出加入结果集  
+循环直到结束
+</code></pre><p><strong>Python Code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">kSmallestPairs</span><span class="params">(self, nums1, nums2, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type nums1: List[int]</span><br><span class="line">        :type nums2: List[int]</span><br><span class="line">        :type k: int</span><br><span class="line">        :rtype: List[List[int]]</span><br><span class="line">        """</span></span><br><span class="line">        ans = []</span><br><span class="line">        heap = [(<span class="number">0x7FFFFFFF</span>, <span class="keyword">None</span>, <span class="keyword">None</span>)]</span><br><span class="line">        size1, size2 = len(nums1), len(nums2)</span><br><span class="line">        idx2 = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> len(ans) &lt; min(k, size1 * size2):</span><br><span class="line">            <span class="keyword">if</span> idx2 &lt; size2:</span><br><span class="line">                sum, i, j = heap[<span class="number">0</span>]</span><br><span class="line">                <span class="keyword">if</span> nums2[idx2] + nums1[<span class="number">0</span>] &lt; sum:</span><br><span class="line">                    <span class="keyword">for</span> idx1 <span class="keyword">in</span> range(size1):</span><br><span class="line">                        heapq.heappush(heap, (nums1[idx1] + nums2[idx2], idx1, idx2))</span><br><span class="line">                    idx2 += <span class="number">1</span></span><br><span class="line">            sum, i, j = heapq.heappop(heap)</span><br><span class="line">            ans.append((nums1[i], nums2[j]))</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure></p>
+<h3 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem:"></a>My Problem:</h3><p>我的代码出现了runtime error ， 不知道什么原因。。。。。。<br>在线等待解决</p>
+<p>refer的方法关于堆的一些问题，现在还是没有搞明白。。。。。。堆尼玛好复杂。。。。。。<br>大概的看了一下堆的一个基本的介绍：</p>
+<h3 id="My-Answer"><a href="#My-Answer" class="headerlink" title="My Answer"></a>My Answer</h3><p><a href="http://www.cnblogs.com/vamei/archive/2013/03/20/2966612.html" target="_blank" rel="external">堆的介绍</a><br>删除节点的时候，将last叶节点作为root加上去，然后从顶向下在一点点的往下比较（跟两个叶节点中小的那个比较）替换，保证堆的结构不能改变。<br>插入节点的时候，将节点插入到last的位置，然后从低向上一点点的与父节点比较，小的话就交换位置。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag">#leetcode</a>
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/jobs/" rel="tag">#jobs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/08/interview/百度图搜测开面试整理/" rel="next" title="百度面试">
+                <i class="fa fa-chevron-left"></i> 百度面试
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/15/Python/Python爬虫1/" rel="prev" title="Python爬虫初阶——爬取豆瓣Top250的电影">
+                Python爬虫初阶——爬取豆瓣Top250的电影 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/11/leetcode/find-k-pairs-with-smallest-sums/"
+           data-title="leetcode:373--Find K Pairs with Smallest Sums" data-url="http://yoursite.com/2016/07/11/leetcode/find-k-pairs-with-smallest-sums/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle" style="display:none">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/M.jpg"
+               alt="Mohn" />
+          <p class="site-author-name" itemprop="name">Mohn</p>
+          <p class="site-description motion-element" itemprop="description">love life, love tech, love u.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/congyingTech" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Mohnleo" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lycy1993" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/guo-zi-jeek" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Solution："><span class="nav-number">1.</span> <span class="nav-text">My Solution：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mine-Way"><span class="nav-number">1.1.</span> <span class="nav-text">Mine Way:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Refer-Way"><span class="nav-number">1.2.</span> <span class="nav-text">Refer Way:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Problem"><span class="nav-number">2.</span> <span class="nav-text">My Problem:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-Answer"><span class="nav-number">3.</span> <span class="nav-text">My Answer</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <!--<footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mohn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>-->
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"congyingTech"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vUSKDJS6QRXA9JSxpuCJ3lo1-gzGzoHsz", "Il2rYwlggu5cUkkqCW8wfYqU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+</body>
+</html>

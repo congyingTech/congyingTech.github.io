@@ -1,0 +1,898 @@
+<!doctype html>
+
+
+
+
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,Crawler," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MohnTech" type="application/atom+xml" />
+
+<link rel="shortcut icon" href="http://7xskaf.com1.z0.glb.clouddn.com/1111.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+<meta name="description" content="实现了TOP250的爬取，就要真正的开始实现我的目的了：嘿嘿，那就是爬取unwatched的电影了！前后花了大概一天的时间，遇到的问题还是很有价值的，爬取成功的那一刻，还是蛮有成就感的，这次先上效果图，让我先小小的傲娇一秒钟，看到这篇文章的Python大神们，希望你们能留下宝贵的意见，帮助爬虫小白成长~
+
+模拟登录
+验证码实现
+动态网页获取参数值
+cookie保存信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫初阶——爬取豆瓣Top250中没有看过的电影">
+<meta property="og:url" content="http://yoursite.com/2016/07/17/Python/Python爬虫2/index.html">
+<meta property="og:site_name" content="MohnTech">
+<meta property="og:description" content="实现了TOP250的爬取，就要真正的开始实现我的目的了：嘿嘿，那就是爬取unwatched的电影了！前后花了大概一天的时间，遇到的问题还是很有价值的，爬取成功的那一刻，还是蛮有成就感的，这次先上效果图，让我先小小的傲娇一秒钟，看到这篇文章的Python大神们，希望你们能留下宝贵的意见，帮助爬虫小白成长~
+
+模拟登录
+验证码实现
+动态网页获取参数值
+cookie保存信息">
+<meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/Unwatched1.PNG">
+<meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/Uwatched2.PNG">
+<meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/Uwatched3.PNG">
+<meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/summary.png">
+<meta property="og:image" content="http://7xskaf.com1.z0.glb.clouddn.com/summary2.png">
+<meta property="og:updated_time" content="2016-07-18T12:44:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python爬虫初阶——爬取豆瓣Top250中没有看过的电影">
+<meta name="twitter:description" content="实现了TOP250的爬取，就要真正的开始实现我的目的了：嘿嘿，那就是爬取unwatched的电影了！前后花了大概一天的时间，遇到的问题还是很有价值的，爬取成功的那一刻，还是蛮有成就感的，这次先上效果图，让我先小小的傲娇一秒钟，看到这篇文章的Python大神们，希望你们能留下宝贵的意见，帮助爬虫小白成长~
+
+模拟登录
+验证码实现
+动态网页获取参数值
+cookie保存信息">
+<meta name="twitter:image" content="http://7xskaf.com1.z0.glb.clouddn.com/Unwatched1.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Python爬虫初阶——爬取豆瓣Top250中没有看过的电影 | MohnTech </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans" style="padding-left:320px;margin-right:-320px">
+
+  <div class=" page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MohnTech</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-comments fa-fw"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'hCJ5ATBVRz74vSP_bEJ8','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python爬虫初阶——爬取豆瓣Top250中没有看过的电影
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-17T19:59:59+08:00" content="2016-07-17">
+              2016-07-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/Crawler爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Crawler爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/17/Python/Python爬虫2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/Python/Python爬虫2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+
+	  
+          
+             <span id="/2016/07/17/Python/Python爬虫2/" class="leancloud_visitors" data-flag-title="Python爬虫初阶——爬取豆瓣Top250中没有看过的电影">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>实现了TOP250的爬取，就要真正的开始实现我的目的了：嘿嘿，那就是爬取unwatched的电影了！前后花了大概一天的时间，遇到的问题还是很有价值的，爬取成功的那一刻，还是蛮有成就感的，这次先上效果图，让我先小小的傲娇一秒钟，看到这篇文章的Python大神们，希望你们能留下宝贵的意见，帮助爬虫小白成长~</p>
+<ul>
+<li>模拟登录</li>
+<li>验证码实现</li>
+<li>动态网页获取参数值</li>
+<li>cookie保存信息 </li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><div style="width:100%"><br><img width="30%" src="http://7xskaf.com1.z0.glb.clouddn.com/Unwatched1.PNG" style="float:left;"><br><img width="30%" src="http://7xskaf.com1.z0.glb.clouddn.com/Uwatched2.PNG" style="float:left;"><br><img width="30%" src="http://7xskaf.com1.z0.glb.clouddn.com/Uwatched3.PNG" style="float:left;"><br><div style="clear:both"></div><br></div>
+
+
+<p>这些都是博主还没看过的TOP250榜单里面的电影，总共还有168部未看，剩下的还是蛮多的=.=</p>
+<h2 id="分析与实现"><a href="#分析与实现" class="headerlink" title="分析与实现"></a>分析与实现</h2><h3 id="重点预览"><a href="#重点预览" class="headerlink" title="重点预览"></a>重点预览</h3><ul>
+<li>模拟登录</li>
+<li>验证码实现</li>
+<li>动态网页获取参数值</li>
+<li>cookie保存信息  </li>
+</ul>
+<p>下面我们一一击破上面的难点问题</p>
+<h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><blockquote>
+<p>与TOP250抓取的主要不同之处在于，获取我个人没有看过的电影，需要登录，这样就涉及到了模拟登录。</p>
+</blockquote>
+<p>下面讲一讲模拟登录：<br><a href="http://blog.csdn.net/figo829/article/details/18728381#t0" target="_blank" rel="external">参考链接：python爬虫实践之模拟登录</a></p>
+<h4 id="浏览器访问服务器的过程："><a href="#浏览器访问服务器的过程：" class="headerlink" title="浏览器访问服务器的过程："></a>浏览器访问服务器的过程：</h4><p>在用户访问网页时，不论是通过URL输入域名或IP，还是点击链接，浏览器向WEB服务器发出了一个HTTP请求（Http Request），WEB服务器接收到客户端浏览器的请求之后，响应客户端的请求，发回相应的响应信息（Http Response），浏览器解析引擎，排版引擎分析返回的内容，呈现给用户。WEB应用程序在于服务器交互的过程中，HTTP请求和响应时发送的都是一个消息结构。</p>
+<h4 id="Http消息"><a href="#Http消息" class="headerlink" title="Http消息:"></a>Http消息:</h4><p>当浏览器向服务器发送请求的时候，发出http请求消息报文，服务器返回数据时，发出http响应消息报文，这两种类型的消息都是由一个起始行，消息头，一个指示消息头结束的空行和可选的消息体组成。<br><strong>Http requests:</strong>  Http请求消息中，<font color="green">起始行包括请求方法,请求的资源， HTTP协议的版本号，消息头包含各种属性，消息体包含数据。</font>GET请求并没有消息主体，因此在消息头后的空白行中没有其他数据。<br><strong>Http response:</strong>Http响应消息中，<font color="green">起始行包括HTTP协议版本，http状态码和状态，消息头包含各种属性，</font>消息体包含服务器返回的数据内容。   </p>
+<p>如下图所示:</p>
+<p><img src="http://7xskaf.com1.z0.glb.clouddn.com/summary.png" alt="summary"></p>
+<p>上图展示的是Get请求方式的request，比如还没登录的时候，就会是Get的请求方式，这时候是没有data数据的，<br>然而当我登录之后，请求方式成了Post，那么request headers下面就有了 form_data这样的表单数据。</p>
+<p>如下图所示：</p>
+<p><img src="http://7xskaf.com1.z0.glb.clouddn.com/summary2.png" alt="summary2"></p>
+<h4 id="cookie："><a href="#cookie：" class="headerlink" title="cookie："></a>cookie：</h4><ul>
+<li><p>什么是cookie？<br>当用户通过浏览器首次访问一个域名时，访问的WEB服务器会给客户端发送数据，以保持WEB服务器与客户端之间的状态保持，这些数据就是Cookie，它是 Internet 站点创建的 ,为了辨别用户身份而储存在用户本地终端上的数据，Cookie中的信息一般都是经过加密的，Cookie存在缓存中或者硬盘中，在硬盘中的是一些小文本文件,当你访问该网站时，就会读取对应网站的Cookie信息，Cookie有效地提升了我们的上网体验。一般而言，一旦将 Cookie 保存在计算机上，则只有创建该 Cookie 的网站才能读取它。</p>
+</li>
+<li><p>为什么用cookie？<br>Http协议是一个<font color="green">无状态的面向连接的协议</font>，Http协议是基于tcp/ip协议层之上的协议，当客户端与服务器建立连接之后，它们之间的TCP连接一直都是保持的，至于保持的时间是多久，是通过服务器端来设置的，当客户端再一次访问该服务器时，会继续使用上一次建立的连接，但是，由于Http协议是无状态的，WEB服务器并不知道这两个请求是否同一个客户端，这两次请求之间是独立的。 为了解决这个问题， Web程序引入了Cookie机制来维护状态.cookie可以记录用户的登录状态，通常web服务器会在用户登录成功后下发一个签名来标记session的有效性，这样免去了用户多次认证和登录网站。记录用户的访问状态。  </p>
+<font color="green">cookie也是我们解决验证码问题的关键！因为我们不能每次都输入验证码，将登录的信息保存在cookie中，方便登录。</font>
+</li>
+<li><p>cookie的种类？</p>
+</li>
+</ul>
+<pre><code>1. 会话Cookie(Session Cookie)：这个类型的cookie只在会话期间内有效，保存在浏览器的缓存之中，用户访问网站时，会话Cookie被创建，当关闭浏览器的时候，它会被浏览器删除。   
+2. 持久Cookie(Persistent Cookie): 这个类型的cookie长期在用户会话中生效。当你设置cookie的属性Max-Age为1个月的话，那么在这个月里每个相关URL的http请求中都会带有这个cookie。所以它可以记录很多用户初始化或自定义化的信息，比如什么时候第一次登录及弱登录态等。 
+3. Secure cookie：安全cookie是在https访问下的cookie形态，以确保cookie在从客户端传递到Server的过程中始终加密的。
+4. HttpOnly Cookie ：这个类型的cookie只能在http(https)请求上传递，对客户端脚本语言无效，从而有效避免了跨站攻击。 
+</code></pre><h4 id="参考代码："><a href="#参考代码：" class="headerlink" title="参考代码："></a>参考代码：</h4><p>几点说明：  </p>
+<ul>
+<li>在loginDB函数里面，包含验证码的处理，由于并不是每次登录都会要求输入验证码，所以我们要用if做一个判断。在有验证码的情况下，我们第一次登录根据验证码ip地址手动输入，后面将cookie保存到同一个session中的时候，就不用每一次都手动输入了。当然，豆瓣并不是傻瓜，当它知道我们用的是自动登录时，就会要求我们再次输入验证码。</li>
+<li>关于对验证码图片id和ip的提取用到的两个方式：<br>1）正则表达式 get id：<br> <code>re_captchaId=r&#39;&lt;input type=&quot;hidden&quot; name=&quot;captcha-id&quot; value=&quot;(.*?)&quot;.*?&gt;&#39;</code><br> <code>captchaId=re.findall(re_captchaId, my_page)</code><br>2)Beautiful Soap get ip：<br><code>soup = bs(my_page,&#39;html.parser&#39;)</code><br><code>captchaSrc = soup.find(&#39;img&#39;, id=&#39;captcha_image&#39;)[&#39;src&#39;]</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loginDB</span><span class="params">(self)</span>:</span></span><br><span class="line">       r = self.session.post(self.loginUrl, data=self.formdata, headers = self.session.headers)</span><br><span class="line">       my_page = r.text</span><br><span class="line">       <span class="comment">#test</span></span><br><span class="line">       <span class="keyword">print</span> <span class="string">'before'</span> + r.url</span><br><span class="line">       re_captchaId=<span class="string">r'&lt;input type="hidden" name="captcha-id" value="(.*?)".*?&gt;'</span></span><br><span class="line">       captchaId=re.findall(re_captchaId, my_page)</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> captchaId:</span><br><span class="line">           <span class="keyword">print</span> captchaId[<span class="number">0</span>]</span><br><span class="line">           soup = bs(my_page,<span class="string">'html.parser'</span>)</span><br><span class="line">           captchaSrc = soup.find(<span class="string">'img'</span>, id=<span class="string">'captcha_image'</span>)[<span class="string">'src'</span>]</span><br><span class="line">           <span class="keyword">if</span> captchaSrc:</span><br><span class="line">               <span class="keyword">print</span> <span class="string">'captchaSrc ip is :'</span>+captchaSrc</span><br><span class="line">               captcha = raw_input(<span class="string">'please input the captcha:'</span>)</span><br><span class="line">               self.formdata[<span class="string">'captcha-solution'</span>] = captcha  </span><br><span class="line">               self.formdata[<span class="string">'captcha-id'</span>] = captchaId</span><br><span class="line">       <span class="comment">#将验证码信息更新后，重新请求登录。</span></span><br><span class="line">       self.formdata[<span class="string">"user_login"</span>] = <span class="string">"登录"</span></span><br><span class="line">       r = self.session.post(self.loginUrl, data=self.formdata, headers = self.session.headers) </span><br><span class="line">	<span class="comment">#test</span></span><br><span class="line">       <span class="keyword">print</span> <span class="string">'after'</span> + r.url</span><br><span class="line">	<span class="comment">#验证是否登录成功</span></span><br><span class="line">       <span class="keyword">if</span> r.url == <span class="string">"https://movie.douban.com/top250?filter=unwatched"</span>:</span><br><span class="line">           <span class="keyword">print</span> <span class="string">'Login successfully!!!'</span></span><br><span class="line">           self.cookie_save()</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           <span class="keyword">print</span> <span class="string">'failed!'</span></span><br><span class="line">       new_page = r.text</span><br><span class="line">       <span class="comment">#return 登录成功后的页面内容</span></span><br><span class="line">       <span class="keyword">return</span> new_page</span><br></pre></td></tr></table></figure>
+<h3 id="验证码实现："><a href="#验证码实现：" class="headerlink" title="验证码实现："></a>验证码实现：</h3><p>在登录函数loginDB()中已经实现了验证码，代码请参考以上  </p>
+<ul>
+<li>设计思想：第一次登录将验证码手动输入，之后保存为cookie，每次带着cookie登录。</li>
+<li>参考思想：实现过程中，也看了很多网上的其他方式，有一种是识别出来验证码上的字母的，这种方式是不是要用到图像处理方面的知识？如果可以实现，就一次都不用手动的输入验证码了。。。以后有时间可以try一下。</li>
+</ul>
+<h3 id="Uwatched网页爬取（带ck值）"><a href="#Uwatched网页爬取（带ck值）" class="headerlink" title="Uwatched网页爬取（带ck值）"></a>Uwatched网页爬取（带ck值）</h3><h4 id="页面分析："><a href="#页面分析：" class="headerlink" title="页面分析："></a>页面分析：</h4><ol>
+<li>url—&gt;<code>http://movie.douban.com/top250?start=0&amp;filter=unwatched</code><br>根据url的格式，我们要实现的就是两个参数<code>start</code>和<code>filter</code>，因为filter的值只有unwatched，我们可以将其固定，start的值是变动的。    </li>
+<li>这点是我卡壳最久的地方，开始我以为用第一个版本的方法，简单的跳转页面就够了，然后too naive了，如果只用第一个版本的方法，每次爬取的还是全部的TOP电影，也就是<font color="green">未登录状态下的数据</font>，此时就想到了应该是要带着登录信息爬取的，于是乎，再一次审查了页面元素，发现登录后的页面request headers里面是<font color="green">都带有ck值的cookie，而未登录页面并没有固定的ck值。</font>那么，就需要把第一次登录后保存在cookie文件中的ck值传入到request的请求数据中了。果不其然，传入ck值后，就成功了！</li>
+</ol>
+<h4 id="参考代码：-1"><a href="#参考代码：-1" class="headerlink" title="参考代码："></a>参考代码：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getUnwatchedMoviPage</span><span class="params">(self,page_num)</span>:</span></span><br><span class="line">       <span class="string">"""</span><br><span class="line">       This function is to get my unwatchedMoviePage</span><br><span class="line">       @param page_num: get current page number.</span><br><span class="line">       @param self.cur_url: get current url. </span><br><span class="line">       """</span></span><br><span class="line">       url = self.cur_url.format(page = (page_num - <span class="number">1</span>)*<span class="number">25</span>)</span><br><span class="line">	<span class="comment">#输出每次抓取的动态url</span></span><br><span class="line">       <span class="keyword">print</span> <span class="string">'url is '</span>+url</span><br><span class="line">       post_data=&#123;</span><br><span class="line">                 <span class="string">'ck'</span>:self.ck</span><br><span class="line">                  &#125;</span><br><span class="line">       r = self.session.post(url, data = post_data)</span><br><span class="line">	<span class="comment">#将请求的有效页面my_page return</span></span><br><span class="line">       my_page = r.text</span><br><span class="line">       <span class="keyword">return</span> my_page</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_ck</span><span class="params">(self)</span>:</span></span><br><span class="line">      <span class="string">'''</span><br><span class="line">      This function is to get ck value.</span><br><span class="line">      '''</span></span><br><span class="line">      cookies = self.session.cookies.get_dict()</span><br><span class="line">      r = self.session.get(<span class="string">'https://movie.douban.com/top250?filter=unwatched'</span>,)</span><br><span class="line">      <span class="keyword">if</span> r.cookies.get_dict():</span><br><span class="line">          <span class="keyword">print</span> <span class="string">'cookies is end of date, login again'</span></span><br><span class="line">          self.loginDB()</span><br><span class="line">          self.get_ck()</span><br><span class="line">      <span class="keyword">if</span> cookies.has_key(<span class="string">'ck'</span>):</span><br><span class="line">          self.ck = cookies[<span class="string">'ck'</span>].strip(<span class="string">'"'</span>)</span><br><span class="line">          <span class="keyword">print</span> <span class="string">"ck:%s"</span> %self.ck</span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">          <span class="keyword">print</span> <span class="string">'cannot get the ck.'</span></span><br></pre></td></tr></table></figure>
+<h3 id="cookie保存信息"><a href="#cookie保存信息" class="headerlink" title="cookie保存信息"></a>cookie保存信息</h3><p><a href="https://linsir.org/post/python-douban-robot" target="_blank" rel="external">cookie的代码部分参考了Linsir的blog</a><br>在模拟登录部分已经介绍了cookie的种种信息，这里不多说，直接上代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cookie_load</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    This function is to use pickle to load cookies.txt from file to a cookie object.</span><br><span class="line">    1)file --&gt; dict pickle.load</span><br><span class="line">    @keyword cookiejar_from_dict: dict ---&gt; cookiejar</span><br><span class="line">    @keyword pickle.load: file ---&gt;dict  &lt;===&gt; pickle.dump: dict ---&gt;file(pickle持久化对象)</span><br><span class="line">    """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(self.cookie_file) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="comment">#格式转换，将dict形式转换为cookiejar</span></span><br><span class="line">            <span class="comment">#pickle.load(f)将文件f还原为cookie对象 这里就不用文件读的方式了</span></span><br><span class="line">            self.session.cookies = requests.utils.cookiejar_from_dict(pickle.load(f))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">except</span> Exception, e :</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'failed to load cookie from file'</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cookie_save</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(self.cookie_file, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        pickle.dump(requests.utils.dict_from_cookiejar(self.session.cookies), f)</span><br><span class="line">    print(<span class="string">'save cookies to file...'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>至此，爬取unwatched电影名称的关键代码已经介绍完了。<br>呼，花了一天半的时间去写代码，花了半天的时间写这篇博客，私以为这篇博客还是纯干货的。<br>收获嘛，非常丰富：     </p>
+<ol>
+<li>可以好好的看一下，到底还有哪些top250是我没有看过的，达到了博主使用的目的。  </li>
+<li>基础知识啊！！！算是明白了其中的一些原理性的东西，从浏览器发送一个url请求后，一步步是如何得到数据，以及其中数据传输的格式。  </li>
+</ol>
+<p>当然，其中很多不完美：  </p>
+<ol>
+<li>并没有将影片的详细信息附上，之后会将评分和对应的影片链接给搞上去。  </li>
+<li>将全部的电影和没有看过的电影输出到同一个表格中，好将两者做一下对比，这一点还是比较容易实现的。</li>
+</ol>
+<p><strong>ps：源代码我会抽空push到Github上，供大家参考并提出修改意见~</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/Crawler/" rel="tag">#Crawler</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/15/Python/Python爬虫1/" rel="next" title="Python爬虫初阶——爬取豆瓣Top250的电影">
+                <i class="fa fa-chevron-left"></i> Python爬虫初阶——爬取豆瓣Top250的电影
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/20/NetWork/socket&http/" rel="prev" title="Socket连接和http连接">
+                Socket连接和http连接 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/17/Python/Python爬虫2/"
+           data-title="Python爬虫初阶——爬取豆瓣Top250中没有看过的电影" data-url="http://yoursite.com/2016/07/17/Python/Python爬虫2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle" style="display:none">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/M.jpg"
+               alt="Mohn" />
+          <p class="site-author-name" itemprop="name">Mohn</p>
+          <p class="site-description motion-element" itemprop="description">love life, love tech, love u.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/congyingTech" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Mohnleo" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lycy1993" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/guo-zi-jeek" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#效果展示"><span class="nav-number">1.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析与实现"><span class="nav-number">2.</span> <span class="nav-text">分析与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重点预览"><span class="nav-number">2.1.</span> <span class="nav-text">重点预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟登录"><span class="nav-number">2.2.</span> <span class="nav-text">模拟登录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器访问服务器的过程："><span class="nav-number">2.2.1.</span> <span class="nav-text">浏览器访问服务器的过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http消息"><span class="nav-number">2.2.2.</span> <span class="nav-text">Http消息:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie："><span class="nav-number">2.2.3.</span> <span class="nav-text">cookie：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码："><span class="nav-number">2.2.4.</span> <span class="nav-text">参考代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证码实现："><span class="nav-number">2.3.</span> <span class="nav-text">验证码实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uwatched网页爬取（带ck值）"><span class="nav-number">2.4.</span> <span class="nav-text">Uwatched网页爬取（带ck值）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面分析："><span class="nav-number">2.4.1.</span> <span class="nav-text">页面分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码：-1"><span class="nav-number">2.4.2.</span> <span class="nav-text">参考代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie保存信息"><span class="nav-number">2.5.</span> <span class="nav-text">cookie保存信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <!--<footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mohn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>-->
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"congyingTech"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vUSKDJS6QRXA9JSxpuCJ3lo1-gzGzoHsz", "Il2rYwlggu5cUkkqCW8wfYqU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+</body>
+</html>
