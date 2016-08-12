@@ -1504,8 +1504,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/03/Algorithm/贪心法/" itemprop="url">
-                  贪心算法
+                <a class="post-title-link" href="/2016/06/03/Python/python IO/" itemprop="url">
+                  Pyhton I/O进行文件读写(持续更新)
                 </a>
               
             
@@ -1532,8 +1532,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -1544,8 +1544,8 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/贪心算法/" itemprop="url" rel="index">
-                    <span itemprop="name">贪心算法</span>
+                  <a href="/categories/Python/I-O/" itemprop="url" rel="index">
+                    <span itemprop="name">I/O</span>
                   </a>
                 </span>
 
@@ -1560,8 +1560,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/03/Algorithm/贪心法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/03/Algorithm/贪心法/" itemprop="commentsCount"></span>
+                <a href="/2016/06/03/Python/python IO/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/03/Python/python IO/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1569,7 +1569,7 @@
 
           
 
-      	 <span id="/2016/06/03/Algorithm/贪心法/"class="leancloud_visitors"  data-flag-title="贪心算法">
+      	 <span id="/2016/06/03/Python/python IO/"class="leancloud_visitors"  data-flag-title="Pyhton I/O进行文件读写(持续更新)">
               |   阅读次数
             </span>
       
@@ -1586,16 +1586,9 @@
 
       
         
-          <blockquote>
-<p>序言：开刷leetcode的medium难度的题目，一开始就出现贪心法这样的基本算法，然而我作为本科计算机专业水水过来的渣渣，基本什么都不懂…还是趁现在年轻研究一下吧~<br>参考文章：  </p>
-<ul>
-<li><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html">五大常用算法之三：贪心算法</a>  </li>
-<li><a href="http://blog.csdn.net/tengweitw/article/details/17054009">贪心算法之背包问题</a></li>
-<li><a href="http://love-oriented.com/pack/">背包问题</a></li>
-</ul>
-</blockquote>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><p>自从成为小杂碎之后,各种修改bug,这次要求的是check IODM的value值, check的是一个文件里面enabled和enableSSLv3的值, 刚开始我写了一个shell script,但是被各种批评,对于文件的操作python更有优势,其实我并不能苟同这样的观点,但是经过今天写了这段python的代码,发现python能用较少的代码实现,而且,可以避免调用shell脚本,这个过程更加easy一点.<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/03/Algorithm/贪心法/#more" rel="contents">
+            <a class="btn" href="/2016/06/03/Python/python IO/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1932,6 +1925,14 @@
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -1962,6 +1963,12 @@
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);

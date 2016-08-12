@@ -373,16 +373,16 @@ fwrite.close()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/03/Shell/shell script/" rel="next" title="shell脚本进行文件读写操作(持续更新中...)">
-                <i class="fa fa-chevron-left"></i> shell脚本进行文件读写操作(持续更新中...)
+              <a href="/2016/06/03/Algorithm/贪心法/" rel="next" title="贪心算法">
+                <i class="fa fa-chevron-left"></i> 贪心算法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/03/Algorithm/贪心法/" rel="prev" title="贪心算法">
-                贪心算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/06/leetcode/container-with-most-water/" rel="prev" title="leetcode:11--Container With Most Water">
+                leetcode:11--Container With Most Water <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -736,6 +736,14 @@ fwrite.close()
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -766,6 +774,12 @@ fwrite.close()
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);

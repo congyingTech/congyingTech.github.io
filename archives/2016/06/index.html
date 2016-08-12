@@ -480,9 +480,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/06/03/Algorithm/贪心法/" itemprop="url">
+            <a class="post-title-link" href="/2016/06/03/Python/python IO/" itemprop="url">
               
-                <span itemprop="name">贪心算法</span>
+                <span itemprop="name">Pyhton I/O进行文件读写(持续更新)</span>
               
             </a>
         
@@ -517,9 +517,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/06/03/Python/python IO/" itemprop="url">
+            <a class="post-title-link" href="/2016/06/03/Algorithm/贪心法/" itemprop="url">
               
-                <span itemprop="name">Pyhton I/O进行文件读写(持续更新)</span>
+                <span itemprop="name">贪心算法</span>
               
             </a>
         
@@ -928,6 +928,14 @@
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -958,6 +966,12 @@
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);
