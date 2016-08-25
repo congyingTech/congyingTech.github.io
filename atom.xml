@@ -819,6 +819,59 @@
   </entry>
   
   <entry>
+    <title>动态规划算法</title>
+    <link href="http://yoursite.com/2016/06/22/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    <id>http://yoursite.com/2016/06/22/Algorithm/动态规划/</id>
+    <published>2016-06-22T11:59:59.000Z</published>
+    <updated>2016-06-29T09:29:42.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
+&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
+&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;动态规划的过程：每次决策依赖于当前的状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。所以，多阶段的最优化决策解决问题的过程称为动态规划。  &lt;/p&gt;
+&lt;p&gt;wiki的定义：&lt;strong&gt;dynamic programming&lt;/strong&gt; is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.  &lt;/p&gt;
+&lt;p&gt;动态规划的本质：对问题&lt;strong&gt;状态的定义&lt;/strong&gt;和&lt;strong&gt;状态转移方程的定义&lt;/strong&gt;。&lt;br&gt;通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。&lt;/p&gt;
+&lt;h3 id=&quot;适用情况&quot;&gt;&lt;a href=&quot;#适用情况&quot; class=&quot;headerlink&quot; title=&quot;适用情况&quot;&gt;&lt;/a&gt;适用情况&lt;/h3&gt;&lt;p&gt;能采用动态规划求解的问题的一般要具有3个性质：&lt;br&gt;(1) 最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。&lt;br&gt;(2) 无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。&lt;br&gt;(3) 有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）&lt;/p&gt;
+&lt;h3 id=&quot;状态的定义&quot;&gt;&lt;a href=&quot;#状态的定义&quot; class=&quot;headerlink&quot; title=&quot;状态的定义&quot;&gt;&lt;/a&gt;状态的定义&lt;/h3&gt;&lt;p&gt;题目描述：  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;求这个数列的最长上升（递增）子数列（LIS）的长度.&lt;br&gt;以&lt;br&gt;1 7 2 8 3 4&lt;br&gt;为例。&lt;br&gt;这个数列的最长递增子数列是 1 2 3 4，长度为4；&lt;br&gt;次长的长度为3， 包括 1 7 8; 1 2 3 等.  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;要求解这个问题先要，定义这个问题。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;设 F(k) 为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;求F(1)..F(N) 中的最大值.  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;状态转移方程的定义&quot;&gt;&lt;a href=&quot;#状态转移方程的定义&quot; class=&quot;headerlink&quot; title=&quot;状态转移方程的定义&quot;&gt;&lt;/a&gt;状态转移方程的定义&lt;/h3&gt;&lt;p&gt;比如，对于LIS问题，我们的第一种定义：&lt;br&gt;设为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;设A为题中数列，状态转移方程为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;F(1) = 1 （根据状态定义导出边界情况）&lt;br&gt;F(k)=max(F(1) + 1 | A(k)&amp;gt;A(i), i in (1..k-1)) (k&amp;gt;1)&lt;br&gt; （根据状态定义导出边界情况）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;用文字解释一下是：&lt;br&gt;以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，取遍i的所有值（i小于k）。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
+&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
+&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
+    
+      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:343--Integer Break</title>
     <link href="http://yoursite.com/2016/06/22/leetcode/integer-break/"/>
     <id>http://yoursite.com/2016/06/22/leetcode/integer-break/</id>
@@ -876,59 +929,6 @@ n % 3 == 2 时，分为n个3和一个2的乘积
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态规划算法</title>
-    <link href="http://yoursite.com/2016/06/22/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    <id>http://yoursite.com/2016/06/22/Algorithm/动态规划/</id>
-    <published>2016-06-22T11:59:59.000Z</published>
-    <updated>2016-06-29T09:29:42.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
-&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
-&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;动态规划的过程：每次决策依赖于当前的状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。所以，多阶段的最优化决策解决问题的过程称为动态规划。  &lt;/p&gt;
-&lt;p&gt;wiki的定义：&lt;strong&gt;dynamic programming&lt;/strong&gt; is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.  &lt;/p&gt;
-&lt;p&gt;动态规划的本质：对问题&lt;strong&gt;状态的定义&lt;/strong&gt;和&lt;strong&gt;状态转移方程的定义&lt;/strong&gt;。&lt;br&gt;通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。&lt;/p&gt;
-&lt;h3 id=&quot;适用情况&quot;&gt;&lt;a href=&quot;#适用情况&quot; class=&quot;headerlink&quot; title=&quot;适用情况&quot;&gt;&lt;/a&gt;适用情况&lt;/h3&gt;&lt;p&gt;能采用动态规划求解的问题的一般要具有3个性质：&lt;br&gt;(1) 最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。&lt;br&gt;(2) 无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。&lt;br&gt;(3) 有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）&lt;/p&gt;
-&lt;h3 id=&quot;状态的定义&quot;&gt;&lt;a href=&quot;#状态的定义&quot; class=&quot;headerlink&quot; title=&quot;状态的定义&quot;&gt;&lt;/a&gt;状态的定义&lt;/h3&gt;&lt;p&gt;题目描述：  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;求这个数列的最长上升（递增）子数列（LIS）的长度.&lt;br&gt;以&lt;br&gt;1 7 2 8 3 4&lt;br&gt;为例。&lt;br&gt;这个数列的最长递增子数列是 1 2 3 4，长度为4；&lt;br&gt;次长的长度为3， 包括 1 7 8; 1 2 3 等.  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;要求解这个问题先要，定义这个问题。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定一个数列，长度为N，&lt;br&gt;设 F(k) 为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;求F(1)..F(N) 中的最大值.  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;状态转移方程的定义&quot;&gt;&lt;a href=&quot;#状态转移方程的定义&quot; class=&quot;headerlink&quot; title=&quot;状态转移方程的定义&quot;&gt;&lt;/a&gt;状态转移方程的定义&lt;/h3&gt;&lt;p&gt;比如，对于LIS问题，我们的第一种定义：&lt;br&gt;设为：以数列中第k项结尾的最长递增子序列的长度.&lt;br&gt;设A为题中数列，状态转移方程为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;F(1) = 1 （根据状态定义导出边界情况）&lt;br&gt;F(k)=max(F(1) + 1 | A(k)&amp;gt;A(i), i in (1..k-1)) (k&amp;gt;1)&lt;br&gt; （根据状态定义导出边界情况）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;用文字解释一下是：&lt;br&gt;以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，取遍i的所有值（i小于k）。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近一直在梳理自己的心情，确切的来说应该是感情，剪不断，理还乱，六月份要悄悄的溜走了，身边的人和事也发生了一些变化，时常在想，如果倒回到某个结点，我还会做一样的事情吗？may not （ps 跟分手没关系）&lt;/p&gt;
-&lt;p&gt;越来越觉得有时候，是我把人想的太坏，不敢去相信，害怕被欺骗，其实哪里有那么复杂，人心再怎么险恶，也是肉长的，哎，长大的感觉真的是太不好了，越是想要追求快乐，越是难得到，渐渐明白，并不是所有的事情所有的人都会按照你想要的去发展，付出和收获往往也不能成正比。一直信以为仰的感情都是相互的，也渐渐的被现实证明为假命题，六月份七月份，赶紧过去吧，因为有一个傻逼已经老态龙钟了。&lt;/p&gt;
-&lt;p&gt;本文内容参考自知乎：&lt;a href=&quot;https://www.zhihu.com/question/23995189/answer/35324479&quot;&gt;动态规划&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
-    
-      <category term="动态规划" scheme="http://yoursite.com/categories/Algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="jobs" scheme="http://yoursite.com/tags/jobs/"/>
-    
-      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
     
   </entry>
   
@@ -996,6 +996,45 @@ n % 3 == 2 时，分为n个3和一个2的乘积
   </entry>
   
   <entry>
+    <title>leetcode:357--Count Numbers with Unique Digits</title>
+    <link href="http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/"/>
+    <id>http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/</id>
+    <published>2016-06-13T11:59:59.000Z</published>
+    <updated>2016-06-13T15:25:27.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight erlang-repl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;这个题目的主要算法思想就是,排列组合!!!!!!  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这道题目的题意是:给定一个n,然后 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;lt;=N&amp;lt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;^n ,在N的取值范围内,找出unique的number,  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;比如,n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;时,N取值范围是[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;),那就要排除[&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;22&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;33&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;44&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;55&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;66&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;88&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;99&lt;/span&gt;], return &lt;span class=&quot;number&quot;&gt;91&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这就是一道排列组合的题目:  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于两位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择 低位为了不与高位重复:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;) - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于三位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)  中间位取值:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)  低位取值:中间位取值 - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(中间位选择)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;规律:&lt;code&gt;f(k) = 9 * 9 * 8 ...(9 - k + 2) sum = f(1) + f(2) + ... + f(k)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;countNumbersWithUniqueDigits&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; n == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        f = &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        result = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, n + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            f *= &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; - i + &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result += f&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().countNumbersWithUniqueDigits(n))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;我特么就是个傻逼!!!!什么事情都特么做不好!!!&lt;/p&gt;
+&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
+    
+      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="数学题" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode:42--Trapping Rain Water</title>
     <link href="http://yoursite.com/2016/06/13/leetcode/trapping-rain-water/"/>
     <id>http://yoursite.com/2016/06/13/leetcode/trapping-rain-water/</id>
@@ -1034,45 +1073,6 @@ n % 3 == 2 时，分为n个3和一个2的乘积
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:357--Count Numbers with Unique Digits</title>
-    <link href="http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/"/>
-    <id>http://yoursite.com/2016/06/13/leetcode/count-numbers-with-unique-digits/</id>
-    <published>2016-06-13T11:59:59.000Z</published>
-    <updated>2016-06-13T15:25:27.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight erlang-repl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;这个题目的主要算法思想就是,排列组合!!!!!!  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这道题目的题意是:给定一个n,然后 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;lt;=N&amp;lt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;^n ,在N的取值范围内,找出unique的number,  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;比如,n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;时,N取值范围是[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;),那就要排除[&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;22&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;33&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;44&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;55&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;66&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;88&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;99&lt;/span&gt;], return &lt;span class=&quot;number&quot;&gt;91&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这就是一道排列组合的题目:  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于两位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择 低位为了不与高位重复:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;) - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)---&amp;gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;个选择   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于三位数,高位取值:(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)  中间位取值:(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;)-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(高位选择)  低位取值:中间位取值 - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;(中间位选择)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;规律:&lt;code&gt;f(k) = 9 * 9 * 8 ...(9 - k + 2) sum = f(1) + f(2) + ... + f(k)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;countNumbersWithUniqueDigits&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, n)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; n == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        f = &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        result = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, n + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            f *= &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; - i + &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result += f&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    n = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().countNumbersWithUniqueDigits(n))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;我特么就是个傻逼!!!!什么事情都特么做不好!!!&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x &amp;lt; 10n.  &lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x &amp;lt; 100, excluding [11,22,33,44,55,66,77,88,99])  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="智力题" scheme="http://yoursite.com/categories/Python/leetcode/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="数学题" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6%E9%A2%98/"/>
     
   </entry>
   
