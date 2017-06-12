@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-14T09:35:28.000Z</updated>
+  <updated>2017-06-12T07:02:18.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最近的生活状态更新</title>
+    <link href="http://yoursite.com/2017/06/12/life/updateend/"/>
+    <id>http://yoursite.com/2017/06/12/life/updateend/</id>
+    <published>2017-06-12T00:08:08.000Z</published>
+    <updated>2017-06-12T07:02:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Hi,好久都不更新博客了,这个博客就像是被我遗弃了…2333&lt;br&gt;校招季也已经尘埃落定,大家都有了各自的归宿,博主近半年一直在写论文,准备毕业答辩,也是非常的紧张,更新一下进度吧!&lt;br&gt;专业书籍:机器学习实战–把监督学习的几个算法看了一遍,有了大概的了解.&lt;br&gt;课余书籍:傲慢与偏见英文版,城南旧事,解忧杂货铺,看来杂七杂八的看了不少呢,嘿嘿&lt;br&gt;旅行:跟wm一起去了wuyuan和shennongjia,非常的开森!~~~希望我们以后更多一些这样的旅程!&lt;/p&gt;
+&lt;p&gt;好了,之后的一年要好好的积累技术了,这个博客很有可能就被博主抛弃了,关注着它的小主们,对不起啦,人生有很多个旅程,我们都很期待未来,不是吗?等博主从技术小菜成长为技术大牛,此博客可能还会继续营业吧,哈哈.&lt;/p&gt;
+&lt;p&gt;欢迎感兴趣的同学联系我的邮箱congyingTech@163.com,在此感谢大家的关注,我要毕业啦!&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hi,好久都不更新博客了,这个博客就像是被我遗弃了…2333&lt;br&gt;校招季也已经尘埃落定,大家都有了各自的归宿,博主近半年一直在写论文,准备毕业答辩,也是非常的紧张,更新一下进度吧!&lt;br&gt;专业书籍:机器学习实战–把监督学习的几个算法看了一遍,有了大概的了解.&lt;br&gt;课余书
+    
+    </summary>
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="daily-life" scheme="http://yoursite.com/tags/daily-life/"/>
+    
+  </entry>
   
   <entry>
     <title>最近的生活状态更新</title>
@@ -1030,48 +1055,6 @@ n % 3 == 2 时，分为n个3和一个2的乘积
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="dict，切片" scheme="http://yoursite.com/tags/dict%EF%BC%8C%E5%88%87%E7%89%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode:42--Trapping Rain Water</title>
-    <link href="http://yoursite.com/2016/06/13/leetcode/trapping-rain-water/"/>
-    <id>http://yoursite.com/2016/06/13/leetcode/trapping-rain-water/</id>
-    <published>2016-06-13T11:59:59.000Z</published>
-    <updated>2016-06-13T13:27:00.000Z</updated>
-    
-    <content type="html">&lt;p&gt;题目描述：&lt;br&gt;Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.  &lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rainwatertrap.png&quot; alt=&quot;png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;题目的意思就是蓝色的地方是注水的，黑色的地方的高度就是Given A[0,1,0,2,1,0,1,3,2,1,2,1], 要求的就是根据给定的黑色部分，求出注水部分的体积。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;My-Solution：&quot;&gt;&lt;a href=&quot;#My-Solution：&quot; class=&quot;headerlink&quot; title=&quot;My Solution：&quot;&gt;&lt;/a&gt;My Solution：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;算法思想：&lt;/strong&gt;&lt;br&gt;这道题被归到了贪心算法里面，思想就是，对于A[i]地方的注水，得到推导公式：&lt;br&gt;    &lt;code&gt;min(leftmostheight,rightmostheight) - A[i]&lt;/code&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Code:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#-*- coding:utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#当前柱状的左边最高的和当前柱状右边最高的进行比较&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;trap&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, height)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#初始化leftmostheight为0，因为从左到右遍历，所以随着i移动，leftmostheight是值会变化的数组&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        leftmostheight = [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(height))]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#这个是左边最大的&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        leftmax = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(height)):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; height[i] &amp;gt; leftmax:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                leftmax = height[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            leftmostheight[i] = leftmax&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sum = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        rightmax = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#从右向左遍历，随着i移动，rightmax不必再存储到rightmostheight里面，因为leftmostheight已经有了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; reversed(range(len(height))):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; height[i] &amp;gt; rightmax:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                rightmax = height[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; min(rightmax, leftmostheight[i]) &amp;gt; height[i]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                sum += min(rightmax, leftmostheight[i]) - height[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; sum&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    height = [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(Solution().trap(height))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;My-Problem&quot;&gt;&lt;a href=&quot;#My-Problem&quot; class=&quot;headerlink&quot; title=&quot;My Problem:&quot;&gt;&lt;/a&gt;My Problem:&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-&lt;h3 id=&quot;My-Answer&quot;&gt;&lt;a href=&quot;#My-Answer&quot; class=&quot;headerlink&quot; title=&quot;My Answer&quot;&gt;&lt;/a&gt;My Answer&lt;/h3&gt;&lt;p&gt;NO&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;题目描述：&lt;br&gt;Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.  &lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xskaf.com1.z0.glb.clouddn.com/rainwatertrap.png&quot; alt=&quot;png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;题目的意思就是蓝色的地方是注水的，黑色的地方的高度就是Given A[0,1,0,2,1,0,1,3,2,1,2,1], 要求的就是根据给定的黑色部分，求出注水部分的体积。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/Python/leetcode/"/>
-    
-      <category term="Greedy" scheme="http://yoursite.com/categories/Python/leetcode/Greedy/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
     
   </entry>
   
